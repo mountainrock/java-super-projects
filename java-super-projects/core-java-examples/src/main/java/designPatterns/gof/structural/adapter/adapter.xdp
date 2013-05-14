@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+<pattern id="adapter">
+ <role name="Target">
+  <member name="Target" package="designPatterns.gof.structural.adapter" project="CoreJavaExamples"/>
+ </role>
+ <role name="Client">
+  <member name="Client" package="designPatterns.gof.structural.adapter" project="CoreJavaExamples"/>
+ </role>
+ <role name="Adaptee">
+  <member name="Adaptee" package="designPatterns.gof.structural.adapter" project="CoreJavaExamples"/>
+ </role>
+ <role name="Adapter">
+  <member name="Adapter" package="designPatterns.gof.structural.adapter" project="CoreJavaExamples"/>
+ </role>
+</pattern>

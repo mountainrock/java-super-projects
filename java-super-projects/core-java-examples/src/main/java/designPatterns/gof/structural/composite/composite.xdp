@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+<pattern id="composite">
+ <role name="Component">
+  <member name="Component" package="designPatterns.gof.structural.composite" project="CoreJavaExamples"/>
+ </role>
+ <role name="Leaf">
+  <member name="Leaf" package="designPatterns.gof.structural.composite" project="CoreJavaExamples"/>
+  <member name="Leaf2" package="designPatterns.gof.structural.composite" project="CoreJavaExamples"/>
+  <member name="Leaf3" package="designPatterns.gof.structural.composite" project="CoreJavaExamples"/>
+ </role>
+ <role name="Composite">
+  <member name="Composite" package="designPatterns.gof.structural.composite" project="CoreJavaExamples"/>
+ </role>
+ <role name="Client">
+  <member name="Client" package="designPatterns.gof.structural.composite" project="CoreJavaExamples"/>
+ </role>
+</pattern>

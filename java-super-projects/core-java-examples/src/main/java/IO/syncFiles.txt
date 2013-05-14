@@ -1,0 +1,17 @@
+WEBSITE\isrctn\search_tips_content.htm
+WEBSITE\isrctn\introduction_content.htm
+WEBSITE\isrctn\isrctn_loa.htm
+WEBSITE\isrctn\isrctn_loa_content.htm
+WEBSITE\mrct\mrct_memorandum.htm
+WEBSITE\information\terms_and_conditions.htm
+WEBSITE\information\default.htm
+COMMON\CONTENT\home_leftbar.htm
+WEBSITE\information\information_leftbar.htm
+WEBSITE\mrct\mrct_leftbar.htm
+WEBSITE\isrctn\introduction_content.htm
+WEBSITE\information\about_us.htm
+WEBSITE\information\terms_and_conditions.htm
+WEBSITE\information\default.htm
+WEBSITE\mrct\submit_trials.htm
+WEBSITE\mrct\faqs.htm
+WEBSITE\mrct\mrct_about.htm

@@ -1,0 +1,53 @@
+package com.test.application.imagelibrary.actions;
+
+import static org.easymock.EasyMock.*;
+import static org.easymock.classextension.EasyMock.*;
+
+import java.util.Date;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.struts.action.ActionForward;
+import org.apache.struts.action.ActionMapping;
+import org.springframework.mock.web.MockHttpServletRequest;
+import org.springframework.mock.web.MockHttpServletResponse;
+
+import com.test.application.imagelibrary.util.UserManager;
+import com.test.business.imagelibrary.model.user.UserKeyTO;
+import com.test.business.imagelibrary.model.user.UserSubscriptionTO;
+import com.test.framework.exception.LogicalException;
+
+import junit.framework.TestCase;
+import servletunit.struts.MockStrutsTestCase;
+
+/**
+ * This class tests ${actionClass} 
+ * Created by Sandeep Maloth
+ * ${date}
+ */
+public class ${actionClass}Test extends TestCase
+{
+
+	public void testExecute() throws Exception
+	{
+		final MockHttpServletRequest mockRequest = new MockHttpServletRequest();
+		final MockHttpServletResponse mockResponse = new MockHttpServletResponse();
+
+		${actionClass} action = new  ${actionClass}()
+		{
+			//overrides
+		};
+
+		ActionMapping mapping = new ActionMapping();
+		ActionForward mockActionForward = new ActionForward("success", "", false);
+		ActionForward mockActionForward2 = new ActionForward("noAccess", "", false);
+
+		mapping.addForwardConfig(mockActionForward);
+		mapping.addForwardConfig(mockActionForward2);
+
+		ActionForward result = action.execute(mapping, null, mockRequest, mockResponse);
+		assertEquals(mockActionForward, result);
+	}
+
+	
+}
