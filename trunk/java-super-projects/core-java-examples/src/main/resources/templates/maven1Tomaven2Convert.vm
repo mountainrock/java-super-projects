@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>$groupId</groupId>
+  <artifactId>$artifactId</artifactId>
+  <name>$name</name>
+  <version>$version</version>
+  <description>$description</description>
+<dependencies>
+	#foreach($attribute in $attributes)
+ <dependency>
+		 <groupId>$attribute.getNamedItem("groupId").getTextContent()</groupId>
+		 <artifactId>$attribute.getNamedItem("artifactId").getTextContent()</artifactId>
+		 <version>$attribute.getNamedItem("version").getTextContent()</version>
+#if($attribute.getNamedItem("scope").getTextContent())
+		 <scope>$attribute.getNamedItem("scope").getTextContent()</scope>
+#end
+ </dependency>
+	#end
+</dependencies>
+</project>

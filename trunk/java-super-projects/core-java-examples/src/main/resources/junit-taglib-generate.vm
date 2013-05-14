@@ -1,0 +1,38 @@
+package com.test.application.imagelibrary.taglibs;
+
+import javax.servlet.jsp.JspWriter;
+import javax.servlet.jsp.PageContext;
+
+import junit.framework.TestCase;
+
+import org.apache.jasper.runtime.JspWriterImpl;
+import org.apache.taglibs.standard.lang.jstl.test.PageContextImpl;
+import org.springframework.mock.web.MockHttpServletRequest;
+import org.springframework.mock.web.MockHttpServletResponse;
+public class ${tagClass}Test extends TestCase
+{
+
+	public void testDoStartTag() throws Exception
+	{
+		${tagClass} tag = new ${tagClass}();
+		tag.setFirstKey("test");		
+		
+		final MockHttpServletRequest mockRequest = new MockHttpServletRequest();
+		final MockHttpServletResponse mockResponse = new MockHttpServletResponse();
+		
+		final JspWriterImpl jspWriterImpl = new JspWriterImpl(mockResponse);
+		PageContext pageContext=new PageContextImpl(){			
+			@Override
+			public JspWriter getOut()
+			{
+				return jspWriterImpl;
+			}
+		};
+		
+		tag.setPageContext(pageContext);
+		tag.doStartTag();
+		//TODO: check how to verify the content.
+		System.out.println(pageContext.getPage());
+	}
+
+}

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+<pattern id="facade">
+ <role name="Facade">
+  <member name="Facade" package="designPatterns.gof.structural.facade" project="CoreJavaExamples"/>
+ </role>
+ <role name="Subsystem">
+  <member name="Subsystem" package="designPatterns.gof.structural.facade" project="CoreJavaExamples"/>
+ </role>
+</pattern>

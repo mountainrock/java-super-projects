@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+<pattern id="singleton">
+ <role name="Singleton">
+  <member name="Singleton" package="designPatterns.gof.creational.singleton" project="CoreJavaExamples"/>
+ </role>
+ <role name="Client">
+  <member name="Client" package="designPatterns.gof.creational.singleton" project="CoreJavaExamples"/>
+ </role>
+</pattern>

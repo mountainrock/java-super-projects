@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+<script src="http://www.google.com/jsapi"></script>
+<!-- script>
+  google.load("jquery", "1.3.1");
+  google.load("jqueryui", "1.5.3");
+</script -->
+<link href="style.css" rel="stylesheet" type="text/css" /> 
+
+<script type="text/javascript" src="ajax/lib/jquery/jquery-1.2.3.pack.js"></script> 
+
+<!--  jCarousel library--> 
+<script type="text/javascript" src="ajax/lib/jquery/plugins/jcarousel/jquery.jcarousel.pack.js"></script> 
+<!--   Thickbox 3 library--> 
+<script type="text/javascript" src="ajax/lib/jquery/plugins/thickbox/thickbox3.js"></script> 
+<!--   jCarousel core stylesheet--> 
+<link rel="stylesheet" type="text/css" href="ajax/lib/jquery/plugins/jcarousel/jquery.jcarousel.css" /> 
+<!--   Thickbox stylesheet--> 
+<link rel="stylesheet" type="text/css" href="ajax/lib/jquery/plugins/thickbox/thickbox3.css" /> 
+<!--  jCarousel skin stylesheet--> 
+<link rel="stylesheet" type="text/css" href="ajax/lib/jquery/plugins/jcarousel/ie7/skin.css" /> 
+ 
+ 
+<title>Untitled Document</title>
+</head>
+<script type="text/javascript"> 
+ 
+// Set thickbox loading image
+tb_pathToImage = "ajax/lib/jquery/plugins/thickbox/loading-thickbox.gif";
+ 
+var mycarousel_itemList = [
+{url: "gallery-images/funky-ego-1.jpg", title: "sample-2"},
+{url: "gallery-images/funky-ego-2.jpg", title: "sample-3"},
+{url: "gallery-images/cinema.jpg", title: "sample-1"},
+
+{url: "gallery-images/jill-1.jpg", title: "sample-4"},
+{url: "gallery-images/jill-2.jpg", title: "sample-5"},
+{url: "gallery-images/model-agency-2.jpg", title: "sample-6"},
+{url: "gallery-images/model-agency.jpg", title: "sample-7"},
+{url: "gallery-images/movie-catalog.jpg", title: "sample-8"},
+{url: "gallery-images/ou_14072003_1.jpg", title: "sample-11"},
+{url: "gallery-images/ss_06_08_2003_8.jpg", title: "sample-12"},
+{url: "gallery-images/tucantis-sample.jpg", title: "sample-14"},
+{url: "gallery-images/012.jpg", title: "sample-0"}
+
+
+];
+ 
+function mycarousel_itemLoadCallback(carousel, state)
+{
+    for (var i = carousel.first; i <= carousel.last; i++) {
+        if (carousel.has(i)) {
+            continue;
+        }
+ 
+        if (i > mycarousel_itemList.length) {
+            break;
+        }
+ 
+        // Create an object from HTML
+        var item = jQuery(mycarousel_getItemHTML(mycarousel_itemList[i-1])).get(0);
+ 
+        // Apply thickbox
+        tb_init(item);
+ 
+        carousel.add(i, item);
+    }
+};
+ 
+/**
+ * Item html creation helper.
+ */
+function mycarousel_getItemHTML(item)
+{
+    var url_m = item.url.replace(/_s.jpg/g, '_m.jpg');
+    return '<a href="' + url_m + '" title="' + item.title + '"><img src="' + item.url + '" style="display:block; cursor:pointer; cursor:hand;" border="0" width="230" height="240" alt="' + item.title + '" /></a>';
+};
+ 
+jQuery(document).ready(function() {
+    jQuery('#mycarousel').jcarousel({
+        size: mycarousel_itemList.length,
+        itemLoadCallback: {onBeforeAnimation: mycarousel_itemLoadCallback}
+    });
+});
+ 
+</script> 
+ 
+</head> 
+<body> 
+<div id="wrap">
+  <ul id="mycarousel" class="jcarousel-skin-ie7"> 
+    <!-- The content will be dynamically loaded in here --> 
+  </ul> 
+</div> 
+</body> 
+</html>

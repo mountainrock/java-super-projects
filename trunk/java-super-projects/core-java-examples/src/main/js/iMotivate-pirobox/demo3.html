@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250" />
+<title>iMotivate</title>
+<link href="css_pirobox/css.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="css_pirobox/demo3/style.css" class="piro_style" media="screen" title="white" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/pirobox.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    var imageIds=new Array(17007,18003,20006,23003,26005,28005,34002,37003,38003,40002,42003,45004,49004,51003,52003,53003,55004,56003,57003,62002,63003,63004,66003,73002,79002,82002);
+	var htmlImages='';
+	var imgUrl;
+	for(var i=0;i<imageIds.length;i++){
+	  imgUrl='http://jshoutbox.appspot.com/file/'+imageIds[i] ;
+	  htmlImages = htmlImages + '<div class="demo"><a href="'+imgUrl+'" class="pirobox_gall" title=""><img width="100" height="100" src="'+imgUrl+'"  /></a></div>';
+	}	
+	$('.main').html(htmlImages);
+	
+	$().piroBox({
+			my_speed: 400, //animation speed
+			bg_alpha: 0.8, //background opacity
+			slideShow : true, // true == slideshow on, false == slideshow off
+			slideSpeed : 5, //slideshow duration in seconds(3 to 6 Recommended)
+			close_all : '.piro_close,.piro_overlay'// add class .piro_overlay(with comma)if you want overlay click close piroBox
+
+	});
+});
+</script>
+</head>
+<body>
+
+<div style="float:left; width:900px; display:block;" class="main">
+</div>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+package utils;
+
+import java.util.Iterator;
+import java.util.List;
+
+import org.apache.commons.configuration.ConfigurationException;
+import org.apache.commons.configuration.PropertiesConfiguration;
+import org.apache.commons.configuration.reloading.FileChangedReloadingStrategy;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
+public class PropsUtil {
+
+	static PropertiesConfiguration config = null;
+	private static Log logger = LogFactory.getLog(PropsUtil.class.getName());
+
+	public static void init(String propFile)
+	{
+		try {
+			if (config != null) {
+				logger.warn("Properties file already initialized  from - " + config.getBasePath());
+				return;
+			}
+			config = new PropertiesConfiguration(propFile);
+			logger.info("Loading properties file " + config.getBasePath());
+
+			FileChangedReloadingStrategy reloadingStrategy = new FileChangedReloadingStrategy();
+			// reloadingStrategy.setRefreshDelay(1000 * 60 * 5);// 5 mins
+
+			config.setReloadingStrategy(reloadingStrategy);
+			logger.debug("Loading the following search properties :");
+			print();
+			logger.info("Search properties loaded..");
+		} catch (ConfigurationException e) {
+			throw new RuntimeException(e);
+		}
+	}
+
+	public static void print()
+	{
+		for (Iterator keys = config.getKeys(); keys.hasNext();) {
+			String key = (String) keys.next();
+			logger.info(key + " = " + config.getProperty(key));
+		}
+	}
+
+	public static List getList(String key)
+	{
+		logger.debug("[" + key + "=" + config.getProperty(key) + "]");
+		return (List) config.getList(key);
+	}
+
+	public static String get(String key)
+	{
+		return config.getString(key);
+	}
+}

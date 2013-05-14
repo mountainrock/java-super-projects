@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+<pattern id="templatemethod">
+ <role name="AbstractClass">
+  <member name="AbstractClass" package="designPatterns.gof.behavioral.template" project="CoreJavaExamples"/>
+ </role>
+ <role name="ConcreteClass">
+  <member name="ConcreteClass2" package="designPatterns.gof.behavioral.template" project="CoreJavaExamples"/>
+  <member name="ConcreteClass" package="designPatterns.gof.behavioral.template" project="CoreJavaExamples"/>
+ </role>
+</pattern>

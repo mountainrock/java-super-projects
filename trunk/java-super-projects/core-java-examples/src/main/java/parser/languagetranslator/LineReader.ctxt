@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=class\ LineReader
+comment0.text=\nSimple\ class\ to\ read\ lines\ in\ from\ a\ file.\ Create\ a\ LineReader\ object,\nthen\ send\ it\ the\ readLine()\ message\ as\ many\ times\ as\ desired.\ When\nreadLine()\ returns\ the\ value\ null,\ the\ last\ line\ has\ been\ read,\ and\nyou\ should\ close()\ the\ file.\n\n
+comment1.params=message
+comment1.target=LineReader(String)
+comment1.text=\nCreates\ a\ LineReader\ to\ read\ lines\ (as\ Strings)\ from\ a\ file.\nCalling\ this\ constructor\ causes\ a\ standard\ file\ dialog\ box\ to\nopen,\ allowing\ the\ user\ to\ choose\ a\ file;\ the\ message\ is\ndisplayed\ at\ the\ top\ of\ the\ dialog\ box.\n\n
+comment2.params=
+comment2.target=LineReader()
+comment2.text=\nThis\ constructor\ is\ used\ if\ you\ forget\ to\ supply\ a\ message\ to\nbe\ displayed\ in\ the\ dialog\ box.\n\n
+comment3.params=
+comment3.target=String\ readLine()
+comment3.text=\nOnce\ you\ have\ created\ a\ LineReader\ for\ a\ file,\ each\ call\ to\ readLine()\nwill\ return\ another\ line\ from\ that\ file.\ After\ the\ last\ line\ in\ read,\nreadLine()\ will\ return\ null\ instead\ of\ a\ String.\n\n
+comment4.params=
+comment4.target=void\ close()
+comment4.text=\nCloses\ the\ file\ used\ by\ the\ LineReader.\n\n
+comment5.target=bufferedReader
+numComments=6

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+<pattern id="strategy">
+ <role name="Strategy">
+  <member name="Strategy" package="designPatterns.gof.behavioral.strategy" project="CoreJavaExamples"/>
+ </role>
+ <role name="ConcreteStrategy">
+  <member name="ConcreteStrategy" package="designPatterns.gof.behavioral.strategy" project="CoreJavaExamples"/>
+  <member name="ConcreteStrategy2" package="designPatterns.gof.behavioral.strategy" project="CoreJavaExamples"/>
+  <member name="ConcreteStrategy3" package="designPatterns.gof.behavioral.strategy" project="CoreJavaExamples"/>
+ </role>
+ <role name="Context">
+  <member name="Context" package="designPatterns.gof.behavioral.strategy" project="CoreJavaExamples"/>
+ </role>
+</pattern>

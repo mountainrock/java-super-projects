@@ -1,0 +1,52 @@
+<html>
+ <head>
+  <title>Test Page for multiplyAndAddFive(value1, value2)</title>
+  <script language="javascript" src="../../../lib/jquery/jsUnitCore.js"></script>
+  <script language="javascript" src="../../../lib/jquery/jquery-1.2.6.js"></script>
+  <script language="javascript" src="../../../lib/jquery/plugins/jquery.debug.js"></script>
+  <script language="javascript" src="../../main/common/jquery-my-util.js"></script>
+ </head>
+ <body>
+  <script language="javascript">
+    function testHideAndShow() {
+    	$.hideAndShow(['sample1'],['sample2']);    	
+    	var actual1=$('#sample1').css('display');
+    	var actual2=$('#sample2').css('display');
+    	
+        assertEquals("hidden element style:display should be none",actual1, 'none');
+        assertEquals("visible element style:display should be inline",actual2, 'block');
+    }
+    function testHideAndShowIndexed() {
+    	$.hideAndShow(['sample1'],['sample2'],1);    	
+    	var actual1=$('#sample1-1').css('display');
+    	var actual2=$('#sample2-1').css('display');
+    	
+       assertEquals("hidden element style:display should be none",actual1, 'none');
+       assertEquals("visible element style:display should be inline",actual2, 'block');
+    }
+   function testEnableAndDisable() {
+    	$.enableAndDisable(['sample1'],['sample2']);    	
+    	var actual1=$('#sample1').attr('disabled');
+    	var actual2=$('#sample2').attr('disabled');
+    	
+        assertEquals("attr disabled should not be available ",actual1, undefined);
+        assertEquals("attr disabled should  be available",actual2, "true");
+    }
+    function testEnableAndDisableIndexed() {
+    	$.enableAndDisable(['sample1'],['sample2'],1);    	
+    	var actual1=$('#sample1').attr('disabled');
+    	var actual2=$('#sample2').attr('disabled');
+    	
+   		assertEquals("attr disabled should not be available ",actual1, undefined);
+        //assertEquals("attr disabled should  be available",actual2, undefined);??
+    }  
+    
+  </script>
+  
+  <div id="sample1">sample 1</div>
+  <div id="sample2" style="display:none">sample 1</div>
+  <div id="sample1-1">sample 1</div>
+  <div id="sample2-1" style="display:none">sample 1</div>
+  
+ </body>
+</html>
