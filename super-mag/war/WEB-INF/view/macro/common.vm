@@ -1,0 +1,13 @@
+
+#**
+ * errorMessage
+ *
+ * Macro to bind and display error message for the field.
+ *#
+#macro( showError $field )
+
+#springBind($field )
+#if($!status.errorMessage !="")
+<span class ="err">$!status.errorMessage</span>
+#end
+#end

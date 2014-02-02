@@ -1,0 +1,37 @@
+<div align="center">
+<br/>
+<br/>
+<br/>
+<font size="5">
+<form method="post" action="/shout"> 
+	   <table>
+		<tr>
+		 <td>   Name  </td>
+	     <td><input type="text" name="shouter" size="16" style=" font-size:1.5em;font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;"></input></td>
+	    </tr>
+	   <tr>
+		<td>   Message </td>
+		<td><textarea name="content" style=" font-size:1.5em;font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;" cols="20" rows="4" onfocus="this.rows=6" onblur="this.rows=4"></textArea> </td>
+	   </tr>
+	   <tr>
+	   <td>   &nbsp; </td>
+	   <td >
+   			<input type="submit" name="shout" value="Shout" style="font-size:1.5em;"></input>
+       </td>
+       </tr>
+       </table>
+</form>
+</font>
+<br/>
+<br/>
+<div style="float:left">
+#if($shouts)
+#foreach($shout in $shouts)
+	#if($shout.shouter)
+	<b>$!shout.shouter</b> >> $!shout.content. <font size=1px >$!shout.date </font> <br/>
+	#end
+#end
+#end
+</div>
+
+</div>

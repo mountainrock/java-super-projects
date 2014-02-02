@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> 
+<html> 
+<head> 
+	<meta content="text/html; charset=utf-8" http-equiv="content-type"> 
+<title>Word to PDF Conversion Online</title> 
+	<meta content="Word to PDF Conversion Online enables you to easily and quickly convert the docs into PDF documents, all without downloading or installing any new software." name="description"> 
+	<meta content="Adobe Acrobat PDF text conversion convert word ms,docword2pdf doc2pdf pdf text convertor online free open source" name="keywords"> 
+<head> 
+<body>	
+<div align="center">
+  <font size="10"><font color="purple">Word</font>2<font color="orange">Pdf</font> convertor</font> <img src="/static/images/logo-beta.jpg"/>
+	<br/>
+	<br/>
+<div>
+	<form method="post" action="/doc2pdf" enctype="multipart/form-data">
+	    <input type="file" name="file" />
+	    <input type="submit"/>
+	</form>
+</div>
+<div>
+	<font color="red">$!message</font>
+	#if($pdfToText)
+	<br/>
+	Text extract of <b>$file </b> : 
+	<br/>
+	<textarea cols="100" rows="20" >
+	$!pdfToText
+	</textarea>
+	#end
+</div>
+<br/>
+<a href="/"> home</a>
+</div>
+</body>
+</html>
