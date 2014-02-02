@@ -1,0 +1,1393 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<findItemsByKeywordsResponse
+	xmlns="http://www.ebay.com/marketplace/search/v1/services">
+	<ack>Success</ack>
+	<version>1.5.0</version>
+	<timestamp>2010-06-10T21:10:26.032Z</timestamp>
+	<searchResult count="30">
+		<item>
+			<itemId>400127627937</itemId>
+			<title>AT&amp;T apple iphone 8gb wi-fi internet touch 3G PARTS
+			</title>
+			<globalId>EBAY-US</globalId>
+			<primaryCategory>
+				<categoryId>3312</categoryId>
+				<categoryName>Cell Phones &amp; Smartphones</categoryName>
+			</primaryCategory>
+			<galleryURL>http://thumbs2.ebaystatic.com/pict/4001276279378080_1.jpg
+			</galleryURL>
+			<viewItemURL>http://cgi.ebay.com/AT-T-apple-iphone-8gb-wi-fi-internet-touch-3G-PARTS-/400127627937?cmd=ViewItem&amp;pt=Cell_Phones&amp;hash=item5d297712a1
+			</viewItemURL>
+			<productId type="ReferenceID">71354345</productId>
+			<paymentMethod>PayPal</paymentMethod>
+			<autoPay>true</autoPay>
+			<postalCode>12804</postalCode>
+			<location>Queensbury,NY,USA</location>
+			<country>US</country>
+			<shippingInfo>
+				<shippingServiceCost currencyId="USD">0.0
+				</shippingServiceCost>
+				<shippingType>Free</shippingType>
+				<shipToLocations>US</shipToLocations>
+				<shipToLocations>CA</shipToLocations>
+				<shipToLocations>GB</shipToLocations>
+				<shipToLocations>AU</shipToLocations>
+			</shippingInfo>
+			<sellingStatus>
+				<currentPrice currencyId="USD">140.0</currentPrice>
+				<convertedCurrentPrice currencyId="USD">140.0
+				</convertedCurrentPrice>
+				<sellingState>Active</sellingState>
+				<timeLeft>P6DT19H15M46S</timeLeft>
+			</sellingStatus>
+			<listingInfo>
+				<bestOfferEnabled>false</bestOfferEnabled>
+				<buyItNowAvailable>false</buyItNowAvailable>
+				<startTime>2010-06-10T16:26:12.000Z</startTime>
+				<endTime>2010-06-17T16:26:12.000Z</endTime>
+				<listingType>StoreInventory</listingType>
+				<gift>false</gift>
+			</listingInfo>
+			<condition>
+				<conditionId>7000</conditionId>
+				<conditionDisplayName>For parts or not working
+				</conditionDisplayName>
+			</condition>
+		</item>
+		<item>
+			<itemId>140414800939</itemId>
+			<title>Apple iPhone 3G 8 GB Black (AT&amp;T) Used -Good Condition
+			</title>
+			<globalId>EBAY-US</globalId>
+			<primaryCategory>
+				<categoryId>3312</categoryId>
+				<categoryName>Cell Phones &amp; Smartphones</categoryName>
+			</primaryCategory>
+			<galleryURL>http://thumbs4.ebaystatic.com/pict/1404148009398080_1.jpg
+			</galleryURL>
+			<viewItemURL>http://cgi.ebay.com/Apple-iPhone-3G-8-GB-Black-AT-T-Used-Good-Condition-/140414800939?cmd=ViewItem&amp;pt=Cell_Phones&amp;hash=item20b15fd42b
+			</viewItemURL>
+			<productId type="ReferenceID">71354345</productId>
+			<paymentMethod>PayPal</paymentMethod>
+			<autoPay>true</autoPay>
+			<postalCode>48390</postalCode>
+			<location>Walled Lake,MI,USA</location>
+			<country>US</country>
+			<shippingInfo>
+				<shippingServiceCost currencyId="USD">8.99
+				</shippingServiceCost>
+				<shippingType>Flat</shippingType>
+				<shipToLocations>US</shipToLocations>
+			</shippingInfo>
+			<sellingStatus>
+				<currentPrice currencyId="USD">235.0</currentPrice>
+				<convertedCurrentPrice currencyId="USD">235.0
+				</convertedCurrentPrice>
+				<bidCount>0</bidCount>
+				<sellingState>Active</sellingState>
+				<timeLeft>P0DT0H11M18S</timeLeft>
+			</sellingStatus>
+			<listingInfo>
+				<bestOfferEnabled>false</bestOfferEnabled>
+				<buyItNowAvailable>true</buyItNowAvailable>
+				<buyItNowPrice currencyId="USD">259.0</buyItNowPrice>
+				<convertedBuyItNowPrice currencyId="USD">259.0
+				</convertedBuyItNowPrice>
+				<startTime>2010-06-08T00:22:03.000Z</startTime>
+				<endTime>2010-06-10T21:21:44.000Z</endTime>
+				<listingType>AuctionWithBIN</listingType>
+				<gift>false</gift>
+			</listingInfo>
+			<condition>
+				<conditionId>3000</conditionId>
+				<conditionDisplayName>Used</conditionDisplayName>
+			</condition>
+		</item>
+		<item>
+			<itemId>230485009547</itemId>
+			<title>Apple iphone 3G 8 GB Black (AT&amp;T) Jailbroken</title>
+			<globalId>EBAY-US</globalId>
+			<primaryCategory>
+				<categoryId>3312</categoryId>
+				<categoryName>Cell Phones &amp; Smartphones</categoryName>
+			</primaryCategory>
+			<galleryURL>http://thumbs4.ebaystatic.com/pict/2304850095478080_1.jpg
+			</galleryURL>
+			<viewItemURL>http://cgi.ebay.com/Apple-iphone-3G-8-GB-Black-AT-T-Jailbroken-/230485009547?cmd=ViewItem&amp;pt=Cell_Phones&amp;hash=item35a9fa248b
+			</viewItemURL>
+			<productId type="ReferenceID">71354345</productId>
+			<paymentMethod>PayPal</paymentMethod>
+			<autoPay>true</autoPay>
+			<postalCode>60623</postalCode>
+			<location>Chicago,IL,USA</location>
+			<country>US</country>
+			<shippingInfo>
+				<shippingServiceCost currencyId="USD">10.0
+				</shippingServiceCost>
+				<shippingType>Flat</shippingType>
+				<shipToLocations>US</shipToLocations>
+			</shippingInfo>
+			<sellingStatus>
+				<currentPrice currencyId="USD">250.0</currentPrice>
+				<convertedCurrentPrice currencyId="USD">250.0
+				</convertedCurrentPrice>
+				<bidCount>0</bidCount>
+				<sellingState>Active</sellingState>
+				<timeLeft>P0DT0H11M22S</timeLeft>
+			</sellingStatus>
+			<listingInfo>
+				<bestOfferEnabled>false</bestOfferEnabled>
+				<buyItNowAvailable>true</buyItNowAvailable>
+				<buyItNowPrice currencyId="USD">280.0</buyItNowPrice>
+				<convertedBuyItNowPrice currencyId="USD">280.0
+				</convertedBuyItNowPrice>
+				<startTime>2010-06-07T21:21:48.000Z</startTime>
+				<endTime>2010-06-10T21:21:48.000Z</endTime>
+				<listingType>AuctionWithBIN</listingType>
+				<gift>false</gift>
+			</listingInfo>
+			<galleryPlusPictureURL>http://galleryplus.ebayimg.com/ws/web/230485009547_1_0_1.jpg
+			</galleryPlusPictureURL>
+			<condition>
+				<conditionId>3000</conditionId>
+				<conditionDisplayName>Used</conditionDisplayName>
+			</condition>
+		</item>
+		<item>
+			<itemId>300434118127</itemId>
+			<title>Apple iphone 3G 8 GB Black AT&amp;T EASY FIX</title>
+			<globalId>EBAY-US</globalId>
+			<primaryCategory>
+				<categoryId>3312</categoryId>
+				<categoryName>Cell Phones &amp; Smartphones</categoryName>
+			</primaryCategory>
+			<galleryURL>http://thumbs4.ebaystatic.com/pict/3004341181278080_1.jpg
+			</galleryURL>
+			<viewItemURL>http://cgi.ebay.com/Apple-iphone-3G-8-GB-Black-AT-T-EASY-FIX-/300434118127?cmd=ViewItem&amp;pt=Cell_Phones&amp;hash=item45f344d5ef
+			</viewItemURL>
+			<productId type="ReferenceID">71354345</productId>
+			<paymentMethod>PayPal</paymentMethod>
+			<autoPay>false</autoPay>
+			<postalCode>13214</postalCode>
+			<location>Syracuse,NY,USA</location>
+			<country>US</country>
+			<shippingInfo>
+				<shippingServiceCost currencyId="USD">7.0
+				</shippingServiceCost>
+				<shippingType>Flat</shippingType>
+				<shipToLocations>US</shipToLocations>
+			</shippingInfo>
+			<sellingStatus>
+				<currentPrice currencyId="USD">113.5</currentPrice>
+				<convertedCurrentPrice currencyId="USD">113.5
+				</convertedCurrentPrice>
+				<bidCount>10</bidCount>
+				<sellingState>Active</sellingState>
+				<timeLeft>P0DT0H8M8S</timeLeft>
+			</sellingStatus>
+			<listingInfo>
+				<bestOfferEnabled>false</bestOfferEnabled>
+				<buyItNowAvailable>false</buyItNowAvailable>
+				<startTime>2010-06-03T21:18:34.000Z</startTime>
+				<endTime>2010-06-10T21:18:34.000Z</endTime>
+				<listingType>Auction</listingType>
+				<gift>false</gift>
+			</listingInfo>
+			<galleryPlusPictureURL>http://galleryplus.ebayimg.com/ws/web/300434118127_1_0_1.jpg
+			</galleryPlusPictureURL>
+			<condition>
+				<conditionId>3000</conditionId>
+				<conditionDisplayName>Used</conditionDisplayName>
+			</condition>
+		</item>
+		<item>
+			<itemId>160441562325</itemId>
+			<title>Apple iphone 3G 8 GB Black (AT&amp;T)</title>
+			<globalId>EBAY-US</globalId>
+			<primaryCategory>
+				<categoryId>3312</categoryId>
+				<categoryName>Cell Phones &amp; Smartphones</categoryName>
+			</primaryCategory>
+			<galleryURL>http://thumbs2.ebaystatic.com/pict/1604415623258080_1.jpg
+			</galleryURL>
+			<viewItemURL>http://cgi.ebay.com/Apple-iphone-3G-8-GB-Black-AT-T-/160441562325?cmd=ViewItem&amp;pt=Cell_Phones&amp;hash=item255b0ff4d5
+			</viewItemURL>
+			<productId type="ReferenceID">71354345</productId>
+			<paymentMethod>PayPal</paymentMethod>
+			<autoPay>false</autoPay>
+			<postalCode>35214</postalCode>
+			<location>Birmingham,AL,USA</location>
+			<country>US</country>
+			<shippingInfo>
+				<shippingServiceCost currencyId="USD">0.0
+				</shippingServiceCost>
+				<shippingType>Free</shippingType>
+				<shipToLocations>US</shipToLocations>
+			</shippingInfo>
+			<sellingStatus>
+				<currentPrice currencyId="USD">125.0</currentPrice>
+				<convertedCurrentPrice currencyId="USD">125.0
+				</convertedCurrentPrice>
+				<bidCount>7</bidCount>
+				<sellingState>Active</sellingState>
+				<timeLeft>P0DT0H17M31S</timeLeft>
+			</sellingStatus>
+			<listingInfo>
+				<bestOfferEnabled>false</bestOfferEnabled>
+				<buyItNowAvailable>false</buyItNowAvailable>
+				<startTime>2010-06-03T21:28:59.000Z</startTime>
+				<endTime>2010-06-10T21:27:57.000Z</endTime>
+				<listingType>Auction</listingType>
+				<gift>false</gift>
+			</listingInfo>
+			<condition>
+				<conditionId>3000</conditionId>
+				<conditionDisplayName>Used</conditionDisplayName>
+			</condition>
+		</item>
+		<item>
+			<itemId>270591517914</itemId>
+			<title>Apple iphone 3G 8 GB Black (AT&amp;T)</title>
+			<globalId>EBAY-US</globalId>
+			<primaryCategory>
+				<categoryId>3312</categoryId>
+				<categoryName>Cell Phones &amp; Smartphones</categoryName>
+			</primaryCategory>
+			<galleryURL>http://thumbs3.ebaystatic.com/pict/2705915179148080_1.jpg
+			</galleryURL>
+			<viewItemURL>http://cgi.ebay.com/Apple-iphone-3G-8-GB-Black-AT-T-/270591517914?cmd=ViewItem&amp;pt=Cell_Phones&amp;hash=item3f0082e4da
+			</viewItemURL>
+			<productId type="ReferenceID">71354345</productId>
+			<paymentMethod>PayPal</paymentMethod>
+			<autoPay>true</autoPay>
+			<postalCode>83642</postalCode>
+			<location>Meridian,ID,USA</location>
+			<country>US</country>
+			<shippingInfo>
+				<shippingServiceCost currencyId="USD">3.55
+				</shippingServiceCost>
+				<shippingType>Flat</shippingType>
+				<shipToLocations>US</shipToLocations>
+			</shippingInfo>
+			<sellingStatus>
+				<currentPrice currencyId="USD">182.5</currentPrice>
+				<convertedCurrentPrice currencyId="USD">182.5
+				</convertedCurrentPrice>
+				<bidCount>10</bidCount>
+				<sellingState>Active</sellingState>
+				<timeLeft>P0DT0H18M42S</timeLeft>
+			</sellingStatus>
+			<listingInfo>
+				<bestOfferEnabled>false</bestOfferEnabled>
+				<buyItNowAvailable>false</buyItNowAvailable>
+				<startTime>2010-06-09T21:29:08.000Z</startTime>
+				<endTime>2010-06-10T21:29:08.000Z</endTime>
+				<listingType>Auction</listingType>
+				<gift>false</gift>
+			</listingInfo>
+			<condition>
+				<conditionId>3000</conditionId>
+				<conditionDisplayName>Used</conditionDisplayName>
+			</condition>
+		</item>
+		<item>
+			<itemId>270591514470</itemId>
+			<title>Apple iphone 3GS 16 GB BLACK (JAILBROKEN 3.1.3)(AT&amp;T)
+			</title>
+			<globalId>EBAY-US</globalId>
+			<subtitle>MINT CONDITION 3GS!!!!</subtitle>
+			<primaryCategory>
+				<categoryId>3312</categoryId>
+				<categoryName>Cell Phones &amp; Smartphones</categoryName>
+			</primaryCategory>
+			<galleryURL>http://thumbs3.ebaystatic.com/pict/2705915144708080_1.jpg
+			</galleryURL>
+			<viewItemURL>http://cgi.ebay.com/Apple-iphone-3GS-16-GB-BLACK-JAILBROKEN-3-1-3-AT-T-/270591514470?cmd=ViewItem&amp;pt=Cell_Phones&amp;hash=item3f0082d766
+			</viewItemURL>
+			<productId type="ReferenceID">73627289</productId>
+			<paymentMethod>PayPal</paymentMethod>
+			<autoPay>true</autoPay>
+			<postalCode>32714</postalCode>
+			<location>Altamonte Springs,FL,USA</location>
+			<country>US</country>
+			<shippingInfo>
+				<shippingServiceCost currencyId="USD">0.0
+				</shippingServiceCost>
+				<shippingType>Free</shippingType>
+				<shipToLocations>US</shipToLocations>
+			</shippingInfo>
+			<sellingStatus>
+				<currentPrice currencyId="USD">429.99</currentPrice>
+				<convertedCurrentPrice currencyId="USD">429.99
+				</convertedCurrentPrice>
+				<bidCount>0</bidCount>
+				<sellingState>Active</sellingState>
+				<timeLeft>P0DT0H8M49S</timeLeft>
+			</sellingStatus>
+			<listingInfo>
+				<bestOfferEnabled>false</bestOfferEnabled>
+				<buyItNowAvailable>true</buyItNowAvailable>
+				<buyItNowPrice currencyId="USD">499.99</buyItNowPrice>
+				<convertedBuyItNowPrice currencyId="USD">499.99
+				</convertedBuyItNowPrice>
+				<startTime>2010-06-09T21:19:15.000Z</startTime>
+				<endTime>2010-06-10T21:19:15.000Z</endTime>
+				<listingType>AuctionWithBIN</listingType>
+				<gift>false</gift>
+			</listingInfo>
+			<condition>
+				<conditionId>3000</conditionId>
+				<conditionDisplayName>Used</conditionDisplayName>
+			</condition>
+		</item>
+		<item>
+			<itemId>200479649808</itemId>
+			<title>Apple iphone 3G 8 GB Black (AT&amp;T)</title>
+			<globalId>EBAY-US</globalId>
+			<primaryCategory>
+				<categoryId>3312</categoryId>
+				<categoryName>Cell Phones &amp; Smartphones</categoryName>
+			</primaryCategory>
+			<galleryURL>http://thumbs1.ebaystatic.com/pict/2004796498088080_1.jpg
+			</galleryURL>
+			<viewItemURL>http://cgi.ebay.com/Apple-iphone-3G-8-GB-Black-AT-T-/200479649808?cmd=ViewItem&amp;pt=Cell_Phones&amp;hash=item2ead84b010
+			</viewItemURL>
+			<productId type="ReferenceID">71354345</productId>
+			<paymentMethod>PayPal</paymentMethod>
+			<autoPay>false</autoPay>
+			<postalCode>44601</postalCode>
+			<location>Alliance,OH,USA</location>
+			<country>US</country>
+			<shippingInfo>
+				<shippingServiceCost currencyId="USD">5.0
+				</shippingServiceCost>
+				<shippingType>Flat</shippingType>
+				<shipToLocations>US</shipToLocations>
+			</shippingInfo>
+			<sellingStatus>
+				<currentPrice currencyId="USD">102.5</currentPrice>
+				<convertedCurrentPrice currencyId="USD">102.5
+				</convertedCurrentPrice>
+				<bidCount>23</bidCount>
+				<sellingState>Active</sellingState>
+				<timeLeft>P0DT0H55M54S</timeLeft>
+			</sellingStatus>
+			<listingInfo>
+				<bestOfferEnabled>false</bestOfferEnabled>
+				<buyItNowAvailable>false</buyItNowAvailable>
+				<startTime>2010-06-04T01:06:34.000Z</startTime>
+				<endTime>2010-06-10T22:06:20.000Z</endTime>
+				<listingType>Auction</listingType>
+				<gift>false</gift>
+			</listingInfo>
+		</item>
+		<item>
+			<itemId>350321741426</itemId>
+			<title>Seidio Spring Belt Clip Holster Apple iPhone 3Gs 3G</title>
+			<globalId>EBAY-US</globalId>
+			<primaryCategory>
+				<categoryId>163866</categoryId>
+				<categoryName>Other</categoryName>
+			</primaryCategory>
+			<galleryURL>http://thumbs3.ebaystatic.com/pict/3503217414268080_1.jpg
+			</galleryURL>
+			<viewItemURL>http://cgi.ebay.com/Seidio-Spring-Belt-Clip-Holster-Apple-iPhone-3Gs-3G-/350321741426?cmd=ViewItem&amp;pt=LH_DefaultDomain_0&amp;hash=item5190cd8e72
+			</viewItemURL>
+			<paymentMethod>PayPal</paymentMethod>
+			<paymentMethod>VisaMC</paymentMethod>
+			<paymentMethod>AmEx</paymentMethod>
+			<paymentMethod>Discover</paymentMethod>
+			<autoPay>false</autoPay>
+			<location>USA</location>
+			<country>US</country>
+			<shippingInfo>
+				<shippingServiceCost currencyId="USD">0.0
+				</shippingServiceCost>
+				<shippingType>Free</shippingType>
+				<shipToLocations>US</shipToLocations>
+				<shipToLocations>CA</shipToLocations>
+				<shipToLocations>AU</shipToLocations>
+				<shipToLocations>Europe</shipToLocations>
+			</shippingInfo>
+			<sellingStatus>
+				<currentPrice currencyId="USD">22.45</currentPrice>
+				<convertedCurrentPrice currencyId="USD">22.45
+				</convertedCurrentPrice>
+				<sellingState>Active</sellingState>
+				<timeLeft>P15DT0H31M52S</timeLeft>
+			</sellingStatus>
+			<listingInfo>
+				<bestOfferEnabled>false</bestOfferEnabled>
+				<buyItNowAvailable>false</buyItNowAvailable>
+				<startTime>2010-02-25T21:37:18.000Z</startTime>
+				<endTime>2010-06-25T21:42:18.000Z</endTime>
+				<listingType>FixedPrice</listingType>
+				<gift>false</gift>
+			</listingInfo>
+		</item>
+		<item>
+			<itemId>330441027617</itemId>
+			<title>Apple iphone 3G 8 GB Black (AT&amp;T)</title>
+			<globalId>EBAY-US</globalId>
+			<subtitle>Never Used, in original box!</subtitle>
+			<primaryCategory>
+				<categoryId>3312</categoryId>
+				<categoryName>Cell Phones &amp; Smartphones</categoryName>
+			</primaryCategory>
+			<galleryURL>http://thumbs2.ebaystatic.com/pict/3304410276178080_1.jpg
+			</galleryURL>
+			<viewItemURL>http://cgi.ebay.com/Apple-iphone-3G-8-GB-Black-AT-T-/330441027617?cmd=ViewItem&amp;pt=Cell_Phones&amp;hash=item4cefd1f021
+			</viewItemURL>
+			<productId type="ReferenceID">71354345</productId>
+			<paymentMethod>PayPal</paymentMethod>
+			<autoPay>false</autoPay>
+			<postalCode>92277</postalCode>
+			<location>Twentynine Palms,CA,USA</location>
+			<country>US</country>
+			<shippingInfo>
+				<shippingServiceCost currencyId="USD">15.0
+				</shippingServiceCost>
+				<shippingType>Flat</shippingType>
+				<shipToLocations>US</shipToLocations>
+			</shippingInfo>
+			<sellingStatus>
+				<currentPrice currencyId="USD">177.5</currentPrice>
+				<convertedCurrentPrice currencyId="USD">177.5
+				</convertedCurrentPrice>
+				<bidCount>8</bidCount>
+				<sellingState>Active</sellingState>
+				<timeLeft>P0DT1H3M48S</timeLeft>
+			</sellingStatus>
+			<listingInfo>
+				<bestOfferEnabled>false</bestOfferEnabled>
+				<buyItNowAvailable>false</buyItNowAvailable>
+				<startTime>2010-06-07T22:14:14.000Z</startTime>
+				<endTime>2010-06-10T22:14:14.000Z</endTime>
+				<listingType>Auction</listingType>
+				<gift>false</gift>
+			</listingInfo>
+			<condition>
+				<conditionId>2000</conditionId>
+				<conditionDisplayName>Manufacturer refurbished
+				</conditionDisplayName>
+			</condition>
+		</item>
+		<item>
+			<itemId>150451524908</itemId>
+			<title>Apple iphone 3G 8 GB Black (AT&amp;T)</title>
+			<globalId>EBAY-US</globalId>
+			<primaryCategory>
+				<categoryId>3312</categoryId>
+				<categoryName>Cell Phones &amp; Smartphones</categoryName>
+			</primaryCategory>
+			<galleryURL>http://thumbs1.ebaystatic.com/pict/1504515249088080_1.jpg
+			</galleryURL>
+			<viewItemURL>http://cgi.ebay.com/Apple-iphone-3G-8-GB-Black-AT-T-/150451524908?cmd=ViewItem&amp;pt=Cell_Phones&amp;hash=item23079c152c
+			</viewItemURL>
+			<productId type="ReferenceID">71354345</productId>
+			<paymentMethod>PayPal</paymentMethod>
+			<autoPay>false</autoPay>
+			<postalCode>30237</postalCode>
+			<location>Jonesboro,GA,USA</location>
+			<country>US</country>
+			<shippingInfo>
+				<shippingServiceCost currencyId="USD">10.0
+				</shippingServiceCost>
+				<shippingType>Flat</shippingType>
+				<shipToLocations>US</shipToLocations>
+			</shippingInfo>
+			<sellingStatus>
+				<currentPrice currencyId="USD">315.0</currentPrice>
+				<convertedCurrentPrice currencyId="USD">315.0
+				</convertedCurrentPrice>
+				<bidCount>0</bidCount>
+				<sellingState>Active</sellingState>
+				<timeLeft>P0DT1H13M27S</timeLeft>
+			</sellingStatus>
+			<listingInfo>
+				<bestOfferEnabled>false</bestOfferEnabled>
+				<buyItNowAvailable>false</buyItNowAvailable>
+				<startTime>2010-06-03T22:23:53.000Z</startTime>
+				<endTime>2010-06-10T22:23:53.000Z</endTime>
+				<listingType>Auction</listingType>
+				<gift>false</gift>
+			</listingInfo>
+			<condition>
+				<conditionId>2000</conditionId>
+				<conditionDisplayName>Manufacturer refurbished
+				</conditionDisplayName>
+			</condition>
+		</item>
+		<item>
+			<itemId>180518557870</itemId>
+			<title>Apple iphone 3G 8 GB Black (AT&amp;T)</title>
+			<globalId>EBAY-US</globalId>
+			<primaryCategory>
+				<categoryId>3312</categoryId>
+				<categoryName>Cell Phones &amp; Smartphones</categoryName>
+			</primaryCategory>
+			<galleryURL>http://thumbs3.ebaystatic.com/pict/1805185578708080_2.jpg
+			</galleryURL>
+			<viewItemURL>http://cgi.ebay.com/Apple-iphone-3G-8-GB-Black-AT-T-/180518557870?cmd=ViewItem&amp;pt=Cell_Phones&amp;hash=item2a07be98ae
+			</viewItemURL>
+			<productId type="ReferenceID">71354345</productId>
+			<paymentMethod>PayPal</paymentMethod>
+			<autoPay>false</autoPay>
+			<postalCode>46526</postalCode>
+			<location>Goshen,IN,USA</location>
+			<country>US</country>
+			<shippingInfo>
+				<shippingServiceCost currencyId="USD">15.0
+				</shippingServiceCost>
+				<shippingType>Flat</shippingType>
+				<shipToLocations>US</shipToLocations>
+			</shippingInfo>
+			<sellingStatus>
+				<currentPrice currencyId="USD">285.0</currentPrice>
+				<convertedCurrentPrice currencyId="USD">285.0
+				</convertedCurrentPrice>
+				<bidCount>0</bidCount>
+				<sellingState>Active</sellingState>
+				<timeLeft>P0DT1H17M50S</timeLeft>
+			</sellingStatus>
+			<listingInfo>
+				<bestOfferEnabled>false</bestOfferEnabled>
+				<buyItNowAvailable>false</buyItNowAvailable>
+				<startTime>2010-06-09T22:28:16.000Z</startTime>
+				<endTime>2010-06-10T22:28:16.000Z</endTime>
+				<listingType>Auction</listingType>
+				<gift>false</gift>
+			</listingInfo>
+		</item>
+		<item>
+			<itemId>120580480800</itemId>
+			<title>Apple iphone 3GS 16 GB Black (AT&amp;T)</title>
+			<globalId>EBAY-US</globalId>
+			<subtitle>like new</subtitle>
+			<primaryCategory>
+				<categoryId>3312</categoryId>
+				<categoryName>Cell Phones &amp; Smartphones</categoryName>
+			</primaryCategory>
+			<galleryURL>http://thumbs1.ebaystatic.com/pict/1205804808008080_4.jpg
+			</galleryURL>
+			<viewItemURL>http://cgi.ebay.com/Apple-iphone-3GS-16-GB-Black-AT-T-/120580480800?cmd=ViewItem&amp;pt=Cell_Phones&amp;hash=item1c13281f20
+			</viewItemURL>
+			<productId type="ReferenceID">73627289</productId>
+			<paymentMethod>PayPal</paymentMethod>
+			<autoPay>false</autoPay>
+			<postalCode>75002</postalCode>
+			<location>Allen,TX,USA</location>
+			<country>US</country>
+			<shippingInfo>
+				<shippingServiceCost currencyId="USD">10.0
+				</shippingServiceCost>
+				<shippingType>Flat</shippingType>
+				<shipToLocations>US</shipToLocations>
+			</shippingInfo>
+			<sellingStatus>
+				<currentPrice currencyId="USD">275.0</currentPrice>
+				<convertedCurrentPrice currencyId="USD">275.0
+				</convertedCurrentPrice>
+				<bidCount>5</bidCount>
+				<sellingState>Active</sellingState>
+				<timeLeft>P0DT0H29M10S</timeLeft>
+			</sellingStatus>
+			<listingInfo>
+				<bestOfferEnabled>false</bestOfferEnabled>
+				<buyItNowAvailable>false</buyItNowAvailable>
+				<startTime>2010-06-07T21:39:36.000Z</startTime>
+				<endTime>2010-06-10T21:39:36.000Z</endTime>
+				<listingType>Auction</listingType>
+				<gift>false</gift>
+			</listingInfo>
+			<condition>
+				<conditionId>3000</conditionId>
+				<conditionDisplayName>Used</conditionDisplayName>
+			</condition>
+		</item>
+		<item>
+			<itemId>130399239704</itemId>
+			<title>Apple iphone 3G 16 GB Black (AT&amp;T)</title>
+			<globalId>EBAY-US</globalId>
+			<primaryCategory>
+				<categoryId>3312</categoryId>
+				<categoryName>Cell Phones &amp; Smartphones</categoryName>
+			</primaryCategory>
+			<galleryURL>http://thumbs1.ebaystatic.com/pict/1303992397048080_1.jpg
+			</galleryURL>
+			<viewItemURL>http://cgi.ebay.com/Apple-iphone-3G-16-GB-Black-AT-T-/130399239704?cmd=ViewItem&amp;pt=Cell_Phones&amp;hash=item1e5c667e18
+			</viewItemURL>
+			<productId type="ReferenceID">71337622</productId>
+			<paymentMethod>PayPal</paymentMethod>
+			<autoPay>false</autoPay>
+			<location>USA</location>
+			<country>US</country>
+			<shippingInfo>
+				<shippingServiceCost currencyId="USD">0.0
+				</shippingServiceCost>
+				<shippingType>Free</shippingType>
+				<shipToLocations>US</shipToLocations>
+			</shippingInfo>
+			<sellingStatus>
+				<currentPrice currencyId="USD">177.0</currentPrice>
+				<convertedCurrentPrice currencyId="USD">177.0
+				</convertedCurrentPrice>
+				<bidCount>1</bidCount>
+				<sellingState>Active</sellingState>
+				<timeLeft>P0DT0H59M57S</timeLeft>
+			</sellingStatus>
+			<listingInfo>
+				<bestOfferEnabled>false</bestOfferEnabled>
+				<buyItNowAvailable>false</buyItNowAvailable>
+				<startTime>2010-06-09T22:10:23.000Z</startTime>
+				<endTime>2010-06-10T22:10:23.000Z</endTime>
+				<listingType>Auction</listingType>
+				<gift>false</gift>
+			</listingInfo>
+			<condition>
+				<conditionId>7000</conditionId>
+				<conditionDisplayName>For parts or not working
+				</conditionDisplayName>
+			</condition>
+		</item>
+		<item>
+			<itemId>140412698783</itemId>
+			<title>Apple iphone 3G 8 GB Black (AT&amp;T) Broken Ear Speaker
+			</title>
+			<globalId>EBAY-US</globalId>
+			<subtitle>Works Perfect with Bluetooth or Speakerphone Option
+			</subtitle>
+			<primaryCategory>
+				<categoryId>3312</categoryId>
+				<categoryName>Cell Phones &amp; Smartphones</categoryName>
+			</primaryCategory>
+			<galleryURL>http://thumbs4.ebaystatic.com/pict/1404126987838080_1.jpg
+			</galleryURL>
+			<viewItemURL>http://cgi.ebay.com/Apple-iphone-3G-8-GB-Black-AT-T-Broken-Ear-Speaker-/140412698783?cmd=ViewItem&amp;pt=Cell_Phones&amp;hash=item20b13fc09f
+			</viewItemURL>
+			<productId type="ReferenceID">71354345</productId>
+			<paymentMethod>PayPal</paymentMethod>
+			<autoPay>false</autoPay>
+			<postalCode>43953</postalCode>
+			<location>Steubenville,OH,USA</location>
+			<country>US</country>
+			<shippingInfo>
+				<shippingServiceCost currencyId="USD">0.0
+				</shippingServiceCost>
+				<shippingType>Free</shippingType>
+				<shipToLocations>Worldwide</shipToLocations>
+			</shippingInfo>
+			<sellingStatus>
+				<currentPrice currencyId="USD">143.5</currentPrice>
+				<convertedCurrentPrice currencyId="USD">143.5
+				</convertedCurrentPrice>
+				<bidCount>20</bidCount>
+				<sellingState>Active</sellingState>
+				<timeLeft>P0DT1H54M4S</timeLeft>
+			</sellingStatus>
+			<listingInfo>
+				<bestOfferEnabled>false</bestOfferEnabled>
+				<buyItNowAvailable>false</buyItNowAvailable>
+				<startTime>2010-05-31T23:04:30.000Z</startTime>
+				<endTime>2010-06-10T23:04:30.000Z</endTime>
+				<listingType>Auction</listingType>
+				<gift>false</gift>
+			</listingInfo>
+			<galleryPlusPictureURL>http://galleryplus.ebayimg.com/ws/web/140412698783_1_0_1.jpg
+			</galleryPlusPictureURL>
+			<condition>
+				<conditionDisplayName>Used</conditionDisplayName>
+			</condition>
+		</item>
+		<item>
+			<itemId>330441862440</itemId>
+			<title>Apple iphone 3GS 16 GB Black (AT&amp;T)</title>
+			<globalId>EBAY-US</globalId>
+			<primaryCategory>
+				<categoryId>3312</categoryId>
+				<categoryName>Cell Phones &amp; Smartphones</categoryName>
+			</primaryCategory>
+			<galleryURL>http://thumbs1.ebaystatic.com/pict/3304418624408080_3.jpg
+			</galleryURL>
+			<viewItemURL>http://cgi.ebay.com/Apple-iphone-3GS-16-GB-Black-AT-T-/330441862440?cmd=ViewItem&amp;pt=Cell_Phones&amp;hash=item4cefdead28
+			</viewItemURL>
+			<productId type="ReferenceID">73627289</productId>
+			<paymentMethod>PayPal</paymentMethod>
+			<autoPay>false</autoPay>
+			<postalCode>33024</postalCode>
+			<location>Hollywood,FL,USA</location>
+			<country>US</country>
+			<shippingInfo>
+				<shippingServiceCost currencyId="USD">0.0
+				</shippingServiceCost>
+				<shippingType>Free</shippingType>
+				<shipToLocations>US</shipToLocations>
+			</shippingInfo>
+			<sellingStatus>
+				<currentPrice currencyId="USD">324.99</currentPrice>
+				<convertedCurrentPrice currencyId="USD">324.99
+				</convertedCurrentPrice>
+				<sellingState>Active</sellingState>
+				<timeLeft>P9DT23H24M56S</timeLeft>
+			</sellingStatus>
+			<listingInfo>
+				<bestOfferEnabled>false</bestOfferEnabled>
+				<buyItNowAvailable>false</buyItNowAvailable>
+				<startTime>2010-06-10T20:35:22.000Z</startTime>
+				<endTime>2010-06-20T20:35:22.000Z</endTime>
+				<listingType>FixedPrice</listingType>
+				<gift>false</gift>
+			</listingInfo>
+			<condition>
+				<conditionId>3000</conditionId>
+				<conditionDisplayName>Used</conditionDisplayName>
+			</condition>
+		</item>
+		<item>
+			<itemId>220619639781</itemId>
+			<title>Apple iphone 3GS 16 GB Black (AT&amp;T)</title>
+			<globalId>EBAY-US</globalId>
+			<primaryCategory>
+				<categoryId>3312</categoryId>
+				<categoryName>Cell Phones &amp; Smartphones</categoryName>
+			</primaryCategory>
+			<galleryURL>http://thumbs2.ebaystatic.com/pict/2206196397818080_1.jpg
+			</galleryURL>
+			<viewItemURL>http://cgi.ebay.com/Apple-iphone-3GS-16-GB-Black-AT-T-/220619639781?cmd=ViewItem&amp;pt=Cell_Phones&amp;hash=item335df48be5
+			</viewItemURL>
+			<productId type="ReferenceID">73627289</productId>
+			<paymentMethod>PayPal</paymentMethod>
+			<autoPay>false</autoPay>
+			<postalCode>35801</postalCode>
+			<location>Huntsville,AL,USA</location>
+			<country>US</country>
+			<shippingInfo>
+				<shippingServiceCost currencyId="USD">5.0
+				</shippingServiceCost>
+				<shippingType>Flat</shippingType>
+				<shipToLocations>US</shipToLocations>
+			</shippingInfo>
+			<sellingStatus>
+				<currentPrice currencyId="USD">250.0</currentPrice>
+				<convertedCurrentPrice currencyId="USD">250.0
+				</convertedCurrentPrice>
+				<bidCount>3</bidCount>
+				<sellingState>Active</sellingState>
+				<timeLeft>P0DT0H45M39S</timeLeft>
+			</sellingStatus>
+			<listingInfo>
+				<bestOfferEnabled>false</bestOfferEnabled>
+				<buyItNowAvailable>false</buyItNowAvailable>
+				<startTime>2010-06-09T21:56:05.000Z</startTime>
+				<endTime>2010-06-10T21:56:05.000Z</endTime>
+				<listingType>Auction</listingType>
+				<gift>false</gift>
+			</listingInfo>
+			<condition>
+				<conditionId>3000</conditionId>
+				<conditionDisplayName>Used</conditionDisplayName>
+			</condition>
+		</item>
+		<item>
+			<itemId>150453676586</itemId>
+			<title>Apple iphone 3G 8 GB Black (AT&amp;T)</title>
+			<globalId>EBAY-US</globalId>
+			<subtitle>Barely Used</subtitle>
+			<primaryCategory>
+				<categoryId>3312</categoryId>
+				<categoryName>Cell Phones &amp; Smartphones</categoryName>
+			</primaryCategory>
+			<secondaryCategory>
+				<categoryId>20336</categoryId>
+				<categoryName>Cell Phone &amp; PDA Accessories</categoryName>
+			</secondaryCategory>
+			<galleryURL>http://thumbs3.ebaystatic.com/pict/1504536765868080_2.jpg
+			</galleryURL>
+			<viewItemURL>http://cgi.ebay.com/Apple-iphone-3G-8-GB-Black-AT-T-/150453676586?cmd=ViewItem&amp;pt=Cell_Phones&amp;hash=item2307bcea2a
+			</viewItemURL>
+			<productId type="ReferenceID">71354345</productId>
+			<paymentMethod>PayPal</paymentMethod>
+			<autoPay>true</autoPay>
+			<postalCode>46902</postalCode>
+			<location>Kokomo,IN,USA</location>
+			<country>US</country>
+			<shippingInfo>
+				<shippingServiceCost currencyId="USD">10.0
+				</shippingServiceCost>
+				<shippingType>Flat</shippingType>
+				<shipToLocations>US</shipToLocations>
+			</shippingInfo>
+			<sellingStatus>
+				<currentPrice currencyId="USD">172.5</currentPrice>
+				<convertedCurrentPrice currencyId="USD">172.5
+				</convertedCurrentPrice>
+				<bidCount>3</bidCount>
+				<sellingState>Active</sellingState>
+				<timeLeft>P0DT1H6M53S</timeLeft>
+			</sellingStatus>
+			<listingInfo>
+				<bestOfferEnabled>false</bestOfferEnabled>
+				<buyItNowAvailable>false</buyItNowAvailable>
+				<startTime>2010-06-10T01:17:37.000Z</startTime>
+				<endTime>2010-06-10T22:17:19.000Z</endTime>
+				<listingType>Auction</listingType>
+				<gift>false</gift>
+			</listingInfo>
+			<condition>
+				<conditionId>3000</conditionId>
+				<conditionDisplayName>Used</conditionDisplayName>
+			</condition>
+		</item>
+		<item>
+			<itemId>320545096912</itemId>
+			<title>Apple iphone 3G 8 GB Black (AT&amp;T)</title>
+			<globalId>EBAY-US</globalId>
+			<primaryCategory>
+				<categoryId>3312</categoryId>
+				<categoryName>Cell Phones &amp; Smartphones</categoryName>
+			</primaryCategory>
+			<galleryURL>http://thumbs1.ebaystatic.com/pict/3205450969128080_1.jpg
+			</galleryURL>
+			<viewItemURL>http://cgi.ebay.com/Apple-iphone-3G-8-GB-Black-AT-T-/320545096912?cmd=ViewItem&amp;pt=Cell_Phones&amp;hash=item4aa1fa04d0
+			</viewItemURL>
+			<productId type="ReferenceID">71354345</productId>
+			<paymentMethod>PayPal</paymentMethod>
+			<autoPay>false</autoPay>
+			<postalCode>02806</postalCode>
+			<location>Barrington,RI,USA</location>
+			<country>US</country>
+			<shippingInfo>
+				<shippingServiceCost currencyId="USD">5.0
+				</shippingServiceCost>
+				<shippingType>Flat</shippingType>
+				<shipToLocations>US</shipToLocations>
+			</shippingInfo>
+			<sellingStatus>
+				<currentPrice currencyId="USD">159.04</currentPrice>
+				<convertedCurrentPrice currencyId="USD">159.04
+				</convertedCurrentPrice>
+				<bidCount>3</bidCount>
+				<sellingState>Active</sellingState>
+				<timeLeft>P0DT1H54M50S</timeLeft>
+			</sellingStatus>
+			<listingInfo>
+				<bestOfferEnabled>false</bestOfferEnabled>
+				<buyItNowAvailable>false</buyItNowAvailable>
+				<startTime>2010-06-07T23:05:16.000Z</startTime>
+				<endTime>2010-06-10T23:05:16.000Z</endTime>
+				<listingType>Auction</listingType>
+				<gift>false</gift>
+			</listingInfo>
+			<condition>
+				<conditionId>3000</conditionId>
+				<conditionDisplayName>Used</conditionDisplayName>
+			</condition>
+		</item>
+		<item>
+			<itemId>110544481643</itemId>
+			<title>Apple iphone 3GS 16 GB Black (AT&amp;T)</title>
+			<globalId>EBAY-US</globalId>
+			<primaryCategory>
+				<categoryId>3312</categoryId>
+				<categoryName>Cell Phones &amp; Smartphones</categoryName>
+			</primaryCategory>
+			<galleryURL>http://thumbs4.ebaystatic.com/pict/1105444816438080_2.jpg
+			</galleryURL>
+			<viewItemURL>http://cgi.ebay.com/Apple-iphone-3GS-16-GB-Black-AT-T-/110544481643?cmd=ViewItem&amp;pt=Cell_Phones&amp;hash=item19bcf6ed6b
+			</viewItemURL>
+			<productId type="ReferenceID">73627289</productId>
+			<paymentMethod>PayPal</paymentMethod>
+			<autoPay>false</autoPay>
+			<postalCode>33023</postalCode>
+			<location>Hollywood,FL,USA</location>
+			<country>US</country>
+			<shippingInfo>
+				<shippingServiceCost currencyId="USD">15.0
+				</shippingServiceCost>
+				<shippingType>Flat</shippingType>
+				<shipToLocations>US</shipToLocations>
+			</shippingInfo>
+			<sellingStatus>
+				<currentPrice currencyId="USD">275.0</currentPrice>
+				<convertedCurrentPrice currencyId="USD">275.0
+				</convertedCurrentPrice>
+				<bidCount>11</bidCount>
+				<sellingState>Active</sellingState>
+				<timeLeft>P0DT0H51M53S</timeLeft>
+			</sellingStatus>
+			<listingInfo>
+				<bestOfferEnabled>false</bestOfferEnabled>
+				<buyItNowAvailable>false</buyItNowAvailable>
+				<startTime>2010-06-10T04:02:23.000Z</startTime>
+				<endTime>2010-06-10T22:02:19.000Z</endTime>
+				<listingType>Auction</listingType>
+				<gift>false</gift>
+			</listingInfo>
+			<condition>
+				<conditionId>1000</conditionId>
+				<conditionDisplayName>New</conditionDisplayName>
+			</condition>
+		</item>
+		<item>
+			<itemId>170497602067</itemId>
+			<title>Apple iphone 3GS 16 GB White (AT&amp;T)</title>
+			<globalId>EBAY-US</globalId>
+			<primaryCategory>
+				<categoryId>3312</categoryId>
+				<categoryName>Cell Phones &amp; Smartphones</categoryName>
+			</primaryCategory>
+			<galleryURL>http://thumbs4.ebaystatic.com/pict/1704976020678080_1.jpg
+			</galleryURL>
+			<viewItemURL>http://cgi.ebay.com/Apple-iphone-3GS-16-GB-White-AT-T-/170497602067?cmd=ViewItem&amp;pt=Cell_Phones&amp;hash=item27b272f213
+			</viewItemURL>
+			<productId type="ReferenceID">73579264</productId>
+			<paymentMethod>PayPal</paymentMethod>
+			<autoPay>false</autoPay>
+			<postalCode>77007</postalCode>
+			<location>Houston,TX,USA</location>
+			<country>US</country>
+			<shippingInfo>
+				<shippingServiceCost currencyId="USD">10.0
+				</shippingServiceCost>
+				<shippingType>Flat</shippingType>
+				<shipToLocations>US</shipToLocations>
+			</shippingInfo>
+			<sellingStatus>
+				<currentPrice currencyId="USD">265.0</currentPrice>
+				<convertedCurrentPrice currencyId="USD">265.0
+				</convertedCurrentPrice>
+				<bidCount>42</bidCount>
+				<sellingState>Active</sellingState>
+				<timeLeft>P0DT0H17M29S</timeLeft>
+			</sellingStatus>
+			<listingInfo>
+				<bestOfferEnabled>false</bestOfferEnabled>
+				<buyItNowAvailable>false</buyItNowAvailable>
+				<startTime>2010-06-09T21:27:55.000Z</startTime>
+				<endTime>2010-06-10T21:27:55.000Z</endTime>
+				<listingType>Auction</listingType>
+				<gift>false</gift>
+			</listingInfo>
+			<condition>
+				<conditionId>3000</conditionId>
+				<conditionDisplayName>Used</conditionDisplayName>
+			</condition>
+		</item>
+		<item>
+			<itemId>320546100203</itemId>
+			<title>Apple iPhone 3GS 16 GB Black (AT&amp;T)</title>
+			<globalId>EBAY-US</globalId>
+			<primaryCategory>
+				<categoryId>3312</categoryId>
+				<categoryName>Cell Phones &amp; Smartphones</categoryName>
+			</primaryCategory>
+			<galleryURL>http://thumbs4.ebaystatic.com/pict/3205461002038080_1.jpg
+			</galleryURL>
+			<viewItemURL>http://cgi.ebay.com/Apple-iPhone-3GS-16-GB-Black-AT-T-/320546100203?cmd=ViewItem&amp;pt=Cell_Phones&amp;hash=item4aa20953eb
+			</viewItemURL>
+			<productId type="ReferenceID">73627289</productId>
+			<paymentMethod>PayPal</paymentMethod>
+			<autoPay>false</autoPay>
+			<postalCode>08361</postalCode>
+			<location>Vineland,NJ,USA</location>
+			<country>US</country>
+			<shippingInfo>
+				<shippingServiceCost currencyId="USD">6.0
+				</shippingServiceCost>
+				<shippingType>Flat</shippingType>
+				<shipToLocations>US</shipToLocations>
+			</shippingInfo>
+			<sellingStatus>
+				<currentPrice currencyId="USD">250.0</currentPrice>
+				<convertedCurrentPrice currencyId="USD">250.0
+				</convertedCurrentPrice>
+				<bidCount>1</bidCount>
+				<sellingState>Active</sellingState>
+				<timeLeft>P0DT1H13M15S</timeLeft>
+			</sellingStatus>
+			<listingInfo>
+				<bestOfferEnabled>false</bestOfferEnabled>
+				<buyItNowAvailable>false</buyItNowAvailable>
+				<startTime>2010-06-09T22:23:41.000Z</startTime>
+				<endTime>2010-06-10T22:23:41.000Z</endTime>
+				<listingType>Auction</listingType>
+				<gift>false</gift>
+			</listingInfo>
+			<condition>
+				<conditionId>3000</conditionId>
+				<conditionDisplayName>Used</conditionDisplayName>
+			</condition>
+		</item>
+		<item>
+			<itemId>280519103230</itemId>
+			<title>Apple iphone 3G 8 GB Black (AT&amp;T) 7/10 condition</title>
+			<globalId>EBAY-US</globalId>
+			<primaryCategory>
+				<categoryId>3312</categoryId>
+				<categoryName>Cell Phones &amp; Smartphones</categoryName>
+			</primaryCategory>
+			<galleryURL>http://thumbs3.ebaystatic.com/pict/2805191032308080_1.jpg
+			</galleryURL>
+			<viewItemURL>http://cgi.ebay.com/Apple-iphone-3G-8-GB-Black-AT-T-7-10-condition-/280519103230?cmd=ViewItem&amp;pt=Cell_Phones&amp;hash=item41503dd2fe
+			</viewItemURL>
+			<productId type="ReferenceID">71354345</productId>
+			<paymentMethod>CashOnPickup</paymentMethod>
+			<paymentMethod>PayPal</paymentMethod>
+			<paymentMethod>VisaMC</paymentMethod>
+			<paymentMethod>AmEx</paymentMethod>
+			<paymentMethod>Discover</paymentMethod>
+			<autoPay>false</autoPay>
+			<postalCode>60459</postalCode>
+			<location>Burbank,IL,USA</location>
+			<country>US</country>
+			<shippingInfo>
+				<shippingServiceCost currencyId="USD">10.0
+				</shippingServiceCost>
+				<shippingType>Flat</shippingType>
+				<shipToLocations>US</shipToLocations>
+			</shippingInfo>
+			<sellingStatus>
+				<currentPrice currencyId="USD">142.5</currentPrice>
+				<convertedCurrentPrice currencyId="USD">142.5
+				</convertedCurrentPrice>
+				<bidCount>15</bidCount>
+				<sellingState>Active</sellingState>
+				<timeLeft>P0DT2H30M46S</timeLeft>
+			</sellingStatus>
+			<listingInfo>
+				<bestOfferEnabled>false</bestOfferEnabled>
+				<buyItNowAvailable>false</buyItNowAvailable>
+				<startTime>2010-06-09T23:41:12.000Z</startTime>
+				<endTime>2010-06-10T23:41:12.000Z</endTime>
+				<listingType>Auction</listingType>
+				<gift>false</gift>
+			</listingInfo>
+			<condition>
+				<conditionId>3000</conditionId>
+				<conditionDisplayName>Used</conditionDisplayName>
+			</condition>
+		</item>
+		<item>
+			<itemId>230485881153</itemId>
+			<title>iPhone 3GS 16GB Black (Unlocked &amp; Jailbroken) Brand New
+			</title>
+			<globalId>EBAY-US</globalId>
+			<subtitle>3.15MP VGA@30fps 3.5" Multi-touch Worldwide Ship 1-wk
+			</subtitle>
+			<primaryCategory>
+				<categoryId>3312</categoryId>
+				<categoryName>Cell Phones &amp; Smartphones</categoryName>
+			</primaryCategory>
+			<galleryURL>http://thumbs2.ebaystatic.com/pict/2304858811538080_1.jpg
+			</galleryURL>
+			<viewItemURL>http://cgi.ebay.com/iPhone-3GS-16GB-Black-Unlocked-Jailbroken-Brand-New-/230485881153?cmd=ViewItem&amp;pt=Cell_Phones&amp;hash=item35aa077141
+			</viewItemURL>
+			<productId type="ReferenceID">79553325</productId>
+			<paymentMethod>PayPal</paymentMethod>
+			<autoPay>false</autoPay>
+			<postalCode>08817</postalCode>
+			<location>Edison,NJ,USA</location>
+			<country>US</country>
+			<shippingInfo>
+				<shippingServiceCost currencyId="USD">13.0
+				</shippingServiceCost>
+				<shippingType>Flat</shippingType>
+				<shipToLocations>Worldwide</shipToLocations>
+			</shippingInfo>
+			<sellingStatus>
+				<currentPrice currencyId="USD">650.0</currentPrice>
+				<convertedCurrentPrice currencyId="USD">650.0
+				</convertedCurrentPrice>
+				<sellingState>Active</sellingState>
+				<timeLeft>P6DT4H49M0S</timeLeft>
+			</sellingStatus>
+			<listingInfo>
+				<bestOfferEnabled>true</bestOfferEnabled>
+				<buyItNowAvailable>false</buyItNowAvailable>
+				<startTime>2010-06-10T03:48:39.000Z</startTime>
+				<endTime>2010-06-17T01:59:26.000Z</endTime>
+				<listingType>FixedPrice</listingType>
+				<gift>false</gift>
+			</listingInfo>
+			<condition>
+				<conditionId>1000</conditionId>
+				<conditionDisplayName>New</conditionDisplayName>
+			</condition>
+		</item>
+		<item>
+			<itemId>300435365476</itemId>
+			<title>Apple iphone 3GS 16 GB Black (AT&amp;T) - Jailbroken - USED
+			</title>
+			<globalId>EBAY-US</globalId>
+			<subtitle>Over $300 in Apps, Original Packaging, Earphones w/Mic
+			</subtitle>
+			<primaryCategory>
+				<categoryId>3312</categoryId>
+				<categoryName>Cell Phones &amp; Smartphones</categoryName>
+			</primaryCategory>
+			<galleryURL>http://thumbs1.ebaystatic.com/pict/3004353654768080_6.jpg
+			</galleryURL>
+			<viewItemURL>http://cgi.ebay.com/Apple-iphone-3GS-16-GB-Black-AT-T-Jailbroken-USED-/300435365476?cmd=ViewItem&amp;pt=Cell_Phones&amp;hash=item45f357de64
+			</viewItemURL>
+			<productId type="ReferenceID">73627289</productId>
+			<paymentMethod>PayPal</paymentMethod>
+			<autoPay>true</autoPay>
+			<postalCode>49855</postalCode>
+			<location>Marquette,MI,USA</location>
+			<country>US</country>
+			<shippingInfo>
+				<shippingServiceCost currencyId="USD">9.95
+				</shippingServiceCost>
+				<shippingType>Flat</shippingType>
+				<shipToLocations>US</shipToLocations>
+			</shippingInfo>
+			<sellingStatus>
+				<currentPrice currencyId="USD">237.5</currentPrice>
+				<convertedCurrentPrice currencyId="USD">237.5
+				</convertedCurrentPrice>
+				<bidCount>3</bidCount>
+				<sellingState>Active</sellingState>
+				<timeLeft>P0DT1H39M34S</timeLeft>
+			</sellingStatus>
+			<listingInfo>
+				<bestOfferEnabled>false</bestOfferEnabled>
+				<buyItNowAvailable>false</buyItNowAvailable>
+				<startTime>2010-06-07T22:50:00.000Z</startTime>
+				<endTime>2010-06-10T22:50:00.000Z</endTime>
+				<listingType>Auction</listingType>
+				<gift>false</gift>
+			</listingInfo>
+			<condition>
+				<conditionId>3000</conditionId>
+				<conditionDisplayName>Used</conditionDisplayName>
+			</condition>
+		</item>
+		<item>
+			<itemId>110542069231</itemId>
+			<title>AT&amp;T APPLE IPHONE A1241 8 GIG BLACK TOUCHSCREEN PHONE
+			</title>
+			<globalId>EBAY-US</globalId>
+			<primaryCategory>
+				<categoryId>3312</categoryId>
+				<categoryName>Cell Phones &amp; Smartphones</categoryName>
+			</primaryCategory>
+			<galleryURL>http://thumbs4.ebaystatic.com/pict/1105420692318080_1.jpg
+			</galleryURL>
+			<viewItemURL>http://cgi.ebay.com/AT-T-APPLE-IPHONE-A1241-8-GIG-BLACK-TOUCHSCREEN-PHONE-/110542069231?cmd=ViewItem&amp;pt=Cell_Phones&amp;hash=item19bcd21def
+			</viewItemURL>
+			<paymentMethod>PayPal</paymentMethod>
+			<autoPay>false</autoPay>
+			<postalCode>21921</postalCode>
+			<location>Elkton,MD,USA</location>
+			<country>US</country>
+			<shippingInfo>
+				<shippingServiceCost currencyId="USD">8.0
+				</shippingServiceCost>
+				<shippingType>Flat</shippingType>
+				<shipToLocations>Worldwide</shipToLocations>
+			</shippingInfo>
+			<sellingStatus>
+				<currentPrice currencyId="USD">154.5</currentPrice>
+				<convertedCurrentPrice currencyId="USD">154.5
+				</convertedCurrentPrice>
+				<bidCount>2</bidCount>
+				<sellingState>Active</sellingState>
+				<timeLeft>P0DT1H2M33S</timeLeft>
+			</sellingStatus>
+			<listingInfo>
+				<bestOfferEnabled>false</bestOfferEnabled>
+				<buyItNowAvailable>false</buyItNowAvailable>
+				<startTime>2010-06-03T22:12:59.000Z</startTime>
+				<endTime>2010-06-10T22:12:59.000Z</endTime>
+				<listingType>Auction</listingType>
+				<gift>false</gift>
+			</listingInfo>
+			<condition>
+				<conditionId>3000</conditionId>
+				<conditionDisplayName>Used</conditionDisplayName>
+			</condition>
+		</item>
+		<item>
+			<itemId>180518555252</itemId>
+			<title>Apple iphone 3GS 32 GB White (AT&amp;T) 3.1.3</title>
+			<globalId>EBAY-US</globalId>
+			<primaryCategory>
+				<categoryId>3312</categoryId>
+				<categoryName>Cell Phones &amp; Smartphones</categoryName>
+			</primaryCategory>
+			<galleryURL>http://thumbs1.ebaystatic.com/pict/1805185552528080_2.jpg
+			</galleryURL>
+			<viewItemURL>http://cgi.ebay.com/Apple-iphone-3GS-32-GB-White-AT-T-3-1-3-/180518555252?cmd=ViewItem&amp;pt=Cell_Phones&amp;hash=item2a07be8e74
+			</viewItemURL>
+			<productId type="ReferenceID">73615006</productId>
+			<paymentMethod>PayPal</paymentMethod>
+			<autoPay>false</autoPay>
+			<postalCode>46526</postalCode>
+			<location>Goshen,IN,USA</location>
+			<country>US</country>
+			<shippingInfo>
+				<shippingServiceCost currencyId="USD">15.0
+				</shippingServiceCost>
+				<shippingType>Flat</shippingType>
+				<shipToLocations>US</shipToLocations>
+			</shippingInfo>
+			<sellingStatus>
+				<currentPrice currencyId="USD">475.0</currentPrice>
+				<convertedCurrentPrice currencyId="USD">475.0
+				</convertedCurrentPrice>
+				<bidCount>0</bidCount>
+				<sellingState>Active</sellingState>
+				<timeLeft>P0DT1H8M45S</timeLeft>
+			</sellingStatus>
+			<listingInfo>
+				<bestOfferEnabled>false</bestOfferEnabled>
+				<buyItNowAvailable>false</buyItNowAvailable>
+				<startTime>2010-06-09T22:19:11.000Z</startTime>
+				<endTime>2010-06-10T22:19:11.000Z</endTime>
+				<listingType>Auction</listingType>
+				<gift>false</gift>
+			</listingInfo>
+		</item>
+		<item>
+			<itemId>120578815595</itemId>
+			<title>Used Apple iPhone 3G 8GB Black AT&amp;T</title>
+			<globalId>EBAY-US</globalId>
+			<primaryCategory>
+				<categoryId>3312</categoryId>
+				<categoryName>Cell Phones &amp; Smartphones</categoryName>
+			</primaryCategory>
+			<galleryURL>http://thumbs4.ebaystatic.com/pict/1205788155958080_2.jpg
+			</galleryURL>
+			<viewItemURL>http://cgi.ebay.com/Used-Apple-iPhone-3G-8GB-Black-AT-T-/120578815595?cmd=ViewItem&amp;pt=Cell_Phones&amp;hash=item1c130eb66b
+			</viewItemURL>
+			<productId type="ReferenceID">71354345</productId>
+			<paymentMethod>PayPal</paymentMethod>
+			<autoPay>false</autoPay>
+			<postalCode>15650</postalCode>
+			<location>Latrobe,PA,USA</location>
+			<country>US</country>
+			<shippingInfo>
+				<shippingServiceCost currencyId="USD">4.95
+				</shippingServiceCost>
+				<shippingType>Flat</shippingType>
+				<shipToLocations>US</shipToLocations>
+			</shippingInfo>
+			<sellingStatus>
+				<currentPrice currencyId="USD">172.5</currentPrice>
+				<convertedCurrentPrice currencyId="USD">172.5
+				</convertedCurrentPrice>
+				<bidCount>6</bidCount>
+				<sellingState>Active</sellingState>
+				<timeLeft>P0DT0H18M7S</timeLeft>
+			</sellingStatus>
+			<listingInfo>
+				<bestOfferEnabled>false</bestOfferEnabled>
+				<buyItNowAvailable>false</buyItNowAvailable>
+				<startTime>2010-06-04T00:28:52.000Z</startTime>
+				<endTime>2010-06-10T21:28:33.000Z</endTime>
+				<listingType>Auction</listingType>
+				<gift>false</gift>
+			</listingInfo>
+			<condition>
+				<conditionId>3000</conditionId>
+				<conditionDisplayName>Used</conditionDisplayName>
+			</condition>
+		</item>
+		<item>
+			<itemId>220618603791</itemId>
+			<title>Apple iphone 3G 8 GB Black (AT&amp;T)</title>
+			<globalId>EBAY-US</globalId>
+			<primaryCategory>
+				<categoryId>3312</categoryId>
+				<categoryName>Cell Phones &amp; Smartphones</categoryName>
+			</primaryCategory>
+			<galleryURL>http://thumbs4.ebaystatic.com/pict/2206186037918080_1.jpg
+			</galleryURL>
+			<viewItemURL>http://cgi.ebay.com/Apple-iphone-3G-8-GB-Black-AT-T-/220618603791?cmd=ViewItem&amp;pt=Cell_Phones&amp;hash=item335de4bd0f
+			</viewItemURL>
+			<productId type="ReferenceID">71354345</productId>
+			<paymentMethod>PayPal</paymentMethod>
+			<autoPay>false</autoPay>
+			<postalCode>93727</postalCode>
+			<location>Fresno,CA,USA</location>
+			<country>US</country>
+			<shippingInfo>
+				<shippingServiceCost currencyId="USD">10.0
+				</shippingServiceCost>
+				<shippingType>Flat</shippingType>
+				<shipToLocations>US</shipToLocations>
+			</shippingInfo>
+			<sellingStatus>
+				<currentPrice currencyId="USD">152.5</currentPrice>
+				<convertedCurrentPrice currencyId="USD">152.5
+				</convertedCurrentPrice>
+				<bidCount>3</bidCount>
+				<sellingState>Active</sellingState>
+				<timeLeft>P0DT2H50M16S</timeLeft>
+			</sellingStatus>
+			<listingInfo>
+				<bestOfferEnabled>false</bestOfferEnabled>
+				<buyItNowAvailable>false</buyItNowAvailable>
+				<startTime>2010-06-08T00:00:42.000Z</startTime>
+				<endTime>2010-06-11T00:00:42.000Z</endTime>
+				<listingType>Auction</listingType>
+				<gift>false</gift>
+			</listingInfo>
+			<condition>
+				<conditionId>3000</conditionId>
+				<conditionDisplayName>Used</conditionDisplayName>
+			</condition>
+		</item>
+		<item>
+			<itemId>260616253093</itemId>
+			<title>Apple iphone 3G 8 GB Black (AT&amp;T)</title>
+			<globalId>EBAY-US</globalId>
+			<primaryCategory>
+				<categoryId>3312</categoryId>
+				<categoryName>Cell Phones &amp; Smartphones</categoryName>
+			</primaryCategory>
+			<galleryURL>http://thumbs2.ebaystatic.com/pict/2606162530938080_1.jpg
+			</galleryURL>
+			<viewItemURL>http://cgi.ebay.com/Apple-iphone-3G-8-GB-Black-AT-T-/260616253093?cmd=ViewItem&amp;pt=Cell_Phones&amp;hash=item3cadf06ea5
+			</viewItemURL>
+			<productId type="ReferenceID">71354345</productId>
+			<paymentMethod>PayPal</paymentMethod>
+			<autoPay>false</autoPay>
+			<postalCode>78228</postalCode>
+			<location>San Antonio,TX,USA</location>
+			<country>US</country>
+			<shippingInfo>
+				<shippingServiceCost currencyId="USD">4.95
+				</shippingServiceCost>
+				<shippingType>Flat</shippingType>
+				<shipToLocations>US</shipToLocations>
+			</shippingInfo>
+			<sellingStatus>
+				<currentPrice currencyId="USD">61.0</currentPrice>
+				<convertedCurrentPrice currencyId="USD">61.0
+				</convertedCurrentPrice>
+				<bidCount>11</bidCount>
+				<sellingState>Active</sellingState>
+				<timeLeft>P0DT2H50M45S</timeLeft>
+			</sellingStatus>
+			<listingInfo>
+				<bestOfferEnabled>false</bestOfferEnabled>
+				<buyItNowAvailable>false</buyItNowAvailable>
+				<startTime>2010-06-08T00:01:11.000Z</startTime>
+				<endTime>2010-06-11T00:01:11.000Z</endTime>
+				<listingType>Auction</listingType>
+				<gift>false</gift>
+			</listingInfo>
+			<condition>
+				<conditionId>3000</conditionId>
+				<conditionDisplayName>Used</conditionDisplayName>
+			</condition>
+		</item>
+	</searchResult>
+	<paginationOutput>
+		<pageNumber>1</pageNumber>
+		<entriesPerPage>30</entriesPerPage>
+		<totalPages>15433</totalPages>
+		<totalEntries>462979</totalEntries>
+	</paginationOutput>
+</findItemsByKeywordsResponse>
