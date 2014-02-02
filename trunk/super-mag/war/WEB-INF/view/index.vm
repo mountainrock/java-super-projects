@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator"
+content="" />
+<title>Free java based online services</title>
+</head>
+<body>
+<div style="float:left">
+ <img src="/static/images/ae_gwt_java.png" width="600"/>
+ </div>
+<div  >
+<h1>Welcome to the world of services! #parse("common/beta.vm")</h1>
+</div>
+
+ The following RESTful(Spring 3.0) services are powered by Google App Engine :
+ 
+<br/>
+<font size="5">
+ <ul>
+   <li><a href="/pdf2text"> Free Pdf to Text conversion </a></li>
+   <li><a href="/yuml/[Customer][Address],[Group]"> Yuml to Java code generator </a></li>
+   <li><a href="/mail"> Send e-mail with zero config or mail account online </a></li>
+   <li><a href="/shout"> Shout </a></li>
+   <li><a href="/html2Xhtml"> Html 2 Xhtml Online</a></li>
+   <li><a href="/proxy"> HTTP Proxy</a></li>
+   <li><a href="/doc2pdf"> Doc 2 Pdf online</a></li>
+    <li><a href="/quote/random"> Quotes </a>(Add it to <a href="http://www.google.com/ig/adde?moduleurl=hosting.gmodules.com/ig/gadgets/file/116227824342427869913/random-quotes.xml&source=imag">igoogle</a>)</li>
+    <li><a href="/static/applet/console.html"> DOS like console using applet</a>(Add it to <a href="http://www.google.com/ig/adde?hl=en&moduleurl=http://hosting.gmodules.com/ig/gadgets/file/116227824342427869913/web-console.xml&source=imag">igoogle</a>)</li>
+     <li><a href="/file/view"> File uploader</a></li>
+     <li><a href="/j2o"> Java 2 Objective C convertor</a></li>
+     <li><a href="/static/cruiser/index.html"> Cruiser <span style="font-size:12px">(Simple tabbed brower using jquery/tabs/xml parsing/cookie storage -- all client side)</font></a></li>
+     <li><a href="/static/breathsync/index.html"> Breath Sync <span style="font-size:12px">(Breathing exercises for relaxing your brain)</font></a></li>
+ </ul>
+ </font>
+ <br/>
+ 
+</div>
+
+</body>
+</html>

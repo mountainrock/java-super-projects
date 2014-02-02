@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+
+	<bean id="applicationResourcePropertyConfig"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>WEB-INF/application.properties</value>
+				<value>WEB-INF/message.properties</value>
+			</list>
+		</property>
+		<property name="searchSystemEnvironment" value="true" />
+	</bean>
+
+	<!--  VIEW config -->
+
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basename">
+			<value>messages</value>
+		</property>
+	</bean>
+
+	<!-- VELOCITY CONFIG -->
+
+
+	<bean id="velocityConfig"
+		class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
+
+		<property name="velocityPropertiesMap">
+			<map>
+				<entry key="cctMacro.resource.loader.class"
+					value="org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader" />
+				<entry key="velocimacro.library" value="macro/spring-2.5.1.vm,macro/common.vm" />
+				<entry key="output.encoding" value="UTF-8" />
+				<entry key="runtime.log.invalid.references" value="true" />
+			</map>
+		</property>
+
+		<property name="resourceLoaderPath"
+			value="/WEB-INF/view/" />
+	</bean>
+
+	<bean id="velocityEngine"
+		class="org.springframework.ui.velocity.VelocityEngineFactoryBean">
+		<property name="resourceLoaderPath"
+			value="/WEB-INF/view/" />
+	</bean>
+
+	<bean id="velocityLayoutViewResolver"
+		class="org.springframework.web.servlet.view.velocity.VelocityViewResolver">
+		<!-- property name="cache" value="true"/ -->
+		<property name="suffix" value=".vm" />
+		<property name="exposeSpringMacroHelpers" value="true" />
+		<property name="exposeRequestAttributes" value="true" />
+		<property name="dateToolAttribute" value="dateTool" />
+		<!-- property name="toolboxConfigLocation" value="/WEB-INF/toolbox.xml" / -->
+	</bean>
+</beans>

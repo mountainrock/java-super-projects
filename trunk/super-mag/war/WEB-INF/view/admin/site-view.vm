@@ -1,0 +1,55 @@
+<h1>Site Administration</h1>
+	
+<br/>
+
+<div id="body_right" style="padding-left:-100px">
+ <table>
+   <tr style="background:lightgrey">
+     <th>Host name</th>
+     <th>Mandatory ebay Keyword</th>
+     <th>Ebay url</th>
+     <th>Alias (comma separated)</th>
+     <th>Title</th>
+   </tr>
+#if($sites)
+#foreach($site in $sites)
+	      <form method="post" action="/admin/site/edit/$!site.siteId.id">
+      <tr>
+        <td>
+	        <input type="text" name="hostName" value="$escapeTool.escapeHtml( $!site.hostName)" size="20"/> 
+        </td>
+        <td>
+	        <input type="text" name="keyword" value="$!site.keyword"/>
+        </td>
+        <td>
+        <textarea cols="60" rows="5" name="ebayUrl">$!site.ebayUrl</textarea>
+        </td>
+        <td>
+	        <input type="text" name="alias" value="$escapeTool.escapeHtml($!site.alias)"/>
+        </td>
+        <td>
+	        <input type="text"  name="title" value="$!site.title"/>
+        </td>
+	   </tr>
+	       </form>  
+#end
+#end
+<form method="post" action="/admin/site/add-submit"> 
+ 		<tr> 
+	    	 <td> <input  type="text" name="hostName" value="" /></td> 
+	    	  <td>
+	        <input type="text" name="keyword" value="$!site.keyword"/>
+        </td>
+      <td>
+        <textarea cols="60" rows="5" name="ebayUrl">$!site.ebayUrl</textarea>
+      </td>
+			 		     <td> <input  type="text" name="alias" value="" /></td> 
+		 	     <td> <input  type="text" name="title" value="" /></td>
+	   		   <td colspan="2">
+          				<input type="submit" name="add site" value="Add site" ></input>
+          				<a href="/admin/site">refresh</a>
+     	 </td>
+ </tr>
+</form>
+       </table>
+</div>

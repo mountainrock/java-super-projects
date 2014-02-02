@@ -1,0 +1,38 @@
+##  
+## Velocity variables: 
+##  debugJquery - Set this to false before deploying to stage/production
+##  useJquery - The screens which use jquery should set this to true. 
+##  module - The javascript corresponding to the module is added based on convention.
+##  modulePath - The relative directory path for module.  
+##
+
+#set ($springXhtmlCompliant = true)
+#set($debugJquery = "false")
+
+<link href="/common/css/common.css" rel="stylesheet" type="text/css" />
+<link href="/common/css/date_input.css" rel="stylesheet" type="text/css" />
+<link href="/common/css/print.css" media="print" rel="stylesheet" type="text/css"/>
+
+
+#if($useJquery == "true")
+		<script type="text/javascript" src="/scripts/jquery-1.3.1.min.js"></script>
+		<script type="text/javascript" src="/scripts/jquery.date_input.js"></script>
+		<script type="text/javascript" src="/scripts/jquery.selso.js"></script>
+		<script type="text/javascript" src="/scripts/jquery-ui-personalized-1.6rc4.min.js"></script>
+		<script type="text/javascript" src="/scripts/jquery.debug.js"></script>		
+#end
+
+#if($debugJquery == "false")
+<script type="text/javascript">		
+ 	DEBUG =false;
+</script>
+#end
+
+
+		
+#if($!module)		
+		<script type="text/javascript" src="/scripts/$!{modulePath}/$!{module}.js"></script>
+		<link href="/common/css/$!{modulePath}/$!{module}.css" rel="stylesheet" type="text/css"/> 		
+#end
+
+

@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>#if($!title)$!title#else$!defaultTitle#end
+</title>
+
+</head>
+
+<body id="gateway">
+<img src="/static/images/logo-beta.jpg"/>
+<div id="header" style="float:right">
+	<h1><img alt="J ShoutBox" src="static/images/shout.gif" width="240" height="220"/></h1>
+</div> 
+
+## CONTENT SECTION HERE
+<div id="content">
+$!screen_content
+</div>
+## /CONTENT SECTION
+<div id="footer" style="float:right">
+	The Java[Velocity,Spring,JDO] shoutbox...<br/>
+		By : sandeep.maloth@@@@gmail.com	
+		<br/>
+<a href="/"> home</a>
+</div>
+
+
+</body>
+</html>
+
+
+

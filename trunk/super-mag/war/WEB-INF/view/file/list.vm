@@ -1,0 +1,61 @@
+<div align="center">
+<br/>
+<font color="green"><b>$!message </b> </font>
+
+<br/>
+<div >
+   <table width="100%">
+   <tr style="background:lightgrey">
+     <th>Id</th>
+     <th>Name</th>
+     <th>Author</th>
+     <th>Rating</th>
+     <th>Users Rated</th>
+     <th>Ips</th>
+   </tr>
+#if($files)
+#foreach($file in $files)
+      <tr>
+	      <form method="post" action="/file/edit">
+        <td>
+	        <a href="/file/$!file.id"> $!file.id</a> 
+	        <input type="hidden" size="1" name="id" value="$!file.id"/>
+        </td>
+        <td>
+	        $escapeTool.escapeHtml($!file.name)
+        </td>
+        <td>
+	        $!file.author
+        </td>
+        <td>
+	        $!file.rating
+        </td>
+        <td>
+	        $!file.usersRated
+        </td>
+         <td>
+	        $!file.ips
+        </td>
+	       </form>  
+	   </tr>
+#end
+#end
+  	<tr>
+	   </tr>
+	  </table>
+</div>
+<br/>
+
+<div >
+<a href="#" onclick="document.getElementById('usage').style.display= document.getElementById('usage').style.display == 'block' ? 'none' : 'block';"/>Usage</a>
+<a href="/file/view"> Upload</a>
+<a href="/"> Home</a>
+
+<div style="float:none">
+ <ul style="display:none;" id="usage">
+ 	<li> Add a file and view it using /file/{id}  </li>
+ </ul>
+ </div>
+ 
+</div>
+</div>

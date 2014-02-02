@@ -1,0 +1,74 @@
+<div align="center">
+<br/>
+<font color="red"><b>$!error </b> </font>
+<font color="red"><b>$!message </b> </font>
+
+<br/>
+<div >
+   <table>
+   <tr style="background:lightgrey">
+     <th>Id</th>
+     <th>User</th>
+     <th>Password</th>
+     <th>Email</th>
+     <th>Save</th>
+   </tr>
+#if($users)
+#foreach($user in $users)
+	      <form method="post" action="/user/edit">
+      <tr>
+        <td>
+	        <a href="/user/$!user.id"> $!user.id</a> 
+	        <input type="hidden" size="1" name="id" value="$!user.id"/>
+        </td>
+        <td>
+	        <input type="text" name="user" value="$escapeTool.escapeHtml($!user.name)" size="80"/> 
+        </td>
+        <td>
+	        <input type="password" name="password" value="$escapeTool.escapeHtml($!user.password)"/>
+        </td>
+        <td>
+	        <input type="text"  name="email" value="$!user.email"/>
+        </td>
+        <td>
+	     	<input name="submit" type="submit" value="Edit"/>
+	    </td>
+	   </tr>
+	       </form>  
+#end
+#end
+	      <form method="post" action="/user/add">
+  	<tr>
+        <td>
+	        &nbsp;
+        </td>
+        <td>
+	        <input type="text" name="name" size="80"/> 
+        </td>
+        <td>
+	        <input type="text" name="password"/>
+        </td>
+        <td>
+	        <input type="text" name="email" />
+        </td>
+        <td>
+	     	<input name="submit" type="submit" value="Add"/>
+	    </td>
+	   </tr>
+	       </form>  
+	  </table>
+</div>
+<br/>
+
+<div >
+<a href="#" onclick="document.getElementById('usage').style.display= document.getElementById('usage').style.display == 'block' ? 'none' : 'block';"/>Usage</a>
+<div style="float:none">
+ <ul style="display:none;" id="usage">
+ 	<li>1. Add a user and view it using /user/{id}  </li>
+ </ul>
+ </div>
+ <br/>
+ 
+<a href="/"> home</a>
+</div>
+</div>
