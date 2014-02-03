@@ -40,10 +40,9 @@ a:hover, a:visited hover
 /*------------------------------------------------header--------------------*/
 #header{
 	background:url(images/header.gif) 0 0 no-repeat;
-	width:942px;
+	width:80%;
 	height:93px;
 	margin:0 auto;
-	padding:0 5px 0 34px;
 }
 #header ul.topLink{
 	width:105px;
@@ -119,8 +118,8 @@ a:hover, a:visited hover
 }
 #header p.topTxt{
 	display:block;
-	font:bold 18px Arial, Helvetica, sans-serif;
-	color:#C2C2C2;
+	font:normal 38px sans-serif,Helvetica;
+	color:#FC6F6F;
 	background-color:none;
 	margin:36px 0 0 0;
 	float:left;
@@ -134,7 +133,7 @@ a:hover, a:visited hover
 
 /*------------------------------------------------body--------------------*/
 #body{
-	width:979px;
+	width:80%;
 	margin:0 auto;
 	background-color:#fff;
 	color:#6C6C6C;
@@ -162,8 +161,8 @@ a:hover, a:visited hover
 #body ul.nav li a{
 	display:block;
 	padding:0 15px;
-	font:bold 11px/34px Arial, Helvetica, sans-serif;
-	color:#1B1B1B;
+	font:normal 18px/34px Arial, Helvetica, sans-serif;
+	color:#878AB7;
 	background-color:inherit;
 	text-decoration:none;
 }
@@ -184,8 +183,9 @@ a:hover, a:visited hover
 /*------------------------------------------------left--------------------*/
 #body_bottom{
 clear:both;
-	width:912px;
-	padding:15px 26px 40px 33px;
+	width:90%;
+	padding:1px 26px 40px 33px;
+	height:450px;
 	
 }
 #body_bottom h2.welcome{
@@ -268,7 +268,7 @@ clear:both;
 #body_left
 {
 float:left;
-width:430px;
+width:90%;
 background:url(images/left_panel_bg.gif) right top no-repeat;
 padding:0px 200px 0px 0px;}
 

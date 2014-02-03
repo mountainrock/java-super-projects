@@ -4,21 +4,19 @@
 	<!-- 
 	<a href="index.php"><img src="images/logo.gif" alt="Tucantis" width="307" height="39" border="0" class="logo" title="Tucantis" /></a>
 	 -->
-	<p class="topTxt"><span>Super Magazine Services!</span></p>
+	<p class="topTxt"><font style="color:#F16A92">Super<font style="color:#87C7FB">Mag</font></font></p>
 	
 </div>		
 		<div id="body">
 			<p class="navLeft"></p>
 		
 		<ul class="nav">
-	<li><a href="index.php">Home</a></li>
+	<li><a href="/">Home</a></li>
 	<li><a href="it_systems.php">Services</a></li>
 	<li><a href="portfolio.php">Portfolio</a></li>
 	<li class="noImg"><a href="contact.php">Contact Us</a></li>
 </ul>		
 		<!--body start -->		
-
-			<p class="navRight"></p>
 
 			<!--left start -->
 			<div id="body_top">
