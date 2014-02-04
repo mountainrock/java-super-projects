@@ -6,3 +6,11 @@
             <a href="/login"> Login</a> |  <a href="/user/register"> Register</a>
          </div>
 </div>
+<div id="body">
+		<ul class="nav">
+			<li><a href="/">Home</a></li>
+			<li><a href="it_systems.php">Services</a></li>
+			<li><a href="portfolio.php">Portfolio</a></li>
+			<li class="noImg"><a href="contact.php">Contact Us</a></li>
+		</ul>	
+</div>

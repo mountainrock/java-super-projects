@@ -1,4 +1,4 @@
-package com.bri8.supermag.web.view;
+package com.bri8.supermag.web.common;
 
 import java.util.Collections;
 import java.util.HashMap;

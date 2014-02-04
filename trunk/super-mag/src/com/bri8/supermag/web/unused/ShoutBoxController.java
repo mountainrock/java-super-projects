@@ -1,4 +1,4 @@
-package com.bri8.supermag.web;
+package com.bri8.supermag.web.unused;
 
 import java.util.List;
 
@@ -13,8 +13,8 @@ import org.springframework.web.servlet.ModelAndView;
 import com.bri8.supermag.dao.ShoutDAO;
 import com.bri8.supermag.model.ShoutEntry;
 import com.bri8.supermag.util.Constants;
-import com.bri8.supermag.web.command.ShoutBoxCommand;
-import com.bri8.supermag.web.view.CommonVelocityLayoutView;
+import com.bri8.supermag.web.BaseController;
+import com.bri8.supermag.web.common.CommonVelocityLayoutView;
 
 @Controller("shoutBoxController")
 public class ShoutBoxController extends BaseController{

@@ -1,4 +1,4 @@
-package com.bri8.supermag.web.command;
+package com.bri8.supermag.web.unused;
 
 import javax.jdo.annotations.Persistent;
 
