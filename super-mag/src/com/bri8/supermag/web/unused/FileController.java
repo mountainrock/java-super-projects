@@ -1,4 +1,4 @@
-package com.bri8.supermag.web;
+package com.bri8.supermag.web.unused;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;

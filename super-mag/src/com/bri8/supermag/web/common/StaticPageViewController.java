@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.bri8.supermag.util.Constants;
-import com.bri8.supermag.web.view.CommonVelocityLayoutView;
 
 /**
  * Simple controller that takes as inputs a LayoutView and a content pagename and puts them together

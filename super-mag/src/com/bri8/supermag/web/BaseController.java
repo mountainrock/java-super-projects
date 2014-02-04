@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.bri8.supermag.util.Constants;
-import com.bri8.supermag.web.view.CommonVelocityLayoutView;
+import com.bri8.supermag.web.common.CommonVelocityLayoutView;
 
 public class BaseController {
 	@Autowired	protected CommonVelocityLayoutView layoutView;

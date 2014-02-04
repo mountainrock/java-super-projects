@@ -12,7 +12,7 @@
 #parse("layout/header.vm")
 
 ## CONTENT SECTION HERE
-<div id="content">
+<div class="content">
 	$!screen_content
 </div>
 ## /CONTENT SECTION

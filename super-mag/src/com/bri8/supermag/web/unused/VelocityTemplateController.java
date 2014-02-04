@@ -1,4 +1,4 @@
-package com.bri8.supermag.web.admin;
+package com.bri8.supermag.web.unused;
 
 import java.io.IOException;
 

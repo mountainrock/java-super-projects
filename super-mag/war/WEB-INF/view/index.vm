@@ -1,12 +1,5 @@
-<div id="body">
 		<p class="navLeft"></p>
 		
-		<ul class="nav">
-			<li><a href="/">Home</a></li>
-			<li><a href="it_systems.php">Services</a></li>
-			<li><a href="portfolio.php">Portfolio</a></li>
-			<li class="noImg"><a href="contact.php">Contact Us</a></li>
-		</ul>		
 		<!--body start -->		
 
 			<!--left start -->
@@ -35,4 +28,3 @@
 			<!--right end -->
 
 			<br class="spacer" />
-</div>
