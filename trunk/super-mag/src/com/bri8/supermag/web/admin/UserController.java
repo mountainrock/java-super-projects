@@ -20,7 +20,7 @@ import com.bri8.supermag.dao.UserDAO;
 import com.bri8.supermag.model.User;
 import com.bri8.supermag.util.ValidateUser;
 
-@Controller
+@Controller("userAdmin")
 public class UserController {
 
 	@Autowired

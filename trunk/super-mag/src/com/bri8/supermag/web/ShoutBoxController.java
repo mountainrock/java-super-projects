@@ -17,11 +17,8 @@ import com.bri8.supermag.web.command.ShoutBoxCommand;
 import com.bri8.supermag.web.view.CommonVelocityLayoutView;
 
 @Controller("shoutBoxController")
-public class ShoutBoxController {
+public class ShoutBoxController extends BaseController{
 	ShoutDAO shoutDAO = new ShoutDAO();
-
-	@Autowired
-	CommonVelocityLayoutView layoutView;
 	String viewName = "shout";
 
 	@RequestMapping(value = "/shout", method = RequestMethod.GET)
@@ -42,14 +39,5 @@ public class ShoutBoxController {
 		return mv;
 	}
 
-	protected ModelAndView getDefaultModelAndView(String viewName) {
-		ModelAndView mav = new ModelAndView();
-		layoutView.setUrl(viewName + ".vm");
-		layoutView.setLayoutUrl(Constants.VIEW_LAYOUT_LAYOUT_VM);
-		mav.setView(layoutView);
-		mav.addAllObjects(layoutView.getIncludes());
-		mav.addObject("title", viewName);
-		return mav;
-	}
 
 }

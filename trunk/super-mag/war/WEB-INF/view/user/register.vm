@@ -1,0 +1,41 @@
+<div align="center">
+<br/>
+<font color="red"><b>$!error </b> </font>
+<font color="red"><b>$!message </b> </font>
+
+<br/>
+<div >
+<form method="post" action="/user/create">
+   <table>
+   <tr style="background:lightgrey">
+     <th>Id</th>
+     <th>User</th>
+     <th>Password</th>
+     <th>Email</th>
+     <th>Save</th>
+   </tr>
+  
+  	<tr>
+        <td>
+	        &nbsp;
+        </td>
+        <td>
+	        <input type="text" name="name" size="80"/> 
+        </td>
+        <td>
+	        <input type="text" name="password"/>
+        </td>
+        <td>
+	        <input type="text" name="email" />
+        </td>
+        <td>
+	     	<input name="submit" type="submit" value="Add"/>
+	    </td>
+	   </tr>
+	      
+	  </table>
+</form>  
+</div>
+<br/>
+
+</div>

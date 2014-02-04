@@ -25,9 +25,11 @@ ul{
 	line-height:10px;
 }
 
-a:link, a:visited
-{color:#444444;
-font-family:Verdana, Arial, Helvetica, sans-serif;
+a {
+    color: #666666;
+    margin-right: 10px;
+    padding: 0 0 0 3px;
+    text-decoration: none;
 }
 
 a:hover, a:visited hover
@@ -54,16 +56,6 @@ a:hover, a:visited hover
 	float:left;
 	font-size:0;
 	line-height:0;
-}
-#header ul.topLink li a.subscribe{
-	display:block;
-	background:url(images/subscribe_bg.gif) 0 0 no-repeat;
-	width:60px;
-	height:16px;
-	margin:0 4px 0 0;
-}
-#header ul.topLink li a.subscribe:hover{
-	background:url(images/subscribe_bg_hover.gif) 0 0 no-repeat;
 }
 
 #header ul.topLink li a.home{
@@ -116,7 +108,7 @@ a:hover, a:visited hover
 	margin:21px 41px 0 0;
 	float:left;
 }
-#header p.topTxt{
+#header div.topTxt{
 	display:block;
 	font:normal 38px sans-serif,Helvetica;
 	color:#FC6F6F;
@@ -124,7 +116,7 @@ a:hover, a:visited hover
 	margin:36px 0 0 0;
 	float:left;
 }
-#header p.topTxt span{
+#header div.topTxt span{
 	color:#000;
 	background-color:none;
 	padding:0 3px 0 3px;
