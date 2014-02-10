@@ -26,6 +26,11 @@ import com.bri8.supermag.util.ValidateUser;
 public class UserController extends BaseController{
 	@Autowired UserDAO userDAO;
 	
+	@RequestMapping(value = { "/user/login" }, method = RequestMethod.GET)
+	protected ModelAndView showLogin() throws Exception {
+		return getDefaultModelAndView("user/login");
+	}
+	
 	@RequestMapping(value = { "/user/register" }, method = RequestMethod.GET)
 	protected ModelAndView show() throws Exception {
 		return getDefaultModelAndView("user/register");
@@ -33,10 +38,9 @@ public class UserController extends BaseController{
 	
 	@RequestMapping(value = { "/user/create" }, method = RequestMethod.POST)
 	public ModelAndView add(User user) {
-
 		user.setDate(new Date());
 		userDAO.create(user);
-		ModelAndView mv = new ModelAndView("forward:/");
+		ModelAndView mv = getDefaultModelAndView("user/register");
 		mv.addObject("message", "Added!!");
 		return mv;
 	}

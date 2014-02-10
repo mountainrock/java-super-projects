@@ -11,3 +11,18 @@ Technology stack
 1. Velocity/Spring MVC/Spring/ Google JPA/GAE
 2. velocity templates under war/web-inf/view
 
+
+Data Model
+----------
+1. User 
+     email, role(publisher/subscriber/admin), password, personal details
+2. Magazine
+	 name, file content, filetype(pdf),
+	 publishing company, description, category, age rating, keywords, 
+	 webUrl, blockCountries(list), countryPublishedFrom, 
+	 pricePerIssue, subscription, language, datePublished,
+	 dateToGoLive, dateUploaded, ipAddress, googleStorageId
+	 
+3. Subscription
+	 type, frequency(weekly, monthly..), subscriptionPrice, noOfIssues, TODO:
+
