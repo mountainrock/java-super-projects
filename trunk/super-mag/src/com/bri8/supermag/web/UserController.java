@@ -31,6 +31,26 @@ public class UserController extends BaseController{
 		return getDefaultModelAndView("user/login");
 	}
 	
+	@RequestMapping(value = { "/user/doLogin" }, method = RequestMethod.POST)
+	public ModelAndView login(User user, HttpServletRequest request) {
+		User loggedUser = userDAO.readByName(user.getName());
+		if(loggedUser==null){
+			loggedUser = userDAO.readByEmail(user.getEmail());
+		}
+		ModelAndView mv = getDefaultModelAndView("user/login");
+		if(loggedUser!=null && loggedUser.getPassword().equals(loggedUser.getPassword())){
+			mv.addObject("message", "logged in!!");
+			mv = getDefaultModelAndView("user/dashboard");
+			request.getSession(true).setAttribute("user", loggedUser);
+		}else{
+			mv.addObject("error", "failed log in!!");
+		}
+		
+		
+		
+		return mv;
+	}
+	
 	@RequestMapping(value = { "/user/register" }, method = RequestMethod.GET)
 	protected ModelAndView show() throws Exception {
 		return getDefaultModelAndView("user/register");
@@ -45,5 +65,9 @@ public class UserController extends BaseController{
 		return mv;
 	}
 
+	@RequestMapping(value = { "/user/dashboard" }, method = RequestMethod.GET)
+	protected ModelAndView showDashboard() throws Exception {
+		return getDefaultModelAndView("user/dashboard");
+	}
 
 }
