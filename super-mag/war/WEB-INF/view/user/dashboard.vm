@@ -1,0 +1,27 @@
+$!{user}
+
+<div style="width:100%" >
+<br/>
+<form method="post" action="/user/dashboard">
+<br/>
+   <table align="center">
+   	<tr>
+   		<th>Publisher Dashboard</th>
+   	</tr>
+   	<tr>
+   		<th>Add Magazine</th>
+   	</tr>
+   	<tr>
+   	  <th>&nbsp;</th>
+      <td>
+	     	<input name="submit" type="submit" value="Go"/>
+	    </td>
+   </tr>
+  
+	      
+	  </table>
+</form>  
+</div>
+<br/>
+
+</div>

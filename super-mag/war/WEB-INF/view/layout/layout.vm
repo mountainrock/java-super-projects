@@ -13,6 +13,9 @@
 
 ## CONTENT SECTION HERE
 <div class="content">
+	<br/>
+	<font color="red"><b>$!error </b> </font><font color="green"><b>$!message </b> </font>
+
 	$!screen_content
 </div>
 ## /CONTENT SECTION
