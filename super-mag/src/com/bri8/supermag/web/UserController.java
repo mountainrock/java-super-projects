@@ -70,4 +70,9 @@ public class UserController extends BaseController{
 		return getDefaultModelAndView("user/dashboard");
 	}
 
+	@RequestMapping(value = { "/user/logout" }, method = RequestMethod.GET)
+	protected ModelAndView logout(HttpServletRequest request) throws Exception {
+		request.getSession(true).removeAttribute("user");
+		return getDefaultModelAndView("user/login");
+	}
 }
