@@ -1,27 +1,41 @@
-$!{user}
 
-<div style="width:100%" >
+<div style="width:100%;height:550px" >
 <br/>
-<form method="post" action="/user/dashboard">
-<br/>
-   <table align="center">
+
+<table align="left" style="margin:14px">
    	<tr>
    		<th>Publisher Dashboard</th>
    	</tr>
-   	<tr>
-   		<th>Add Magazine</th>
-   	</tr>
-   	<tr>
-   	  <th>&nbsp;</th>
-      <td>
-	     	<input name="submit" type="submit" value="Go"/>
-	    </td>
-   </tr>
-  
-	      
-	  </table>
-</form>  
-</div>
+</table>
+<br/>
+<br/>
+
+<table align="left">
+	<tr>
+	<td>
+		<div class="pub_homeBox">
+			<a>Add Magazine</a>
+		</div>
+	</td>
+	<td>
+		<div class="pub_homeBox">
+			<a>Manage Magazines</a>
+		</div>
+	</td>
+	</tr>
+	<tr>
+		<td>
+			<div class="pub_homeBox">
+				<a>Sales report</a>
+			</div>
+		</td>
+		<td>
+			<div class="pub_homeBox">
+				<a>Payment Details</a>
+			</div>
+		</td>
+	</tr>
+</table>
 <br/>
 
 </div>
