@@ -634,3 +634,13 @@ font-weight:normal;
 height:18px;
 text-align:right;
 }
+
+.pub_homeBox {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #C7C7C7;
+    float: left;
+    height: 165px;
+    margin: 10px 25px;
+    text-align: center;
+    width: 160px;
+}
