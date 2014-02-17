@@ -14,7 +14,7 @@
 	<tr>
 	<td>
 		<div class="pub_homeBox">
-			<a>Add Magazine</a>
+			<a href="/user/magazine/showAdd">Add Magazine</a>
 		</div>
 	</td>
 	<td>

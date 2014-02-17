@@ -46,8 +46,6 @@ public class UserController extends BaseController{
 			mv.addObject("error", "failed log in!!");
 		}
 		
-		
-		
 		return mv;
 	}
 	
@@ -70,6 +68,11 @@ public class UserController extends BaseController{
 		return getDefaultModelAndView("user/dashboard");
 	}
 
+	@RequestMapping(value = { "/user/magazine/showAdd" }, method = RequestMethod.GET)
+	protected ModelAndView showAddMagazine() throws Exception {
+		return getDefaultModelAndView("user/magazine/showAdd");
+	}
+	
 	@RequestMapping(value = { "/user/logout" }, method = RequestMethod.GET)
 	protected ModelAndView logout(HttpServletRequest request) throws Exception {
 		request.getSession(true).removeAttribute("user");
