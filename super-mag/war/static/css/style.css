@@ -13,6 +13,7 @@ body{
     color: #6C6C6C;
     margin: 0 auto;
     width: 80%;
+    height:600px;
 
 }
 div, h1, h2, h3, h4, p, form, label, input, textarea, img, span{
