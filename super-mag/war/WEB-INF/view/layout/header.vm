@@ -11,7 +11,7 @@
 <div id="body">
 		<ul class="nav">
 			<li><a href="/">Home</a></li>
-			<li><a href="it_systems.php">Services</a></li>
-			<li class="noImg"><a href="contact.php">Contact Us</a></li>
+			<li><a href="/service/main">Services</a></li>
+			<li class="noImg"><a href="/contact">Contact Us</a></li>
 		</ul>	
 </div>
