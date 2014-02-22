@@ -16,6 +16,12 @@ body{
     height:600px;
 
 }
+.error{
+	border:1px solid #F9A6B1; padding:10px; background-color: #F9F2F3;width:50%
+}
+.message{
+	border:1px solid #BDDCBD; padding:10px; background-color: #F2F9F2;width:50%
+}
 div, h1, h2, h3, h4, p, form, label, input, textarea, img, span{
 	margin:0; padding:0;
 }

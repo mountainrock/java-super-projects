@@ -221,8 +221,8 @@ public class User extends BaseModel{
 
 
 	@Override
-		public String toString() {
-			return ToStringBuilder.reflectionToString(this);
-		}
+	public String toString() {
+		return ToStringBuilder.reflectionToString(this);
+	}
 
 }

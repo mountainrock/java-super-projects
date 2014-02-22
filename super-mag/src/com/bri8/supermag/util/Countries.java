@@ -4,7 +4,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * The countries are populated from BMC DB or CCT specific _countries data set.
+ * The countries are populated from  countries data set.
  * 
  */
 public class Countries {

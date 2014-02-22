@@ -1,5 +1,0 @@
-#if($files)
-#foreach($file in $files)
-$!file.id
-#end
-#end

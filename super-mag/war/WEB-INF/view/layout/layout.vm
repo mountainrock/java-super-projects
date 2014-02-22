@@ -12,25 +12,25 @@
 #parse("layout/header.vm")
 
 ## CONTENT SECTION HERE
-<div class="content">
+<div class="content" style="float:left;margin-left:10%">
+<fieldset>
 #if($!error)
-	<div style="margin-left:10%;float:left;border:1px solid red; padding:10px;width:50%"> 
+	<div class="error" style="margin-left:10%;"> 
 		<font color="red">$!error </font>
 	</div>
 #end
 #if($!message)
-	<div style="margin-left:10%;float:left;border:1px solid green; padding:10px;width:50%"> 
+	<div class="message" style="margin-left:10%;"> 
 		<font color="green">$!message  </font>
 	</div>
 #end
 <br/>
-<fieldset>
 	$!screen_content
 </fieldset>
 </div>
 ## /CONTENT SECTION
 
-<div id="footer" style="font-size:10px;width:80%">
+<div id="footer" style="font-size:10px;width:80%;float:left;margin-left:10%">
 	<br/>
 		Powered by Bri8	
 		<br/>
