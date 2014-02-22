@@ -4,70 +4,34 @@ import java.util.List;
 
 import javax.jdo.PersistenceManager;
 
+import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Component;
 
 import com.bri8.supermag.model.User;
-import com.google.appengine.api.datastore.Key;
-import com.google.appengine.api.datastore.KeyFactory;
 
 @Component
-public class UserDAO {
+public class UserDAO extends BaseDAO<User> {
 
 	private static Log logger = LogFactory.getLog(UserDAO.class);
 
-	public void create(User user) {
-
-		PersistenceManager pm = PMF.get().getPersistenceManager();
-		try {
-			pm.makePersistent(user);
-		} finally {
-			pm.close();
-		}
-	}
-
 	public void update(User user) {
 
-		PersistenceManager pm = PMF.get().getPersistenceManager();
+		User storedUser = read(user.getUserId(), User.class);
 		try {
-			User storedUser = read(user.getId(), pm);
-			storedUser.setName(user.getName());
-			storedUser.setPassword(user.getPassword());
-			// pm.makePersistent(quote);
-		} finally {
-			pm.close();
+			BeanUtils.copyProperties(storedUser, user);
+		} catch (Exception e) {
+			throw new RuntimeException(e);
 		}
+		super.update(user, User.class);
 	}
 
-	private User read(Long id, PersistenceManager pm) {
-		Key k = KeyFactory.createKey(User.class.getSimpleName(), id);
-		User u = pm.getObjectById(User.class, k);
-		return u;
-	}
 
-	public User read(Long id) {
+	public User readByName(String userName) {
 		PersistenceManager pm = PMF.get().getPersistenceManager();
 		try {
-			return read(id, pm);
-		} finally {
-			pm.close();
-		}
-	}
-
-	public void delete(Long id) {
-		PersistenceManager pm = PMF.get().getPersistenceManager();
-		try {
-			pm.deletePersistent(read(id, pm));
-		} finally {
-			pm.close();
-		}
-	}
-
-	public User readByName(String name) {
-		PersistenceManager pm = PMF.get().getPersistenceManager();
-		try {
-			javax.jdo.Query q = pm.newQuery("select from " + User.class.getName() + " where name=='"+name+"'");
+			javax.jdo.Query q = pm.newQuery("select from " + User.class.getName() + " where name=='" + userName + "'");
 			List<User> entries = (List<User>) q.execute();
 			logger.debug(entries);
 			return entries.get(0);
@@ -75,18 +39,19 @@ public class UserDAO {
 			pm.close();
 		}
 	}
-	
+
 	public User readByEmail(String email) {
 		PersistenceManager pm = PMF.get().getPersistenceManager();
 		try {
-			javax.jdo.Query q = pm.newQuery("select from " + User.class.getName() + " where email=='"+email+"' ");
+			javax.jdo.Query q = pm.newQuery("select from " + User.class.getName() + " where email=='" + email + "' ");
 			List<User> entries = (List<User>) q.execute();
 			logger.debug(entries);
-			return entries.get(0);
+			return entries.isEmpty() ? null : entries.get(0);
 		} finally {
 			pm.close();
 		}
 	}
+
 	public List<User> readAll() {
 		PersistenceManager pm = PMF.get().getPersistenceManager();
 		try {
