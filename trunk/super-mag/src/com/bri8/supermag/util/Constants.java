@@ -110,12 +110,6 @@ public interface Constants {
 
 	int SECOND = 1000;
 
-	String LUCENE_DIR = "lucene.dir";
-
-	String LUCENE_STORE_TYPE = "lucene.store.type";
-
-	String LUCENE_ANALYZER = "lucene.analyzer";
-
 	String MODIFIED = "modified";
 
 	String HTTP_WITH_SLASH = "http://";
@@ -133,8 +127,6 @@ public interface Constants {
 	String VIEW_LAYOUT_LAYOUT_VM = "layout/layout.vm";
 
 	int MAX_QUERY_RESULT = 1000;
-	
-	String EBAY_URL_DEFAULT = "http://svcs.ebay.com/services/search/FindingService/v1?OPERATION-NAME=findItemsByKeywords&SERVICE-VERSION=1.0.0&SECURITY-APPNAME=${appname}&GLOBAL-ID=EBAY-US&keywords=${keywords}&paginationInput.entriesPerPage=30";
-	
-	String LINE="------------------------------------";
+
+	String LINE = "------------------------------------";
 }
