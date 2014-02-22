@@ -1,5 +1,6 @@
-<div style="width:100%" >
+<div style="width:100%;float:left" >
 <br/>
+
 <form method="post" action="/user/doLogin">
 <br/>
    <table align="center">
@@ -23,6 +24,7 @@
 	      
 	  </table>
 </form>  
+
 </div>
 <br/>
 
