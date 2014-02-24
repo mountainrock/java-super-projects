@@ -14,12 +14,12 @@
 	<tr>
 	<td>
 		<div class="pub_homeBox">
-			<a href="/user/magazine/showAdd">Add Magazine</a>
+			<a href="/magazine/showAdd">Add Magazine</a>
 		</div>
 	</td>
 	<td>
 		<div class="pub_homeBox">
-			<a>Manage Magazines</a>
+			<a href="/magazine/list">Manage Magazines</a>
 		</div>
 	</td>
 	</tr>

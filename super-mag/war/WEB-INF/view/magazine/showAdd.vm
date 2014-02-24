@@ -1,10 +1,17 @@
 
 <div style="width:100%;height:550px" >
 <br/>
+<form method="post" action="/magazine/create">
 
 <table align="left" style="margin:14px">
    	<tr>
    		<th>Magazine Name</th> <td><input type="text" name="magazineName" size="20"/></td>
+   	</tr>
+   	 <tr>
+   		<th>Publishing Company</th> <td><input type="text" name="publishingCompany" size="20"/></td>
+   	</tr>
+   	 <tr>
+   		<th>Language</th> <td><input type="text" name="language" size="20"/></td>
    	</tr>
    	<tr>
       <td>
@@ -13,6 +20,7 @@
 	    </td>
    </tr>
 </table>
+</form>  
 <br/>
 <br/>
 

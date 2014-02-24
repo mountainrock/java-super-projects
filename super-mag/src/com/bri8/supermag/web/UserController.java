@@ -31,8 +31,7 @@ public class UserController extends BaseController{
 			mv = getDefaultModelAndView("user/dashboard");
 			request.getSession(true).setAttribute("user", loggedUser);
 		}else{
-			if(request.getSession()!=null)
-				request.getSession().invalidate();
+			invalidateSession(request);
 			
 			mv.addObject("error", "Failed log in!!");
 		}
@@ -59,14 +58,14 @@ public class UserController extends BaseController{
 		return getDefaultModelAndView("user/dashboard");
 	}
 
-	@RequestMapping(value = { "/user/magazine/showAdd" }, method = RequestMethod.GET)
-	protected ModelAndView showAddMagazine() throws Exception {
-		return getDefaultModelAndView("user/magazine/showAdd");
-	}
-	
 	@RequestMapping(value = { "/user/logout" }, method = RequestMethod.GET)
 	protected ModelAndView logout(HttpServletRequest request) throws Exception {
-		request.getSession(true).removeAttribute("user");
+		invalidateSession(request);
 		return getDefaultModelAndView("user/login");
+	}
+
+	private void invalidateSession(HttpServletRequest request) {
+		if(request.getSession()!=null)
+			request.getSession().invalidate();
 	}
 }
