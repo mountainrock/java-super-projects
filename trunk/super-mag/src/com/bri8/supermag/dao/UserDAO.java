@@ -7,11 +7,11 @@ import javax.jdo.PersistenceManager;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import com.bri8.supermag.model.User;
 
-@Component
+@Repository
 public class UserDAO extends BaseDAO<User> {
 
 	private static Log logger = LogFactory.getLog(UserDAO.class);

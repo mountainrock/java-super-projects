@@ -1,0 +1,26 @@
+
+<div style="width:100%;height:550px" >
+<br/>
+
+<table align="left" style="margin:14px">
+	<tr>
+   		<th>Magazine Name</th> 
+   		<th>Publishing Company</th>
+   		<th>Language</th> 
+   	</tr>
+ #foreach( $magazine in $magazines ) 
+   	<tr>
+   		<td><a> $magazine.magazineName</a></td>
+   		<td><a> $magazine.publishingCompany</a></td>
+   		<td><a> $magazine.language</a></td>
+   		<td><a href="">Upload Issue"</a></td>
+   		
+   	</tr>
+ #end
+</table>
+  
+<br/>
+<br/>
+
+
+</div>
