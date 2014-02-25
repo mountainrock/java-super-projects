@@ -14,7 +14,7 @@ import utils.WebDriverUtil;
 
 public class FuturePropertyParser {
 
-	private static final String URL = "http://www.futurepropertyauctions.co.uk/catalogue_text.asp";
+	private static final String URL = "http://www.--host--/catalogue_text.asp";
 	static String rowXpath = "/html/body/table[2]/tbody/tr/td/table/tbody/tr/td[3]/table[3]/tbody/tr[2]/td/table/tbody/tr[3]/td[2]/div/table/tbody/tr";
 	static String filterAddress = "glasgow";
 
