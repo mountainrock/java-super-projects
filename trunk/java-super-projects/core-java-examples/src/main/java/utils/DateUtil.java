@@ -40,4 +40,8 @@ public class DateUtil {
 		}
 		return dateFormatCache.get(pattern);
 	}
+  
+  public static String getDateAsFileName( ) {
+		return new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(new Date()).replaceAll("[://]", "_");
+	}
 }
