@@ -11,9 +11,9 @@
  #foreach( $magazine in $magazines ) 
    	<tr>
    		<td><a> $magazine.magazineName</a></td>
-   		<td><a> $magazine.publishingCompany</a></td>
-   		<td><a> $magazine.language</a></td>
-   		<td><a href="">Upload Issue"</a></td>
+   		<td><a> $!{magazine.publishingCompany}</a></td>
+   		<td><a> $!{magazine.language}</a></td>
+   		<td><a href="/magazine/showAddIssue/$magazine.magazineId">Upload Issue"</a></td>
    		
    	</tr>
  #end
