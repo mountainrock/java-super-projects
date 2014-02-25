@@ -1,5 +1,8 @@
 package com.bri8.supermag.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.PersistenceCapable;
@@ -33,6 +36,9 @@ public class Magazine extends BaseModel{
 	 @Persistent String   issuePrice12months;
 	 @Persistent String  magazineFrequency;
 	 @Persistent String  language;
+	 
+	 @Persistent(mappedBy = "magazine")
+	 List<Issue> issues= new ArrayList<Issue>();
 	 
 	public Long getMagazineId() {
 		return magazineId;
@@ -155,6 +161,12 @@ public class Magazine extends BaseModel{
 		this.language = language;
 	}
 	
+	public List<Issue> getIssues() {
+		return issues;
+	}
+	public void setIssues(List<Issue> issues) {
+		this.issues = issues;
+	}
 	@Override
 	public String toString() {
 		return ToStringBuilder.reflectionToString(this);

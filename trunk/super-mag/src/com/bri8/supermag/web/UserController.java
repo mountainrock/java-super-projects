@@ -1,8 +1,10 @@
 package com.bri8.supermag.web;
 
+import java.io.IOException;
 import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,13 +25,17 @@ public class UserController extends BaseController{
 	}
 	
 	@RequestMapping(value = { "/user/doLogin" }, method = RequestMethod.POST)
-	public ModelAndView login(User user, HttpServletRequest request) {
+	public ModelAndView login(User user, HttpServletRequest request, HttpServletResponse response) {
 		User loggedUser = userService.readByEmail(user.getEmail());
 		ModelAndView mv = getDefaultModelAndView("user/login");
 		if(loggedUser!=null && loggedUser.getPassword().equals(loggedUser.getPassword())){
 			mv.addObject("message", "logged in!!");
-			mv = getDefaultModelAndView("user/dashboard");
 			request.getSession(true).setAttribute("user", loggedUser);
+			try {
+				response.sendRedirect("/user/dashboard");
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
 		}else{
 			invalidateSession(request);
 			
