@@ -1,0 +1,391 @@
+Index: pom.xml
+===================================================================
+--- pom.xml	(revision 34)
++++ pom.xml	(working copy)
+@@ -167,8 +167,13 @@
+ 			</artifactId>
+ 			<version>${spring.version}</version>
+ 		</dependency>
++		<dependency>
++			<groupId>org.springframework</groupId>
++			<artifactId>org.springframework.asm
++			</artifactId>
++			<version>${spring.version}</version>
++		</dependency>
+ 
+-		
+ 		<dependency>
+ 			<groupId>com.thoughtworks.xstream</groupId>
+ 			<artifactId>xstream</artifactId>
+@@ -180,7 +185,7 @@
+ 		    <version>b7</version>
+ 		</dependency>
+ 
+-		
++
+ 		<dependency>
+ 		    <groupId>xerces</groupId>
+ 		    <artifactId>xerces</artifactId>
+Index: src/com/bri8/supermag/model/Issue.java
+===================================================================
+--- src/com/bri8/supermag/model/Issue.java	(revision 34)
++++ src/com/bri8/supermag/model/Issue.java	(working copy)
+@@ -2,18 +2,22 @@
+ 
+ import java.util.Date;
+ 
++import javax.jdo.annotations.IdGeneratorStrategy;
++import javax.jdo.annotations.IdentityType;
+ import javax.jdo.annotations.PersistenceCapable;
+ import javax.jdo.annotations.Persistent;
++import javax.jdo.annotations.PrimaryKey;
+ 
+ import org.apache.commons.lang.builder.ToStringBuilder;
+ 
+-@PersistenceCapable
++@PersistenceCapable(identityType = IdentityType.APPLICATION)
+ public class Issue extends BaseModel {
+-	@Persistent
++	 @PrimaryKey
++	 @Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
+ 	Long issueId;
+ 
+ 	@Persistent
+-	Magazine magazine;
++	Long magazineId;
+ 	@Persistent
+ 	String issueName;
+ 	@Persistent
+@@ -39,12 +43,12 @@
+ 		this.issueId = issueId;
+ 	}
+ 
+-	public Magazine getMagazine() {
+-		return magazine;
++	public Long getMagazineId() {
++		return magazineId;
+ 	}
+ 
+-	public void setMagazine(Magazine magazine) {
+-		this.magazine = magazine;
++	public void setMagazineId(Long magazineId) {
++		this.magazineId = magazineId;
+ 	}
+ 
+ 	public String getIssueName() {
+@@ -54,7 +58,7 @@
+ 	public void setIssueName(String issueName) {
+ 		this.issueName = issueName;
+ 	}
+- 
++
+ 	public String getDescription() {
+ 		return description;
+ 	}
+Index: src/com/bri8/supermag/model/Magazine.java
+===================================================================
+--- src/com/bri8/supermag/model/Magazine.java	(revision 34)
++++ src/com/bri8/supermag/model/Magazine.java	(working copy)
+@@ -1,8 +1,5 @@
+ package com.bri8.supermag.model;
+ 
+-import java.util.ArrayList;
+-import java.util.List;
+-
+ import javax.jdo.annotations.IdGeneratorStrategy;
+ import javax.jdo.annotations.IdentityType;
+ import javax.jdo.annotations.PersistenceCapable;
+@@ -16,7 +13,7 @@
+ 	 @PrimaryKey
+ 	 @Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
+ 	 Long magazineId;
+-	 
++
+ 	 @Persistent Long  userId;
+ 	 @Persistent String  magazineName;
+ 	 @Persistent String  publishingCompany;
+@@ -36,10 +33,7 @@
+ 	 @Persistent String   issuePrice12months;
+ 	 @Persistent String  magazineFrequency;
+ 	 @Persistent String  language;
+-	 
+-	 @Persistent(mappedBy = "magazine")
+-	 List<Issue> issues= new ArrayList<Issue>();
+-	 
++
+ 	public Long getMagazineId() {
+ 		return magazineId;
+ 	}
+@@ -160,13 +154,7 @@
+ 	public void setLanguage(String language) {
+ 		this.language = language;
+ 	}
+-	
+-	public List<Issue> getIssues() {
+-		return issues;
+-	}
+-	public void setIssues(List<Issue> issues) {
+-		this.issues = issues;
+-	}
++
+ 	@Override
+ 	public String toString() {
+ 		return ToStringBuilder.reflectionToString(this);
+Index: src/com/bri8/supermag/model/MagazineIssues.java
+===================================================================
+--- src/com/bri8/supermag/model/MagazineIssues.java	(revision 0)
++++ src/com/bri8/supermag/model/MagazineIssues.java	(working copy)
+@@ -0,0 +1,33 @@
++package com.bri8.supermag.model;
++
++import java.util.ArrayList;
++import java.util.List;
++
++import org.apache.commons.lang.builder.ReflectionToStringBuilder;
++
++public class MagazineIssues {
++
++	Magazine magazine;
++	List<Issue> issues = new ArrayList<Issue>();
++
++	public Magazine getMagazine() {
++		return magazine;
++	}
++
++	public void setMagazine(Magazine magazine) {
++		this.magazine = magazine;
++	}
++
++	public List<Issue> getIssues() {
++		return issues;
++	}
++
++	public void setIssues(List<Issue> issues) {
++		this.issues = issues;
++	}
++
++	@Override
++	public String toString() {
++		return ReflectionToStringBuilder.toString(this);
++	}
++}
+Index: src/com/bri8/supermag/service/MagazineService.java
+===================================================================
+--- src/com/bri8/supermag/service/MagazineService.java	(revision 34)
++++ src/com/bri8/supermag/service/MagazineService.java	(working copy)
+@@ -11,34 +11,40 @@
+ import com.bri8.supermag.dao.UserDAO;
+ import com.bri8.supermag.model.Issue;
+ import com.bri8.supermag.model.Magazine;
++import com.bri8.supermag.model.MagazineIssues;
+ 
+ @Component
+ public class MagazineService {
+ 
+-	@Autowired MagazineDAO magazineDao;
+-	@Autowired IssueDAO issueDao;
+-	@Autowired UserDAO userDao;
++	@Autowired
++	MagazineDAO magazineDao;
++	@Autowired
++	IssueDAO issueDao;
++	@Autowired
++	UserDAO userDao;
+ 
+ 	public void createMagazine(Magazine magazine) {
+-		 magazineDao.create(magazine);
++		magazineDao.create(magazine);
+ 	}
+ 
+-	public List<Magazine> listMagazine(Long userId, Boolean loadIssues) {
+-		if(userId!=null){
+-			 List<Magazine> magList = magazineDao.read(Magazine.class, "userId =="+ userId, " order by magazineId DESC", 10000);
+-			if(loadIssues){
+-				for (Magazine magazine : magList) {
+-					List<Issue> issues = issueDao.read(Issue.class, "magazineId == "+ magazine.getMagazineId(), "order by issueId DESC");
+-					magazine.getIssues().addAll(issues);
+-				}
++	public List<MagazineIssues> listMagazineIssues(Long userId) {
++		List<MagazineIssues> magazineIssuesList = new ArrayList<MagazineIssues>();
++		if (userId != null) {
++			List<Magazine> magList = magazineDao.read(Magazine.class, "userId ==" + userId, " order by magazineId DESC", 10000);
++			for (Magazine magazine : magList) {
++				MagazineIssues magazineIssues = new MagazineIssues();
++				List<Issue> issues = issueDao.read(Issue.class, "magazineId == " + magazine.getMagazineId(), "order by issueId DESC");
++				magazineIssues.setMagazine(magazine);
++				magazineIssues.setIssues(issues);
++				magazineIssuesList.add(magazineIssues);
+ 			}
++
+ 		}
+-		return new ArrayList<Magazine>();
++		return magazineIssuesList;
+ 	}
+-	
++
+ 	public void createIssue(Issue issue) {
+ 		issueDao.create(issue);
+ 	}
+ 
+-	
+ }
+Index: src/com/bri8/supermag/web/MagazineController.java
+===================================================================
+--- src/com/bri8/supermag/web/MagazineController.java	(revision 34)
++++ src/com/bri8/supermag/web/MagazineController.java	(working copy)
+@@ -13,25 +13,26 @@
+ 
+ import com.bri8.supermag.model.Issue;
+ import com.bri8.supermag.model.Magazine;
++import com.bri8.supermag.model.MagazineIssues;
+ import com.bri8.supermag.model.User;
+ import com.bri8.supermag.service.MagazineService;
+ 
+ @Controller("magazineController")
+ public class MagazineController extends BaseController{
+ 	@Autowired MagazineService magazineService;
+-	
++
+ 	@RequestMapping(value = { "/magazine/showAdd" }, method = RequestMethod.GET)
+ 	protected ModelAndView showAddMagazine() throws Exception {
+ 		return getDefaultModelAndView("magazine/showAdd");
+ 	}
+-	
++
+ 	@RequestMapping(value = { "/magazine/create" }, method = RequestMethod.POST)
+ 	public ModelAndView create(Magazine magazine, HttpServletRequest request) {
+-		
++
+ 		User user = (User) request.getSession().getAttribute("user");
+ 		magazine.setUserId(user.getUserId());
+ 		magazineService.createMagazine(magazine);
+-		
++
+ 		ModelAndView mv = getDefaultModelAndView("magazine/showAdd");
+ 		if(magazine!=null && magazine.getMagazineId()!=null){
+ 			mv.addObject("message", "magazine created sucessfully : "+ magazine.getMagazineId());
+@@ -39,27 +40,27 @@
+ 		}else{
+ 			mv.addObject("error", "Failed to create magazine!!");
+ 		}
+-		
++
+ 		return mv;
+ 	}
+-	
++
+ 	@RequestMapping(value = { "/magazine/list" }, method = RequestMethod.GET)
+ 	protected ModelAndView list(HttpServletRequest request) throws Exception {
+ 		User user = (User) request.getSession().getAttribute("user");
+-		List<Magazine> magazines = magazineService.listMagazine(user.getUserId(),true);
++		List<MagazineIssues> magazines = magazineService.listMagazineIssues(user.getUserId());
+ 		ModelAndView mv = getDefaultModelAndView("magazine/list");
+ 		mv.addObject("magazines", magazines);
+-		
++
+ 		return mv;
+ 	}
+-	
++
+ 	@RequestMapping(value = { "/magazine/showAddIssue/{magazineId}" }, method = RequestMethod.GET)
+ 	protected ModelAndView showAddIssue(@PathVariable("magazineId") Long magazineId) throws Exception {
+ 		ModelAndView mv = getDefaultModelAndView("magazine/issue/showAddIssue");
+ 		mv.addObject("magazineId", magazineId);
+ 		return mv;
+ 	}
+-	
++
+ 	@RequestMapping(value = { "/magazine/createIssue" }, method = RequestMethod.POST)
+ 	public ModelAndView createIssue(Issue issue, HttpServletRequest request) {
+ 		magazineService.createIssue(issue);
+@@ -70,8 +71,8 @@
+ 		}else{
+ 			mv.addObject("error", "Failed to create issue!!");
+ 		}
+-		
++
+ 		return mv;
+ 	}
+-	
++
+ }
+Index: war/WEB-INF/appengine-web.xml
+===================================================================
+--- war/WEB-INF/appengine-web.xml	(revision 34)
++++ war/WEB-INF/appengine-web.xml	(working copy)
+@@ -2,7 +2,7 @@
+ <appengine-web-app xmlns="http://appengine.google.com/ns/1.0">
+ 	<application>super-mag</application>
+ 	<version>1</version>
+-	
++	 <threadsafe>true</threadsafe>
+ 	<!-- Configure java.util.logging -->
+ 	<system-properties>
+ 		<property name="java.util.logging.config.file" value="WEB-INF/logging.properties"/>
+Index: war/WEB-INF/view/magazine/issue/showAddIssue.vm
+===================================================================
+--- war/WEB-INF/view/magazine/issue/showAddIssue.vm	(revision 34)
++++ war/WEB-INF/view/magazine/issue/showAddIssue.vm	(working copy)
+@@ -2,7 +2,7 @@
+ <div style="width:100%;height:550px" >
+ <br/>
+ <form method="post" action="/magazine/createIssue">
+-<input type="hidden" name="magazineId" size="20"/>
++<input type="hidden" name="magazineId" value="${magazineId}" size="20"/>
+ <table align="left" style="margin:14px">
+    	<tr>
+    		<th>Issue Name</th> <td><input type="text" name="issueName" size="20"/></td>
+@@ -13,7 +13,7 @@
+    	 <tr>
+    		<th>Publishing Date</th> <td><input type="text" name="publishingDate" size="20"/></td>
+    	</tr>
+-   	
++
+    	<tr>
+       <td>
+ 	     	<input name="addIssue" type="submit" value="Add Issue"/>
+@@ -21,7 +21,7 @@
+ 	    </td>
+    </tr>
+ </table>
+-</form>  
++</form>
+ <br/>
+ <br/>
+ 
+Index: war/WEB-INF/view/magazine/list.vm
+===================================================================
+--- war/WEB-INF/view/magazine/list.vm	(revision 34)
++++ war/WEB-INF/view/magazine/list.vm	(working copy)
+@@ -4,21 +4,22 @@
+ 
+ <table align="left" style="margin:14px">
+ 	<tr>
+-   		<th>Magazine Name</th> 
++   		<th>Magazine Name</th>
+    		<th>Publishing Company</th>
+-   		<th>Language</th> 
++   		<th>Language</th>
+    	</tr>
+- #foreach( $magazine in $magazines ) 
++ #foreach( $magazineIssue in $magazines )
+    	<tr>
+-   		<td><a> $magazine.magazineName</a></td>
+-   		<td><a> $!{magazine.publishingCompany}</a></td>
+-   		<td><a> $!{magazine.language}</a></td>
+-   		<td><a href="/magazine/showAddIssue/$magazine.magazineId">Upload Issue"</a></td>
+-   		
++   		<td><a> $!{magazineIssue.magazine.magazineName}</a></td>
++   		<td><a> $!{magazineIssue.magazine.publishingCompany}</a></td>
++   		<td><a> $!{magazineIssue.magazine.language}</a></td>
++   		<td><a> $!{magazineIssue.issues}</a></td>
++   		<td><a href="/magazine/showAddIssue/$magazineIssue.magazine.magazineId">Upload Issue</a></td>
++
+    	</tr>
+  #end
+ </table>
+-  
++
+ <br/>
+ <br/>
+ 
