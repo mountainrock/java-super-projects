@@ -173,7 +173,7 @@ Index: src/com/bri8/supermag/service/MagazineService.java
 ===================================================================
 --- src/com/bri8/supermag/service/MagazineService.java	(revision 34)
 +++ src/com/bri8/supermag/service/MagazineService.java	(working copy)
-@@ -11,34 +11,40 @@
+@@ -11,34 +11,46 @@
  import com.bri8.supermag.dao.UserDAO;
  import com.bri8.supermag.model.Issue;
  import com.bri8.supermag.model.Magazine;
@@ -228,23 +228,46 @@ Index: src/com/bri8/supermag/service/MagazineService.java
  	}
  
 -	
++	public void updateIssueBlobKey(Long issueId, String blobKey) {
++		Issue issue = issueDao.read(issueId, Issue.class);
++		issue.setBlobKey(blobKey);
++		issueDao.update(issue, Issue.class);
++	}
++
  }
 Index: src/com/bri8/supermag/web/MagazineController.java
 ===================================================================
 --- src/com/bri8/supermag/web/MagazineController.java	(revision 34)
 +++ src/com/bri8/supermag/web/MagazineController.java	(working copy)
-@@ -13,25 +13,26 @@
+@@ -1,8 +1,11 @@
+ package com.bri8.supermag.web;
+ 
++import java.io.IOException;
+ import java.util.List;
++import java.util.Map;
+ 
+ import javax.servlet.http.HttpServletRequest;
++import javax.servlet.http.HttpServletResponse;
+ 
+ import org.springframework.beans.factory.annotation.Autowired;
+ import org.springframework.stereotype.Controller;
+@@ -13,25 +16,31 @@
  
  import com.bri8.supermag.model.Issue;
  import com.bri8.supermag.model.Magazine;
 +import com.bri8.supermag.model.MagazineIssues;
  import com.bri8.supermag.model.User;
  import com.bri8.supermag.service.MagazineService;
++import com.google.appengine.api.blobstore.BlobKey;
++import com.google.appengine.api.blobstore.BlobstoreService;
++import com.google.appengine.api.blobstore.BlobstoreServiceFactory;
  
  @Controller("magazineController")
  public class MagazineController extends BaseController{
  	@Autowired MagazineService magazineService;
 -	
++	 private BlobstoreService blobstoreService = BlobstoreServiceFactory.getBlobstoreService();
++
 +
  	@RequestMapping(value = { "/magazine/showAdd" }, method = RequestMethod.GET)
  	protected ModelAndView showAddMagazine() throws Exception {
@@ -264,7 +287,7 @@ Index: src/com/bri8/supermag/web/MagazineController.java
  		ModelAndView mv = getDefaultModelAndView("magazine/showAdd");
  		if(magazine!=null && magazine.getMagazineId()!=null){
  			mv.addObject("message", "magazine created sucessfully : "+ magazine.getMagazineId());
-@@ -39,27 +40,27 @@
+@@ -39,39 +48,61 @@
  		}else{
  			mv.addObject("error", "Failed to create magazine!!");
  		}
@@ -296,9 +319,14 @@ Index: src/com/bri8/supermag/web/MagazineController.java
 -	
 +
  	@RequestMapping(value = { "/magazine/createIssue" }, method = RequestMethod.POST)
- 	public ModelAndView createIssue(Issue issue, HttpServletRequest request) {
+-	public ModelAndView createIssue(Issue issue, HttpServletRequest request) {
++	public ModelAndView createIssue(Issue issue, HttpServletRequest request, HttpServletResponse response) throws IOException {
  		magazineService.createIssue(issue);
-@@ -70,8 +71,8 @@
+ 		ModelAndView mv = getDefaultModelAndView("magazine/showAdd");
+ 		if(issue!=null && issue.getIssueId()!=null){
+ 			mv.addObject("message", "Issue created sucessfully : "+ issue.getIssueId());
+ 			mv.addObject("issue",issue);
++			response.sendRedirect(String.format("/magazine/showUploadIssue/%s/%s",issue.getMagazineId(),issue.getIssueId()));
  		}else{
  			mv.addObject("error", "Failed to create issue!!");
  		}
@@ -307,6 +335,27 @@ Index: src/com/bri8/supermag/web/MagazineController.java
  		return mv;
  	}
 -	
++
++	@RequestMapping(value = { "/magazine/showUploadIssue/{magazineId}/{issueId}" }, method = RequestMethod.GET)
++	protected ModelAndView showUploadIssue(@PathVariable("magazineId") Long magazineId, @PathVariable("issueId") Long issueId) throws Exception {
++		ModelAndView mv = getDefaultModelAndView("magazine/issue/showUploadIssue");
++		String uploadUrl = blobstoreService.createUploadUrl(String.format("/magazine/updateIssueBlobKey/%s/%s",magazineId,issueId));
++		mv.addObject("magazineId", magazineId);
++		mv.addObject("uploadIssueUrl", uploadUrl);
++
++		return mv;
++	}
++
++	@RequestMapping(value = { "/magazine/updateIssueBlobKey/{magazineId}/{issueId}" }, method = RequestMethod.GET)
++	protected ModelAndView updateIssueBlobKey(@PathVariable("magazineId") Long magazineId, @PathVariable("issueId") Long issueId, HttpServletRequest req) throws Exception {
++		ModelAndView mv = getDefaultModelAndView("magazine/list");
++		 Map<String, BlobKey> blobs = blobstoreService.getUploadedBlobs(req);
++        BlobKey blobKey = blobs.get("issueFile");
++		magazineService.updateIssueBlobKey(issueId, blobKey.getKeyString());
++		mv.addObject("message", "Issue uploaded sucessfully : "+ issueId +", "+blobKey.getKeyString());
++		mv.addObject("magazineId", magazineId);
++		return mv;
++	}
 +
  }
 Index: war/WEB-INF/appengine-web.xml
@@ -344,7 +393,7 @@ Index: war/WEB-INF/view/magazine/issue/showAddIssue.vm
     	<tr>
        <td>
  	     	<input name="addIssue" type="submit" value="Add Issue"/>
-@@ -21,7 +21,7 @@
+@@ -21,9 +21,9 @@
  	    </td>
     </tr>
  </table>
@@ -353,6 +402,41 @@ Index: war/WEB-INF/view/magazine/issue/showAddIssue.vm
  <br/>
  <br/>
  
+ 
+-</div>
+\ No newline at end of file
++</div>
+Index: war/WEB-INF/view/magazine/issue/showUploadIssue.vm
+===================================================================
+--- war/WEB-INF/view/magazine/issue/showUploadIssue.vm	(revision 0)
++++ war/WEB-INF/view/magazine/issue/showUploadIssue.vm	(working copy)
+@@ -0,0 +1,25 @@
++
++<div style="width:100%;height:550px" >
++<br/>
++
++<form method="post" action="${uploadIssueUrl}" enctype="multipart/form-data">
++<input type="hidden" name="magazineId" value="${magazineId}" size="20"/>
++<input type="hidden" name="issueId" value="${issueId}" size="20"/>
++
++<table align="left" style="margin:14px">
++   	<tr>
++   		<th>Issue File</th> <td><input type="file" name="issueFile"></td>
++   	</tr>
++   	<tr>
++      <td>
++	     	<input name="uploadIssue" type="submit" value="Upload Issue"/>
++	     	<a href="/"> Cancel</a>
++	    </td>
++   </tr>
++</table>
++</form>
++<br/>
++<br/>
++
++
++</div>
+\ No newline at end of file
 Index: war/WEB-INF/view/magazine/list.vm
 ===================================================================
 --- war/WEB-INF/view/magazine/list.vm	(revision 34)
