@@ -18,7 +18,7 @@
    		<table>
    		#foreach( $issue in $!{magazineIssue.issues} )
    		<tr>
-   			<td> <a href="/magazine/showIssue/$!{issue.magazineId}/$!{issue.issueId}"> $!{issue.issueName}</a> <a href="/magazine/showIssuePdf/$!{issue.magazineId}/$!{issue.issueId}"> view PDF</a></td>
+   			<td>  $!{issue.issueName}</td><td> <a href="/magazine/showIssuePdf/$!{issue.magazineId}/$!{issue.issueId}"> view PDF</a> <a href="/magazine/editIssue/$!{issue.magazineId}/$!{issue.issueId}">edit</a></td>
    		</tr>
    		#end
    		</table>
