@@ -1,6 +1,7 @@
 package com.bri8.supermag.dao;
 
-import java.lang.reflect.InvocationTargetException;
+import static com.bri8.supermag.util.Constants.SPACE;
+
 import java.util.List;
 
 import javax.jdo.PersistenceManager;
@@ -11,8 +12,6 @@ import org.apache.commons.logging.LogFactory;
 
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.KeyFactory;
-
-import static com.bri8.supermag.util.Constants.*;
 
 public class BaseDAO<T> {
 
@@ -115,7 +114,8 @@ public class BaseDAO<T> {
 	@SuppressWarnings("unchecked")
 	public T read(Long id, Class clasz) {
 		PersistenceManager pm = PMF.get().getPersistenceManager();
-		return read(id, clasz, pm);
+		T object = read(id, clasz, pm);
+		return object;
 	}
 
 	@SuppressWarnings("unchecked")

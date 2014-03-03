@@ -26,3 +26,6 @@ Data Model
 3. Subscription
 	 type, frequency(weekly, monthly..), subscriptionPrice, noOfIssues, TODO:
 
+
+
+http://localhost:8888/magazine/showUploadIssue/5066549580791808/6192449487634432
