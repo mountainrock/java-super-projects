@@ -2,18 +2,21 @@ package com.bri8.supermag.model;
 
 import java.util.Date;
 
+import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
+import javax.jdo.annotations.PrimaryKey;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
 
-@PersistenceCapable
+@PersistenceCapable(detachable="true")
 public class Issue extends BaseModel {
-	@Persistent
+	 @PrimaryKey
+	 @Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
 	Long issueId;
 
 	@Persistent
-	Magazine magazine;
+	Long magazineId;
 	@Persistent
 	String issueName;
 	@Persistent
@@ -39,12 +42,12 @@ public class Issue extends BaseModel {
 		this.issueId = issueId;
 	}
 
-	public Magazine getMagazine() {
-		return magazine;
+	public Long getMagazineId() {
+		return magazineId;
 	}
 
-	public void setMagazine(Magazine magazine) {
-		this.magazine = magazine;
+	public void setMagazineId(Long magazineId) {
+		this.magazineId = magazineId;
 	}
 
 	public String getIssueName() {
@@ -54,7 +57,7 @@ public class Issue extends BaseModel {
 	public void setIssueName(String issueName) {
 		this.issueName = issueName;
 	}
- 
+
 	public String getDescription() {
 		return description;
 	}

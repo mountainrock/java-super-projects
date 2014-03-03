@@ -4,21 +4,32 @@
 
 <table align="left" style="margin:14px">
 	<tr>
-   		<th>Magazine Name</th> 
+   		<th>Magazine Name</th>
    		<th>Publishing Company</th>
-   		<th>Language</th> 
+   		<th>Language</th>
+   		<th>Issues</th>
    	</tr>
- #foreach( $magazine in $magazines ) 
+ #foreach( $magazineIssue in $magazines )
    	<tr>
-   		<td><a> $magazine.magazineName</a></td>
-   		<td><a> $!{magazine.publishingCompany}</a></td>
-   		<td><a> $!{magazine.language}</a></td>
-   		<td><a href="/magazine/showAddIssue/$magazine.magazineId">Upload Issue"</a></td>
+   		<td><a> $!{magazineIssue.magazine.magazineName}</a></td>
+   		<td><a> $!{magazineIssue.magazine.publishingCompany}</a></td>
+   		<td><a> $!{magazineIssue.magazine.language}</a></td>
+   		<td>
+   		<table>
+   		#foreach( $issue in $!{magazineIssue.issues} )
+   		<tr>
+   			<td> <a href="/magazine/showIssue/$!{issue.magazineId}/$!{issue.issueId}"> $!{issue.issueName}</a> <a href="/magazine/showIssuePdf/$!{issue.magazineId}/$!{issue.issueId}"> view PDF</a></td>
+   		</tr>
+   		#end
+   		</table>
    		
+   		</td>
+   		<td><a href="/magazine/showAddIssue/$magazineIssue.magazine.magazineId">Upload Issue</a></td>
+
    	</tr>
  #end
 </table>
-  
+
 <br/>
 <br/>
 
