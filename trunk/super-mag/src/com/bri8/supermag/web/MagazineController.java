@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.bri8.supermag.model.Issue;
@@ -106,6 +107,17 @@ public class MagazineController extends BaseController{
 		BlobKey blobKey = new BlobKey(issue.getBlobKey());
 		blobstoreService.serve(blobKey , res);
 		
+	}
+	
+	@RequestMapping(value = { "/magazine/getIssueImageUploadUrl" }, method = RequestMethod.GET)
+	public void getIssueImageUploadUrl(@RequestParam Integer numberOfUrls, HttpServletResponse resp){
+		StringBuffer sb = new StringBuffer();
+		for (int i = 0; i < numberOfUrls; i++) {
+			String uploadUrl = blobstoreService.createUploadUrl("getIssueImageUploadUrl");
+			sb.append(uploadUrl).append("<br/>");
+		}
+		
+		resp.addHeader("uploadUrls", sb.toString());
 	}
 
 }
