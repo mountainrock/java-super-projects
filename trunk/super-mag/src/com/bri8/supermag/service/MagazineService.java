@@ -13,6 +13,7 @@ import com.bri8.supermag.dao.MagazineDAO;
 import com.bri8.supermag.dao.PMF;
 import com.bri8.supermag.dao.UserDAO;
 import com.bri8.supermag.model.Issue;
+import com.bri8.supermag.model.IssueStatus;
 import com.bri8.supermag.model.Magazine;
 import com.bri8.supermag.model.MagazineIssues;
 
@@ -46,6 +47,11 @@ public class MagazineService {
 		return magazineIssuesList;
 	}
 
+	public List<Issue> listMagazineIssuesToGeneratePdfImage() {
+		List<Issue> issuesToGeneratePdfImage = issueDao.read(Issue.class, "status == " + IssueStatus.Uploaded.name(), "order by issueId DESC");
+		return issuesToGeneratePdfImage;
+	}
+
 	public void createIssue(Issue issue) {
 		issueDao.create(issue);
 	}
@@ -53,13 +59,13 @@ public class MagazineService {
 	public Issue getIssue(Long issueId) {
 		return issueDao.read(issueId, Issue.class);
 	}
-	
-	public void updateIssueBlobKey(Long issueId, String blobKey) {
-		
+
+	public void updateIssuePdfBlobKey(Long issueId, String blobKey) {
+
 		PersistenceManager persistenceManager = PMF.get().getPersistenceManager();
 		Issue issue = issueDao.read(issueId, Issue.class, persistenceManager);
 		Issue detachCopy = persistenceManager.detachCopy(issue);
-		detachCopy.setBlobKey(blobKey);
+		detachCopy.setPdfBlobKey(blobKey);
 		issueDao.update(detachCopy, Issue.class);
 	}
 

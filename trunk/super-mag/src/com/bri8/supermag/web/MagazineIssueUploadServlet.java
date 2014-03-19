@@ -31,7 +31,7 @@ public class MagazineIssueUploadServlet extends HttpServlet {
 		BlobKey blobKey = blobs.get("issueFile");
 		String magazineId = req.getParameter("magazineId");
 		String issueId = req.getParameter("issueId");
-		magazineService.updateIssueBlobKey(Long.parseLong(issueId), blobKey.getKeyString());
+		magazineService.updateIssuePdfBlobKey(Long.parseLong(issueId), blobKey.getKeyString());
 		
 		logger.info("Blob key : "+ blobKey.getKeyString() +", magazineId :"+ magazineId+ ", issueId :"+ issueId);
 		res.sendRedirect("/magazine/list");

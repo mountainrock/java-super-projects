@@ -18,4 +18,14 @@ public class BaseController {
 		mav.addObject("title", viewName);
 		return mav;
 	}
+	
+	protected ModelAndView getDefaultModelAndViewNoLayout(String viewName) {
+		ModelAndView mav = new ModelAndView();
+		layoutView.setUrl("blank.vm");
+		layoutView.setLayoutUrl(viewName + ".vm");
+		mav.setView(layoutView);
+		mav.addAllObjects(layoutView.getIncludes());
+		mav.addObject("title", viewName);
+		return mav;
+	}
 }

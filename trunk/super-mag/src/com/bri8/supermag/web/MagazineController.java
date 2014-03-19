@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.bri8.supermag.model.Issue;
+import com.bri8.supermag.model.IssueStatus;
 import com.bri8.supermag.model.Magazine;
 import com.bri8.supermag.model.MagazineIssues;
 import com.bri8.supermag.model.User;
@@ -74,6 +75,7 @@ public class MagazineController extends BaseController{
 
 	@RequestMapping(value = { "/magazine/createIssue" }, method = RequestMethod.POST)
 	public ModelAndView createIssue(Issue issue, HttpServletRequest request, HttpServletResponse response) throws IOException {
+		issue.setStatus(IssueStatus.Uploaded.name());
 		magazineService.createIssue(issue);
 		ModelAndView mv = getDefaultModelAndView("magazine/showAdd");
 		if(issue!=null && issue.getIssueId()!=null){
@@ -104,11 +106,12 @@ public class MagazineController extends BaseController{
 	@RequestMapping(value = { "/magazine/showIssuePdf/{magazineId}/{issueId}" }, method = RequestMethod.GET)
 	protected void showIssuePdf(@PathVariable("magazineId") Long magazineId, @PathVariable("issueId") Long issueId,HttpServletRequest req,HttpServletResponse res) throws Exception {
 		Issue issue = magazineService.getIssue(issueId);
-		BlobKey blobKey = new BlobKey(issue.getBlobKey());
+		BlobKey blobKey = new BlobKey(issue.getPdfBlobKey());
 		blobstoreService.serve(blobKey , res);
 		
 	}
 	
+	//PDF 2 image APIs
 	@RequestMapping(value = { "/magazine/getIssueImageUploadUrl" }, method = RequestMethod.GET)
 	public void getIssueImageUploadUrl(@RequestParam Integer numberOfUrls, HttpServletResponse resp){
 		StringBuffer sb = new StringBuffer();
@@ -119,5 +122,16 @@ public class MagazineController extends BaseController{
 		
 		resp.addHeader("uploadUrls", sb.toString());
 	}
+
+	
+	@RequestMapping(value = { "/magazine/listIssuesForPdf2Image" }, method = RequestMethod.GET)
+	protected ModelAndView listIssuesForPdf2Image(HttpServletRequest request) throws Exception {
+		List<Issue> issues = magazineService.listMagazineIssuesToGeneratePdfImage();
+		ModelAndView mv = getDefaultModelAndViewNoLayout("magazine/issue/listIssuesForPdf2Image");
+		mv.addObject("issues", issues);
+		return mv;
+	}
+	
+	//END PDF 2 image APIs
 
 }
