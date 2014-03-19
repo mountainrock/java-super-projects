@@ -9,10 +9,10 @@ import javax.jdo.annotations.PrimaryKey;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
 
-@PersistenceCapable(detachable="true")
+@PersistenceCapable(detachable = "true")
 public class Issue extends BaseModel {
-	 @PrimaryKey
-	 @Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
+	@PrimaryKey
+	@Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
 	Long issueId;
 
 	@Persistent
@@ -22,7 +22,7 @@ public class Issue extends BaseModel {
 	@Persistent
 	String description;
 	@Persistent
-	String status;// (preview, review, live)
+	String status;// (uploaded, pdf2ImageGenerated, reviewComplete, live)
 	@Persistent
 	Boolean specialIssue;
 	@Persistent
@@ -32,7 +32,7 @@ public class Issue extends BaseModel {
 	@Persistent
 	Float singleIssuePrice;
 	@Persistent
-	String blobKey;
+	String pdfBlobKey;
 
 	public Long getIssueId() {
 		return issueId;
@@ -106,12 +106,12 @@ public class Issue extends BaseModel {
 		this.singleIssuePrice = singleIssuePrice;
 	}
 
-	public String getBlobKey() {
-		return blobKey;
+	public String getPdfBlobKey() {
+		return pdfBlobKey;
 	}
 
-	public void setBlobKey(String blobKey) {
-		this.blobKey = blobKey;
+	public void setPdfBlobKey(String pdfBlobKey) {
+		this.pdfBlobKey = pdfBlobKey;
 	}
 
 	@Override
