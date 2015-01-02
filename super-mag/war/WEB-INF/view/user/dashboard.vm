@@ -1,6 +1,6 @@
 
 <div style="width:100%;height:550px" >
-<br/>
+
 
 <table align="left" style="margin:14px">
    	<tr>
@@ -14,24 +14,36 @@
 	<tr>
 	<td>
 		<div class="pub_homeBox">
-			<a href="/magazine/showAdd">Add Magazine</a>
+			<a href="/magazine/showAdd">
+			<img src="/static/images/add-128.png"/>
+			Add Magazine
+			</a>
 		</div>
 	</td>
 	<td>
 		<div class="pub_homeBox">
-			<a href="/magazine/list">Manage Magazines</a>
+			<a href="/magazine/list">
+			<img src="/static/images/file-manager.png"/>
+			Manage Magazines
+			</a>
 		</div>
 	</td>
 	</tr>
 	<tr>
 		<td>
 			<div class="pub_homeBox">
-				<a>Sales report</a>
+				<a>
+				<img src="/static/images/task_manager.png"/>
+				Sales report
+				</a>
 			</div>
 		</td>
 		<td>
 			<div class="pub_homeBox">
-				<a>Payment Details</a>
+				<a>
+				<img src="/static/images/payment.png"/>
+				Payment Details
+				</a>
 			</div>
 		</td>
 	</tr>
