@@ -15,7 +15,7 @@
 	<td>
 		<div class="pub_homeBox">
 			<a href="/magazine/showAdd">
-			<img src="/static/images/add-128.png"/>
+			<img src="/static/images/add-128.png"/><br/>
 			Add Magazine
 			</a>
 		</div>
@@ -23,7 +23,7 @@
 	<td>
 		<div class="pub_homeBox">
 			<a href="/magazine/list">
-			<img src="/static/images/file-manager.png"/>
+			<img src="/static/images/file-manager.png"/><br/>
 			Manage Magazines
 			</a>
 		</div>
@@ -33,7 +33,7 @@
 		<td>
 			<div class="pub_homeBox">
 				<a>
-				<img src="/static/images/task_manager.png"/>
+				<img src="/static/images/task_manager.png"/><br/>
 				Sales report
 				</a>
 			</div>
@@ -41,7 +41,7 @@
 		<td>
 			<div class="pub_homeBox">
 				<a>
-				<img src="/static/images/payment.png"/>
+				<img src="/static/images/payment.png"/><br/>
 				Payment Details
 				</a>
 			</div>
