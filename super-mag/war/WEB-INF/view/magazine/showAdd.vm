@@ -16,7 +16,7 @@
    	<tr>
       <td>
 	     	<input name="addMagazine" type="submit" value="Add Magazine"/>
-	     	<a href="/"> Cancel</a>
+	     	<a href="/user/dashboard"> Cancel</a>
 	    </td>
    </tr>
 </table>
