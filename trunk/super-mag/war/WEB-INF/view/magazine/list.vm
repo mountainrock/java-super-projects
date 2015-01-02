@@ -1,34 +1,41 @@
 
 <div style="width:100%;height:550px" >
+<a href="/user/dashboard" style="color:blue"> > Dashboard</a>
 <br/>
-
-<table align="left" style="margin:14px">
+<div align="center">
+<table  style="margin:14px;border:1px solid grey;border-collapse:collapse" border="1">
 	<tr>
-   		<th>Magazine Name</th>
+   		<th width="30%">Magazine Name</th>
    		<th>Publishing Company</th>
    		<th>Language</th>
-   		<th>Issues</th>
+   		<th>&nbsp;</th>
    	</tr>
  #foreach( $magazineIssue in $magazines )
-   	<tr>
-   		<td><a> $!{magazineIssue.magazine.magazineName}</a></td>
-   		<td><a> $!{magazineIssue.magazine.publishingCompany}</a></td>
-   		<td><a> $!{magazineIssue.magazine.language}</a></td>
-   		<td>
-   		<table>
-   		#foreach( $issue in $!{magazineIssue.issues} )
-   		<tr>
-   			<td>  $!{issue.issueName}</td><td> <a href="/magazine/showIssuePdf/$!{issue.magazineId}/$!{issue.issueId}"> view PDF</a> <a href="/magazine/editIssue/$!{issue.magazineId}/$!{issue.issueId}">edit</a></td>
-   		</tr>
-   		#end
-   		</table>
-   		
-   		</td>
-   		<td><a href="/magazine/showAddIssue/$magazineIssue.magazine.magazineId">Upload Issue</a></td>
+   	<tr style="background:#F7F7F7">
+   		<td width="30%"><a> $!{magazineIssue.magazine.magazineName}</a></td>
+   		<td> $!{magazineIssue.magazine.publishingCompany}</td>
+   		<td> $!{magazineIssue.magazine.language}</td>
+   		<td><a href="/magazine/showAddIssue/$magazineIssue.magazine.magazineId" style="color:blue">Add Issue</a></td>
 
+   	</tr>
+   	<tr>
+   		<td>&nbsp;</td>
+   		<td colspan="3">
+	   		<table align="left">
+	   		#foreach( $issue in $!{magazineIssue.issues} )
+	   		<tr>
+	   			<td width="80%">  $!{issue.issueName}</td>
+	   			<td> <a href="/magazine/showIssuePdf/$!{issue.magazineId}/$!{issue.issueId}" style="color:blue"> view</a></td> 
+	   			<td><a href="/magazine/editIssue/$!{issue.magazineId}/$!{issue.issueId}" style="color:blue">edit</a></td>
+	   		</tr>
+	   		#end
+	   		</table>
+   		</td>
    	</tr>
  #end
 </table>
+
+</div>
 
 <br/>
 <br/>
