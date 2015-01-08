@@ -33,7 +33,7 @@ public class Issue extends BaseModel {
 	Float singleIssuePrice;
 	@Persistent
 	String pdfBlobKey;
-
+	
 	public Long getIssueId() {
 		return issueId;
 	}
@@ -114,6 +114,7 @@ public class Issue extends BaseModel {
 		this.pdfBlobKey = pdfBlobKey;
 	}
 
+	
 	@Override
 	public String toString() {
 		return ToStringBuilder.reflectionToString(this);

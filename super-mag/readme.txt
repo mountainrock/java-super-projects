@@ -28,4 +28,12 @@ Data Model
 
 
 
+TODO:
+1. Add Issue
+     Upload images for each magazine pages.
+        
+     Upload zip of images for entire magazine. Image should be names as 1,2,3 page numbers etc
+     
+
+
 http://localhost:8888/magazine/showUploadIssue/5066549580791808/6192449487634432

@@ -1,0 +1,6 @@
+<table>
+<tr>
+  <td><a href="${menuItems.publisherMenuItems.get("Dashboard")}" style="color:blue"> > Dashboard</a></td>
+  <td><a href="${menuItems.publisherMenuItems.get("ManageMagazine")}" style="color:blue"> | Magazines</a></td>
+</tr>
+</table>
