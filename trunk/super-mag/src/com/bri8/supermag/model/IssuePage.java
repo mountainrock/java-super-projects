@@ -9,11 +9,14 @@ import javax.jdo.annotations.PrimaryKey;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
 
+/**
+ * Model for magazine page stored as image blob in blobstore. referenced by blobkey
+ */
 @PersistenceCapable(detachable = "true")
-public class IssueFile extends BaseModel {
+public class IssuePage extends BaseModel {
 	@PrimaryKey
 	@Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
-	Long issueFileId;
+	Long issuePageId;
 
 	@Persistent
 	Long issueId;
@@ -38,12 +41,12 @@ public class IssueFile extends BaseModel {
 	Integer pageNumber;
 
 	
-	public Long getIssueFileId() {
-		return issueFileId;
+	public Long getIssuePageId() {
+		return issuePageId;
 	}
 
-	public void setIssueFileId(Long issueFileId) {
-		this.issueFileId = issueFileId;
+	public void setIssuePageId(Long issuePageId) {
+		this.issuePageId = issuePageId;
 	}
 
 	public Long getIssueId() {

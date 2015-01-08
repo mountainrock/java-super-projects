@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.bri8.supermag.model.Issue;
+import com.bri8.supermag.model.IssuePage;
 import com.bri8.supermag.model.IssueStatus;
 import com.bri8.supermag.model.Magazine;
 import com.bri8.supermag.model.MagazineIssues;
@@ -93,12 +94,14 @@ public class MagazineController extends BaseController{
 	protected ModelAndView showUploadIssue(@PathVariable("magazineId") Long magazineId, @PathVariable("issueId") Long issueId,HttpServletRequest req) throws Exception {
 		ModelAndView mv = getDefaultModelAndView("magazine/issue/showUploadIssue");
 		
-		String blobUploadPath = String.format("/magazine/updateIssueBlobKey?magazineId=%s&issueId=%s",magazineId,issueId);
+		String blobUploadPath = String.format("/magazine/updateIssueImageBlobKey?magazineId=%s&issueId=%s",magazineId,issueId);
 		String uploadUrl = blobstoreService.createUploadUrl(blobUploadPath);
 		
 		mv.addObject("magazineId", magazineId);
 		mv.addObject("issueId", issueId);
 		mv.addObject("uploadIssueUrl", uploadUrl);
+		List<IssuePage> issuePages = magazineService.getIssuePages(issueId);
+		mv.addObject("issuePages", issuePages);
 
 		return mv;
 	}
@@ -111,19 +114,12 @@ public class MagazineController extends BaseController{
 		
 	}
 	
-	//PDF 2 image APIs
-	@RequestMapping(value = { "/magazine/getIssueImageUploadUrl" }, method = RequestMethod.GET)
-	public void getIssueImageUploadUrl(@RequestParam Integer numberOfUrls, HttpServletResponse resp){
-		StringBuffer sb = new StringBuffer();
-		for (int i = 0; i < numberOfUrls; i++) {
-			String uploadUrl = blobstoreService.createUploadUrl("getIssueImageUploadUrl");
-			sb.append(uploadUrl).append("<br/>");
-		}
-		
-		resp.addHeader("uploadUrls", sb.toString());
+	@RequestMapping(value = { "/magazine/getBlob" }, method = RequestMethod.GET)
+	protected void getBlob(@RequestParam("blobKey") String blobKeyStr,HttpServletResponse res) throws Exception {
+		blobstoreService.serve(new BlobKey(blobKeyStr) , res);
 	}
-
 	
+//PDF2 image APIs	
 	@RequestMapping(value = { "/magazine/listIssuesForPdf2Image" }, method = RequestMethod.GET)
 	protected ModelAndView listIssuesForPdf2Image(HttpServletRequest request) throws Exception {
 		List<Issue> issues = magazineService.listMagazineIssuesToGeneratePdfImage();

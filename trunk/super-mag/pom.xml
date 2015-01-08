@@ -11,7 +11,9 @@
 		<character.encoding>UTF-8</character.encoding>
 		<java.version>1.6</java.version>
 		<spring.version>3.0.0.RELEASE</spring.version>
+		<jackson.version>1.9.10</jackson.version>
 	</properties>
+	
 	<dependencies>
 		<dependency>
 			<groupId>aspectj</groupId>
@@ -190,6 +192,13 @@
 		    <groupId>xerces</groupId>
 		    <artifactId>xerces</artifactId>
 		    <version>2.4.0</version>
+		</dependency>
+		
+		<!-- Jackson JSON Mapper -->
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>${jackson.version}</version>
 		</dependency>
 	</dependencies>
 

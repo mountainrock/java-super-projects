@@ -1,7 +1,9 @@
 package com.bri8.supermag.web;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.logging.Logger;
 
 import javax.servlet.ServletException;
@@ -26,15 +28,24 @@ public class MagazineIssueImageUploadServlet extends HttpServlet {
 		
 		ApplicationContext springContext = WebApplicationContextUtils.getWebApplicationContext(getServletContext());
 		MagazineService magazineService = (MagazineService)springContext.getBean("magazineService");
-		Map<String, BlobKey> blobs = blobstoreService.getUploadedBlobs(req);
+		Map<String, List<BlobKey>> blobs = blobstoreService.getUploads(req);
 		logger.info("inside upload servlet blobs : " + blobs + " , params : "+ req.getParameterMap());
-		BlobKey blobKey = blobs.get("issueImageFile");
 		String magazineId = req.getParameter("magazineId");
-		String issueId = req.getParameter("issueId");
-	//TODO: update issue images in new entitye MagazineIssueImage
-		//	magazineService.updateIssueBlobKey(Long.parseLong(issueId), blobKey.getKeyString());
+		Long issueId = Long.parseLong(req.getParameter("issueId"));
+		Integer pageNumber=0;
+		for (Entry<String, List<BlobKey>> entry : blobs.entrySet()) {
+			String key = entry.getKey();
+			List<BlobKey> blobKeys = entry.getValue();
+			for (BlobKey blobKey : blobKeys) {
+				logger.info("Blob key : "+ blobKey.getKeyString() +", magazineId :"+ magazineId+ ", issueId :"+ issueId);
+				magazineService.addIssueImageBlobKey(issueId, blobKey.getKeyString(), pageNumber++);;
+			}
+		}
 		
-		logger.info("Blob key : "+ blobKey.getKeyString() +", magazineId :"+ magazineId+ ", issueId :"+ issueId);
-		res.sendRedirect("/magazine/list");
+	//TODO: update issue images in new entitye MagazineIssueImage
+		
+		res.setContentType("application/json");
+		
+		
 	}
 }

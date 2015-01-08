@@ -3,16 +3,15 @@ package com.bri8.supermag.service;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.jdo.PersistenceManager;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.bri8.supermag.dao.IssueDAO;
+import com.bri8.supermag.dao.IssuePageDAO;
 import com.bri8.supermag.dao.MagazineDAO;
-import com.bri8.supermag.dao.PMF;
 import com.bri8.supermag.dao.UserDAO;
 import com.bri8.supermag.model.Issue;
+import com.bri8.supermag.model.IssuePage;
 import com.bri8.supermag.model.IssueStatus;
 import com.bri8.supermag.model.Magazine;
 import com.bri8.supermag.model.MagazineIssues;
@@ -24,6 +23,10 @@ public class MagazineService {
 	MagazineDAO magazineDao;
 	@Autowired
 	IssueDAO issueDao;
+	
+	@Autowired
+	IssuePageDAO issuePageDao;
+	
 	@Autowired
 	UserDAO userDao;
 
@@ -60,13 +63,17 @@ public class MagazineService {
 		return issueDao.read(issueId, Issue.class);
 	}
 
-	public void updateIssuePdfBlobKey(Long issueId, String blobKey) {
-
-		PersistenceManager persistenceManager = PMF.get().getPersistenceManager();
-		Issue issue = issueDao.read(issueId, Issue.class, persistenceManager);
-		Issue detachCopy = persistenceManager.detachCopy(issue);
-		detachCopy.setPdfBlobKey(blobKey);
-		issueDao.update(detachCopy, Issue.class);
+	public void addIssueImageBlobKey(Long issueId, String blobKey, Integer pageNumber) {
+		
+		IssuePage issuePage= new IssuePage();
+		issuePage.setIssueId(issueId);
+		issuePage.setBlobKey(blobKey);
+		issuePage.setPageNumber(pageNumber);
+		issuePageDao.create(issuePage);
+	}
+	
+	public List<IssuePage> getIssuePages(Long issueId) {
+		return issuePageDao.read(IssuePage.class, "issueId == " + issueId, "order by pageNumber ASC");
 	}
 
 }
