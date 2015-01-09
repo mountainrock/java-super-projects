@@ -130,6 +130,16 @@ public class MagazineController extends BaseController{
 		
 	}
 	
+	@RequestMapping(value = { "/magazine/deleteIssuePage/{issuePageId}" }, method = RequestMethod.GET)
+	protected void deleteIssuePage(@PathVariable("issuePageId") Long issuePageId){
+		//delete entity
+		IssuePage issuePage = magazineService.deleteIssuePage(issuePageId);
+		//cleanup blobstore
+		BlobKey blobKeyMainImg = new BlobKey(issuePage.getBlobKey());
+		BlobKey blobKeyThumbImg = new BlobKey(issuePage.getBlobKeyThumbnail());
+		blobstoreService.delete(blobKeyMainImg, blobKeyThumbImg);
+	}
+	
 //PDF2 image APIs	
 	@RequestMapping(value = { "/magazine/listIssuesForPdf2Image" }, method = RequestMethod.GET)
 	protected ModelAndView listIssuesForPdf2Image(HttpServletRequest request) throws Exception {

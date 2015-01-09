@@ -63,17 +63,21 @@ public class MagazineService {
 		return issueDao.read(issueId, Issue.class);
 	}
 
-	public void addIssueImageBlobKey(Long issueId, String blobKey, Integer pageNumber) {
+	public void addIssueImageBlobKey(IssuePage issuePage) {
 		
-		IssuePage issuePage= new IssuePage();
-		issuePage.setIssueId(issueId);
-		issuePage.setBlobKey(blobKey);
-		issuePage.setPageNumber(pageNumber);
 		issuePageDao.create(issuePage);
 	}
 	
 	public List<IssuePage> getIssuePages(Long issueId) {
 		return issuePageDao.read(IssuePage.class, "issueId == " + issueId, "order by pageNumber ASC");
+	}
+
+	public IssuePage getIssuePage(Long issuePageId) {
+		return issuePageDao.read(issuePageId, IssuePage.class);
+	}
+
+	public IssuePage deleteIssuePage(Long issuePageId) {
+		return issuePageDao.delete(issuePageId, IssuePage.class);
 	}
 
 }

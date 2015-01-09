@@ -62,14 +62,16 @@ public class BaseDAO<T> {
 	}
 
 	@SuppressWarnings("unchecked")
-	public void delete(Long id, Class clasz) {
+	public T delete(Long id, Class clasz) {
 		T entity = read(id, clasz);
 		PersistenceManager pm = PMF.get().getPersistenceManager();
 		try {
 			pm.deletePersistent(entity);
 		} finally {
 			pm.flush();
+			pm.close();
 		}
+		return entity;
 	}
 
 	@SuppressWarnings("unchecked")
