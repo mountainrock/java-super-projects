@@ -21,7 +21,7 @@ public class JpedalPdf2ImageUtilTest extends TestCase {
 
 	@Test
 	public void testPdfGeneration() throws Exception {
-		final  String pdf = "src/test/resources/April.May_all_pages.pdf";
+		final  String pdf = "src/test/resources/design_culture_mag.pdf";
 
 		InputStream in = new FileInputStream(new File(pdf));
 		List<BufferedImage> images = JpedalPdf2ImageUtil.getInstance().pdfToImage(in);
