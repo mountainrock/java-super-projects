@@ -42,9 +42,12 @@
 			   </tr>
 			#foreach($issuePage in $issuePages)
 			   <tr>
-			   	   <td width="200" align="center"><img src="/magazine/getBlob?blobKey=${issuePage.blobKey}" width="190" height="250"/></td> 
+			   	   <td width="200" align="center"><img src="/magazine/getBlob?blobKey=${issuePage.blobKey}" width="100" height="150"/></td> 
 			       <td width="200" align="center"> <input type="text" name="pageNumber" value="${issuePage.pageNumber}" size="20" style="width:20px"/> </td>
-			       <td> <input type="checkbox" name="issuePageId" value="${issuePage.issuePageId}"/></td>
+			       <td> 
+			          <a href="#" onclick="deleteIssuePage(${issuePage.issuePageId})">delete</a> 
+			       
+			       </td>
 			      
 			   </tr>
 			#end
@@ -68,29 +71,4 @@
    
 </table>
 
-<script type="text/javascript">
 
-    function preview(){
-		window.open('/magazine/preview/${issueId}','Issue Preview','height=600px,width=800px');
-    }
-    
-    function uploadFile() {
-        if (window.File && window.FileList) {
-            var fd = new FormData();
-            var files = document.getElementById('fileToUpload').files;
-            for ( var i = 0; i < files.length; i++) {
-                fd.append("file" + i, files[i]);
-            }
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", document.getElementById('uploadForm').action);
-            xhr.send(fd);
-
-            alert('already saved');
-            document.getElementById('uploadForm').value = '';
-
-        } else {
-            document.getElementById('uploadForm').submit(); //no html5
-        }
-    }
-
-</script>

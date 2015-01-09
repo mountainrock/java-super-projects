@@ -25,7 +25,13 @@ public class IssuePage extends BaseModel {
 	String blobKey;
 
 	@Persistent
+	String blobKeyThumbnail;
+	
+	@Persistent
 	String fileType;
+	
+	@Persistent
+	String fileName;
 
 	@Persistent
 	Integer version;
@@ -41,6 +47,14 @@ public class IssuePage extends BaseModel {
 	Integer pageNumber;
 
 	
+	public String getFileName() {
+		return fileName;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+
 	public Long getIssuePageId() {
 		return issuePageId;
 	}
@@ -113,6 +127,15 @@ public class IssuePage extends BaseModel {
 
 	public void setPageNumber(Integer pageNumber) {
 		this.pageNumber = pageNumber;
+	}
+	
+
+	public String getBlobKeyThumbnail() {
+		return blobKeyThumbnail;
+	}
+
+	public void setBlobKeyThumbnail(String blobKeyThumbnail) {
+		this.blobKeyThumbnail = blobKeyThumbnail;
 	}
 
 	@Override
