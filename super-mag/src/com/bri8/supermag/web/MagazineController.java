@@ -119,6 +119,17 @@ public class MagazineController extends BaseController{
 		blobstoreService.serve(new BlobKey(blobKeyStr) , res);
 	}
 	
+	
+	//preview
+	@RequestMapping(value = { "/magazine/preview/{issueId}" }, method = RequestMethod.GET)
+	protected ModelAndView previewIssue( @PathVariable("issueId") Long issueId,HttpServletRequest req,HttpServletResponse res) throws Exception {
+		List<IssuePage> issuePages = magazineService.getIssuePages(issueId);
+		ModelAndView mv = getDefaultModelAndViewNoLayout("magazine/issue/preview");
+		mv.addObject("issuePages", issuePages);
+		return mv;
+		
+	}
+	
 //PDF2 image APIs	
 	@RequestMapping(value = { "/magazine/listIssuesForPdf2Image" }, method = RequestMethod.GET)
 	protected ModelAndView listIssuesForPdf2Image(HttpServletRequest request) throws Exception {
