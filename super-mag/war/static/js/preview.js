@@ -64,6 +64,8 @@
 								before:             function(){},                    // callback invoked before each page turn animation
 								after:              function(){}                     // callback invoked after each page turn animation
 							});
+							
+
 						}
 					}).attr('src',source);
 				});

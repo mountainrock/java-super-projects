@@ -9,6 +9,7 @@ public class MagazineIssues {
 
 	Magazine magazine;
 	List<Issue> issues = new ArrayList<Issue>();
+	List<IssuePage> issuePages = new ArrayList<IssuePage>();
 
 	public Magazine getMagazine() {
 		return magazine;
@@ -24,6 +25,14 @@ public class MagazineIssues {
 
 	public void setIssues(List<Issue> issues) {
 		this.issues = issues;
+	}
+
+	public List<IssuePage> getIssuePages() {
+		return issuePages;
+	}
+
+	public void setIssuePages(List<IssuePage> issuePages) {
+		this.issuePages = issuePages;
 	}
 
 	@Override
