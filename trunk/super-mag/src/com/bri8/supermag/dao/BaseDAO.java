@@ -63,8 +63,8 @@ public class BaseDAO<T> {
 
 	@SuppressWarnings("unchecked")
 	public T delete(Long id, Class clasz) {
-		T entity = read(id, clasz);
 		PersistenceManager pm = PMF.get().getPersistenceManager();
+		T entity = read(id, clasz, pm);
 		try {
 			pm.deletePersistent(entity);
 		} finally {
@@ -75,9 +75,9 @@ public class BaseDAO<T> {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<T> read(Class clasz, int count) {
+	public List<T> read(Class clasz, String orderBy, int count) {
 		PersistenceManager pm = PMF.get().getPersistenceManager();
-		javax.jdo.Query q = pm.newQuery("select from " + clasz.getName() + " ");
+		javax.jdo.Query q = pm.newQuery(String.format("select from %s %s", clasz.getName() , orderBy));
 		q.setRange(0, count);
 		List<T> entries = (List<T>) q.execute();
 		logger.debug(entries);
@@ -87,7 +87,7 @@ public class BaseDAO<T> {
 	@SuppressWarnings("unchecked")
 	public List<T> read(Class clasz, String where, String orderBy, int count) {
 		PersistenceManager pm = PMF.get().getPersistenceManager();
-		javax.jdo.Query q = pm.newQuery("select from " + clasz.getName() + " where " + where + SPACE + orderBy);
+		javax.jdo.Query q = pm.newQuery(String.format("select from %s where %s %s" , clasz.getName(), where, orderBy));
 		q.setRange(0, count);
 		List<T> entries = (List<T>) q.execute();
 		logger.debug(entries);

@@ -51,7 +51,7 @@ public class MagazineIssueImageUploadServlet extends HttpServlet {
 		logger.info("inside upload servlet blobs : " + blobs + " , params : " + req.getParameterMap());
 		String magazineId = req.getParameter("magazineId");
 		Long issueId = Long.parseLong(req.getParameter("issueId"));
-		Integer pageNumber = 0;
+		Integer pageNumber = 1;
 		for (Entry<String, List<BlobKey>> entry : blobs.entrySet()) {
 			String key = entry.getKey();
 			List<BlobInfo> blobInfoList = blobInfos.get(key);

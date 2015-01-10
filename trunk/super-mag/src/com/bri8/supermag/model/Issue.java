@@ -30,10 +30,11 @@ public class Issue extends BaseModel {
 	@Persistent
 	String previewPages;
 	@Persistent
-	Float singleIssuePrice;
+	Integer coverPageNumber;
+
 	@Persistent
-	String pdfBlobKey;
-	
+	Float singleIssuePrice;
+
 	public Long getIssueId() {
 		return issueId;
 	}
@@ -106,15 +107,14 @@ public class Issue extends BaseModel {
 		this.singleIssuePrice = singleIssuePrice;
 	}
 
-	public String getPdfBlobKey() {
-		return pdfBlobKey;
+	public Integer getCoverPageNumber() {
+		return coverPageNumber;
 	}
 
-	public void setPdfBlobKey(String pdfBlobKey) {
-		this.pdfBlobKey = pdfBlobKey;
+	public void setCoverPageNumber(Integer coverPageNumber) {
+		this.coverPageNumber = coverPageNumber;
 	}
 
-	
 	@Override
 	public String toString() {
 		return ToStringBuilder.reflectionToString(this);

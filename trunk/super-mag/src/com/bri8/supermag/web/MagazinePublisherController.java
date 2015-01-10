@@ -28,11 +28,11 @@ import com.google.appengine.api.blobstore.BlobstoreService;
 import com.google.appengine.api.blobstore.BlobstoreServiceFactory;
 
 @Controller("magazineController")
-public class MagazineController extends BaseController{
+public class MagazinePublisherController extends BaseController{
 	@Autowired MagazineService magazineService;
 	 private BlobstoreService blobstoreService = BlobstoreServiceFactory.getBlobstoreService();
 
-	private static Log logger = LogFactory.getLog(MagazineController.class);
+	private static Log logger = LogFactory.getLog(MagazinePublisherController.class);
 
 	@RequestMapping(value = { "/magazine/showAdd" }, method = RequestMethod.GET)
 	protected ModelAndView showAddMagazine() throws Exception {
@@ -102,17 +102,10 @@ public class MagazineController extends BaseController{
 		mv.addObject("uploadIssueUrl", uploadUrl);
 		List<IssuePage> issuePages = magazineService.getIssuePages(issueId);
 		mv.addObject("issuePages", issuePages);
-
+		
 		return mv;
 	}
 	
-	@RequestMapping(value = { "/magazine/showIssuePdf/{magazineId}/{issueId}" }, method = RequestMethod.GET)
-	protected void showIssuePdf(@PathVariable("magazineId") Long magazineId, @PathVariable("issueId") Long issueId,HttpServletRequest req,HttpServletResponse res) throws Exception {
-		Issue issue = magazineService.getIssue(issueId);
-		BlobKey blobKey = new BlobKey(issue.getPdfBlobKey());
-		blobstoreService.serve(blobKey , res);
-		
-	}
 	
 	@RequestMapping(value = { "/magazine/getBlob" }, method = RequestMethod.GET)
 	protected void getBlob(@RequestParam("blobKey") String blobKeyStr,HttpServletResponse res) throws Exception {
@@ -140,15 +133,4 @@ public class MagazineController extends BaseController{
 		blobstoreService.delete(blobKeyMainImg, blobKeyThumbImg);
 	}
 	
-//PDF2 image APIs	
-	@RequestMapping(value = { "/magazine/listIssuesForPdf2Image" }, method = RequestMethod.GET)
-	protected ModelAndView listIssuesForPdf2Image(HttpServletRequest request) throws Exception {
-		List<Issue> issues = magazineService.listMagazineIssuesToGeneratePdfImage();
-		ModelAndView mv = getDefaultModelAndViewNoLayout("magazine/issue/listIssuesForPdf2Image");
-		mv.addObject("issues", issues);
-		return mv;
-	}
-	
-	//END PDF 2 image APIs
-
 }

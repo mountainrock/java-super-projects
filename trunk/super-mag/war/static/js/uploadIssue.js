@@ -1,12 +1,12 @@
-function deleteIssuePage(issuePageId){
+   function deleteIssuePage(issuePageId){
 		   $.ajax({
 					url: "/magazine/deleteIssuePage/"+issuePageId
 				  })
 					;
 	}
 
-    function preview(){
-		window.open('/magazine/preview/${issueId}','Issue Preview','height=600px,width=800px');
+    function openPreview(issueId){
+		window.open('/magazine/preview/'+issueId,'Issue Preview','height=600px,width=800px').focus();
     }
     
     function uploadFile() {
