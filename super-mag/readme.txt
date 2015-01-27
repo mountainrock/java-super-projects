@@ -11,7 +11,7 @@ Technology stack
 1. Velocity/Spring MVC/Spring/ Google JPA/GAE
 2. velocity templates under war/web-inf/view
 
-
+ 
 Data Model
 ----------
 1. User 
