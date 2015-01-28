@@ -1,17 +1,26 @@
 #parse("magazine/publisherMenu.vm")
+
+<style>
+.thumbnail:hover span{ /*CSS for enlarged image on hover*/
+visibility: visible;
+top: 0;
+left: 60px; /*position where enlarged image should offset horizontally */
+
+}
+
+</style>
+
 <div style="width:100%;height:550px" >
 <br/>
 
-<table width="100%" style="margin-left:25%">
+<table width="100%" style="margin-left:15%">
 <!-- upload issue table -->
   <tr>
     <td>
 		
 		<table align="left" style="margin:14px">
 		   	<tr>
-		   		<th>Upload magazine issue images (select multiple)</th> 
-		   	</tr>
-		   	<tr>
+		   		<td>Upload magazine issue images (select multiple)</td> 
 		      <td>
 		      <form id="uploadForm" method="post" action="${uploadIssueUrl}" enctype="multipart/form-data">
 					<input type="hidden" name="magazineId" value="${magazineId}" size="20"/>
@@ -19,8 +28,9 @@
 					      
 		    	   <input type="file" name="fileToUpload" id="fileToUpload" multiple="multiple" size="5"/>
 		    	   <input type="button" onclick="uploadFile();" value="Upload" />
+		    	   <a href="/"> Cancel</a>
 		     </form>
-			     	<a href="/"> Cancel</a>
+			     	
 			    </td>
 		   </tr>
 		</table>
@@ -33,24 +43,43 @@
 <!-- display uploaded images -->
 
 <tr> <td>
-			<div  style="overflow:scroll;height:350px;width:500px">
+			<div  style="overflow:scroll;overflow-y:hidden; height:225px;width:700px;border:1px solid lightgrey;padding:5px">
 			<table>
+			   
 			   <tr>
-			   		<th>Page</th>
-			   		<th>Page No.</th>
-			   		<th>Action</th>
-			   </tr>
 			#foreach($issuePage in $issuePages)
-			   <tr>
-			   	   <td width="200" align="center"><img src="/magazine/getBlob?blobKey=${issuePage.blobKey}" width="100" height="150"/></td> 
-			       <td width="200" align="center"> <input type="text" name="pageNumber" value="${issuePage.pageNumber}" size="20" style="width:20px"/> </td>
-			       <td> 
-			          <a href="#" onclick="deleteIssuePage(${issuePage.issuePageId})">delete</a> 
-			       
-			       </td>
-			      
-			   </tr>
+				#if($velocityCount==0)
+					<td>
+				        <table>
+				           <tr><td>&nbsp;</td></tr>
+				           <tr>
+				           		<td height="200">&nbsp;</td>
+						   		<td>Page No.</td>
+						   </tr>
+						 </table>
+				     </td>
+			     #end
+			     <td  style="padding-left:15px">
+			       <table>
+			         <tr>
+			   	       <td width="200" align="center" colspan="2">
+			   	           <a class="preview" href="#" onclick="showImagePreviewDiv('/magazine/getBlob?blobKey=${issuePage.blobKey}')">
+			   	           <img src="/magazine/getBlob?blobKey=${issuePage.blobKeyThumbnail}" width="100" height="150"/>
+			   	           </a>
+			   	       </td> 
+			   	     </tr>
+			   	     <tr>  
+			           <td width="30" align="center"> <input type="text" name="pageNumber" value="${issuePage.pageNumber}" size="20" style="width:20px"/> </td>
+			           <td> 
+			              <a href="#" onclick="deleteIssuePage(${issuePage.issuePageId})">
+			                <img src="/static/images/deleteRed.png" height="12px" width="12px"/>
+			              </a> 
+			           </td>
+			        </tr>
+			       </table>
+			     </td>
 			#end
+				</tr>
 			</table>
 <!-- end display uploaded images -->			
 
@@ -62,6 +91,7 @@
       		   <tr>
 			   		<td>
 			   		  Front page number :<input type="text" name="frontPage" value="1" style="width:20px"/><br/>
+			   		  Preview page numbers :<input type="text" name="previewPageNumbers" value="1,3,5,7" style="width:80px"/><br/><br/>
 			   		  <input type="button" name="save" value="Save"/> 
 			   		  <input type="button" name="preview" value="Preview" onclick="javascript:openPreview(${issueId})"/>
 			   		</td>
