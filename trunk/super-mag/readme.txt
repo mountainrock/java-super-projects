@@ -29,11 +29,35 @@ Data Model
 
 
 TODO:
-1. Add Issue
-     Upload images for each magazine pages.
-        
-     Upload zip of images for entire magazine. Image should be names as 1,2,3 page numbers etc
-     
+1. Publisher module
+	   Manage magazine
+	   Add Issue
+	     Bulk upload images for each magazine pages.	       
+	       Future : Upload zip/pdf of images for entire magazine. Image should be names as 1,2,3 page numbers etc
+	   Preview issue
+	   Manage report
+	   Manage finance details
+   
+2. Subscriber module
+		Preview magazine
+		Shopping basket 
+		    Add to basket
+		    Make payment
+		    Checkout
+		View subscriptions
+		Display subscribed magazine in full  
+		  
+3. Admin module
+        Review published magazine and make live
+		Manage magazine/issue/finance details
+		Run report
+		Manage user - add/update/ban   
+
+4. Security
+         Publisher login
+         Subscriber login
+         Admin login
+         Authorisation (URL access)   
 
 
 http://localhost:8888/magazine/showUploadIssue/5066549580791808/6192449487634432
