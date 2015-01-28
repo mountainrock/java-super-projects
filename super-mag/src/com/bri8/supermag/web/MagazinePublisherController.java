@@ -1,6 +1,7 @@
 package com.bri8.supermag.web;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -124,13 +125,16 @@ public class MagazinePublisherController extends BaseController{
 	}
 	
 	@RequestMapping(value = { "/magazine/deleteIssuePage/{issuePageId}" }, method = RequestMethod.GET)
-	protected void deleteIssuePage(@PathVariable("issuePageId") Long issuePageId){
+	protected ModelAndView deleteIssuePage(@PathVariable("issuePageId") Long issuePageId){
 		//delete entity
 		IssuePage issuePage = magazineService.deleteIssuePage(issuePageId);
 		//cleanup blobstore
 		BlobKey blobKeyMainImg = new BlobKey(issuePage.getBlobKey());
 		BlobKey blobKeyThumbImg = new BlobKey(issuePage.getBlobKeyThumbnail());
 		blobstoreService.delete(blobKeyMainImg, blobKeyThumbImg);
+		ModelAndView mv = getDefaultModelAndViewNoLayout("result");
+		mv.addObject("result", new ArrayList<String>().add("Deleted "+issuePageId));
+		return mv;
 	}
 	
 }
