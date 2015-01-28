@@ -70,9 +70,9 @@ left: 60px; /*position where enlarged image should offset horizontally */
 			   	     </tr>
 			   	     <tr>  
 			           <td width="30" align="center"> <input type="text" name="pageNumber" value="${issuePage.pageNumber}" size="20" style="width:20px"/> </td>
-			           <td> 
+			           <td style=""> 
 			              <a href="#" onclick="deleteIssuePage(${issuePage.issuePageId})">
-			                <img src="/static/images/deleteRed.png" height="12px" width="12px"/>
+			                <img src="/static/images/trash.png" height="20px" width="20px"/>
 			              </a> 
 			           </td>
 			        </tr>
