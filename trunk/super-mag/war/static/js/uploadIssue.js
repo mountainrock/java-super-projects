@@ -1,12 +1,18 @@
-   function deleteIssuePage(issuePageId){
+function deleteIssuePage(issuePageId){
 		   $.ajax({
-					url: "/magazine/deleteIssuePage/"+issuePageId
-				  })
-					;
+					url: "/magazine/deleteIssuePage/"+issuePageId ,
+					success:function(data) {
+						  window.location.reload(); 
+					    }
+					  });
 	}
 
     function openPreview(issueId){
 		window.open('/magazine/preview/'+issueId,'Issue Preview','height=600px,width=800px').focus();
+    }
+    
+    function showImagePreviewDiv(imgUrl){
+    	window.open(imgUrl,'Image Preview','height=600px,width=800px').focus();
     }
     
     function uploadFile() {
