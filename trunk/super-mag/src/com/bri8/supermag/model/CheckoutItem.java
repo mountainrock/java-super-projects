@@ -1,4 +1,4 @@
-package com.bri8.supermag.dto;
+package com.bri8.supermag.model;
 
 public class CheckoutItem {
 	String issueName;

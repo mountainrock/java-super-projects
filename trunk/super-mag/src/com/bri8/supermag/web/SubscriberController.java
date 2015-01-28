@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.bri8.supermag.dto.CheckoutItem;
+import com.bri8.supermag.model.CheckoutItem;
 import com.bri8.supermag.model.Issue;
 import com.bri8.supermag.model.IssuePage;
 import com.bri8.supermag.model.IssueStatus;
