@@ -29,17 +29,18 @@ Data Model
 
 
 TODO:
+-----
 1. Publisher module
-	   Manage magazine
-	   Add Issue
+	   Manage magazine (in progress)
+	   Add Issue       (in progress)    
 	     Bulk upload images for each magazine pages.	       
 	       Future : Upload zip/pdf of images for entire magazine. Image should be names as 1,2,3 page numbers etc
-	   Preview issue
+	   Preview issue   (in progress)
 	   Manage report
 	   Manage finance details
    
 2. Subscriber module
-		Preview magazine
+		Preview magazine (in progress)
 		Shopping basket 
 		    Add to basket
 		    Make payment
@@ -59,5 +60,3 @@ TODO:
          Admin login
          Authorisation (URL access)   
 
-
-http://localhost:8888/magazine/showUploadIssue/5066549580791808/6192449487634432
