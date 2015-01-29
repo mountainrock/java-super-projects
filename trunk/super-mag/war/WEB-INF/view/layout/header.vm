@@ -3,7 +3,8 @@
 	    	<font style="color:#F16A92">Super<font style="color:#87C7FB">Mag</font></font>
 	    </div>
 		<div style="float:right;padding-top:10px;">
-		  #if($!user)Welcome <b>$!user.firstName </b>  | <a href="/user/logout"> Logout</a> #else <a href="/user/login"> Login</a> |  <a href="/user/register"> Register</a>#end
+		  #if($!user)Welcome <b>$!user.firstName </b>  | <a href="/user/logout"> Logout</a> 
+		  #else <a href="/user/loginPublisher"> Publisher Login </a> | <a href="/user/login"> User Login</a> |  <a href="/user/register"> Register</a>#end
             
          </div>
 </div>
