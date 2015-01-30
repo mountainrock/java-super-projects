@@ -3,6 +3,7 @@ package com.bri8.supermag.web;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mobile.device.Device;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -15,8 +16,8 @@ import com.bri8.supermag.service.MagazineService;
 public class HomePageController extends BaseController{
 	@Autowired MagazineService magazineService;
 	
-	@RequestMapping(value = { "/", "/index", "/home" }, method = RequestMethod.GET)
-	protected ModelAndView show() throws Exception {
+	@RequestMapping(value = { "/", "/index", "/home", "/m/" }, method = RequestMethod.GET)
+	protected ModelAndView show(Device device) throws Exception {
 		//TODO: filter by magazineGroup
 		List<MagazineIssues> magazines = magazineService.listMainPageMagazineIssues("all");
 		ModelAndView mv = getDefaultModelAndView("index");

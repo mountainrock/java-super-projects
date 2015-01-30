@@ -12,9 +12,15 @@
 		<java.version>1.6</java.version>
 		<spring.version>3.0.0.RELEASE</spring.version>
 		<jackson.version>1.9.10</jackson.version>
+		<spring-mobile-device-version>1.1.0.M2</spring-mobile-device-version>
 	</properties>
 	
 	<dependencies>
+	    <dependency>
+            <groupId>org.springframework.mobile</groupId>
+            <artifactId>spring-mobile-device</artifactId>
+            <version>${spring-mobile-device-version}</version>
+        </dependency>
 		<dependency>
 			<groupId>aspectj</groupId>
 			<artifactId>aspectjweaver</artifactId>
@@ -288,6 +294,11 @@
 			<url>http://download.java.net/maven/2
 			</url>
 		</repository>
+		<repository> <!--  spring mobile -->
+            <id>spring-milestone</id>
+            <name>SpringSource Milestone Repository</name>
+            <url>http://repo.springsource.org/milestone</url>
+        </repository>
 
 	</repositories>
 	<pluginRepositories>

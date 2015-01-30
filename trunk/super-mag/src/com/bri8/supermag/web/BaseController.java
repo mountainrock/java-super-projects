@@ -1,6 +1,7 @@
 package com.bri8.supermag.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mobile.device.Device;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.bri8.supermag.util.Constants;
@@ -11,6 +12,19 @@ public class BaseController {
 	@Autowired	protected CommonVelocityLayoutView layoutView;
 	
 	MenuItems menuItems = new MenuItems();
+	
+	protected ModelAndView getDefaultModelAndView(Device device, String viewName) {
+		ModelAndView mav = new ModelAndView();
+		String prefixMobile=(device.isMobile() ? "/m/":"");
+		layoutView.setUrl( prefixMobile + viewName + ".vm");
+		layoutView.setLayoutUrl(prefixMobile + Constants.VIEW_LAYOUT_LAYOUT_VM);
+		mav.setView(layoutView);
+		mav.addAllObjects(layoutView.getIncludes());
+		mav.addObject("title", viewName);
+		mav.addObject("menuItems", menuItems);
+		return mav;
+	}
+	
 	
 	protected ModelAndView getDefaultModelAndView(String viewName) {
 		ModelAndView mav = new ModelAndView();
