@@ -61,3 +61,4 @@ TODO:
          Authorisation (URL access)   
 
 5. Mobile site
+Ref: http://www.srccodes.com/m/p/article/25/spring-mobile-hello-world-example-that-includes-deviceresolver-sitepreference-urlpath-siteswitcher-and-litedevicedelegatingviewresolver
