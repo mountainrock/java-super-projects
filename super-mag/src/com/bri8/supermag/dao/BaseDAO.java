@@ -3,6 +3,7 @@ package com.bri8.supermag.dao;
 import static com.bri8.supermag.util.Constants.SPACE;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.jdo.PersistenceManager;
 
@@ -113,6 +114,15 @@ public class BaseDAO<T> {
 		return entries;
 	}
 
+	@SuppressWarnings("unchecked")
+	public List<T> readWithFilter(Class clasz, String filter, Map<String, Object> paramValues) {
+		PersistenceManager pm = PMF.get().getPersistenceManager();
+		javax.jdo.Query q = pm.newQuery(clasz);
+		List<T> entries = (List<T>) q.executeWithMap(paramValues);
+		logger.debug(entries);
+		return entries;
+	}
+	
 	@SuppressWarnings("unchecked")
 	public T read(Long id, Class clasz) {
 		PersistenceManager pm = PMF.get().getPersistenceManager();

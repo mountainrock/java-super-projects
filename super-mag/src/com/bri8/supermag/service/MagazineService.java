@@ -1,7 +1,9 @@
 package com.bri8.supermag.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -70,6 +72,16 @@ public class MagazineService {
 	public IssuePage getIssuePage(Long issuePageId) {
 		return issuePageDao.read(issuePageId, IssuePage.class);
 	}
+	
+	public IssuePage getIssueFrontPageByIssueId(Issue issue) {
+		Integer coverPageNumber = issue.getCoverPageNumber()==null ? 1 : issue.getCoverPageNumber();
+		Map<String, Object> paramValues = new HashMap<>();
+		paramValues.put("issueId", issue.getIssueId());
+		paramValues.put("pageNumber", coverPageNumber);
+		
+		String filter="issueId == " + issue.getIssueId()+" and pageNumber == "+coverPageNumber;
+		return issuePageDao.readWithFilter(IssuePage.class, filter, paramValues).get(0);
+	}
 
 	public IssuePage deleteIssuePage(Long issuePageId) {
 		return issuePageDao.delete(issuePageId, IssuePage.class);
@@ -105,5 +117,9 @@ public class MagazineService {
 		return magazineIssuesList;
 	}
 	// main page API end
+
+	public Magazine getMagazine(Long magazineId) {
+		return magazineDao.read(magazineId, Magazine.class);
+	}
 
 }

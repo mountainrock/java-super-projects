@@ -11,9 +11,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.bri8.supermag.model.CheckoutItem;
+import com.bri8.supermag.model.Issue;
+import com.bri8.supermag.model.IssuePage;
+import com.bri8.supermag.model.Magazine;
 import com.bri8.supermag.model.User;
 import com.bri8.supermag.service.MagazineService;
 import com.bri8.supermag.service.SubscriberService;
@@ -25,9 +29,17 @@ public class SubscriberController extends BaseController{
 
 	private static Log logger = LogFactory.getLog(SubscriberController.class);
 
-	@RequestMapping(value = { "/checkout/showAdd" }, method = RequestMethod.GET)
-	protected ModelAndView showAddMagazine() throws Exception {
-		return getDefaultModelAndView("checkout/showAdd");
+	@RequestMapping(value = { "/checkout/showAddIssue" }, method = RequestMethod.GET)
+	protected ModelAndView showAddIssue(@RequestParam("issueId") Long issueId) throws Exception {
+		//load issue and magazine details
+		Issue issue = magazineService.getIssue(issueId);
+		IssuePage issuePage = magazineService.getIssueFrontPageByIssueId(issue);
+		Magazine magazine = magazineService.getMagazine(issue.getMagazineId());
+		ModelAndView mv = getDefaultModelAndView("checkout/showAdd");
+		mv.addObject("issue", issue);
+		mv.addObject("issuePage", issuePage);
+		mv.addObject("magazine", magazine);
+		return mv;
 	}
 
 

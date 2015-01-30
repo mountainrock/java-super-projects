@@ -23,6 +23,11 @@
 						     </tr>
 						     <tr>
 						       <td align="center"><strong>$!{magazineIssue.magazine.magazineName}</strong></td>
+						       
+						       <td align="center"><a href="/checkout/showAddIssue?issueId=${issuePage.issueId}" > 
+						          <img src="/static/images/buy.png" height="20px" width="20px"/>
+						       </a></td>
+						       
 						       <td align="center"><a href="#" onclick="javascript:openPreview(${issuePage.issueId})"> 
 						          <img src="/static/images/full_screen.png" height="20px" width="20px"/>
 						       </a></td>
