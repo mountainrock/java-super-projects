@@ -6,6 +6,7 @@ import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.PrimaryKey;
+import javax.jdo.annotations.Unique;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
 
@@ -18,7 +19,7 @@ public class IssuePage extends BaseModel {
 	@Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
 	Long issuePageId;
 
-	@Persistent
+	@Persistent @Unique
 	Long issueId;
 
 	@Persistent

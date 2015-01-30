@@ -1,1 +1,27 @@
-show add item
+
+		<table>
+			<tr style="border:1px solid grey">
+				<td colspan="2">
+				    <a href="#" onclick="javascript:openPreview(${issuePage.issueId})">
+				         <img src="/magazine/getBlob?blobKey=${issuePage.blobKeyThumbnail}" height="200px" width="150px" style="border:10px solid #d5d5d5"/> 
+				       </a>
+				     </td>
+			     </tr>
+			     <tr>
+				  <td>${magazine.magazineName}</td>
+				  <td align="center">
+							<a href="/checkout/list" > 
+						          <img src="/static/images/addToBasket.png" height="20px" width="20px"/>
+						       </a>
+				</td>
+						       
+				      <td align="center"><a href="#" onclick="javascript:openPreview(${issuePage.issueId})"> 
+						          <img src="/static/images/full_screen.png" height="20px" width="20px"/>
+				       </a></td>
+				  
+			    </tr>
+			     <tr>
+				  <td>Add to basket ${issue.issueId}</td>
+			    </tr>
+		</table>
+	
