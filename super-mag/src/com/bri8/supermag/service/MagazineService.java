@@ -75,7 +75,7 @@ public class MagazineService {
 	
 	public IssuePage getIssueFrontPageByIssueId(Issue issue) {
 		Integer coverPageNumber = issue.getCoverPageNumber()==null ? 1 : issue.getCoverPageNumber();
-		Map<String, Object> paramValues = new HashMap<>();
+		Map<String, Object> paramValues = new HashMap<String, Object>();
 		paramValues.put("issueId", issue.getIssueId());
 		paramValues.put("pageNumber", coverPageNumber);
 		
