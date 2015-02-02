@@ -1,3 +1,14 @@
-list items
+Checkout items
+<fieldset>
+<table width="100%" >
 
-${items}
+#foreach($item in ${items})
+  <tr style="margin:15px; #if( $velocityCount % 2 == 1 )background:lightgrey#end">
+      <td>$velocityCount</td>
+      <td width="50%">$item.issueName</td>
+      <td>$item.subscriptionType</td>
+       <td>${item.price}</td>
+     </tr>
+ #end
+</table>
+</fieldset>

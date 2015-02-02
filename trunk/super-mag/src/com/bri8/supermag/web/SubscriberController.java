@@ -21,6 +21,7 @@ import com.bri8.supermag.model.Magazine;
 import com.bri8.supermag.model.User;
 import com.bri8.supermag.service.MagazineService;
 import com.bri8.supermag.service.SubscriberService;
+import com.bri8.supermag.util.WebConstants;
 
 @Controller("subscriberController")
 public class SubscriberController extends BaseController{
@@ -30,7 +31,7 @@ public class SubscriberController extends BaseController{
 	private static Log logger = LogFactory.getLog(SubscriberController.class);
 
 	@RequestMapping(value = { "/checkout/showAddIssue" }, method = RequestMethod.GET)
-	protected ModelAndView showAddIssue(@RequestParam("issueId") Long issueId) throws Exception {
+	protected ModelAndView showAddIssue(HttpServletRequest request,HttpServletResponse response, @RequestParam("issueId") Long issueId) throws Exception {
 		//load issue and magazine details
 		Issue issue = magazineService.getIssue(issueId);
 		IssuePage issuePage = magazineService.getIssueFrontPageByIssueId(issue);
@@ -39,20 +40,24 @@ public class SubscriberController extends BaseController{
 		mv.addObject("issue", issue);
 		mv.addObject("issuePage", issuePage);
 		mv.addObject("magazine", magazine);
-		return mv;
-	}
-
-
-	@RequestMapping(value = { "/checkout/addIssueToBasket" }, method = RequestMethod.POST)
-	protected ModelAndView addIssueToBasket(HttpServletRequest request,HttpServletResponse response, CheckoutItem checkoutItem ) throws Exception {
 		User user = getUser(request);
 		if(user==null){
 			response.sendRedirect("/user/login" );
 			return null;
 		}
+		return mv;
+	}
+
+
+	@RequestMapping(value = { "/checkout/addIssueToBasket" }, method = RequestMethod.POST)
+	protected void addIssueToBasket(HttpServletRequest request,HttpServletResponse response, CheckoutItem checkoutItem ) throws Exception {
+		User user = getUser(request);
+		if(user==null){
+			response.sendRedirect("/user/login" );
+		}
 		//add to basket
 		subscriberService.addItem(checkoutItem);
-		return getDefaultModelAndView("checkout/list");
+		response.sendRedirect("/checkout/list");
 	}
 	
 	@RequestMapping(value = { "/checkout/list" }, method = RequestMethod.GET)
@@ -68,10 +73,12 @@ public class SubscriberController extends BaseController{
 
 		return mv;
 	}
+	
+	//TODO: clean up after checkout payment complete
 
 
 	private User getUser(HttpServletRequest request) {
-		return (User)request.getSession(true).getAttribute("user");
+		return (User)request.getSession(true).getAttribute(WebConstants.HTTP_SESSION_KEY_USER);
 	}
 
 }

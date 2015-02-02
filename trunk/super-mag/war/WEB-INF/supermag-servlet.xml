@@ -49,7 +49,7 @@
      
         <property name="mobilePrefix" value="m/" />
         <property name="tabletPrefix" value="t/" />
-        <property name="enableFallback" value="true" />
+        <property name="enableFallback" value="false" />
     </bean>
     <!--  end mobile device view switching -->
     
