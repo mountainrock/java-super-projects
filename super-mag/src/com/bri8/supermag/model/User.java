@@ -1,6 +1,8 @@
 package com.bri8.supermag.model;
 
 
+import java.util.Date;
+
 import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.PersistenceCapable;
@@ -39,8 +41,44 @@ public class User extends BaseModel{
 	 
 	 //subscriber/publisher/admin
 	 @Persistent String  userType;
-	
-	 public Long getUserId() {
+	 
+	//audit
+	 @Persistent Date  createdDate;
+	 @Persistent Date  modifiedDate; 
+	 @Persistent String  modifiedBy;
+	 
+
+	 public Date getCreatedDate() {
+		return createdDate;
+	}
+
+
+	public void setCreatedDate(Date createdDate) {
+		this.createdDate = createdDate;
+	}
+
+
+	public Date getModifiedDate() {
+		return modifiedDate;
+	}
+
+
+	public void setModifiedDate(Date modifiedDate) {
+		this.modifiedDate = modifiedDate;
+	}
+
+
+	public String getModifiedBy() {
+		return modifiedBy;
+	}
+
+
+	public void setModifiedBy(String modifiedBy) {
+		this.modifiedBy = modifiedBy;
+	}
+
+
+	public Long getUserId() {
 		return userId;
 	}
 

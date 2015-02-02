@@ -1,5 +1,7 @@
 package com.bri8.supermag.web;
 
+import static com.bri8.supermag.util.WebConstants.HTTP_SESSION_KEY_USER;
+
 import java.io.IOException;
 import java.util.Date;
 
@@ -30,7 +32,7 @@ public class UserController extends BaseController{
 		ModelAndView mv = getDefaultModelAndView("user/login");
 		if(loggedUser!=null && loggedUser.getPassword().equals(loggedUser.getPassword())){
 			mv.addObject("message", "logged in!!");
-			request.getSession(true).setAttribute("user", loggedUser);
+			request.getSession(true).setAttribute(HTTP_SESSION_KEY_USER, loggedUser);
 			try {
 				response.sendRedirect("/user/dashboard");
 			} catch (IOException e) {

@@ -1,19 +1,15 @@
 
 		<table>
 			<tr style="border:1px solid grey">
-				<td colspan="2">
+				<td colspan="4">
 				    <a href="#" onclick="javascript:openPreview(${issuePage.issueId})">
 				         <img src="/magazine/getBlob?blobKey=${issuePage.blobKeyThumbnail}" height="200px" width="150px" style="border:10px solid #d5d5d5"/> 
 				       </a>
 				     </td>
+				     <td>&nbsp;</td>
 			     </tr>
 			     <tr>
 				  <td>${magazine.magazineName}</td>
-				  <td align="center">
-							<a href="/checkout/list" > 
-						          <img src="/static/images/addToBasket.png" height="20px" width="20px"/>
-						       </a>
-				</td>
 						       
 				      <td align="center"><a href="#" onclick="javascript:openPreview(${issuePage.issueId})"> 
 						          <img src="/static/images/full_screen.png" height="20px" width="20px"/>
@@ -21,7 +17,15 @@
 				  
 			    </tr>
 			     <tr>
-				  <td>Add to basket ${issue.issueId}</td>
+				  <td colspan="4">
+				  <form action="/checkout/addIssueToBasket" method="POST">
+					<input type="hidden" name="issueId" value="${issue.issueId}"/>
+					<input type="hidden" name="subscriptionType" value="single"/>
+					<input type="hidden" name="userId" value="${user.userId}"/>
+					${user.userId}
+					<input type="submit" name="Add Single Issue " value="Add Single Issue"/>  (add issue to basket)
+				  </form>
+				  </td>
 			    </tr>
 		</table>
 	

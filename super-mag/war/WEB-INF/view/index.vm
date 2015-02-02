@@ -15,7 +15,7 @@
 					  <table>
 						 #foreach($issuePage in $magazineIssue.issuePages)
 						    <tr style="border:1px solid grey">
-						      <td colspan="2">
+						      <td colspan="4">
 						        <a href="#" onclick="javascript:openPreview(${issuePage.issueId})">
 						         <img src="/magazine/getBlob?blobKey=${issuePage.blobKeyThumbnail}" height="200px" width="150px" style="border:10px solid #d5d5d5"/> 
 						        </a>
