@@ -42,7 +42,7 @@ TODO:
 2. Subscriber module
 		Preview magazine (in progress)
 		Shopping basket 
-		    Add to basket
+		    Add to basket (in progress)
 		    Make payment
 		    Checkout
 		View subscriptions
