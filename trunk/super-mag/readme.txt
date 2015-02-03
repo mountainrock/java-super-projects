@@ -44,7 +44,7 @@ TODO:
 		Shopping basket 
 		    Add to basket (in progress)
 		    Make payment
-		    Checkout
+		    Checkout (in progress)
 		View subscriptions
 		Display subscribed magazine in full  
 		  
@@ -62,3 +62,7 @@ TODO:
 
 5. Mobile site
 Ref: http://www.srccodes.com/m/p/article/25/spring-mobile-hello-world-example-that-includes-deviceresolver-sitepreference-urlpath-siteswitcher-and-litedevicedelegatingviewresolver
+
+
+Issues:
+1. Multiple upload in cloud not stable 
