@@ -10,9 +10,22 @@ Checkout items
        <td>${item.price}</td>
      </tr>
  #end
+ <tr>
+	<td colspan="4">
+		<hr/>
+	</td>
+ </tr>
+  <tr>
+	<td colspan="4">
+		<button type="button" title="Proceed to Checkout" class="button btn-proceed-checkout btn-checkout"><span>
+		<span>Checkout with Paypal</span></span>
+		</button>
+	</td>
+ </tr>
+ 
  </table>
- <hr/>
- <input type="button" name="Checkout" value="Checkout">
+ 
+ 
 </fieldset>
 
 

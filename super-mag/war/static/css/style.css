@@ -604,3 +604,14 @@ text-align:right;
     text-align: center;
     width: 160px;
 }
+
+button.button {
+	display: block;
+	border: 0;
+	background: #0072c6;
+	padding: 10px 22px;
+	font-size: 16px;
+	text-align: center;
+	color: #fff;
+	font-weight: normal;
+}

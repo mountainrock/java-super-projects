@@ -23,7 +23,7 @@ public class BaseController {
 	protected ModelAndView getDefaultModelAndView( HttpServletRequest request, String viewName) {
 		ModelAndView mav = new ModelAndView();
 		Device device = DeviceUtils.getCurrentDevice(request);
-		logger.info("device :"+device);
+		logger.debug("device :"+device);
 		String prefixMobile=(device.isMobile() ? "/m/":"");
 		layoutView.setUrl( prefixMobile + viewName + ".vm");
 		layoutView.setLayoutUrl(prefixMobile + Constants.VIEW_LAYOUT_LAYOUT_VM);

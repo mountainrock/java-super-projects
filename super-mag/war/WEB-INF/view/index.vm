@@ -28,9 +28,9 @@
 						       </a></td>
 						       </tr>
 						       <tr>
-						       <td align="center"><a href="/checkout/showAddIssue?issueId=${issuePage.issueId}" > 
-						          <img src="/static/images/add-cart.gif" />
-						       </a></td>
+						       <td align="center" colspan="3"><a href="/checkout/showAddIssue?issueId=${issuePage.issueId}" > 
+						          <img src="/static/images/add-cart.gif" /> </a>
+							</td>
 						       
 						     </tr>
 						 #end
