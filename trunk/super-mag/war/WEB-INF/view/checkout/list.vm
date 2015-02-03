@@ -10,5 +10,9 @@ Checkout items
        <td>${item.price}</td>
      </tr>
  #end
-</table>
+ </table>
+ <hr/>
+ <input type="button" name="Checkout" value="Checkout">
 </fieldset>
+
+
