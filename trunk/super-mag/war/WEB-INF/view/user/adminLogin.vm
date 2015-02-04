@@ -3,17 +3,17 @@
 
 <form method="post" action="/user/doLogin">
 <br/>
-   <input type="hidden" name="userType" value="subscriber"/>
    <table align="center">
    	<tr>
    		<th>Email</th>
-   		<td> <input type="text" name="email" value="publisher@test.com" size="30" /> 
+   		<td> <input type="text" name="email" value="admin@bri8.com" size="30" /> 
+		        <input type="hidden" name="userType" value="admin" />
    		</td>
    		
    	</tr>
    	<tr>
    		<th>Password</th>
-   		<td> <input type="password" name="password" value="publisher" size="20"/> </td>
+   		<td> <input type="password" name="password" value="admin" size="20"/> </td>
    	</tr>
    	<tr>
    	  <th>&nbsp;</th>
