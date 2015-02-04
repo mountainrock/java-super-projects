@@ -53,6 +53,7 @@ TODO:
 		Manage magazine/issue/finance details
 		Run report
 		Manage user - add/update/ban   
+		Manage magazine categories
 
 4. Security
          Publisher login

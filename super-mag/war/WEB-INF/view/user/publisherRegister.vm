@@ -1,9 +1,9 @@
-
+<h2>Publisher Registration </h2>
 <div style="width:100%" >
 <br/>
 <form method="post" action="/user/create">
 <br/>
-   <input type="hidden" name="userType" value="subscriber"/>
+   <input type="hidden" name="userType" value="publisher"/>
    <table align="center">
    	<tr>
    		<th>First name</th>
@@ -24,7 +24,7 @@
    
    	<tr>
    	  <th>&nbsp;</th>
-      <td>
+           <td>
 		<input type="submit" value="Register" name="Register">	     	
 	    </td>
    </tr>

@@ -3,11 +3,11 @@
 
 <form method="post" action="/user/doLogin">
 <br/>
-   <input type="hidden" name="userType" value="subscriber"/>
    <table align="center">
    	<tr>
    		<th>Email</th>
    		<td> <input type="text" name="email" value="publisher@test.com" size="30" /> 
+		        <input type="hidden" name="userType" value="publisher" />
    		</td>
    		
    	</tr>

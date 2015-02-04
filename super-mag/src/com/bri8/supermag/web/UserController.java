@@ -26,6 +26,16 @@ public class UserController extends BaseController{
 		return getDefaultModelAndView("user/login");
 	}
 	
+	@RequestMapping(value = { "/user/publisheLogin" }, method = RequestMethod.GET)
+	protected ModelAndView showPublisherLogin() throws Exception {
+		return getDefaultModelAndView("user/publisherLogin");
+	}
+	
+	@RequestMapping(value = { "/user/adminLogin" }, method = RequestMethod.GET)
+	protected ModelAndView showAdminLogin() throws Exception {
+		return getDefaultModelAndView("user/adminLogin");
+	}
+	
 	@RequestMapping(value = { "/user/doLogin" }, method = RequestMethod.POST)
 	public ModelAndView login(User user, HttpServletRequest request, HttpServletResponse response) {
 		User loggedUser = userService.readByEmail(user.getEmail());
@@ -50,6 +60,11 @@ public class UserController extends BaseController{
 	@RequestMapping(value = { "/user/register" }, method = RequestMethod.GET)
 	protected ModelAndView show() throws Exception {
 		return getDefaultModelAndView("user/register");
+	}
+	
+	@RequestMapping(value = { "/user/publisherRegister" }, method = RequestMethod.GET)
+	protected ModelAndView showPublisherRegister() throws Exception {
+		return getDefaultModelAndView("user/publisherRegister");
 	}
 	
 	@RequestMapping(value = { "/user/create" }, method = RequestMethod.POST)
