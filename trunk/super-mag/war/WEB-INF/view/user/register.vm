@@ -24,7 +24,7 @@
    	<tr>
    	  <th>&nbsp;</th>
       <td>
-	     	<input name="submit" type="submit" value="Register"/>
+		<input type="submit" value="Register" name="Register">	     	
 	    </td>
    </tr>
   
