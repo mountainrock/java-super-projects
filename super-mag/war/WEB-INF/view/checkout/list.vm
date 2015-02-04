@@ -17,9 +17,7 @@ Checkout items
  </tr>
   <tr>
 	<td colspan="4">
-		<button type="button" title="Proceed to Checkout" class="button btn-proceed-checkout btn-checkout"><span>
-		<span>Checkout with Paypal</span></span>
-		</button>
+		<input type="submit"  value="Checkout with Paypal"/>		
 	</td>
  </tr>
  

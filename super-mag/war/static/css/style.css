@@ -604,15 +604,28 @@ text-align:right;
     width: 160px;
 }
 
-button.button {
+input[type='submit'] {
 	display: block;
 	border: 0;
 	background: #0072c6;
-	padding: 10px 22px;
-	font-size: 16px;
+	padding: 7px 22px;
 	text-align: center;
-	color: #fff;
 	font-weight: normal;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	-webkit-box-shadow: 0 0 4px rgba(0,0,0, .75);
+	-moz-box-shadow: 0 0 4px rgba(0,0,0, .75);
+	box-shadow: 0 0 4px rgba(0,0,0, .75);
+	color:#f3f3f3;
+	font-size:16px;
+	margin:10px;
+}
+input[type='submit']:hover, input[type='button']:focus{
+background-color :#196A9E; 
+-webkit-box-shadow: 0 0 1px rgba(0,0,0, .75);
+-moz-box-shadow: 0 0 1px rgba(0,0,0, .75);
+box-shadow: 0 0 1px rgba(0,0,0, .75);
 }
 
 input[type='text']{
