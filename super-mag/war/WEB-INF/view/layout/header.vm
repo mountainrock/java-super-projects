@@ -3,9 +3,9 @@
 	    	<font style="color:#F16A92">Super<font style="color:#87C7FB">Mag</font></font>
 	    </div>
 		<div style="float:right;padding-top:10px;">
-		  #if($!user)
+		  #if($!user && $!user.userId)
 		  <table>
-		    <tr> <td>Welcome <b>$!user.firstName </b>  | <a href="/user/logout"> Logout</a> </td>
+		    <tr> <td>Welcome <b>$!user.firstName </b>  | <a href="/user/logout/${user.userType}"> Logout</a> </td>
 		    </tr>
 		    
 		    </table>

@@ -29,21 +29,16 @@ public class UserController extends BaseController {
 
 	@RequestMapping(value = { "/user/login/{userType}" }, method = RequestMethod.GET)
 	protected ModelAndView showLogin(@PathVariable("userType") String userType) throws Exception {
-		String viewPath = Constants.BLANK;
-		if (USER_TYPE_SUBSCRIBER.equals(userType)) {
-			viewPath = "user/login";
-		} else if (USER_TYPE_PUBLISHER.equals(userType)) {
-			viewPath = "user/publisherLogin";
-		} else if (USER_TYPE_ADMIN.equals(userType)) {
-			viewPath = "user/adminLogin";
-		}
+		String viewPath = getLoginView(userType);
 		return getDefaultModelAndView(viewPath);
 	}
+
 
 	@RequestMapping(value = { "/user/doLogin" }, method = RequestMethod.POST)
 	public ModelAndView login(User user, HttpServletRequest request, HttpServletResponse response) {
 		User loggedUser = userService.readByEmail(user.getEmail(), user.getUserType());
-		ModelAndView mv = getDefaultModelAndView("user/login");
+		String viewPath = getLoginView(user.getUserType());
+		ModelAndView mv = getDefaultModelAndView(viewPath);
 		if (loggedUser != null && loggedUser.getPassword().equals(loggedUser.getPassword())) {
 			mv.addObject("message", "logged in!!");
 			request.getSession(true).setAttribute(HTTP_SESSION_KEY_USER, loggedUser);
@@ -53,6 +48,7 @@ public class UserController extends BaseController {
 				throw new RuntimeException(e);
 			}
 		} else {
+			request.removeAttribute("user");
 			invalidateSession(request);
 
 			mv.addObject("error", "Invalid user details entered!!");
@@ -82,7 +78,8 @@ public class UserController extends BaseController {
 			ipAddress = request.getRemoteAddr();
 		}
 		user.setIpAddress(ipAddress);
-		ModelAndView mv = getDefaultModelAndView("user/register");
+		String viewPath = getLoginView(user.getUserType());
+		ModelAndView mv = getDefaultModelAndView(viewPath);
 		mv.addObject("message", "Added!");
 		return mv;
 	}
@@ -92,12 +89,26 @@ public class UserController extends BaseController {
 		return getDefaultModelAndView("user/dashboard");
 	}
 
-	@RequestMapping(value = { "/user/logout" }, method = RequestMethod.GET)
-	protected ModelAndView logout(HttpServletRequest request) throws Exception {
+	@RequestMapping(value = { "/user/logout/{userType}" }, method = RequestMethod.GET)
+	protected ModelAndView logout(@PathVariable("userType") String userType, HttpServletRequest request) throws Exception {
 		invalidateSession(request);
-		return getDefaultModelAndView("user/login");
+		String loginView = getLoginView(userType);
+		return getDefaultModelAndView(loginView);
 	}
 
+	private String getLoginView(String userType) {
+		String viewPath = Constants.BLANK;
+		if (USER_TYPE_SUBSCRIBER.equals(userType)) {
+			viewPath = "user/login";
+		} else if (USER_TYPE_PUBLISHER.equals(userType)) {
+			viewPath = "user/publisherLogin";
+		} else if (USER_TYPE_ADMIN.equals(userType)) {
+			viewPath = "user/adminLogin";
+		}else{ //default
+			viewPath = "user/login";
+		}
+		return viewPath;
+	}
 	private void invalidateSession(HttpServletRequest request) {
 		if (request.getSession() != null)
 			request.getSession().invalidate();

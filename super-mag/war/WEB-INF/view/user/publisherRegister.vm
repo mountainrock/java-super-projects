@@ -31,7 +31,7 @@
    	</tr>
 	<tr>
    		<th>Country</th>
-   		<td> <input type="text" name="country" size="40"/> </td>
+   		<td> <input type="text" name="country" size="20"/> </td>
    	</tr>
 	<tr>
    		<th>Phone </th>
