@@ -1,4 +1,4 @@
-
+<h3> User registration </h2>
 <div style="width:100%" >
 <br/>
 <form method="post" action="/user/create">
@@ -19,7 +19,7 @@
    	</tr>
    	<tr>
    		<th>Password *</th>
-   		<td> <input type="text" name="password" size="20"/> </td>
+   		<td> <input type="password" name="password" size="20"/> </td>
    	</tr>
    
    	<tr>

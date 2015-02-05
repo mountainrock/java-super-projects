@@ -628,7 +628,7 @@ background-color :#196A9E;
 box-shadow: 0 0 1px rgba(0,0,0, .75);
 }
 
-input[type='text']{
+input[type='text'],input[type='password']{
 	height: 30px;	
 	border: 1px solid rgb(101, 185, 246);
 	font: 16px arial,sans-serif;
