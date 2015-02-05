@@ -1,6 +1,9 @@
 package com.bri8.supermag.web;
 
 import static com.bri8.supermag.util.WebConstants.HTTP_SESSION_KEY_USER;
+import static com.bri8.supermag.util.WebConstants.USER_TYPE_ADMIN;
+import static com.bri8.supermag.util.WebConstants.USER_TYPE_PUBLISHER;
+import static com.bri8.supermag.util.WebConstants.USER_TYPE_SUBSCRIBER;
 
 import java.io.IOException;
 import java.util.Date;
@@ -10,37 +13,38 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.bri8.supermag.model.User;
 import com.bri8.supermag.service.UserService;
+import com.bri8.supermag.util.Constants;
 
 @Controller("userController")
-public class UserController extends BaseController{
-	@Autowired UserService userService;
-	
-	@RequestMapping(value = { "/user/login" }, method = RequestMethod.GET)
-	protected ModelAndView showLogin() throws Exception {
-		return getDefaultModelAndView("user/login");
+public class UserController extends BaseController {
+	@Autowired
+	UserService userService;
+
+	@RequestMapping(value = { "/user/login/{userType}" }, method = RequestMethod.GET)
+	protected ModelAndView showLogin(@PathVariable("userType") String userType) throws Exception {
+		String viewPath = Constants.BLANK;
+		if (USER_TYPE_SUBSCRIBER.equals(userType)) {
+			viewPath = "user/login";
+		} else if (USER_TYPE_PUBLISHER.equals(userType)) {
+			viewPath = "user/publisherLogin";
+		} else if (USER_TYPE_ADMIN.equals(userType)) {
+			viewPath = "user/adminLogin";
+		}
+		return getDefaultModelAndView(viewPath);
 	}
-	
-	@RequestMapping(value = { "/user/publisheLogin" }, method = RequestMethod.GET)
-	protected ModelAndView showPublisherLogin() throws Exception {
-		return getDefaultModelAndView("user/publisherLogin");
-	}
-	
-	@RequestMapping(value = { "/user/adminLogin" }, method = RequestMethod.GET)
-	protected ModelAndView showAdminLogin() throws Exception {
-		return getDefaultModelAndView("user/adminLogin");
-	}
-	
+
 	@RequestMapping(value = { "/user/doLogin" }, method = RequestMethod.POST)
 	public ModelAndView login(User user, HttpServletRequest request, HttpServletResponse response) {
-		User loggedUser = userService.readByEmail(user.getEmail());
+		User loggedUser = userService.readByEmail(user.getEmail(), user.getUserType());
 		ModelAndView mv = getDefaultModelAndView("user/login");
-		if(loggedUser!=null && loggedUser.getPassword().equals(loggedUser.getPassword())){
+		if (loggedUser != null && loggedUser.getPassword().equals(loggedUser.getPassword())) {
 			mv.addObject("message", "logged in!!");
 			request.getSession(true).setAttribute(HTTP_SESSION_KEY_USER, loggedUser);
 			try {
@@ -48,31 +52,38 @@ public class UserController extends BaseController{
 			} catch (IOException e) {
 				throw new RuntimeException(e);
 			}
-		}else{
+		} else {
 			invalidateSession(request);
-			
-			mv.addObject("error", "Failed log in!!");
+
+			mv.addObject("error", "Invalid user details entered!!");
 		}
-		
+
 		return mv;
 	}
-	
-	@RequestMapping(value = { "/user/register" }, method = RequestMethod.GET)
-	protected ModelAndView show() throws Exception {
-		return getDefaultModelAndView("user/register");
+
+	@RequestMapping(value = { "/user/register/{userType}" }, method = RequestMethod.GET)
+	protected ModelAndView showRegister(@PathVariable("userType") String userType) throws Exception {
+		String viewPath = Constants.BLANK;
+		if (USER_TYPE_SUBSCRIBER.equals(userType)) {
+			viewPath = "user/register";
+		} else if (USER_TYPE_PUBLISHER.equals(userType)) {
+			viewPath = "user/publisherRegister";
+		}
+		return getDefaultModelAndView(viewPath);
 	}
-	
-	@RequestMapping(value = { "/user/publisherRegister" }, method = RequestMethod.GET)
-	protected ModelAndView showPublisherRegister() throws Exception {
-		return getDefaultModelAndView("user/publisherRegister");
-	}
-	
+
 	@RequestMapping(value = { "/user/create" }, method = RequestMethod.POST)
-	public ModelAndView add(User user) {
+	public ModelAndView add(User user, HttpServletRequest request) {
 		user.setCreatedDate(new Date());
 		userService.create(user);
+
+		String ipAddress = request.getHeader("X-FORWARDED-FOR"); // is client behind something?
+		if (ipAddress == null) {
+			ipAddress = request.getRemoteAddr();
+		}
+		user.setIpAddress(ipAddress);
 		ModelAndView mv = getDefaultModelAndView("user/register");
-		mv.addObject("message", "Added!!");
+		mv.addObject("message", "Added!");
 		return mv;
 	}
 
@@ -88,7 +99,7 @@ public class UserController extends BaseController{
 	}
 
 	private void invalidateSession(HttpServletRequest request) {
-		if(request.getSession()!=null)
+		if (request.getSession() != null)
 			request.getSession().invalidate();
 	}
 }

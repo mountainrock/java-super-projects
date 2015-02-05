@@ -7,13 +7,13 @@
    <table align="center">
    	<tr>
    		<th>Email</th>
-   		<td> <input type="text" name="email" value="publisher@test.com" size="30" /> 
+   		<td> <input type="text" name="email" value="" size="30" /> 
    		</td>
    		
    	</tr>
    	<tr>
    		<th>Password</th>
-   		<td> <input type="password" name="password" value="publisher" size="20"/> </td>
+   		<td> <input type="password" name="password" value="" size="20"/> </td>
    	</tr>
    	<tr>
    	  <th>&nbsp;</th>

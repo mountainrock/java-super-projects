@@ -31,7 +31,7 @@ public class UserDAO extends BaseDAO<User> {
 	public User readByName(String userName) {
 		PersistenceManager pm = PMF.get().getPersistenceManager();
 		try {
-			javax.jdo.Query q = pm.newQuery("select from " + User.class.getName() + " where name=='" + userName + "'");
+			javax.jdo.Query q = pm.newQuery(String.format("select from %s where name=='%s'",User.class.getName() , userName));
 			List<User> entries = (List<User>) q.execute();
 			logger.debug(entries);
 			return entries.get(0);
@@ -40,10 +40,10 @@ public class UserDAO extends BaseDAO<User> {
 		}
 	}
 
-	public User readByEmail(String email) {
+	public User readByEmail(String email, String userType) {
 		PersistenceManager pm = PMF.get().getPersistenceManager();
 		try {
-			javax.jdo.Query q = pm.newQuery("select from " + User.class.getName() + " where email=='" + email + "' ");
+			javax.jdo.Query q = pm.newQuery(String.format("select from %s where email=='%s' && userType=='%s'",User.class.getName(),email,userType));
 			List<User> entries = (List<User>) q.execute();
 			logger.debug(entries);
 			return entries.isEmpty() ? null : entries.get(0);
@@ -55,7 +55,7 @@ public class UserDAO extends BaseDAO<User> {
 	public List<User> readAll() {
 		PersistenceManager pm = PMF.get().getPersistenceManager();
 		try {
-			javax.jdo.Query q = pm.newQuery("select from " + User.class.getName() + " order by date desc");
+			javax.jdo.Query q = pm.newQuery(String.format("select from %s order by date desc",  User.class.getName() ) );
 			List<User> entries = (List<User>) q.execute();
 			logger.debug(entries);
 			return entries;

@@ -38,6 +38,7 @@ public class User extends BaseModel{
 	 @Persistent String  city;
 	 @Persistent String  zipCode;
 	 @Persistent String  howDidYouHear;
+	 @Persistent String  ipAddress;
 	 
 	 //subscriber/publisher/admin
 	 @Persistent String  userType;
@@ -255,6 +256,15 @@ public class User extends BaseModel{
 
 	public void setUserType(String userType) {
 		this.userType = userType;
+	}
+
+	public String getIpAddress() {
+		return ipAddress;
+	}
+
+
+	public void setIpAddress(String ipAddress) {
+		this.ipAddress = ipAddress;
 	}
 
 

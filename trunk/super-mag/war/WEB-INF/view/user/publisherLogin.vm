@@ -17,9 +17,10 @@
    	</tr>
    	<tr>
    	  <th>&nbsp;</th>
-      <td>
-	     	<input name="submit" type="submit" value="Login"/>
+           <td width="200">
+	     	<input name="submit" type="submit" value="Login"/>&nbsp; <a href="/user/register/publisher"> Register as publisher</a>
 	    </td>
+	    
    </tr>
   
 	      

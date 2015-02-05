@@ -11,8 +11,8 @@ public class UserService {
 
 	@Autowired UserDAO userDao;
 
-	public User readByEmail(String email) {
-		return userDao.readByEmail(email);
+	public User readByEmail(String email, String userType) {
+		return userDao.readByEmail(email, userType);
 	}
 
 	public void create(User user) {

@@ -9,7 +9,7 @@
 		    </tr>
 		    
 		    </table>
-		  #else <a href="/user/publisheLogin"> Publisher Login </a> | <a href="/user/login"> User Login</a> |  <a href="/user/register"> Register</a>#end
+		  #else <a href="/user/login/publisher"> Publisher Login </a> | <a href="/user/login/subscriber"> User Login</a> |  <a href="/user/register/subscriber"> Register</a>#end
             
          </div>
 </div>
