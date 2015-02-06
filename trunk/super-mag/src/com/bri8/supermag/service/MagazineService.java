@@ -20,20 +20,16 @@ import com.bri8.supermag.model.MagazineIssues;
 @Component("magazineService")
 public class MagazineService {
 
-	@Autowired
-	MagazineDAO magazineDao;
-	@Autowired
-	IssueDAO issueDao;
-
-	@Autowired
-	IssuePageDAO issuePageDao;
-
-	@Autowired
-	UserDAO userDao;
+	@Autowired MagazineDAO magazineDao;
+	@Autowired IssueDAO issueDao;
+	@Autowired IssuePageDAO issuePageDao;
+	@Autowired UserDAO userDao;
+	@Autowired SearchService searchService;
 
 	// publisher APIs begin
 	public void createMagazine(Magazine magazine) {
 		magazineDao.create(magazine);
+		searchService.indexMagazine(magazine);
 	}
 
 	public List<MagazineIssues> listMagazineIssues(Long userId) {
