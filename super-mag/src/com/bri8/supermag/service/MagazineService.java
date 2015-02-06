@@ -1,6 +1,7 @@
 package com.bri8.supermag.service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -28,6 +29,7 @@ public class MagazineService {
 
 	// publisher APIs begin
 	public void createMagazine(Magazine magazine) {
+		magazine.setCreatedDate(new Date());
 		magazineDao.create(magazine);
 		searchService.indexMagazine(magazine);
 	}
