@@ -1,5 +1,7 @@
 package com.bri8.supermag.model;
 
+import java.util.Date;
+
 import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.PersistenceCapable;
@@ -36,6 +38,11 @@ public class Magazine extends BaseModel{
 	 @Persistent Float   issuePrice12months;
 	 @Persistent String  frequency;
 	 @Persistent String  language;
+	 
+	//audit
+	 @Persistent Date  createdDate;
+	 @Persistent Date  modifiedDate; 
+	 @Persistent String  modifiedBy;
 	 
 	public Long getMagazineId() {
 		return magazineId;
@@ -170,6 +177,25 @@ public class Magazine extends BaseModel{
 	}
 	public void setCurrency(String currency) {
 		this.currency = currency;
+	}
+	
+	public Date getCreatedDate() {
+		return createdDate;
+	}
+	public void setCreatedDate(Date createdDate) {
+		this.createdDate = createdDate;
+	}
+	public Date getModifiedDate() {
+		return modifiedDate;
+	}
+	public void setModifiedDate(Date modifiedDate) {
+		this.modifiedDate = modifiedDate;
+	}
+	public String getModifiedBy() {
+		return modifiedBy;
+	}
+	public void setModifiedBy(String modifiedBy) {
+		this.modifiedBy = modifiedBy;
 	}
 	@Override
 	public String toString() {
