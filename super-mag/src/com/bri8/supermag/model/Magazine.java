@@ -18,20 +18,23 @@ public class Magazine extends BaseModel{
 	 @Persistent String  magazineName;
 	 @Persistent String  publishingCompany;
 	 @Persistent String  description;
-	 @Persistent String  categoryId;
+	 @Persistent String  category1;
+	 @Persistent String  category2;
 	 @Persistent String  ageRating;
 	 @Persistent String  keywords;
 	 @Persistent String  webUrl;
 	 @Persistent String  countryBlock;
-	 @Persistent String    countryPublishFrom;
-	 @Persistent String  pricePerIssueIn$;
-	 @Persistent String  issues3months;
-	 @Persistent String  issuePrice3months;
-	 @Persistent String issues6months;
-	 @Persistent String  issuePrice6months;
-	 @Persistent String issues12months;
-	 @Persistent String   issuePrice12months;
-	 @Persistent String  magazineFrequency;
+	 @Persistent String  countryPublishFrom;
+	 
+	 @Persistent Float  pricePerIssue;
+	 @Persistent String  currency;
+	 @Persistent Integer  issues3months;
+	 @Persistent Float  issuePrice3months;
+	 @Persistent Integer issues6months;
+	 @Persistent Float  issuePrice6months;
+	 @Persistent Integer issues12months;
+	 @Persistent Float   issuePrice12months;
+	 @Persistent String  frequency;
 	 @Persistent String  language;
 	 
 	public Long getMagazineId() {
@@ -64,11 +67,17 @@ public class Magazine extends BaseModel{
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public String getCategoryId() {
-		return categoryId;
+	public String getCategory1() {
+		return category1;
 	}
-	public void setCategoryId(String categoryId) {
-		this.categoryId = categoryId;
+	public void setCategory1(String category1) {
+		this.category1 = category1;
+	}
+	public String getCategory2() {
+		return category2;
+	}
+	public void setCategory2(String category2) {
+		this.category2 = category2;
 	}
 	public String getAgeRating() {
 		return ageRating;
@@ -100,53 +109,54 @@ public class Magazine extends BaseModel{
 	public void setCountryPublishFrom(String countryPublishFrom) {
 		this.countryPublishFrom = countryPublishFrom;
 	}
-	public String getPricePerIssueIn$() {
-		return pricePerIssueIn$;
+	
+	public Float getPricePerIssue() {
+		return pricePerIssue;
 	}
-	public void setPricePerIssueIn$(String pricePerIssueIn$) {
-		this.pricePerIssueIn$ = pricePerIssueIn$;
+	public void setPricePerIssue(Float pricePerIssue) {
+		this.pricePerIssue = pricePerIssue;
 	}
-	public String getIssues3months() {
+	public Integer getIssues3months() {
 		return issues3months;
 	}
-	public void setIssues3months(String issues3months) {
+	public void setIssues3months(Integer issues3months) {
 		this.issues3months = issues3months;
 	}
-	public String getIssuePrice3months() {
+	public Float getIssuePrice3months() {
 		return issuePrice3months;
 	}
-	public void setIssuePrice3months(String issuePrice3months) {
+	public void setIssuePrice3months(Float issuePrice3months) {
 		this.issuePrice3months = issuePrice3months;
 	}
-	public String getIssues6months() {
+	public Integer getIssues6months() {
 		return issues6months;
 	}
-	public void setIssues6months(String issues6months) {
+	public void setIssues6months(Integer issues6months) {
 		this.issues6months = issues6months;
 	}
-	public String getIssuePrice6months() {
+	public Float getIssuePrice6months() {
 		return issuePrice6months;
 	}
-	public void setIssuePrice6months(String issuePrice6months) {
+	public void setIssuePrice6months(Float issuePrice6months) {
 		this.issuePrice6months = issuePrice6months;
 	}
-	public String getIssues12months() {
+	public Integer getIssues12months() {
 		return issues12months;
 	}
-	public void setIssues12months(String issues12months) {
+	public void setIssues12months(Integer issues12months) {
 		this.issues12months = issues12months;
 	}
-	public String getIssuePrice12months() {
+	public Float getIssuePrice12months() {
 		return issuePrice12months;
 	}
-	public void setIssuePrice12months(String issuePrice12months) {
+	public void setIssuePrice12months(Float issuePrice12months) {
 		this.issuePrice12months = issuePrice12months;
 	}
-	public String getMagazineFrequency() {
-		return magazineFrequency;
+	public String getFrequency() {
+		return frequency;
 	}
-	public void setMagazineFrequency(String magazineFrequency) {
-		this.magazineFrequency = magazineFrequency;
+	public void setFrequency(String frequency) {
+		this.frequency = frequency;
 	}
 	public String getLanguage() {
 		return language;
@@ -155,6 +165,12 @@ public class Magazine extends BaseModel{
 		this.language = language;
 	}
 
+	public String getCurrency() {
+		return currency;
+	}
+	public void setCurrency(String currency) {
+		this.currency = currency;
+	}
 	@Override
 	public String toString() {
 		return ToStringBuilder.reflectionToString(this);
