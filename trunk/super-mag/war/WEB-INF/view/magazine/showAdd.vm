@@ -5,13 +5,13 @@
 
 <table align="left" style="margin:14px">
    	<tr>
-   		<th>Magazine Title  </th> <td><input type="text" name="magazineName" size="20"/></td>
+   		<th>Magazine Title  </th> <td><input type="text" name="magazineName" size="20" value="test"/></td>
    	</tr>
 	<tr>
-   		<th>Description</th> <td><textarea style="width:400px" name="description" class="text-box" tabindex="2"></textarea></td>
+   		<th>Description</th> <td><textarea style="width:400px" name="description" class="text-box" tabindex="2">test description</textarea></td>
    	</tr>
 	<tr>
-   		<th>Keywords</th> <td><input type="text" name="keywords" size="50"/></td>
+   		<th>Keywords</th> <td><input type="text" name="keywords" size="50" value="test keyword"/></td>
    	</tr>
 	<tr>
 		<th>Category 1</th>
@@ -45,7 +45,7 @@
    	</tr>
    	
    	 <tr>
-		<th>Price per issue</th> <td><input type="text" name="pricePerIssue" size="10"/></td>
+		<th>Price per issue</th> <td><input type="text" name="pricePerIssue" size="10" value="50"/></td>
    	 </tr>
    	
    	<tr>
