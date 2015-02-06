@@ -1,0 +1,8 @@
+  <option value="daily" >Daily</option>
+  <option value="weekly" selected='selected'>Weekly</option>
+  <option value="fortnightly" >Fortnightly</option>
+  <option value="monthly" >Monthly</option>
+  <option value="bimonthly" >Bimonthly</option>
+  <option value="quarterly" >Quarterly</option>
+  <option value="annual" >Annual</option>
+  <option value="na" >Not Applicable</option>

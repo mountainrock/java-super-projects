@@ -5,14 +5,52 @@
 
 <table align="left" style="margin:14px">
    	<tr>
-   		<th>Magazine Name</th> <td><input type="text" name="magazineName" size="20"/></td>
+   		<th>Magazine Title  </th> <td><input type="text" name="magazineName" size="20"/></td>
    	</tr>
+	<tr>
+   		<th>Description</th> <td><textarea style="width:400px" name="description" class="text-box" tabindex="2"></textarea></td>
+   	</tr>
+	<tr>
+   		<th>Keywords</th> <td><input type="text" name="keywords" size="50"/></td>
+   	</tr>
+	<tr>
+		<th>Category 1</th>
+		<td>
+			<select name="category" id="category1" tabindex="4" style="width: 192px;">
+					#parse("common/categories.vm")                                    
+                        </select>
+			  </td>
+	 </tr>
+	 <tr>
+		<th>Category 2</th>
+		<td>
+			<select name="category2" id="category2" style="width: 192px;">
+					#parse("common/categories.vm")                                    
+                            </select>
+			  </td>
+	 </tr>
    	 <tr>
-   		<th>Publishing Company</th> <td><input type="text" name="publishingCompany" size="20"/></td>
+   		<th>Language</th> 
+		<td>
+		<select name="language"  style="width: 192px;">
+			#parse("common/languages.vm")
+		</td>
    	</tr>
+   	<tr>
+   		<th>Frequency</th> 
+		<td>
+		<select name="frequency"  style="width: 192px;">
+			#parse("common/frequency.vm")
+		</td>
+   	</tr>
+   	
    	 <tr>
-   		<th>Language</th> <td><input type="text" name="language" size="20"/></td>
-   	</tr>
+		<th>Price per issue</th> <td><input type="text" name="pricePerIssue" size="10"/></td>
+   	 </tr>
+   	
+   	<tr>
+		<th>TODO: issue price in months</th> <td><input type="text" name="pricePerIssue" size="10"/></td>
+   	 </tr>
    	<tr>
    	  <td>&nbsp;</td>
       <td>

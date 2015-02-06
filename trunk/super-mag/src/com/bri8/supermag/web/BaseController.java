@@ -12,13 +12,11 @@ import org.springframework.web.servlet.ModelAndView;
 import com.bri8.supermag.dao.BaseDAO;
 import com.bri8.supermag.util.Constants;
 import com.bri8.supermag.web.common.CommonVelocityLayoutView;
-import com.bri8.supermag.web.common.MenuItems;
 
 public class BaseController {
 	@Autowired	protected CommonVelocityLayoutView layoutView;
 
 	private static Log logger = LogFactory.getLog(BaseDAO.class);
-	MenuItems menuItems = new MenuItems();
 	
 	protected ModelAndView getDefaultModelAndView( HttpServletRequest request, String viewName) {
 		ModelAndView mav = new ModelAndView();
@@ -30,7 +28,6 @@ public class BaseController {
 		mav.setView(layoutView);
 		mav.addAllObjects(layoutView.getIncludes());
 		mav.addObject("title", viewName);
-		mav.addObject("menuItems", menuItems);
 		return mav;
 	}
 	
@@ -42,7 +39,6 @@ public class BaseController {
 		mav.setView(layoutView);
 		mav.addAllObjects(layoutView.getIncludes());
 		mav.addObject("title", viewName);
-		mav.addObject("menuItems", menuItems);
 		return mav;
 	}
 	
@@ -53,7 +49,6 @@ public class BaseController {
 		mav.setView(layoutView);
 		mav.addAllObjects(layoutView.getIncludes());
 		mav.addObject("title", viewName);
-		mav.addObject("menuItems", menuItems);
 		
 		return mav;
 	}
