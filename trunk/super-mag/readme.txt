@@ -56,14 +56,16 @@ TODO:
 		Manage magazine categories
 
 4. Security
-         Publisher login
-         Subscriber login
-         Admin login
+         Publisher login (in progress)
+         Subscriber login (in progress)
+         Admin login (in progress)
          Authorisation (URL access)   
 
 5. Mobile site
 Ref: http://www.srccodes.com/m/p/article/25/spring-mobile-hello-world-example-that-includes-deviceresolver-sitepreference-urlpath-siteswitcher-and-litedevicedelegatingviewresolver
 
+6. Validation
+7. Email
 
 Issues:
 1. Multiple upload in cloud not stable 
