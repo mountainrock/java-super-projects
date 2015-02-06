@@ -1,5 +1,3 @@
-
-#parse("magazine/publisherMenu.vm")
 <div style="width:100%;height:550px" >
 
 <div align="center">

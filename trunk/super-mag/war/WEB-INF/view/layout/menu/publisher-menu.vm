@@ -1,0 +1,11 @@
+<!-- default -->
+<div id="body" style="float:left;margin-left:10%">
+		<ul class="nav">
+			<li><a href="/">Home</a></li>
+			<li><a href="/magazine/list">Magazines</a></li>
+			<li ><a href="/report">Report</a></li>
+			<li ><a href="/finance">Finance</a></li>
+			<li ><a href="/support">Support</a></li>		
+			
+		</ul>	
+</div>
