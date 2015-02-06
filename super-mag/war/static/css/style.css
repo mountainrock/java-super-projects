@@ -66,8 +66,10 @@ a:hover, a:visited hover
 /*------------------------------------------------header--------------------*/
 #header{
 	width:80%;
-	height:93px;
+	height:60px;
 	margin:0 auto;
+	padding-top:5px;
+	padding-left:20px;
 }
 #header ul.topLink{
 	width:105px;
@@ -121,8 +123,7 @@ a:hover, a:visited hover
 	display:block;
 	font:normal 38px sans-serif,Helvetica;
 	color:#FC6F6F;
-	background-color:none;
-	margin:36px 0 0 0;
+	background-color:none;	
 	float:left;
 }
 #header div.topTxt span{
@@ -146,7 +147,7 @@ a:hover, a:visited hover
 	float:left;
 }
 #body ul.nav{
-	width:935px;
+	width:400px;
 	height:34px;
 	float:left;
 	margin:0 0 6px 0;
@@ -633,4 +634,18 @@ input[type='text'],input[type='password']{
 	border: 1px solid rgb(101, 185, 246);
 	font: 16px arial,sans-serif;
 	text-indent: 10px;
+}
+
+.search-bar-submit {
+    background-color: #F8E796;
+    border: 1px solid #E7D488;
+    padding:2px;
+    -moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+    border-radius: 10px;
+    color: #565656;    
+    line-height: 17px;
+    height: 34px;
+    cursor: pointer;
+    -moz-appearance: button;
 }

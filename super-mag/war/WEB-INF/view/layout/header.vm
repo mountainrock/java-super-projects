@@ -1,29 +1,34 @@
 <div id="header">
-	    <div class="topTxt">
-	    	<font style="color:#F16A92">Super<font style="color:#87C7FB">Mag</font></font>
-	    </div>
-		<div style="float:right;padding-top:10px;">
-		  #if($!user && $!user.userId)
-		  <table>
-		    <tr> <td>Welcome <b>$!user.firstName </b>  | <a href="/user/logout/${user.userType}"> Logout</a> </td>
-		    </tr>
+	    
+		<div style="padding-top:1px;">
+		
+		  <table width="100%">
+		    <tr >
+		       <td width="70%">
+				<div class="topTxt">
+					<font style="color:#F16A92">Super<font style="color:#87C7FB">Mag</font></font>
+				</div>
+		        </td>
+
+		         <td  width="30%">
+			   #if($!user && $!user.userId)
+					Welcome <b>$!user.firstName </b>  | <a href="/user/logout/${user.userType}"> Logout</a> 
+			  #else
+					    <a href="/user/login/publisher"> Publisher Login </a> | <a href="/user/login/subscriber"> User Login</a> |  <a href="/user/register/subscriber"> Register</a> 
+			 #end
+			  </td>
+		   </tr>
 		    
 		    </table>
-		  #else <a href="/user/login/publisher"> Publisher Login </a> | <a href="/user/login/subscriber"> User Login</a> |  <a href="/user/register/subscriber"> Register</a>#end
-            
          </div>
 </div>
 
-<div id="body" style="float:left;margin-left:10%">
-		<ul class="nav">
-			<li><a href="/">Home</a></li>
-			<li><a href="/main/categories">Categories</a></li>
-			<li class="noImg"><a href="/main/featured">Featured</a></li>
-			<li style="width:55%"></li>
-			<li >
-			<a href="/checkout/list"> 
-                                    <img src="/static/images/buy.png"  height="20" alt="Checkout"/>
-                          </a> 
-		         </li>
-		</ul>	
-</div>
+#if(${user.userType} == 'publisher')
+  #parse("layout/menu/publisher-menu.vm")
+#elseif(${user.userType} == 'subscriber')
+  #parse("layout/menu/subscriber-menu.vm")  
+#elseif(${user.userType} == 'admin')
+  #parse("layout/menu/admin-menu.vm")
+#else 
+  #parse("layout/menu/default-menu.vm")
+#end

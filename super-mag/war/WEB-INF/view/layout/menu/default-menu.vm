@@ -1,0 +1,35 @@
+<!-- default -->
+<div id="body" style="float:left;margin-left:10%">
+	<table>
+	    <tr>
+	       <td width="40%">
+		<ul class="nav">
+			<li><a href="/">Home</a></li>
+			<li><a href="/main/categories">Categories</a></li>
+			<li class="noImg"><a href="/main/featured">Featured</a></li>
+		</ul>	
+		</td>
+		    <td width="35%">&nbsp;</td>
+		   <td width="50%">
+				<table>
+				    <tr>
+					   <td><input type="text" name="search" value=""  width="80%" style="border: 1px solid #BCB9B9">    </td> 
+				           <td>  <input type="button" name="search" value="Search" class="search-bar-submit"></td>
+					    
+					   <td>
+					   <ul class="nav" style="width:150px">
+							  <li><a href="/checkout/list"> 
+								    <img src="/static/images/buy.png"  height="20" alt="Checkout"/> Cart(0)
+							  </a> 
+							  </li>
+						</ul>
+					   </td>
+			            </tr>
+				</table>
+		   
+		   </td>
+		   
+	     </tr>
+    </table>	     
+		
+</div>
