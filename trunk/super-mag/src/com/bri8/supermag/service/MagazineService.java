@@ -15,6 +15,7 @@ import com.bri8.supermag.dao.MagazineDAO;
 import com.bri8.supermag.dao.UserDAO;
 import com.bri8.supermag.model.Issue;
 import com.bri8.supermag.model.IssuePage;
+import com.bri8.supermag.model.IssueStatus;
 import com.bri8.supermag.model.Magazine;
 import com.bri8.supermag.model.MagazineIssues;
 
@@ -25,13 +26,12 @@ public class MagazineService {
 	@Autowired IssueDAO issueDao;
 	@Autowired IssuePageDAO issuePageDao;
 	@Autowired UserDAO userDao;
-	@Autowired SearchService searchService;
+	@Autowired SearchService searchService;//TODO: search index on publish searchService.indexIssue(issue);
 
 	// publisher APIs begin
 	public void createMagazine(Magazine magazine) {
 		magazine.setCreatedDate(new Date());
 		magazineDao.create(magazine);
-		searchService.indexMagazine(magazine);
 	}
 
 	public List<MagazineIssues> listMagazineIssues(Long userId) {
@@ -51,6 +51,7 @@ public class MagazineService {
 	}
 
 	public void createIssue(Issue issue) {
+		issue.setCreatedDate(new Date());
 		issueDao.create(issue);
 	}
 
@@ -61,6 +62,15 @@ public class MagazineService {
 	public void addIssueImageBlobKey(IssuePage issuePage) {
 
 		issuePageDao.create(issuePage);
+	}
+	
+	public void publish(Long issueId){
+		Issue issue = getIssue(issueId);
+		issue.setStatus(IssueStatus.published.name());
+		Magazine magazine = getMagazine(issue.getMagazineId());
+		Date publishDate = new Date();
+		IssuePage issueCoverPage= getIssueFrontPageByIssueId(issue);
+		searchService.indexIssue(magazine, issue, issueCoverPage, publishDate);
 	}
 
 	public List<IssuePage> getIssuePages(Long issueId) {
@@ -91,6 +101,7 @@ public class MagazineService {
 	public List<MagazineIssues> listMainPageMagazineIssues(String magazineGroup) {
 		List<MagazineIssues> magazineIssuesList = new ArrayList<MagazineIssues>();
 		if ("all".equals(magazineGroup)) {
+			//TODO: use indexed search result instead of DAO
 			List<Magazine> magList = magazineDao.read(Magazine.class, " order by magazineId DESC", 10);
 			for (Magazine magazine : magList) {
 				MagazineIssues magazineIssues = new MagazineIssues();

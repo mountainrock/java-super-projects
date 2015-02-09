@@ -34,6 +34,11 @@ public class Issue extends BaseModel {
 
 	@Persistent
 	Float singleIssuePrice;
+	
+	//audit
+	 @Persistent Date  createdDate;
+	 @Persistent Date  modifiedDate; 
+	 @Persistent String  modifiedBy;
 
 	public Long getIssueId() {
 		return issueId;
@@ -113,6 +118,30 @@ public class Issue extends BaseModel {
 
 	public void setCoverPageNumber(Integer coverPageNumber) {
 		this.coverPageNumber = coverPageNumber;
+	}
+	
+	public Date getCreatedDate() {
+		return createdDate;
+	}
+
+	public void setCreatedDate(Date createdDate) {
+		this.createdDate = createdDate;
+	}
+
+	public Date getModifiedDate() {
+		return modifiedDate;
+	}
+
+	public void setModifiedDate(Date modifiedDate) {
+		this.modifiedDate = modifiedDate;
+	}
+
+	public String getModifiedBy() {
+		return modifiedBy;
+	}
+
+	public void setModifiedBy(String modifiedBy) {
+		this.modifiedBy = modifiedBy;
 	}
 
 	@Override

@@ -18,9 +18,10 @@ public class SearchController extends BaseController{
 	@RequestMapping(value = { "/search" }, method = RequestMethod.GET)
 	public ModelAndView search(@RequestParam("q")String query )
 	{
-		Results<ScoredDocument> result = searchService.searchMagazine(query);
+		Results<ScoredDocument> resultIssue = searchService.searchIssue(query);
+		
 		ModelAndView mv = getDefaultModelAndView("search/show");
-		mv.addObject("result", result);
+		mv.addObject("result", resultIssue);
 		return mv;
 	}
 
