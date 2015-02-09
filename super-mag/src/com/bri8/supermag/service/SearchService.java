@@ -1,8 +1,11 @@
 package com.bri8.supermag.service;
 
+import java.util.Date;
+
 import org.springframework.stereotype.Service;
 
 import com.bri8.supermag.model.Issue;
+import com.bri8.supermag.model.IssuePage;
 import com.bri8.supermag.model.Magazine;
 import com.google.appengine.api.search.Document;
 import com.google.appengine.api.search.Field;
@@ -19,51 +22,53 @@ import com.google.appengine.api.search.SortOptions;
 @Service("searchService")
 public class SearchService {
 
-	private static final String INDEX_MAGAZINE = "magazine";
 	private static final String INDEX_ISSUE = "issue";
-
-	public void indexMagazine(Magazine magazine) {
-		Document doc = Document.newBuilder().setId(magazine.getMagazineId() + "")
+	
+	public void indexIssue(Magazine magazine, Issue issue, IssuePage issueCoverPage, Date publishDate) {
+		Document doc = Document.newBuilder().setId(issue.getIssueId() + "")
 				.addField(Field.newBuilder().setName("magazineId").setText(magazine.getMagazineId()+""))
-				.addField(Field.newBuilder().setName("name").setText(magazine.getMagazineName()))
-				.addField(Field.newBuilder().setName("description").setText(magazine.getDescription()))
+				.addField(Field.newBuilder().setName("magazineName").setText(magazine.getMagazineName()))
+				.addField(Field.newBuilder().setName("magazineDescription").setText(magazine.getDescription()))
 				.addField(Field.newBuilder().setName("publishingCompany").setAtom(magazine.getPublishingCompany()))
 				.addField(Field.newBuilder().setName("category1").setText(magazine.getCategory1()))
 				.addField(Field.newBuilder().setName("category2").setText(magazine.getCategory2()))
 				.addField(Field.newBuilder().setName("createdDate").setDate(magazine.getCreatedDate()))
-				.addField(Field.newBuilder().setName("keywords").setText(magazine.getKeywords())).build();
-		indexADocument(INDEX_MAGAZINE, doc);
-
-	}
-	
-	public void indexIssue(Issue issue) {
-		//TODO:
+				.addField(Field.newBuilder().setName("keywords").setText(magazine.getKeywords()))
+				
+				.addField(Field.newBuilder().setName("issueId").setText(issue.getIssueId()+""))
+				.addField(Field.newBuilder().setName("issueName").setText(issue.getIssueName()))
+				.addField(Field.newBuilder().setName("issueDescription").setText(issue.getDescription()))
+				.addField(Field.newBuilder().setName("issueCreatedDate").setDate(issue.getCreatedDate()))
+				.addField(Field.newBuilder().setName("issueBlobKeyThumbnail").setText(issueCoverPage.getBlobKeyThumbnail()))
+				.addField(Field.newBuilder().setName("status").setText(issue.getStatus()))
+				
+				.addField(Field.newBuilder().setName("publishDate").setDate(publishDate))
+				.build();
+		indexADocument(INDEX_ISSUE, doc);
 		
 	}
+	
 
-	public Results<ScoredDocument> searchMagazine(String keyword) {
-		// Build the SortOptions with 2 sort keys
+	public Results<ScoredDocument> searchIssue(String keyword) {
 	    SortOptions sortOptions = SortOptions.newBuilder()
 	        .addSortExpression(SortExpression.newBuilder()
-	            .setExpression("createdDate")
+	            .setExpression("publishDate")
 	            .setDirection(SortExpression.SortDirection.DESCENDING)
 	            .setDefaultValueDate(null))
 	        .setLimit(1000)
 	        .build();
 
-	    // Build the QueryOptions
 	    QueryOptions options = QueryOptions.newBuilder()
 	        .setLimit(25)
-	        .setFieldsToReturn("magazineId","name", "description", "category1", "category2", "publishingCompany", "keywords", "createdDate")
+	        .setFieldsToReturn("magazineId","magazineName", "magazineDescription","category1","category2", "keywords", "issueId", "issueName","issueDescription","issueBlobKeyThumbnail","issueCreatedDate","publishDate")
 	        .setSortOptions(sortOptions)
 	        .build();
 
-	    // A query string
 	    String queryString = keyword;
 
-	    //  Build the Query and run the search
+	    //  TODO: search with status="live"
 	    Query query = Query.newBuilder().setOptions(options).build(queryString);
-	    IndexSpec indexSpec = IndexSpec.newBuilder().setName(INDEX_MAGAZINE).build();
+	    IndexSpec indexSpec = IndexSpec.newBuilder().setName(INDEX_ISSUE).build();
 	    Index index = SearchServiceFactory.getSearchService().getIndex(indexSpec);
 	    Results<ScoredDocument> result =  index.search(query);
 
