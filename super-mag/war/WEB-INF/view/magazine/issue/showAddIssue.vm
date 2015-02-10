@@ -1,6 +1,40 @@
-#parse("magazine/publisherMenu.vm")
-
+<div class="wizard-steps">
+			    <div class="completed-step step">
+			        <div class="a-before"></div>
+			        <a href="#step-one">
+			            <span>1</span> 
+			           Title information
+			        </a>
+			        <div class="a-after"></div>
+			    </div>
+			    <div class="active-step step">
+			        <div class="a-before"></div>
+			        <a href="#step-two">
+			          <span>2</span> 
+			          Issue Information
+			        </a>
+			        <div class="a-after"></div>
+			    </div>
+			    <div class="step">
+			        <div class="a-before"></div>
+			        <a href="#">
+			            <span>3</span> 
+			            Upload Files
+			        </a>
+			        <div class="a-after"></div>
+			    </div>
+			    <div class="step">
+			        <div class="a-before"></div>
+			        <a href="#">
+			            <span>4</span> 
+			            Publish
+			        </a>
+			        <div class="a-after"></div>
+			    </div>
+			</div>
 <div style="width:100%;height:550px" >
+
+		
 <br/>
 <form method="post" action="/magazine/createIssue">
 <input type="hidden" name="magazineId" value="${magazineId}" size="20"/>

@@ -1,3 +1,0 @@
-#foreach( $issue in $!{issues} )
-$!{issue.magazineId}/${issue.issueId}
-#end
