@@ -1,5 +1,7 @@
 package com.bri8.supermag.web;
 
+import static com.bri8.supermag.util.WebConstants.HTTP_SESSION_KEY_USER;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -43,13 +45,14 @@ public class MagazinePublisherController extends BaseController{
 	@RequestMapping(value = { "/magazine/create" }, method = RequestMethod.POST)
 	public ModelAndView create(Magazine magazine, HttpServletRequest request) {
 
-		User user = (User) request.getSession().getAttribute("user");
+		User user = (User) request.getSession().getAttribute(HTTP_SESSION_KEY_USER);
 		magazine.setUserId(user.getUserId());
 		magazineService.createMagazine(magazine);
 
 		ModelAndView mv = getDefaultModelAndView("magazine/showAdd");
 		if(magazine!=null && magazine.getMagazineId()!=null){
-			mv.addObject("message", "magazine created sucessfully : "+ magazine.getMagazineId());
+			mv = getDefaultModelAndView("magazine/showAddIssue/"+magazine.getMagazineId());
+			mv.addObject("message", "New magazine created sucessfully : "+ magazine.getMagazineId());
 			mv.addObject("magazine",magazine);
 		}else{
 			mv.addObject("error", "Failed to create magazine!!");
@@ -60,7 +63,7 @@ public class MagazinePublisherController extends BaseController{
 
 	@RequestMapping(value = { "/magazine/list" }, method = RequestMethod.GET)
 	protected ModelAndView list(HttpServletRequest request) throws Exception {
-		User user = (User) request.getSession().getAttribute("user");
+		User user = (User) request.getSession().getAttribute(HTTP_SESSION_KEY_USER);
 		List<MagazineIssues> magazines = magazineService.listMagazineIssues(user.getUserId());
 		ModelAndView mv = getDefaultModelAndView("magazine/list");
 		mv.addObject("magazines", magazines);

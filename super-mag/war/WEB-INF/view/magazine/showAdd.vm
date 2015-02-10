@@ -1,42 +1,34 @@
 
 <div  style="width:100%;height:550px" >
 
-			<div class="wizard-steps">
-			    <div class="active-step step">
-			        <div class="a-before"></div>
-			        <a href="#step-one">
-			            <span>1</span> 
-			           Title information
-			        </a>
-			        <div class="a-after"></div>
-			    </div>
-			    <div class="step">
-			        <div class="a-before"></div>
-			        <a href="#step-two">
-			          <span>2</span> 
-			          Issue Information
-			        </a>
-			        <div class="a-after"></div>
-			    </div>
-			    <div class="step">
-			        <div class="a-before"></div>
-			        <a href="#">
-			            <span>3</span> 
-			            Upload Files
-			        </a>
-			        <div class="a-after"></div>
-			    </div>
-			    <div class="step">
-			        <div class="a-before"></div>
-			        <a href="#">
-			            <span>4</span> 
-			            Publish
-			        </a>
-			        <div class="a-after"></div>
-			    </div>
-			</div>
-            
-<br/>
+	<div class="wizard-steps">
+		<div class="active-step step">
+			<div class="a-before"></div>
+			<a href="#step-one"> <span>1</span> Title information
+			</a>
+			<div class="a-after"></div>
+		</div>
+		<div class="step">
+			<div class="a-before"></div>
+			<a href="#step-two"> <span>2</span> Issue Information
+			</a>
+			<div class="a-after"></div>
+		</div>
+		<div class="step">
+			<div class="a-before"></div>
+			<a href="#"> <span>3</span> Upload Files
+			</a>
+			<div class="a-after"></div>
+		</div>
+		<div class="step">
+			<div class="a-before"></div>
+			<a href="#"> <span>4</span> Publish
+			</a>
+			<div class="a-after"></div>
+		</div>
+	</div>
+
+	<br/>
 <form method="post" action="/magazine/create">
 
 <table align="left" style="margin:14px">
@@ -44,7 +36,7 @@
    		<th>Magazine Title  </th> <td><input type="text" name="magazineName" size="20" value="test"/></td>
    	</tr>
 	<tr>
-   		<th>Description</th> <td><textarea style="width:400px" name="description" class="text-box" tabindex="2">test description</textarea></td>
+   		<th>Description</th> <td><textarea style="width:400px;height:100px" name="description" class="text-box" tabindex="2">test description</textarea></td>
    	</tr>
 	<tr>
    		<th>Keywords</th> <td><input type="text" name="keywords" size="50" value="test keyword"/></td>
@@ -81,17 +73,47 @@
    	</tr>
    	
    	 <tr>
-		<th>Price per issue</th> <td><input type="text" name="pricePerIssue" size="10" value="50"/></td>
+		<th>Price per single issue</th> <td><input type="text" name="pricePerIssue" size="10" value="50"/></td>
    	 </tr>
-   	
+   	<tr><td>&nbsp;</td>
+   	</tr>
    	<tr>
-		<th>TODO: issue price in months</th> <td><input type="text" name="pricePerIssue" size="10"/></td>
+   	<th valign="top">Subscriptions </th>
+   	<td colspan="2"><fieldset>
+   		<table>
+   			<tr>
+   				<th> Subscription type</th> <th>No. of issues</th><th>Price</th>
+   			</tr>
+   			<tr>
+   				<td>3 months</td>
+   				<td><input type="text" name="issues3months" size="10"/></td>
+   				<td><input type="text" name="issuePrice3months" size="10"/></td>
+   			</tr>
+   			<tr>
+   				<td>6 months</td>
+   				<td><input type="text" name="issues6months" size="10"/></td>
+   				<td><input type="text" name="issuePrice6months" size="10"/></td>
+   			</tr>
+   			<tr>
+   				<td>12 months</td>
+   				<td><input type="text" name="issues12months" size="10"/></td>
+   				<td><input type="text" name="issuePrice12months" size="10"/></td>
+   			</tr>
+   			
+   		</table>
+   		</fieldset>
+   		</td>
    	 </tr>
    	<tr>
    	  <td>&nbsp;</td>
       <td>
-	     	<input name="addMagazine" type="submit" value="Add Magazine"/>
-	     	<a href="/user/dashboard">Cancel</a>
+      	<table>
+      		<tr>
+      			<td><input name="addMagazine" type="submit" value="Save"/></td>
+      			<td><input name="next" type="submit" value="Next"/></td>
+      			<td>	<a href="/user/dashboard">Cancel</a></td>
+      		</tr>
+      	</table>
 	    </td>
    </tr>
 </table>
