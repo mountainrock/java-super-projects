@@ -67,6 +67,8 @@ public class MagazineService {
 	public void publish(Long issueId){
 		Issue issue = getIssue(issueId);
 		issue.setStatus(IssueStatus.published.name());
+		issueDao.update(issue, Issue.class);
+		
 		Magazine magazine = getMagazine(issue.getMagazineId());
 		Date publishDate = new Date();
 		IssuePage issueCoverPage= getIssueFrontPageByIssueId(issue);
