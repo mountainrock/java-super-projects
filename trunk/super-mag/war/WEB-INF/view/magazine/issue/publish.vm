@@ -1,0 +1,7 @@
+<table>
+      		<tr>
+      			<td><input name="addMagazine" type="submit" value="Save"/></td>
+      			<td><input name="publish" type="submit" value="Publish"/></td>
+      			<td>	<a href="/user/dashboard">Cancel</a></td>
+      		</tr>
+      	</table>

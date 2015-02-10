@@ -66,7 +66,7 @@ Ref: http://www.srccodes.com/m/p/article/25/spring-mobile-hello-world-example-th
 
 6. Validation, list of values 
 7. Email
-8. Search (in progress)
+8. Search (in progress), wizard style publish (in progress)
 
 Issues:
 1. Multiple upload in cloud not stable 
