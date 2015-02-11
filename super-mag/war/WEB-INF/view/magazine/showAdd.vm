@@ -36,10 +36,10 @@
    		<th>Magazine Title  </th> <td><input type="text" name="magazineName" size="20" value="$!{magazine.magazineName}"/></td>
    	</tr>
 	<tr>
-   		<th>Description</th> <td><textarea style="width:400px;height:100px" name="description" class="text-box" tabindex="2">test description</textarea></td>
+   		<th>Description</th> <td><textarea style="width:400px;height:100px" name="description" class="text-box" tabindex="2">$!{magazine.description}</textarea></td>
    	</tr>
 	<tr>
-   		<th>Keywords</th> <td><input type="text" name="keywords" size="50" value="test keyword"/></td>
+   		<th>Keywords</th> <td><input type="text" name="keywords" size="50" value="$!{magazine.keywords}"/></td>
    	</tr>
 	<tr>
 		<th>Category 1</th>
@@ -73,7 +73,7 @@
    	</tr>
    	
    	 <tr>
-		<th>Price per single issue</th> <td><input type="text" name="pricePerIssue" size="10" value="50"/></td>
+		<th>Price per single issue</th> <td><input type="text" name="pricePerIssue" size="10" value="$!{magazine.pricePerIssue}"/></td>
    	 </tr>
    	<tr><td>&nbsp;</td>
    	</tr>
@@ -86,18 +86,18 @@
    			</tr>
    			<tr>
    				<td>3 months</td>
-   				<td><input type="text" name="issues3months" size="10"/></td>
-   				<td><input type="text" name="issuePrice3months" size="10"/></td>
+   				<td><input type="text" name="issues3months" size="10" value="$!{magazine.issues3months}"/></td>
+   				<td><input type="text" name="issuePrice3months" size="10" value="$!{magazine.issuePrice3months}"/></td>
    			</tr>
    			<tr>
    				<td>6 months</td>
-   				<td><input type="text" name="issues6months" size="10"/></td>
-   				<td><input type="text" name="issuePrice6months" size="10"/></td>
+   				<td><input type="text" name="issues6months" size="10" value="$!{magazine.issues6months}"/></td>
+   				<td><input type="text" name="issuePrice6months" size="10" value="$!{magazine.issuePrice6months}"/></td>
    			</tr>
    			<tr>
    				<td>12 months</td>
-   				<td><input type="text" name="issues12months" size="10"/></td>
-   				<td><input type="text" name="issuePrice12months" size="10"/></td>
+   				<td><input type="text" name="issues12months" size="10" value="$!{magazine.issues12months}"/></td>
+   				<td><input type="text" name="issuePrice12months" size="10" value="$!{magazine.issuePrice12months}"/></td>
    			</tr>
    			
    		</table>
