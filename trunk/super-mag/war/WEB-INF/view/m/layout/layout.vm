@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>#if($!title)$!title#else$!defaultTitle#end
+</title>
+#parse("/layout/common.vm")
+
+</head>
+
+<body id="gateway">
+#parse("layout/header.vm")
+
+## CONTENT SECTION HERE
+<div class="content" style="float:left;margin-left:10%">
+<fieldset>
+#if($!error)
+	<div class="error" style="margin-left:10%;"> 
+		<font color="red">$!error </font>
+	</div>
+#end
+#if($!message)
+	<div class="message" style="margin-left:10%;"> 
+		<font color="green">$!message  </font>
+	</div>
+#end
+<br/>
+	$!screen_content
+</fieldset>
+</div>
+## /CONTENT SECTION
+
+<div id="footer" style="font-size:10px;width:80%;float:left;margin-left:10%">
+	<br/>
+		Powered by Bri8	
+		<br/>
+</div>
+
+
+</body>
+</html>
+
+
+

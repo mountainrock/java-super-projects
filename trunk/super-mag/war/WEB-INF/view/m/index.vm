@@ -1,1 +1,52 @@
 MOBILE	PAGE :TODO
+	<p class="navLeft"></p>
+	
+	<!--body start -->		
+
+		<!--left start -->
+		<div id="body_top">
+		</div>
+		
+		<div id="body_bottom">
+		<table>
+		  <tr>
+				#foreach($magazineIssue in $magazines)
+				<td>
+					 <div>
+					  <table>
+						 #foreach($issuePage in $magazineIssue.issuePages)
+						    <tr style="border:1px solid grey">
+						      <td colspan="4">
+						        <a href="#" onclick="javascript:openPreview(${issuePage.issueId})">
+						         <img src="/magazine/getBlob?blobKey=${issuePage.blobKeyThumbnail}" height="200px" width="150px" style="border:10px solid #d5d5d5"/> 
+						        </a>
+						      </td>
+						     </tr>
+						     <tr>
+						       <td align="center"><strong>$!{magazineIssue.magazine.magazineName}</strong></td>
+						          <td align="center"><a href="#" onclick="javascript:openPreview(${issuePage.issueId})"> 
+						          <img src="/static/images/full_screen.png" height="20px" width="20px"/>
+						       </a></td>
+						       </tr>
+						       <tr>
+						       <td align="center" colspan="3"><a href="/checkout/showAddIssue?issueId=${issuePage.issueId}" > 
+						          <img src="/static/images/add-cart.gif" /> </a>
+							</td>
+						       
+						     </tr>
+						 #end
+					  </table>
+					 </div>
+				</td>
+				#end
+			</tr>
+		</table>			     
+  
+			<br class="spacer" />
+		</div>
+		<!--left end -->
+
+		<!--right start -->
+		<!--right end -->
+
+		<br class="spacer" />
