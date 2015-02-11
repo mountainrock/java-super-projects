@@ -58,7 +58,7 @@
 	
 	<servlet-mapping>
 		<servlet-name>supermag</servlet-name>
-		<url-pattern>/*</url-pattern>
+		<url-pattern>/</url-pattern>
 		<url-pattern>/m/*</url-pattern>
         <url-pattern>/t/*</url-pattern>
 	</servlet-mapping>

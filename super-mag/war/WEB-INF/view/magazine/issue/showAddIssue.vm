@@ -1,7 +1,7 @@
 <div class="wizard-steps">
 	<div class="completed-step step">
 		<div class="a-before"></div>
-		<a href="#step-one"> <span>1</span> Title information
+		<a href="/magazine/showAdd?magazineId=${magazineId}"> <span>1</span> Title information
 		</a>
 		<div class="a-after"></div>
 	</div>
