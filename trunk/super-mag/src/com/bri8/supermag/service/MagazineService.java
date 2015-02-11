@@ -33,6 +33,12 @@ public class MagazineService {
 		magazine.setCreatedDate(new Date());
 		magazineDao.create(magazine);
 	}
+	
+	public void updateMagazine(Magazine magazine) {
+		magazine.setModifiedDate(new Date());
+		magazineDao.update(magazine, Magazine.class);
+	}
+	
 
 	public List<MagazineIssues> listMagazineIssues(Long userId) {
 		List<MagazineIssues> magazineIssuesList = new ArrayList<MagazineIssues>();

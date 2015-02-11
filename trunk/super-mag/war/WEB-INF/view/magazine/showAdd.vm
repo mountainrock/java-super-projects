@@ -30,10 +30,10 @@
 
 	<br/>
 <form method="post" action="/magazine/create">
-
+<input type="hidden" name="magazineId" value="$!{magazine.magazineId}"/>
 <table align="left" style="margin:14px">
    	<tr>
-   		<th>Magazine Title  </th> <td><input type="text" name="magazineName" size="20" value="test"/></td>
+   		<th>Magazine Title  </th> <td><input type="text" name="magazineName" size="20" value="$!{magazine.magazineName}"/></td>
    	</tr>
 	<tr>
    		<th>Description</th> <td><textarea style="width:400px;height:100px" name="description" class="text-box" tabindex="2">test description</textarea></td>
@@ -109,8 +109,10 @@
       <td>
       	<table>
       		<tr>
-      			<td><input name="addMagazine" type="submit" value="Save"/></td>
-      			<td><input name="next" type="submit" value="Next"/></td>
+      			<td><input name="action" type="submit" value="Save"/></td>
+      			#if($!{magazine.magazineId})
+      			<td><input name="action" type="submit" value="Next"/></td>
+      			#end
       			<td>	<a href="/user/dashboard">Cancel</a></td>
       		</tr>
       	</table>
