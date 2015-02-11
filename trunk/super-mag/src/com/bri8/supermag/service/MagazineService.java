@@ -139,4 +139,8 @@ public class MagazineService {
 		return magazineDao.read(magazineId, Magazine.class);
 	}
 
+	public void updateIssue(Issue issue) {
+		issueDao.update(issue, Issue.class);
+	}
+
 }

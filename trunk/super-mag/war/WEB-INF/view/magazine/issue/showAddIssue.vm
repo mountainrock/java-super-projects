@@ -1,3 +1,4 @@
+<div style="width:100%;height:550px" >
 <div class="wizard-steps">
 	<div class="completed-step step">
 		<div class="a-before"></div>
@@ -24,21 +25,20 @@
 		<div class="a-after"></div>
 	</div>
 </div>
-<div style="width:100%;height:550px" >
-
 		
 <br/>
 <form method="post" action="/magazine/createIssue">
-<input type="hidden" name="magazineId" value="${magazineId}" size="20"/>
+<input type="hidden" name="magazineId" value="${magazineId}"/>
+<input type="hidden" name="issueId" value="${issue.issueId}"/>
 <table align="left" style="margin:14px">
    	<tr>
-   		<th>Issue Name</th> <td><input type="text" name="issueName" size="20" value="test 1"/></td>
+   		<th>Issue title</th> <td><input type="text" name="issueName" size="20" value="$!{issue.issueName}" tabindex="1"/></td>
    	</tr>
    	 <tr>
-   		<th>Description</th> <td><input type="text" name="description" size="20" value="test description"/></td>
-   	</tr>
+   		<th>Description</th> <td><textarea style="width:400px;height:100px" name="description" class="text-box" tabindex="2">$!{issue.description}</textarea></td>
+    	</tr>
    	 <tr>
-   		<th>Publishing Date</th> <td><input type="text" name="publishingDate" size="20" value="12/01/2014"/></td>
+   		<th>Publish on date</th> <td><input type="text" name="publishingDate" size="20" value="$!{issue.publishingDate}" tabindex="3"/></td>
    	</tr>
 
    	<tr>
@@ -46,8 +46,10 @@
       <td>
 	     	<table>
       		<tr>
-      			<td><input name="addMagazine" type="submit" value="Save"/></td>
-      			<td><input name="next" type="submit" value="Next"/></td>
+      			<td><input name="action" type="submit" value="Save"/></td>
+      			#if($!{issue.issueId})
+      			<td><input name="action" type="submit" value="Next"/></td>
+      			#end
       			<td>	<a href="/user/dashboard">Cancel</a></td>
       		</tr>
       	</table>
