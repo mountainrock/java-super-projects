@@ -32,9 +32,6 @@ public class Issue extends BaseModel {
 	@Persistent
 	Integer coverPageNumber;
 
-	@Persistent
-	Float singleIssuePrice;
-	
 	//audit
 	 @Persistent Date  createdDate;
 	 @Persistent Date  modifiedDate; 
@@ -102,14 +99,6 @@ public class Issue extends BaseModel {
 
 	public void setPreviewPages(String previewPages) {
 		this.previewPages = previewPages;
-	}
-
-	public Float getSingleIssuePrice() {
-		return singleIssuePrice;
-	}
-
-	public void setSingleIssuePrice(Float singleIssuePrice) {
-		this.singleIssuePrice = singleIssuePrice;
 	}
 
 	public Integer getCoverPageNumber() {

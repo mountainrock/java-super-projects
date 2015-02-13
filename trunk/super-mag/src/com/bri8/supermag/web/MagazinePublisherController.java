@@ -38,27 +38,29 @@ public class MagazinePublisherController extends BaseController {
 
 	private static Log logger = LogFactory.getLog(MagazinePublisherController.class);
 
-	//step 1
+	// step 1
 	@RequestMapping(value = { "/magazine/showAdd" }, method = { RequestMethod.GET, RequestMethod.POST })
-	protected ModelAndView showAddMagazine(@RequestParam(value = "magazineId", required = false) Long magazineId, @RequestParam(value = "status", required = false) String status) throws Exception {
+	protected ModelAndView showAddMagazine(@RequestParam(value = "magazineId", required = false) Long magazineId, @RequestParam(value = "status", required = false) String status, @RequestParam(value = "issueId", required = false) Long issueId) throws Exception {
 		ModelAndView mv = getDefaultModelAndView("magazine/showAdd");
 		if (magazineId != null) { // load for edit
 			Magazine magazine = magazineService.getMagazine(magazineId);
 			mv.addObject("magazine", magazine);
-
+			if(issueId!=null){
+				mv.addObject("issue", magazineService.getIssue(issueId));
+			}
 			if ("new".equalsIgnoreCase(status)) {
 				mv.addObject("message", "New magazine created sucessfully : " + magazine.getMagazineId());
-			}else if ("update".equalsIgnoreCase(status)) {
+			} else if ("update".equalsIgnoreCase(status)) {
 				mv.addObject("message", "Updated magazine sucessfully : " + magazine.getMagazineId());
-			}else if ("failed".equalsIgnoreCase(status)) {
+			} else if ("failed".equalsIgnoreCase(status)) {
 				mv.addObject("error", "Failed to save magazine!");
-			} 
+			}
 		}
 		return mv;
 	}
 
 	@RequestMapping(value = { "/magazine/create" }, method = RequestMethod.POST)
-	public ModelAndView create(@RequestParam("action") String action, Magazine magazine, HttpServletRequest request) {
+	public ModelAndView createOrNext(@RequestParam("action") String action, Magazine magazine, @RequestParam(value = "issueId", required = false) Long issueId,  HttpServletRequest request) {
 
 		ModelAndView mv = null;
 		if ("save".equalsIgnoreCase(action)) {
@@ -79,25 +81,26 @@ public class MagazinePublisherController extends BaseController {
 				mv.addObject("status", "failed");
 			}
 		} else if ("next".equalsIgnoreCase(action)) {
-			mv = new ModelAndView("redirect:/magazine/showAddIssue/" + magazine.getMagazineId());
+			mv = new ModelAndView(String.format("redirect:/magazine/showAddIssue/%s/?issueId=%s", magazine.getMagazineId(), issueId));
 		}
 
 		return mv;
 	}
 
-	//step 2
+	// step 2
 	@RequestMapping(value = { "/magazine/showAddIssue/{magazineId}" }, method = RequestMethod.GET)
-	protected ModelAndView showAddIssue(@PathVariable("magazineId") Long magazineId, @RequestParam(value = "issueId", required = false) Long issueId, @RequestParam(value = "status", required = false) String status) throws Exception {
+	protected ModelAndView showAddIssue(@PathVariable("magazineId") Long magazineId, @RequestParam(value = "issueId", required = false) Long issueId,
+			@RequestParam(value = "status", required = false) String status) throws Exception {
 		ModelAndView mv = getDefaultModelAndView("magazine/issue/showAddIssue");
-		if (issueId != null) { //load for edit issue
+		if (issueId != null) { // load for edit issue
 			Issue issue = magazineService.getIssue(issueId);
 			mv.addObject("issue", issue);
 
 			if ("new".equalsIgnoreCase(status)) {
 				mv.addObject("message", "New issue created sucessfully : " + issue.getIssueId());
-			}else if ("update".equalsIgnoreCase(status)) {
+			} else if ("update".equalsIgnoreCase(status)) {
 				mv.addObject("message", "Updated issue sucessfully : " + issue.getIssueId());
-			}else if ("failed".equalsIgnoreCase(status)) {
+			} else if ("failed".equalsIgnoreCase(status)) {
 				mv.addObject("error", "Failed to save issue!");
 			}
 		}
@@ -108,17 +111,19 @@ public class MagazinePublisherController extends BaseController {
 	@RequestMapping(value = { "/magazine/createIssue" }, method = RequestMethod.POST)
 	public ModelAndView createIssue(@RequestParam("action") String action, Issue issue, HttpServletRequest request, HttpServletResponse response) throws IOException {
 		ModelAndView mv = null;
-		String status="";
+		String status = "";
 		if ("save".equalsIgnoreCase(action)) {
 			if (issue.getIssueId() == null) {
-				issue.setStatus(IssueStatus.Uploaded.name());
+				issue.setStatus(IssueStatus.Created.name());
+				issue.setCoverPageNumber(1);
+				issue.setPreviewPages("1,3,5");
 				magazineService.createIssue(issue);
 				status = "new";
 			} else {
 				magazineService.updateIssue(issue);
 				status = "update";
 			}
-			
+
 			mv = new ModelAndView(String.format("redirect:/magazine/showAddIssue/%s?issueId=%s", issue.getMagazineId(), issue.getIssueId()));
 			if (issue != null && issue.getMagazineId() != null) {
 				mv.addObject("status", status);
@@ -128,20 +133,23 @@ public class MagazinePublisherController extends BaseController {
 		} else if ("next".equalsIgnoreCase(action)) {
 			mv = new ModelAndView(String.format("redirect:/magazine/showUploadIssue/%s/%s", issue.getMagazineId(), issue.getIssueId()));
 		}
-		
+
 		return mv;
 	}
 
-	//step 3
+	// step 3
 	@RequestMapping(value = { "/magazine/showUploadIssue/{magazineId}/{issueId}" }, method = RequestMethod.GET)
-	protected ModelAndView showUploadIssue(@PathVariable("magazineId") Long magazineId, @PathVariable("issueId") Long issueId, HttpServletRequest req) throws Exception {
+	protected ModelAndView showUploadIssue(@RequestParam(value="status", required=false) String status, @PathVariable("magazineId") Long magazineId, @PathVariable("issueId") Long issueId, HttpServletRequest req) throws Exception {
 		ModelAndView mv = getDefaultModelAndView("magazine/issue/showUploadIssue");
 
 		String blobUploadPath = String.format("/magazine/updateIssueImageBlobKey?magazineId=%s&issueId=%s", magazineId, issueId);
 		String uploadUrl = blobstoreService.createUploadUrl(blobUploadPath);
-
-		mv.addObject("magazineId", magazineId);
-		mv.addObject("issueId", issueId);
+		Issue issue = magazineService.getIssue(issueId);
+		
+		if ("save".equalsIgnoreCase(status)) {
+			mv.addObject("message", "Updated issue sucessfully : " + issue.getIssueId());
+		}
+		mv.addObject("issue", issue);
 		mv.addObject("uploadIssueUrl", uploadUrl);
 		List<IssuePage> issuePages = magazineService.getIssuePages(issueId);
 		mv.addObject("issuePages", issuePages);
@@ -149,6 +157,41 @@ public class MagazinePublisherController extends BaseController {
 		return mv;
 	}
 
+	@RequestMapping(value = { "/magazine/saveUploadIssue" }, method = RequestMethod.POST)
+	protected ModelAndView saveUploadIssue( @RequestParam("action") String action, Issue issue, HttpServletRequest req) throws Exception {
+		ModelAndView mv=null;
+		Issue issueFromStore = magazineService.getIssue(issue.getIssueId());
+		if ("save".equalsIgnoreCase(action)) {
+			issueFromStore.setCoverPageNumber(issue.getCoverPageNumber());
+			issueFromStore.setPreviewPages(issue.getPreviewPages());
+			issueFromStore.setStatus(IssueStatus.Uploaded.name());
+			
+			magazineService.updateIssue(issueFromStore);
+			 mv = new ModelAndView(String.format("redirect:/magazine/showUploadIssue/%s/%s?status=save",issueFromStore.getMagazineId(), issueFromStore.getIssueId()));
+		} else if ("next".equalsIgnoreCase(action)) {
+			 mv = new ModelAndView(String.format("redirect:/magazine/showPublish/%s/%s",issueFromStore.getMagazineId(), issueFromStore.getIssueId()));
+		}
+
+		return mv;
+	}
+
+	//step 4
+	@RequestMapping(value = { "/magazine/showPublish/{magazineId}/{issueId}" }, method = RequestMethod.GET)
+	protected ModelAndView publishView(@RequestParam(value="status", required=false) String status, @PathVariable("magazineId") Long magazineId, @PathVariable("issueId") Long issueId, HttpServletRequest req) throws Exception {
+		ModelAndView mv = getDefaultModelAndView("magazine/publish/showPublish");
+		Issue issueFromStore = magazineService.getIssue(issueId);
+		Magazine magazine = magazineService.getMagazine(issueFromStore.getMagazineId());
+		if ("publish".equalsIgnoreCase(status)) {
+			mv.addObject("message", "Published sucessfully : " + issueFromStore.getIssueId());
+		}
+		mv.addObject("issue", issueFromStore);
+		mv.addObject("magazine", magazine);
+		IssuePage issueCoverPage = magazineService.getIssueFrontPageByIssueId(issueFromStore);
+		mv.addObject("issuePage", issueCoverPage);
+
+		return mv;
+	}
+	
 	@RequestMapping(value = { "/magazine/getBlob" }, method = RequestMethod.GET)
 	protected void getBlob(@RequestParam("blobKey") String blobKeyStr, HttpServletResponse res) throws Exception {
 		blobstoreService.serve(new BlobKey(blobKeyStr), res);
@@ -173,7 +216,7 @@ public class MagazinePublisherController extends BaseController {
 
 		return mv;
 	}
-	
+
 	@RequestMapping(value = { "/magazine/deleteIssuePage/{issuePageId}" }, method = RequestMethod.GET)
 	protected ModelAndView deleteIssuePage(@PathVariable("issuePageId") Long issuePageId) {
 		// delete entity
