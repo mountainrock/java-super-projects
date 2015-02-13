@@ -36,11 +36,9 @@
 		<br />
 
 		<table width="100%" style="margin-left: 15%">
-			<!-- upload issue table -->
 			<tr>
-				<td></td>
+				<td><h3>Your issue is ready to go live!</h3></td>
 			</tr>
-			<!-- end upload issue table -->
 
 			<tr>
 				<td>&nbsp;</td>
