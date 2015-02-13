@@ -11,13 +11,13 @@ left: 60px; /*position where enlarged image should offset horizontally */
 	<div class="wizard-steps">
 	<div class="completed-step step">
 		<div class="a-before"></div>
-		<a href="/magazine/showAdd?magazineId=$!{magazineId}"> <span>1</span> Title information
+		<a href="/magazine/showAdd?magazineId=$!{issue.magazineId}"> <span>1</span> Title information
 		</a>
 		<div class="a-after"></div>
 	</div>
 	<div class="completed-step step">
 		<div class="a-before"></div>
-		<a href="/magazine/showAddIssue/$!{magazineIssue.magazine.magazineId}"> <span>2</span> Issue Information
+		<a href="/magazine/showAddIssue/$!{issue.magazineId}?issueId=$!{issue.issueId}"> <span>2</span> Issue Information
 		</a>
 		<div class="a-after"></div>
 	</div>
@@ -34,6 +34,7 @@ left: 60px; /*position where enlarged image should offset horizontally */
 		<div class="a-after"></div>
 	</div>
 </div>
+<form method="post" action="/magazine/saveUploadIssue">
 
 <div style="width:100%;height:550px" >
 <br/>
@@ -48,8 +49,8 @@ left: 60px; /*position where enlarged image should offset horizontally */
 		   		<td>Upload magazine issue images (select multiple)</td> 
 		      <td>
 		      <form id="uploadForm" method="post" action="${uploadIssueUrl}" enctype="multipart/form-data">
-					<input type="hidden" name="magazineId" value="${magazineId}" size="20"/>
-					<input type="hidden" name="issueId" value="${issueId}" size="20"/>
+					<input type="hidden" name="magazineId" value="${issue.magazineId}" size="20"/>
+					<input type="hidden" name="issueId" value="${issue.issueId}" size="20"/>
 					      
 		    	   <input type="file" name="fileToUpload" id="fileToUpload" multiple="multiple" size="5"/>
 		    	   <input type="button" onclick="uploadFile();" value="Upload" />
@@ -115,18 +116,18 @@ left: 60px; /*position where enlarged image should offset horizontally */
       <table>
       		   <tr>
 			   		<td>
-			   		  Front page number :<input type="text" name="frontPage" value="1" style="width:20px"/><br/>
-			   		  Preview page numbers :<input type="text" name="previewPageNumbers" value="1,3,5,7" style="width:80px"/><br/><br/>
-			   		  <input type="button" name="save" value="Save"/> 
-			   		  <input type="button" name="preview" value="Preview" onclick="javascript:openPreview(${issueId})"/>
+			   		  Cover page number :<input type="text" name="coverPageNumber" value="$!{issue.coverPageNumber}" style="width:20px"/><br/>
+			   		  Preview page numbers :<input type="text" name="previewPages" value="$!{issue.previewPages}" style="width:80px"/><br/><br/>
+
 			   		</td>
 			   </tr>
 			   <tr>
 			   <td>
 			   <table>
 		      		<tr>
-		      			<td><input name="addMagazine" type="submit" value="Save"/></td>
-		      			<td><input name="next" type="submit" value="Next"/></td>
+		      			<td><input type="button" name="preview" value="Preview" onclick="javascript:openPreview(${issueId})"/></td>
+		      			<td><input name="action" type="submit" value="Save"/></td>
+		      			<td><input name="action" type="submit" value="Next"/></td>
 		      			<td>	<a href="/user/dashboard">Cancel</a></td>
 		      		</tr>
 		      	</table>
@@ -136,5 +137,5 @@ left: 60px; /*position where enlarged image should offset horizontally */
    </td></tr>
    
 </table>
-
+</form>
 

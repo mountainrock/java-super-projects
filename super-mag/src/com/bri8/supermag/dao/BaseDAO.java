@@ -126,8 +126,13 @@ public class BaseDAO<T> {
 	@SuppressWarnings("unchecked")
 	public T read(Long id, Class clasz) {
 		PersistenceManager pm = PMF.get().getPersistenceManager();
-		T object = read(id, clasz, pm);
-		return object;
+		try{
+			T object = read(id, clasz, pm);
+			return object;
+		} finally {
+			pm.flush();
+			pm.close();
+		}
 	}
 
 	@SuppressWarnings("unchecked")
