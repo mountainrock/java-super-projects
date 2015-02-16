@@ -1,3 +1,4 @@
+#parse("common/message.vm")
 <form method="post" action="/magazine/saveUploadIssue">
 	<table>
 		<tr>

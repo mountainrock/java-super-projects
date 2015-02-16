@@ -29,6 +29,8 @@
 	</div>
 
 	<br/>
+#parse("common/message.vm")
+
 <form method="post" action="/magazine/create">
 <input type="hidden" name="magazineId" value="$!{magazine.magazineId}"/>
 <input type="hidden" name="issueId" value="$!{issue.issueId}"/>

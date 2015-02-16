@@ -1,4 +1,4 @@
-
+#parse("common/message.vm")
 		<table>
 			<tr style="border:1px solid grey">
 				<td colspan="4">

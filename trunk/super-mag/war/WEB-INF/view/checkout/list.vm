@@ -1,5 +1,7 @@
 Checkout items
 <fieldset>
+	#parse("common/message.vm")
+
 <table width="100%" >
 
 #foreach($item in ${items})
