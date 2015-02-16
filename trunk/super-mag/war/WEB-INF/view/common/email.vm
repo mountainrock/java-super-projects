@@ -1,0 +1,23 @@
+#parse("common/message.vm")
+<form action="/email/send" method="POST">
+	<table>
+	<tr>
+			<td>Password : <input type="password" name="password" value="" /></td>
+		</tr>
+		<tr>
+			<td>From : <input type="text" name="from" value="$!{email.from}" /></td>
+		</tr>
+		<tr>
+			<td>To : <input type="text" name="to" value="$!{email.to}" /></td>
+		</tr>
+		<tr>
+			<td>Subject :<input type="text" name="subject" value="$!{email.subject}" /></td>
+		</tr>
+		<tr>
+			<td>Body : <input type="text" name="body" value="$!{email.body}" /></td>
+		</tr>
+		<tr>
+			<td><input type="submit" name="email" value="Send email" /></td>
+		</tr>
+	</table>
+</form>
