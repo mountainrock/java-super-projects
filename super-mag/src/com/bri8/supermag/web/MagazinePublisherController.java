@@ -4,6 +4,7 @@ import static com.bri8.supermag.util.WebConstants.HTTP_SESSION_KEY_USER;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -64,7 +65,7 @@ public class MagazinePublisherController extends BaseController {
 
 		ModelAndView mv = null;
 		if ("save".equalsIgnoreCase(action)) {
-			User user = (User) request.getSession().getAttribute(HTTP_SESSION_KEY_USER);
+			User user = getUser(request);
 			magazine.setUserId(user.getUserId());
 			String status = "";
 			if (magazine.getMagazineId() == null) {
@@ -81,7 +82,7 @@ public class MagazinePublisherController extends BaseController {
 				mv.addObject("status", "failed");
 			}
 		} else if ("next".equalsIgnoreCase(action)) {
-			mv = new ModelAndView(String.format("redirect:/magazine/showAddIssue/%s/?issueId=%s", magazine.getMagazineId(), issueId));
+			mv = new ModelAndView(String.format("redirect:/magazine/showAddIssue/%s?issueId=%s", magazine.getMagazineId(), issueId ==null? "" : issueId));
 		}
 
 		return mv;
@@ -182,7 +183,7 @@ public class MagazinePublisherController extends BaseController {
 		Issue issueFromStore = magazineService.getIssue(issueId);
 		Magazine magazine = magazineService.getMagazine(issueFromStore.getMagazineId());
 		if ("publish".equalsIgnoreCase(status)) {
-			mv.addObject("message", "Published sucessfully : " + issueFromStore.getIssueId());
+			mv.addObject("message", String.format("Published sucessfully(id: %s, status : %s). The issue will be reviewed by admin and made live on %s : ", issueFromStore.getIssueId(), issueFromStore.getStatus(), issueFromStore.getPublishingDate()));
 		}
 		mv.addObject("issue", issueFromStore);
 		mv.addObject("magazine", magazine);
@@ -191,6 +192,19 @@ public class MagazinePublisherController extends BaseController {
 
 		return mv;
 	}
+	
+	@RequestMapping(value = { "/magazine/publish/{magazineId}/{issueId}" }, method = RequestMethod.POST)
+	protected ModelAndView publish(@PathVariable("magazineId") Long magazineId, @PathVariable("issueId") Long issueId, HttpServletRequest req) throws Exception {
+		
+		Issue issueFromStore = magazineService.getIssue(issueId);
+		issueFromStore.setStatus(IssueStatus.published.name());
+		issueFromStore.setModifiedDate(new Date());
+		issueFromStore.setModifiedBy(getUser(req).getUserId()+"");
+		magazineService.updateIssue(issueFromStore);
+		ModelAndView  mv = new ModelAndView(String.format("redirect:/magazine/showPublish/%s/%s?status=publish",issueFromStore.getMagazineId(), issueFromStore.getIssueId()));
+		return mv;
+	}
+	
 	
 	@RequestMapping(value = { "/magazine/getBlob" }, method = RequestMethod.GET)
 	protected void getBlob(@RequestParam("blobKey") String blobKeyStr, HttpServletResponse res) throws Exception {
@@ -209,12 +223,17 @@ public class MagazinePublisherController extends BaseController {
 
 	@RequestMapping(value = { "/magazine/list" }, method = RequestMethod.GET)
 	protected ModelAndView list(HttpServletRequest request) throws Exception {
-		User user = (User) request.getSession().getAttribute(HTTP_SESSION_KEY_USER);
+		User user = getUser(request);
 		List<MagazineIssues> magazines = magazineService.listMagazineIssues(user.getUserId());
 		ModelAndView mv = getDefaultModelAndView("magazine/list");
 		mv.addObject("magazines", magazines);
 
 		return mv;
+	}
+
+	private User getUser(HttpServletRequest request) {
+		User user = (User) request.getSession().getAttribute(HTTP_SESSION_KEY_USER);
+		return user;
 	}
 
 	@RequestMapping(value = { "/magazine/deleteIssuePage/{issuePageId}" }, method = RequestMethod.GET)

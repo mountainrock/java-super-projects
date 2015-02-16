@@ -70,3 +70,5 @@ Ref: http://www.srccodes.com/m/p/article/25/spring-mobile-hello-world-example-th
 
 Issues:
 1. Multiple upload in cloud not stable 
+
+sample mag: http://localhost:8888/magazine/showAdd?magazineId=6702622882922496&status=new

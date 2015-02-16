@@ -28,8 +28,8 @@
 		
 <br/>
 <form method="post" action="/magazine/createIssue">
-<input type="hidden" name="magazineId" value="${magazineId}"/>
-<input type="hidden" name="issueId" value="${issue.issueId}"/>
+<input type="hidden" name="magazineId" value="$!{magazineId}"/>
+<input type="hidden" name="issueId" value="$!{issue.issueId}"/>
 <table align="left" style="margin:14px">
    	<tr>
    		<th>Issue title</th> <td><input type="text" name="issueName" size="20" value="$!{issue.issueName}" tabindex="1"/></td>
