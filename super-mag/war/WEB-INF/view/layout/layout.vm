@@ -14,17 +14,6 @@
 ## CONTENT SECTION HERE
 <div class="content" style="float:left;margin-left:10%">
 <fieldset>
-#if($!error)
-	<div class="error" style="margin-left:10%;"> 
-		<font color="red">$!error </font>
-	</div>
-#end
-#if($!message)
-	<div class="message" style="margin-left:10%;"> 
-		<font color="green">$!message  </font>
-	</div>
-#end
-<br/>
 	$!screen_content
 </fieldset>
 </div>

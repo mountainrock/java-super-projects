@@ -39,6 +39,7 @@ left: 60px; /*position where enlarged image should offset horizontally */
 <div style="width:100%;height:550px" >
 
 <br/>
+#parse("common/message.vm")
 
 <table width="100%" style="margin-left:15%">
 <!-- upload issue table -->

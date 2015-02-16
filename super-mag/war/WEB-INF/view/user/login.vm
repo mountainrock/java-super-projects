@@ -1,4 +1,5 @@
 <div style="width:100%;float:left" >
+#parse("common/message.vm")
 <br/>
 
 <form method="post" action="/user/doLogin">

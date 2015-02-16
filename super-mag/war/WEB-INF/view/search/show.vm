@@ -1,1 +1,2 @@
+#parse("common/message.vm")
 ${result}

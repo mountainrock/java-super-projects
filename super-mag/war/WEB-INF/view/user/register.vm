@@ -1,5 +1,6 @@
 <h3> User registration </h2>
 <div style="width:100%" >
+#parse("common/message.vm")
 <br/>
 <form method="post" action="/user/create">
 <br/>
