@@ -33,3 +33,7 @@ function deleteIssuePage(issuePageId){
             document.getElementById('uploadForm').submit(); //no html5
         }
     }
+    
+    function initShowAddIssueDate(){
+    	    $( "#publishingDate" ).datepicker( { dateFormat: 'dd-mm-yy' } );
+    }
