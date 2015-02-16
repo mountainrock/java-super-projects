@@ -17,6 +17,8 @@ import javax.mail.internet.MimeMessage;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import com.bri8.supermag.model.MailContent;
+
 public class SimpleMail {
 	private static SimpleMail _instance = new SimpleMail();
 
@@ -27,21 +29,20 @@ public class SimpleMail {
 
 	private final Session session;
 	private static Log logger = LogFactory.getLog(SimpleMail.class);
-	private final String FROM = "sandeep.maloth@gmail.com";
 
-	public void sendMessageTo(String to, MailContent mailContent) throws MessagingException {
+	public void sendMessageTo(MailContent mailContent) throws MessagingException {
 		Message msg = new MimeMessage(session);
 		// set headers
-		msg.setFrom(InternetAddress.parse(FROM, false)[0]);
+		msg.setFrom(InternetAddress.parse(mailContent.getFrom(), false)[0]);
 		// msg.setHeader("X-Mailer", mailer);
 		msg.setSentDate(new Date());
-		msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to, false));
+		msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(mailContent.getTo(), false));
 
 		msg.setSubject(mailContent.getSubject());
 		msg.setText(mailContent.getBody());
 
 		Transport.send(msg);
-		log("message sent to :" + to);
+		log(String.format("message sent [from:%s, to :%s]", mailContent.getFrom(), mailContent.getTo()));
 
 	}
 
@@ -49,47 +50,8 @@ public class SimpleMail {
 		return _instance;
 	}
 
-	
-	public void sendMail(final String sendTo, final String subject, final String messageBody) throws MessagingException {
-		MailContent mailContent = new MailContent(subject, messageBody);
-		sendMessageTo(sendTo, mailContent);
-	}
-
 	void log(String str) {
 		logger.info(new SimpleDateFormat("yyy-mm-dd").format(new Date()) + str);
 	}
 
-	class MailContent {
-		String subject;
-		String body;
-
-		MailContent() {
-		}
-
-		MailContent(String body) {
-			this.body = body;
-		}
-
-		MailContent(String sub, String body) {
-			this.subject = sub;
-			this.body = body;
-		}
-
-		public String getBody() {
-			return body;
-		}
-
-		public void setBody(String body) {
-			this.body = body;
-		}
-
-		public String getSubject() {
-			return subject;
-		}
-
-		public void setSubject(String subject) {
-			this.subject = subject;
-		}
-
-	}
 }
