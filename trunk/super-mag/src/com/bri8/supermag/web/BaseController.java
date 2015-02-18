@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.bri8.supermag.dao.BaseDAO;
 import com.bri8.supermag.util.Constants;
+import com.bri8.supermag.util.PropertyHolder;
 import com.bri8.supermag.web.common.CommonVelocityLayoutView;
 
 public class BaseController {
@@ -26,19 +27,17 @@ public class BaseController {
 		layoutView.setUrl( prefixMobile + viewName + ".vm");
 		layoutView.setLayoutUrl(prefixMobile + Constants.VIEW_LAYOUT_LAYOUT_VM);
 		mav.setView(layoutView);
-		mav.addAllObjects(layoutView.getIncludes());
-		mav.addObject("title", viewName);
+		setDefaults(viewName, mav);
 		return mav;
 	}
-	
-	
+
+
 	protected ModelAndView getDefaultModelAndView(String viewName) {
 		ModelAndView mav = new ModelAndView();
 		layoutView.setUrl(viewName + ".vm");
 		layoutView.setLayoutUrl(Constants.VIEW_LAYOUT_LAYOUT_VM);
 		mav.setView(layoutView);
-		mav.addAllObjects(layoutView.getIncludes());
-		mav.addObject("title", viewName);
+		setDefaults(viewName, mav);
 		return mav;
 	}
 	
@@ -47,9 +46,12 @@ public class BaseController {
 		layoutView.setUrl("blank.vm");
 		layoutView.setLayoutUrl(viewName + ".vm");
 		mav.setView(layoutView);
-		mav.addAllObjects(layoutView.getIncludes());
-		mav.addObject("title", viewName);
 		
 		return mav;
+	}
+	private void setDefaults(String viewName, ModelAndView mav) {
+		mav.addAllObjects(layoutView.getIncludes());
+		mav.addObject("title", viewName);
+		mav.addObject("propertyHolder",PropertyHolder.getInstance());
 	}
 }
