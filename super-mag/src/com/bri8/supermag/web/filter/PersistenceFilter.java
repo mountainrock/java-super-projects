@@ -16,7 +16,7 @@ import org.springframework.stereotype.Component;
 
 import com.bri8.supermag.dao.PMF;
 
-@Component
+@Component("persistenceFilter")
 public class PersistenceFilter implements Filter {
 
 	private static Log logger = LogFactory.getLog(PersistenceFilter.class);
