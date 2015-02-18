@@ -28,6 +28,7 @@ public class InitFilter implements Filter {
 	String[] languages = { "Assamese", "Arabic", "Bengali", "Chinese", "Dogri", "Dutch", "English", "French", "German", "Gujarati", "Hindi", "Italian", "Japanese", "Kannada", "Kashmiri", "Konkani",
 			"Korean", "Latin", "Maithili", "Malayalam", "Manipuri", "Marathi", "Nepali", "Oriya", "Portuguese", "Punjabi", "Sanskrit", "Sindhi", "Spanish", "Tamil", "Telugu", "Urdu" };
 	String[] frequencies = { "Daily", "Weekly", "Fortnightly", "Monthly", "Bimonthly", "Quarterly", "Annual", "Not Applicable" };
+	String[] currencies = { "USD", "INR" };
 
 	private static Log logger = LogFactory.getLog(InitFilter.class);
 	PropertyManagerService propertyManagerService;
@@ -49,6 +50,7 @@ public class InitFilter implements Filter {
 		PropertyHolder.getInstance().setCategories(propertyManagerService.readByGroup("category"));
 		PropertyHolder.getInstance().setLanguages(propertyManagerService.readByGroup("language"));
 		PropertyHolder.getInstance().setFrequency(propertyManagerService.readByGroup("frequency"));
+		PropertyHolder.getInstance().setCurrencies(propertyManagerService.readByGroup("currency"));
 	}
 
 	private PropertyManagerService getPropertyManagementService(WebApplicationContext appContext) {
@@ -71,7 +73,11 @@ public class InitFilter implements Filter {
 			PropertyItem propertyItem = new PropertyItem("frequency", frequency);
 			propertyManagerService.addProperty(propertyItem);
 		}
-
+		// currency
+		for (String currency : currencies) {
+			PropertyItem propertyItem = new PropertyItem("currency", currency);
+			propertyManagerService.addProperty(propertyItem);
+		}
 	}
 
 	public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {

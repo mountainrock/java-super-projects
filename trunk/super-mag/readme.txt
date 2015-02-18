@@ -64,7 +64,7 @@ TODO:
 5. Mobile site
 Ref: http://www.srccodes.com/m/p/article/25/spring-mobile-hello-world-example-that-includes-deviceresolver-sitepreference-urlpath-siteswitcher-and-litedevicedelegatingviewresolver
 
-6. Validation, list of values 
+6. Validation, list of values(in progress)
 7. Email (in progress)
 8. Search (in progress), wizard style publish (in progress)
 9. Handle currency
