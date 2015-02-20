@@ -5,7 +5,8 @@ Checkout items
 <table width="100%" >
 
 #foreach($item in ${items})
-  <tr style="margin:15px; #if( $velocityCount % 2 == 1 )background:lightgrey#end">
+#set( $c =  ${item.currency})
+  <tr style="height:40px; #if( $velocityCount % 2 == 1 )background:#E6E6E6 #end">
       <td>$velocityCount</td>
       <td width="50%">$item.issueName</td>
       <td>$item.subscriptionType</td>
@@ -22,8 +23,24 @@ Checkout items
 		<hr/>
 	</td>
  </tr>
+ <tr>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td><b>Total</b></td>
+	<td >
+		 $c ${total}
+	</td>
+ </tr>
   <tr>
 	<td colspan="4">
+		<hr/>
+	</td>
+ </tr>
+  <tr>
+  	<td>&nbsp;</td>
+  	<td>&nbsp;</td>
+  	<td>&nbsp;</td>
+	<td>
 		<input type="submit"  value="Checkout with Paypal"/>		
 	</td>
  </tr>
