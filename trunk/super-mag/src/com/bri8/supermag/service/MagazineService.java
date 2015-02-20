@@ -76,9 +76,8 @@ public class MagazineService {
 		issueDao.update(issue, Issue.class);
 		
 		Magazine magazine = getMagazine(issue.getMagazineId());
-		Date publishDate = new Date();
 		IssuePage issueCoverPage= getIssueFrontPageByIssueId(issue);
-		searchService.indexIssue(magazine, issue, issueCoverPage, publishDate);
+		searchService.indexIssue(magazine, issue, issueCoverPage, issue.getPublishingDate());
 	}
 
 	public List<IssuePage> getIssuePages(Long issueId) {

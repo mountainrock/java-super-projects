@@ -33,8 +33,7 @@ import com.google.appengine.api.blobstore.BlobstoreServiceFactory;
 
 @Controller("magazineController")
 public class MagazinePublisherController extends BaseController {
-	@Autowired
-	MagazineService magazineService;
+	@Autowired MagazineService magazineService;
 	private BlobstoreService blobstoreService = BlobstoreServiceFactory.getBlobstoreService();
 
 	private static Log logger = LogFactory.getLog(MagazinePublisherController.class);
