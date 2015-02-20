@@ -67,7 +67,7 @@ Ref: http://www.srccodes.com/m/p/article/25/spring-mobile-hello-world-example-th
 6. Validation, list of values(in progress)
 7. Email (in progress)
 8. Search (in progress), wizard style publish (in progress)
-9. Handle currency
+9. Handle currency (in progress)
 
 Issues:
 1. Multiple upload in cloud not stable 

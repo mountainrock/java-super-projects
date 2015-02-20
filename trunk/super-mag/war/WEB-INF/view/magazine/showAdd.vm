@@ -74,7 +74,15 @@
 			#parse("common/frequency.vm")
 		</td>
    	</tr>
-   	
+   	<tr>
+   		<th>Currency </th> 
+   		<td><select name="currency" tabindex="3">
+   				<option value="Rs" #if($!{magazine.currency} eq 'USD')selected #end> INR - Rs.</option>
+   				<option value="USD" #if($!{magazine.currency} eq 'USD')selected #end> USD - $.</option>
+   		</select> 
+   		
+   		</td>
+   	</tr>
    	 <tr>
 		<th>Price per single issue</th> <td><input type="text" name="pricePerIssue" size="10" value="$!{magazine.pricePerIssue}"/></td>
    	 </tr>
