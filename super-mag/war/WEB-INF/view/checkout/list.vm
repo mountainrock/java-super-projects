@@ -9,7 +9,12 @@ Checkout items
       <td>$velocityCount</td>
       <td width="50%">$item.issueName</td>
       <td>$item.subscriptionType</td>
-       <td>${item.price}</td>
+       <td>${item.currency} ${item.price}</td>
+       <td>
+       		<a href="/checkout/delete?itemId=${item.itemId}">
+			                <img src="/static/images/trash.png" height="20px" width="20px"/>
+			 </a> 
+       </td>
      </tr>
  #end
  <tr>

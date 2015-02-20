@@ -21,6 +21,8 @@ public class CheckoutItem extends BaseModel {
 
 	@Persistent
 	Long userId;
+	@Persistent
+	Long magazineId;
 
 	@Persistent
 	Long issueId;
@@ -31,6 +33,11 @@ public class CheckoutItem extends BaseModel {
 	@Persistent
 	String subscriptionType;
 
+	@Persistent
+	String currency;
+	
+	@Persistent
+	Float price;
 	// audit
 	@Persistent
 	Date createdDate;
@@ -38,6 +45,22 @@ public class CheckoutItem extends BaseModel {
 	Date modifiedDate;
 	@Persistent
 	String modifiedBy;
+
+	public String getCurrency() {
+		return currency;
+	}
+
+	public void setCurrency(String currency) {
+		this.currency = currency;
+	}
+
+	public Long getMagazineId() {
+		return magazineId;
+	}
+
+	public void setMagazineId(Long magazineId) {
+		this.magazineId = magazineId;
+	}
 
 	public Date getCreatedDate() {
 		return createdDate;
@@ -101,6 +124,14 @@ public class CheckoutItem extends BaseModel {
 
 	public void setIssueId(Long issueId) {
 		this.issueId = issueId;
+	}
+
+	public Float getPrice() {
+		return price;
+	}
+
+	public void setPrice(Float price) {
+		this.price = price;
 	}
 
 	@Override

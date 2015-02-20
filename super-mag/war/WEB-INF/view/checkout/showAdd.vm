@@ -1,31 +1,45 @@
 #parse("common/message.vm")
-		<table>
-			<tr style="border:1px solid grey">
-				<td colspan="4">
-				    <a href="#" onclick="javascript:openPreview(${issuePage.issueId})">
-				         <img src="/magazine/getBlob?blobKey=${issuePage.blobKeyThumbnail}" height="200px" width="150px" style="border:10px solid #d5d5d5"/> 
-				       </a>
-				     </td>
-				     <td>&nbsp;</td>
-			     </tr>
-			     <tr>
-				  <td>${magazine.magazineName}</td>
-						       
-				      <td align="center"><a href="#" onclick="javascript:openPreview(${issuePage.issueId})"> 
-						          <img src="/static/images/full_screen.png" height="20px" width="20px"/>
-				       </a></td>
-				  
-			    </tr>
-			     <tr>
-				  <td colspan="4">
-				  <form action="/checkout/addIssueToBasket" method="POST">
-					<input type="hidden" name="issueId" value="${issue.issueId}"/>
-					<input type="hidden" name="subscriptionType" value="single"/>
-					<input type="hidden" name="userId" value="${user.userId}"/>
-					${user.userId}
-					<input type="submit" name="Add Single Issue " value="Add Single Issue"/>  (add issue to basket)
-				  </form>
-				  </td>
-			    </tr>
-		</table>
-	
+			<table style="width:80%;" align="center">
+				<tr style="border:1px solid lightgrey;padding:5px;">
+					<td ><a href="#" onclick="javascript:openPreview(${issuePage.issueId})"> 
+					<img src="/magazine/getBlob?blobKey=${issuePage.blobKeyThumbnail}" height="220px" width="150px"	style="border: 10px solid #d5d5d5" />
+					</a></Td>
+					<td valign="top" style="padding:5px;">
+						<table>
+							<tr><td><h3>${magazine.magazineName}</h3></td></tr>
+							<tr><td>${magazine.description}</td></tr>
+							<tr><td>&nbsp;</td></tr>
+							<tr>
+								<td>
+									<form action="/checkout/addIssueToBasket" method="POST">
+										<input type="hidden" name="magazineId" value="${magazine.magazineId}" />
+										<input type="hidden" name="issueId" value="${issue.issueId}" />
+										<input type="hidden" name="userId" value="${user.userId}" />  
+										<table >
+											<tr  style="border:1px solid lightgrey;padding:5px;">
+												<td>At ${magazine.currency} ${magazine.pricePerIssue}</td>
+												<td ><input type="submit" name="action" value="Buy Single Issue" /> </td>
+											</tr>
+											<tr><td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;or Choose subscription</td>
+											</tr>
+											<tr><td>${magazine.currency} ${magazine.issuePrice3months}</td>
+												<td><input type="submit" name="action" value="Buy 3 months Subscription" /> </td>
+											</tr>
+											<tr>
+												<td>${magazine.currency} ${magazine.issuePrice6months}</td>
+												<td><input type="submit" name="action" value="Buy 6 months Subscription" /></td>
+											</tr>
+											<tr>
+												<td>${magazine.currency} ${magazine.issuePrice12months}</td>
+												<td><input type="submit" name="action" value="Buy 12 months Subscription " /></td>
+											</tr>
+										</table>
+									</form>
+							</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+
+			</table>
+

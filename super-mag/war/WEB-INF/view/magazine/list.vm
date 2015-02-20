@@ -10,7 +10,7 @@
    	</tr>
  #foreach( $magazineIssue in $magazines )
    	<tr style="background:#F7F7F7">
-   		<td width="30%"><a> $!{magazineIssue.magazine.magazineName}</a></td>
+   		<td width="30%"><a href="/magazine/showAdd/?magazineId=$magazineIssue.magazine.magazineId"> $!{magazineIssue.magazine.magazineName}</a></td>
    		<td> $!{magazineIssue.magazine.publishingCompany}</td>
    		<td> $!{magazineIssue.magazine.language}</td>
    		<td><a href="/magazine/showAddIssue/$magazineIssue.magazine.magazineId" style="color:blue">Add Issue</a></td>
