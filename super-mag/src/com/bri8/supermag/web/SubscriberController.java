@@ -100,8 +100,13 @@ public class SubscriberController extends BaseController{
 			return null;
 		}
 		List<CheckoutItem> items = subscriberService.listCheckoutItems(user.getUserId());
+		Float total = 0.0f;
+		for (CheckoutItem checkoutItem : items) {
+			total  = total + checkoutItem.getPrice();
+		}
 		ModelAndView mv = getDefaultModelAndView("checkout/list");
 		mv.addObject("items", items);
+		mv.addObject("total", total);
 
 		return mv;
 	}
