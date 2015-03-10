@@ -22,6 +22,7 @@ public class SearchController extends BaseController{
 		
 		ModelAndView mv = getDefaultModelAndView("search/show");
 		mv.addObject("result", resultIssue);
+		mv.addObject("q",query);
 		return mv;
 	}
 
