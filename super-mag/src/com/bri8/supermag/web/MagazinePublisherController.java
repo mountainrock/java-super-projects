@@ -4,7 +4,6 @@ import static com.bri8.supermag.util.WebConstants.HTTP_SESSION_KEY_USER;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -194,13 +193,8 @@ public class MagazinePublisherController extends BaseController {
 	
 	@RequestMapping(value = { "/magazine/publish/{magazineId}/{issueId}" }, method = RequestMethod.POST)
 	protected ModelAndView publish(@PathVariable("magazineId") Long magazineId, @PathVariable("issueId") Long issueId, HttpServletRequest req) throws Exception {
-		
-		Issue issueFromStore = magazineService.getIssue(issueId);
-		issueFromStore.setStatus(IssueStatus.published.name());
-		issueFromStore.setModifiedDate(new Date());
-		issueFromStore.setModifiedBy(getUser(req).getUserId()+"");
-		magazineService.updateIssue(issueFromStore);
-		ModelAndView  mv = new ModelAndView(String.format("redirect:/magazine/showPublish/%s/%s?status=publish",issueFromStore.getMagazineId(), issueFromStore.getIssueId()));
+		magazineService.publish(issueId, getUser(req).getUserId());
+		ModelAndView  mv = new ModelAndView(String.format("redirect:/magazine/showPublish/%s/%s?status=publish",magazineId, issueId));
 		return mv;
 	}
 	

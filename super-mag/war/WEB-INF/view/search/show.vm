@@ -1,2 +1,24 @@
 #parse("common/message.vm")
-${result}
+##${result}
+Search returned <b>${result.numberReturned}</b> record(s) out of <b>${result.numberFound}</b> 
+<br/>
+<table>
+#foreach($doc in ${result})
+	<tr>
+		<td>
+			 <a href="#" onclick="javascript:openPreview(${doc.getOnlyField("issueId").text})">
+				<img src="/magazine/getBlob?blobKey=${doc.getOnlyField("issueBlobKeyThumbnail").text}" height="130px" width="100px" style="border:5px solid #d5d5d5"></img>
+			</a>
+		</td>
+		<td><b>${doc.getOnlyField("magazineName").text}</b></td>
+		<td>${doc.getOnlyField("issueName").text}</td>
+		<td>${doc.getOnlyField("issueDescription").text}</td>
+		<td>(published on ${doc.getOnlyField("publishDate").date} )</td>
+		
+			
+	
+	</tr>
+	
+#end
+
+</table>

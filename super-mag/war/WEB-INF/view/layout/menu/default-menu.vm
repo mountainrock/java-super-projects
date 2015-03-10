@@ -14,7 +14,7 @@
 		   		<form action="/search" method="get">
 				<table>
 				    <tr>
-					   <td> <input type="text" name="q" value=""  width="50%" style="border: 1px solid #BCB9B9"> </td>
+					   <td> <input type="text" name="q" value="$!{q}"  width="50%" style="border: 1px solid #BCB9B9"> </td>
 					   <td>	<input type="button" name="search" value="Search" class="search-bar-submit" onclick="document.forms[0].submit()">
 				            </td>
 					    

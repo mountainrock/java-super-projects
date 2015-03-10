@@ -70,9 +70,11 @@ public class MagazineService {
 		issuePageDao.create(issuePage);
 	}
 	
-	public void publish(Long issueId){
+	public void publish(Long issueId, Long userId){
 		Issue issue = getIssue(issueId);
 		issue.setStatus(IssueStatus.published.name());
+		issue.setModifiedDate(new Date());
+		issue.setModifiedBy(userId+"");
 		issueDao.update(issue, Issue.class);
 		
 		Magazine magazine = getMagazine(issue.getMagazineId());
