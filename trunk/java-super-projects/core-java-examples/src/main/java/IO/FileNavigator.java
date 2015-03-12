@@ -4,6 +4,8 @@ import java.io.File;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.apache.commons.lang.StringUtils;
+
 public class FileNavigator
 
 {
@@ -23,7 +25,6 @@ public class FileNavigator
 	public FileNavigator(String workingDir, String backupDir, String outputDir)
 
 	{
-
 		this.workingDir = workingDir;
 
 		this.backupDir = backupDir;
@@ -32,85 +33,63 @@ public class FileNavigator
 
 	}
 
-	public static void main(String[] args)
-	{
+	public static void main(String[] args) {
 
-		FileNavigator td = new FileNavigator("D:\\SampleApps\\JavaPrograms\\src\\IO", "c:\\TEST_BACKUP", "d:\\test\\FCJMaintEJB.txt");
+		FileNavigator td = new FileNavigator("C:\\project\\Jan21_2015\\WebContent\\WEB-INF\\lib", "c:\\TEST_BACKUP", "d:\\test\\FCJMaintEJB.txt");
 
-		td.visitAllDirsAndFiles(new File(td.workingDir));// traverse the files and process them
+		td.visitAllDirsAndFiles(new File(td.workingDir));// traverse the files
+															// and process them
 
 	}
 
 	// Process all files and directories under dir
 
-	public void visitAllDirsAndFiles(File dir)
-	{
+	public void visitAllDirsAndFiles(File dirOrFile) {
 
-		if (dir.isDirectory()) {
+		if (dirOrFile.isDirectory()) {
 
-			System.out.println("You are inside directory :" + dir.getName());
+			System.out.println("You are inside directory :" + dirOrFile.getName());
 
-			String[] children = dir.list();
+			String[] children = dirOrFile.list();
 
 			tab = "\t";
 
 			for (int i = 0; i < children.length; i++) {
 
-				File child = new File(dir, children[i]);
+				File child = new File(dirOrFile, children[i]);
 
-				if (!child.isDirectory())
-
-					System.out.println(tab + "File:" + tab + children[i]);
-
-				else
-
+				if (!child.isDirectory()) {
+					//System.out.println(children[i]);
+				} else {
 					System.out.println("Dir:" + tab + children[i]);
-
+				}
 				visitAllDirsAndFiles(child);
 
 			}
 
 		}
 
-		else
-
-			process(dir);
-
-	}
-
-	public void process(File dir)
-	{
-
-		StringBuffer buf = IOUtility.readFile(dir);
-
-		String fileContent = buf.toString();
-
-		int fin = fileContent.indexOf(" START OF LOG HISTORY");
-
-		String identifier = "\r\n/*@@@@@@@@@---------->" + dir.getAbsolutePath() + "*/\r\n";
-
-		if (fin > 0) {
-
-			// fileContent =identifier+ fileContent.substring(0,fin)+ fileContent.substring(fin2, fileContent.length()-1);
-
-		}
-
 		else {
-
-			fileContent = fileContent + identifier;
-
+			process(dirOrFile);
 		}
-
-		fileContent = fileContent + "\r\n/*<-----------$$$$$$$$*/\r\n";
-
-		IOUtility.writeToFile(new StringBuffer(fileContent), new File("c:\\temp\\FileNavigatorProgram.txt"), false);
-
-		// ----------------------------------------------------------------------------------------------------
 
 	}
 
-	public StringBuffer matchAndInsert(StringBuffer buffer, String strPattern, String strInsert)
-	{
+	public void process(File dirOrFile) {
+		String templ="<dependency>\r\n" + 
+				"    <groupId>local.dummy</groupId>\r\n" + 
+				"    <artifactId>%s</artifactId>\r\n" + 
+				"    <version>0.0.1</version>\r\n" + 
+				"    <scope>system</scope>\r\n" + 
+				"    <systemPath>\\${project.basedir}/lib/%s.jar</systemPath>\r\n" + 
+				"</dependency>\r\n" + 
+				"\r\n";
+		String name = StringUtils.substringBefore(dirOrFile.getName(),".");
+		System.out.println(String.format(templ, name,name));
+
+	}
+
+	public StringBuffer matchAndInsert(StringBuffer buffer, String strPattern, String strInsert) {
 
 		Pattern p = Pattern.compile(strPattern);
 
