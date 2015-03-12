@@ -2,25 +2,60 @@ package parser.javaiq;
 
 import java.io.File;
 import java.io.StringBufferInputStream;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.apache.commons.digester.Digester;
 import org.apache.commons.io.FileUtils;
 
+import utils.HttpUtil;
+
 public class JavaIqXmlParser {
 
+	static String files[]={
+		"javaiq_About.xml",
+		"javaiq_Architecture, Patterns, UML.xml",
+		"javaiq_Backend technologies.xml",
+		"javaiq_Core Java.xml",
+		"javaiq_Design patterns.xml",
+		"javaiq_Frameworks.xml",
+		"javaiq_Frontend.xml",
+		"javaiq_Help.xml",
+		"javaiq_J2ee.xml",
+		"javaiq_Mock interview.xml",
+		"javaiq_UML.xml"};
+	
 	public static void main(String[] args) throws Exception {
-		String file = FileUtils.readFileToString(new File("src/main/resources/javaiq/corejava.xml"));
-		QuestionBank qb = new JavaIqXmlParser().parsesampleXML(file);
-		System.out.println("*"+qb.getGroup());
-		for (Category c : qb.getCategories()) {
+		
+		for (String filestr : files) {
+			filestr = String.format("src/main/resources/javaiq/%s", filestr);
+			System.out.println("Processing "+ filestr);
+			String file = FileUtils.readFileToString(new File(filestr));
+			QuestionBank qb = new JavaIqXmlParser().parsesampleXML(file);
+			HttpUtil httpPoster = HttpUtil.getInstance();
+			String relativePath="/qa/add";
+			String host="localhost";
 			
-			System.out.println("***"+c.getName());
-			for (QuestionAnswer qa : c.getQas()) {
-				System.out.println("\t\t"+qa.getQuestion());
-				System.out.println("\t\t"+qa.getAnswer());
+			System.out.println("*"+qb.getGroup());
+			for (Category c : qb.getCategories()) {
 				
+				System.out.println("***"+c.getName());
+				for (QuestionAnswer qa : c.getQas()) {
+					System.out.println("\t\t"+qa.getQuestion());
+					Map<String, String> params= new HashMap<String, String>();
+					params.put("language","Java");
+					params.put("category",qb.getGroup());
+					params.put("subCategory",c.getName());
+					params.put("question",qa.getQuestion().replaceFirst("q:", ""));
+					params.put("answer",qa.getAnswer());
+					params.put("rating",""+qa.getRating());
+					params.put("level",""+qa.getLevel());
+					httpPoster.post(host, relativePath, params);
+					break;
+				}
 			}
 		}
+		
 	}
 
 	protected QuestionBank parsesampleXML(String fullText) throws Exception {

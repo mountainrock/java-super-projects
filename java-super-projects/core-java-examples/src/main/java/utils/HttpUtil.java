@@ -1,13 +1,10 @@
 package utils;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.commons.httpclient.HostConfiguration;
 import org.apache.commons.httpclient.HttpClient;
-import org.apache.commons.httpclient.HttpException;
-import org.apache.commons.httpclient.HttpHost;
 import org.apache.commons.httpclient.NameValuePair;
 import org.apache.commons.httpclient.methods.GetMethod;
 import org.apache.commons.httpclient.methods.PostMethod;
@@ -22,7 +19,7 @@ public class HttpUtil {
 	private static Log logger = LogFactory.getLog(HttpUtil.class.getName());
 	public static final String HOST_GOOGLE_APP_ENGINE = "jshoutbox.appspot.com";
 
-	public static final String[] supportedClients = { HOST_GOOGLE_APP_ENGINE };
+	public static final String[] supportedClients = { HOST_GOOGLE_APP_ENGINE,"localhost" };
 
 	private HttpUtil() {
 	}
@@ -34,8 +31,11 @@ public class HttpUtil {
 				String host = supportedClients[i];
 				HttpClient client = new HttpClient();
 				HostConfiguration hostConfiguration = new HostConfiguration();
-				HttpHost httpHost = new HttpHost(host);
-				hostConfiguration.setHost(httpHost);
+				if(host.equals("localhost")){
+					hostConfiguration.setHost(host,8888);
+				}else{
+					hostConfiguration.setHost(host);
+				}
 				client.setHostConfiguration(hostConfiguration);
 				_instance.httpClients.put(host, client);
 				// TODO: Deal with http connections timeout...pooling..performance stuff.
