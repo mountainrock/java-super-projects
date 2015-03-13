@@ -34,9 +34,10 @@ public class JavaIqXmlParser {
 			QuestionBank qb = new JavaIqXmlParser().parsesampleXML(file);
 			HttpUtil httpPoster = HttpUtil.getInstance();
 			String relativePath="/qa/add";
-			String host="localhost";
+			String host="jshoutbox.appspot.com";
 			
 			System.out.println("*"+qb.getGroup());
+			int count=0;
 			for (Category c : qb.getCategories()) {
 				
 				System.out.println("***"+c.getName());
@@ -51,7 +52,9 @@ public class JavaIqXmlParser {
 					params.put("rating",""+qa.getRating());
 					params.put("level",""+qa.getLevel());
 					httpPoster.post(host, relativePath, params);
-					break;
+					Thread.sleep(500);//half second delay
+					if(count++>2)
+						System.exit(0);
 				}
 			}
 		}
