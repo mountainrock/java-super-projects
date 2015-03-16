@@ -1,5 +1,4 @@
 
-<h2> Administration </h2>
 <div id="body" style="float:left;margin-left:10%">
 		<ul class="nav">
 			<li><a href="/admin/magazines">Magazine</a></li>

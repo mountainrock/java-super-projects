@@ -36,14 +36,16 @@ public class UserController extends BaseController {
 
 	@RequestMapping(value = { "/user/doLogin" }, method = RequestMethod.POST)
 	public ModelAndView login(User user, HttpServletRequest request, HttpServletResponse response) {
-		User loggedUser = userService.readByEmail(user.getEmail(), user.getUserType());
-		String viewPath = getLoginView(user.getUserType());
+		String userType = user.getUserType();
+		User loggedUser = userService.readByEmail(user.getEmail(), userType);
+		String viewPath = getLoginView(userType);
 		ModelAndView mv = getDefaultModelAndView(viewPath);
 		if (loggedUser != null && loggedUser.getPassword().equals(loggedUser.getPassword())) {
 			mv.addObject("message", "logged in!!");
 			request.getSession(true).setAttribute(HTTP_SESSION_KEY_USER, loggedUser);
 			try {
-				response.sendRedirect("/user/dashboard");
+				String redirect = getRedirctionPostLoginPath(userType);
+				response.sendRedirect(redirect);
 			} catch (IOException e) {
 				throw new RuntimeException(e);
 			}
@@ -57,6 +59,19 @@ public class UserController extends BaseController {
 		return mv;
 	}
 
+
+	private String getRedirctionPostLoginPath(String userType) {
+		String redirect=null;
+		if (USER_TYPE_SUBSCRIBER.equals(userType)) {
+			redirect = "/subscriber/dashboard";
+		} else if (USER_TYPE_PUBLISHER.equals(userType)) {
+			redirect = "/publisher/dashboard";
+		}else if (USER_TYPE_ADMIN.equals(userType)) {
+			redirect = "/admin/dashboard";
+		}
+		return redirect;
+	}
+
 	@RequestMapping(value = { "/user/register/{userType}" }, method = RequestMethod.GET)
 	protected ModelAndView showRegister(@PathVariable("userType") String userType) throws Exception {
 		String viewPath = Constants.BLANK;
@@ -64,6 +79,8 @@ public class UserController extends BaseController {
 			viewPath = "user/register";
 		} else if (USER_TYPE_PUBLISHER.equals(userType)) {
 			viewPath = "user/publisherRegister";
+		}else if (USER_TYPE_ADMIN.equals(userType)) {
+			viewPath = "admin/admin-register";
 		}
 		return getDefaultModelAndView(viewPath);
 	}

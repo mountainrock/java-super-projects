@@ -23,7 +23,6 @@ import com.bri8.supermag.model.SubscriptionType;
 import com.bri8.supermag.model.User;
 import com.bri8.supermag.service.MagazineService;
 import com.bri8.supermag.service.SubscriberService;
-import com.bri8.supermag.util.WebConstants;
 
 @Controller("subscriberController")
 public class SubscriberController extends BaseController{
@@ -31,6 +30,26 @@ public class SubscriberController extends BaseController{
 	@Autowired SubscriberService subscriberService;
 
 	private static Log logger = LogFactory.getLog(SubscriberController.class);
+	
+	@RequestMapping(value = { "/subscriber/dashboard" }, method = RequestMethod.GET)
+	protected ModelAndView listPurchases(HttpServletRequest request,HttpServletResponse response) throws Exception {
+		User user = getUser(request);
+		if(user==null){
+			response.sendRedirect("/user/login/subscriber" );
+			return null;
+		}
+		List<Purchase> purchases = subscriberService.listPurchases(user.getUserId());
+		
+		for (Purchase purchase : purchases) {
+			Issue issue = magazineService.getIssue(purchase.getIssueId());
+			IssuePage issuePage = magazineService.getIssueFrontPageByIssueId(issue);
+			purchase.setIssuePage(issuePage);
+		}
+		ModelAndView mv = getDefaultModelAndView("subscriber/purchase-list");
+		mv.addObject("purchases", purchases);
+
+		return mv;
+	}
 
 	@RequestMapping(value = { "/checkout/showAddIssue" }, method = RequestMethod.GET)
 	protected ModelAndView showAddIssue(HttpServletRequest request,HttpServletResponse response, @RequestParam("issueId") Long issueId) throws Exception {
@@ -128,30 +147,7 @@ public class SubscriberController extends BaseController{
 		return mv;
 	}
 	
-	@RequestMapping(value = { "/user/dashboard" }, method = RequestMethod.GET)
-	protected ModelAndView listPurchases(HttpServletRequest request,HttpServletResponse response) throws Exception {
-		User user = getUser(request);
-		if(user==null){
-			response.sendRedirect("/user/login/subscriber" );
-			return null;
-		}
-		List<Purchase> purchases = subscriberService.listPurchases(user.getUserId());
-		
-		for (Purchase purchase : purchases) {
-			Issue issue = magazineService.getIssue(purchase.getIssueId());
-			IssuePage issuePage = magazineService.getIssueFrontPageByIssueId(issue);
-			purchase.setIssuePage(issuePage);
-		}
-		ModelAndView mv = getDefaultModelAndView("subscriber/purchase-list");
-		mv.addObject("purchases", purchases);
 
-		return mv;
-	}
 	//TODO: clean up after checkout payment complete
-
-
-	private User getUser(HttpServletRequest request) {
-		return (User)request.getSession(true).getAttribute(WebConstants.HTTP_SESSION_KEY_USER);
-	}
 
 }

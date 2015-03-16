@@ -1,5 +1,7 @@
 package com.bri8.supermag.web;
 
+import static com.bri8.supermag.util.WebConstants.HTTP_SESSION_KEY_USER;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.logging.Log;
@@ -10,6 +12,7 @@ import org.springframework.mobile.device.DeviceUtils;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.bri8.supermag.dao.BaseDAO;
+import com.bri8.supermag.model.User;
 import com.bri8.supermag.util.Constants;
 import com.bri8.supermag.util.PropertyHolder;
 import com.bri8.supermag.web.common.CommonVelocityLayoutView;
@@ -53,5 +56,10 @@ public class BaseController {
 		mav.addAllObjects(layoutView.getIncludes());
 		mav.addObject("title", viewName);
 		mav.addObject("propertyHolder",PropertyHolder.getInstance());
+	}
+	
+	protected User getUser(HttpServletRequest request) {
+		User user = (User) request.getSession().getAttribute(HTTP_SESSION_KEY_USER);
+		return user;
 	}
 }

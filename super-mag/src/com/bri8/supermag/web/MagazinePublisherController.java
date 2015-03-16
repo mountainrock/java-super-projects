@@ -1,7 +1,5 @@
 package com.bri8.supermag.web;
 
-import static com.bri8.supermag.util.WebConstants.HTTP_SESSION_KEY_USER;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +35,18 @@ public class MagazinePublisherController extends BaseController {
 
 	private static Log logger = LogFactory.getLog(MagazinePublisherController.class);
 
+	@RequestMapping(value = { "/publisher/dashboard" }, method = RequestMethod.GET)
+	protected ModelAndView showPublisherDashboard(HttpServletRequest request,HttpServletResponse response) throws Exception {
+		User user = getUser(request);
+		if(user==null){
+			response.sendRedirect("/user/login/publisher" );
+			return null;
+		}
+		ModelAndView mv = getDefaultModelAndView("user/publisher-dashboard");
+
+		return mv;
+	}
+	
 	// step 1
 	@RequestMapping(value = { "/magazine/showAdd" }, method = { RequestMethod.GET, RequestMethod.POST })
 	protected ModelAndView showAddMagazine(@RequestParam(value = "magazineId", required = false) Long magazineId, @RequestParam(value = "status", required = false) String status, @RequestParam(value = "issueId", required = false) Long issueId) throws Exception {
@@ -224,10 +234,6 @@ public class MagazinePublisherController extends BaseController {
 		return mv;
 	}
 
-	private User getUser(HttpServletRequest request) {
-		User user = (User) request.getSession().getAttribute(HTTP_SESSION_KEY_USER);
-		return user;
-	}
 
 	@RequestMapping(value = { "/magazine/deleteIssuePage/{issuePageId}" }, method = RequestMethod.GET)
 	protected ModelAndView deleteIssuePage(@PathVariable("issuePageId") Long issuePageId) {
