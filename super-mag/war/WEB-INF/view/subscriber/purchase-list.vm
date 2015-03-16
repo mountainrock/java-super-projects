@@ -1,0 +1,32 @@
+<b>List of purchases</b>
+<fieldset>
+#parse("common/message.vm")
+
+<table width="100%" >
+
+#foreach($purchase in ${purchases})
+#set( $c =  ${purchase.currency})
+  <tr style="height:40px; #if( $velocityCount % 2 == 1 )background:#E6E6E6 #end">
+  		<td ><a href="#" onclick="javascript:openPreview(${purchase.issuePage.issueId})"> 
+					<img src="/magazine/getBlob?blobKey=${purchase.issuePage.blobKeyThumbnail}" height="220px" width="150px"	style="border: 10px solid #d5d5d5" />
+					</a></Td>
+      <td>$velocityCount</td>
+      <td width="50%">$purchase.issueName</td>
+      <td>$purchase.subscriptionType</td>
+       <td>${purchase.currency} ${purchase.price}</td>
+     </tr>
+ #end
+ <tr>
+	<td colspan="4">
+		<hr/>
+	</td>
+ </tr>
+  <tr>
+	<td colspan="4">
+		<hr/>
+	</td>
+ </tr>
+ </table>
+ 
+ 
+</fieldset>

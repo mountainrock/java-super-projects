@@ -41,7 +41,9 @@ Checkout items
   	<td>&nbsp;</td>
   	<td>&nbsp;</td>
 	<td>
-		<input type="submit"  value="Checkout with Paypal"/>		
+	<form action="/checkout/confirmpayment" method="get">
+		<input type="submit"  value="Checkout with Paypal"/>
+	</form>		
 	</td>
  </tr>
  

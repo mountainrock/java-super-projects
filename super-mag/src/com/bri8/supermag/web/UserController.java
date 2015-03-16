@@ -84,10 +84,6 @@ public class UserController extends BaseController {
 		return mv;
 	}
 
-	@RequestMapping(value = { "/user/dashboard" }, method = RequestMethod.GET)
-	protected ModelAndView showDashboard() throws Exception {
-		return getDefaultModelAndView("user/dashboard");
-	}
 
 	@RequestMapping(value = { "/user/logout/{userType}" }, method = RequestMethod.GET)
 	protected ModelAndView logout(@PathVariable("userType") String userType, HttpServletRequest request) throws Exception {

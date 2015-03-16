@@ -18,6 +18,7 @@ import com.bri8.supermag.model.CheckoutItem;
 import com.bri8.supermag.model.Issue;
 import com.bri8.supermag.model.IssuePage;
 import com.bri8.supermag.model.Magazine;
+import com.bri8.supermag.model.Purchase;
 import com.bri8.supermag.model.SubscriptionType;
 import com.bri8.supermag.model.User;
 import com.bri8.supermag.service.MagazineService;
@@ -110,7 +111,42 @@ public class SubscriberController extends BaseController{
 
 		return mv;
 	}
+
+	//TODO: redirect from paypal etc
+	@RequestMapping(value = { "/checkout/confirmpayment" }, method = RequestMethod.GET)
+	protected ModelAndView checkoutPostConfirm(HttpServletRequest request,HttpServletResponse response) throws Exception {
+		User user = getUser(request);
+		if(user==null){
+			response.sendRedirect("/user/login/subscriber" );
+			return null;
+		}
+		List<Purchase> purchases = subscriberService.checkoutConfirm(user.getUserId());
+		ModelAndView mv = getDefaultModelAndView("checkout/confirm-list");
+		mv.addObject("purchases", purchases);
+		mv.addObject("message","Thank you! The purchase is now complete.");
+
+		return mv;
+	}
 	
+	@RequestMapping(value = { "/user/dashboard" }, method = RequestMethod.GET)
+	protected ModelAndView listPurchases(HttpServletRequest request,HttpServletResponse response) throws Exception {
+		User user = getUser(request);
+		if(user==null){
+			response.sendRedirect("/user/login/subscriber" );
+			return null;
+		}
+		List<Purchase> purchases = subscriberService.listPurchases(user.getUserId());
+		
+		for (Purchase purchase : purchases) {
+			Issue issue = magazineService.getIssue(purchase.getIssueId());
+			IssuePage issuePage = magazineService.getIssueFrontPageByIssueId(issue);
+			purchase.setIssuePage(issuePage);
+		}
+		ModelAndView mv = getDefaultModelAndView("subscriber/purchase-list");
+		mv.addObject("purchases", purchases);
+
+		return mv;
+	}
 	//TODO: clean up after checkout payment complete
 
 

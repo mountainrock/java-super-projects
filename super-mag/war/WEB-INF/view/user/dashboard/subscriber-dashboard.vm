@@ -10,7 +10,7 @@
 <table align="left">
 	<tr>
 	<td>
-	TODO:
+	 #parse("subscriber/purchase-list.vm")
 		</td>
 	</tr>
 </table>
