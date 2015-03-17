@@ -1,4 +1,4 @@
-<b>List of purchases</b>
+<b>Purchases</b>
 <fieldset>
 #parse("common/message.vm")
 
@@ -6,24 +6,20 @@
 
 #foreach($purchase in ${purchases})
 #set( $c =  ${purchase.currency})
-  <tr style="height:40px; #if( $velocityCount % 2 == 1 )background:#E6E6E6 #end">
+  <tr style="height:40px; #if( $velocityCount % 2 == 1 )background: #F0FFF0 #end">
   		<td ><a href="#" onclick="javascript:openPreview(${purchase.issuePage.issueId})"> 
-					<img src="/magazine/getBlob?blobKey=${purchase.issuePage.blobKeyThumbnail}" height="220px" width="150px"	style="border: 10px solid #d5d5d5" />
+					<img src="/magazine/getBlob?blobKey=${purchase.issuePage.blobKeyThumbnail}" height="150px" width="100px"	style="border: 10px solid #d5d5d5" />
 					</a></Td>
-      <td>$velocityCount</td>
-      <td width="50%">$purchase.issueName</td>
-      <td>$purchase.subscriptionType</td>
-       <td>${purchase.currency} ${purchase.price}</td>
+      	<td width="85%">$purchase.issueName , issue type <b> $purchase.subscriptionType </b> for ${purchase.currency} ${purchase.price}</td>
      </tr>
+     <tr><td>&nbsp;</td></tr>
  #end
- <tr>
-	<td colspan="4">
-		<hr/>
-	</td>
- </tr>
   <tr>
 	<td colspan="4">
-		<hr/>
+	#if($purchases.empty)
+	Sorry! No purchase made yet.
+	#end
+		
 	</td>
  </tr>
  </table>

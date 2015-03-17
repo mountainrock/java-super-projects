@@ -8,7 +8,9 @@ function deleteIssuePage(issuePageId){
 	}
 
     function openPreview(issueId){
-		window.open('/magazine/preview/'+issueId,'Issue Preview','height=600px,width=800px').focus();
+		var popup = window.open('/magazine/preview/'+issueId,'IssuePreview', 'menubar=no,location=no,resizable=yes,scrollbars=no,status=no' );
+		popup.moveTo(0, 0);
+		popup.resizeTo(screen.width, screen.height-50);
     }
     
     function showImagePreviewDiv(imgUrl){

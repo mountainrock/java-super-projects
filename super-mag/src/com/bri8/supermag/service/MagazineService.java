@@ -117,13 +117,12 @@ public class MagazineService {
 				// TODO: filter by status = live. Get only 1 top record
 				List<Issue> issues = issueDao.read(Issue.class, "magazineId == " + magazine.getMagazineId(), "order by issueId DESC", 1);
 				if (!issues.isEmpty()) {
-					Long issueId = issues.get(0).getIssueId();
-					// TODO: get pageNumber from Issue configuration set by publisher.
-					List<IssuePage> issuePages = issuePageDao.read(IssuePage.class, String.format("issueId == %s ", issueId), "order by pageNumber ASC", 1);
+					Issue issue = issues.get(0);
+					IssuePage issuePage = getIssueFrontPageByIssueId(issue);
 
 					magazineIssues.setMagazine(magazine);
 					magazineIssues.setIssues(issues);
-					magazineIssues.setIssuePages(issuePages);
+					magazineIssues.getIssuePages().add(issuePage);
 					
 					magazineIssuesList.add(magazineIssues);
 				}
