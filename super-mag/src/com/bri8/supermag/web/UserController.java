@@ -11,7 +11,6 @@ import java.util.Date;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,14 +18,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.bri8.supermag.model.User;
-import com.bri8.supermag.service.UserService;
 import com.bri8.supermag.util.Constants;
 
 @Controller("userController")
 public class UserController extends BaseController {
-	@Autowired
-	UserService userService;
-
 	@RequestMapping(value = { "/user/login/{userType}" }, method = RequestMethod.GET)
 	protected ModelAndView showLogin(@PathVariable("userType") String userType) throws Exception {
 		String viewPath = getLoginView(userType);

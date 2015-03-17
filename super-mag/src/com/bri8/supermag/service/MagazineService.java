@@ -56,6 +56,18 @@ public class MagazineService {
 		return magazineIssuesList;
 	}
 
+	public List<MagazineIssues> listMagazineIssuesAll() {
+		List<MagazineIssues> magazineIssuesList = new ArrayList<MagazineIssues>();
+			List<Magazine> magList = magazineDao.read(Magazine.class, " order by magazineId DESC", 10000);
+			for (Magazine magazine : magList) {
+				MagazineIssues magazineIssues = new MagazineIssues();
+				List<Issue> issues = issueDao.read(Issue.class, "magazineId == " + magazine.getMagazineId(), "order by issueId DESC");
+				magazineIssues.setMagazine(magazine);
+				magazineIssues.setIssues(issues);
+				magazineIssuesList.add(magazineIssues);
+			}
+		return magazineIssuesList;
+	}
 	public void createIssue(Issue issue) {
 		issue.setCreatedDate(new Date());
 		issueDao.create(issue);

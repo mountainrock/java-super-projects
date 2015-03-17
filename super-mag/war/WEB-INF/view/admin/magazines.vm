@@ -36,12 +36,5 @@
 </div>
 
 <br/>
-<br/>
-<script type="text/javascript">
-
-    function preview(issueId){
-		window.open('/magazine/preview/'+issueId,'Issue Preview','height=600px,width=800px');
-    }
-</script>
 
 </div>

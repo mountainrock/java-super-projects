@@ -1,0 +1,41 @@
+<div style="width:100%;height:550px" >
+#parse("common/message.vm")
+<div align="center">
+<table  style="margin:14px;border:1px solid grey;border-collapse:collapse" border="1">
+	<tr>
+   		<th width="30%"><b>Publishers</b></th>
+   	</tr>
+ #foreach( $publisher in $publishers )
+   	<tr style="background:#F7F7F7">
+   		<td width="30%">$publisher.email</td><td>$publisher.userType</td>
+   	</tr>
+ #end
+</table>
+
+<table>
+	<tr>
+   		<th width="30%"><b>Subscribers</b></th>
+   	</tr>
+ #foreach( $subscriber in $subscribers )
+   	<tr style="background:#F7F7F7">
+   		<td width="30%">$subscriber.email</td>
+   	</tr>
+ #end
+</table>
+
+
+<table>
+	<tr>
+   		<th width="30%"><b>Admins</b></th>
+   	</tr>
+ #foreach( $admin in $admins )
+   	<tr style="background:#F7F7F7">
+   		<td width="30%">$admin.email</td>
+   	</tr>
+ #end
+</table>
+</div>
+
+<br/>
+
+</div>

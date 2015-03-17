@@ -1,0 +1,52 @@
+<div style="width:100%;height:550px" >
+#parse("common/message.vm")
+<div align="center">
+<table  style="margin:14px;border:1px solid grey;border-collapse:collapse" border="1">
+	<tr>
+   		<th width="30%"><b>Categories</b></th>
+   	</tr>
+ #foreach( $category in $categories )
+   	<tr style="background:#F7F7F7">
+   		<td width="30%">$category.name</td>
+   	</tr>
+ #end
+</table>
+
+<table>
+	<tr>
+   		<th width="30%"><b>Languages</b></th>
+   	</tr>
+ #foreach( $language in $languages )
+   	<tr style="background:#F7F7F7">
+   		<td width="30%">$language.name</td>
+   	</tr>
+ #end
+</table>
+
+
+<table>
+	<tr>
+   		<th width="30%"><b>Currencies</b></th>
+   	</tr>
+ #foreach( $currency in $currencies )
+   	<tr style="background:#F7F7F7">
+   		<td width="30%">$currency.name</td>
+   	</tr>
+ #end
+</table>
+
+<table>
+	<tr>
+   		<th width="30%"><b>Frequency</b></th>
+   	</tr>
+ #foreach( $frequency in $frequencies )
+   	<tr style="background:#F7F7F7">
+   		<td width="30%">$frequency.name</td>
+   	</tr>
+ #end
+</table>
+</div>
+
+<br/>
+
+</div>
