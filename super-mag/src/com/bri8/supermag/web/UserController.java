@@ -88,13 +88,13 @@ public class UserController extends BaseController {
 	@RequestMapping(value = { "/user/create" }, method = RequestMethod.POST)
 	public ModelAndView add(User user, HttpServletRequest request) {
 		user.setCreatedDate(new Date());
-		userService.create(user);
 
 		String ipAddress = request.getHeader("X-FORWARDED-FOR"); // is client behind something?
 		if (ipAddress == null) {
 			ipAddress = request.getRemoteAddr();
 		}
 		user.setIpAddress(ipAddress);
+		userService.create(user);
 		String viewPath = getLoginView(user.getUserType());
 		ModelAndView mv = getDefaultModelAndView(viewPath);
 		mv.addObject("message", "Added!");

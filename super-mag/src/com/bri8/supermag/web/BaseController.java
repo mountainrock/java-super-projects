@@ -13,13 +13,15 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.bri8.supermag.dao.BaseDAO;
 import com.bri8.supermag.model.User;
+import com.bri8.supermag.service.MagazineService;
 import com.bri8.supermag.util.Constants;
 import com.bri8.supermag.util.PropertyHolder;
 import com.bri8.supermag.web.common.CommonVelocityLayoutView;
 
 public class BaseController {
 	@Autowired	protected CommonVelocityLayoutView layoutView;
-
+	@Autowired protected MagazineService magazineService;
+	
 	private static Log logger = LogFactory.getLog(BaseDAO.class);
 	
 	protected ModelAndView getDefaultModelAndView( HttpServletRequest request, String viewName) {

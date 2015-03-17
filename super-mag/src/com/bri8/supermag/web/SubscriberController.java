@@ -21,12 +21,10 @@ import com.bri8.supermag.model.Magazine;
 import com.bri8.supermag.model.Purchase;
 import com.bri8.supermag.model.SubscriptionType;
 import com.bri8.supermag.model.User;
-import com.bri8.supermag.service.MagazineService;
 import com.bri8.supermag.service.SubscriberService;
 
 @Controller("subscriberController")
 public class SubscriberController extends BaseController{
-	@Autowired MagazineService magazineService;
 	@Autowired SubscriberService subscriberService;
 
 	private static Log logger = LogFactory.getLog(SubscriberController.class);

@@ -10,7 +10,7 @@
 <table align="left">
 	<tr>
 	<td>
-	Welcome Admin!
+	#parse("admin/magazines.vm")
 		</td>
 	</tr>
 </table>

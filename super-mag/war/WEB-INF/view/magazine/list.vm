@@ -23,7 +23,7 @@
 	   		#foreach( $issue in $!{magazineIssue.issues} )
 	   		<tr>
 	   			<td width="80%">  $!{issue.issueName}</td>
-	   			<td> <a href="#" onclick="javascript:preview($!{issue.issueId})" style="color:blue"> Preview</a></td> 
+	   			<td> <a href="#" onclick="javascript:openPreview($!{issue.issueId})" style="color:blue"> Preview</a></td> 
 	   			<td><a href="/magazine/showUploadIssue/$!{issue.magazineId}/$!{issue.issueId}" style="color:blue">Edit</a></td>
 	   		</tr>
 	   		#end

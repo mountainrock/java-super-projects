@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,14 +22,12 @@ import com.bri8.supermag.model.IssueStatus;
 import com.bri8.supermag.model.Magazine;
 import com.bri8.supermag.model.MagazineIssues;
 import com.bri8.supermag.model.User;
-import com.bri8.supermag.service.MagazineService;
 import com.google.appengine.api.blobstore.BlobKey;
 import com.google.appengine.api.blobstore.BlobstoreService;
 import com.google.appengine.api.blobstore.BlobstoreServiceFactory;
 
 @Controller("magazineController")
 public class MagazinePublisherController extends BaseController {
-	@Autowired MagazineService magazineService;
 	private BlobstoreService blobstoreService = BlobstoreServiceFactory.getBlobstoreService();
 
 	private static Log logger = LogFactory.getLog(MagazinePublisherController.class);

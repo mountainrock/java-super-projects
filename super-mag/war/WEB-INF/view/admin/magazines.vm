@@ -1,1 +1,47 @@
-display magazines
+<div style="width:100%;height:550px" >
+#parse("common/message.vm")
+<div align="center">
+<table  style="margin:14px;border:1px solid grey;border-collapse:collapse" border="1">
+	<tr>
+   		<th width="30%">Magazine Name</th>
+   		<th>Publishing Company</th>
+   		<th>Language</th>
+   		<th>&nbsp;</th>
+   	</tr>
+ #foreach( $magazineIssue in $magazines )
+   	<tr style="background:#F7F7F7">
+   		<td width="30%"><a href="/magazine/showAdd/?magazineId=$magazineIssue.magazine.magazineId"> $!{magazineIssue.magazine.magazineName}</a></td>
+   		<td> $!{magazineIssue.magazine.publishingCompany}</td>
+   		<td> $!{magazineIssue.magazine.language}</td>
+   		<td><a href="/magazine/showAddIssue/$magazineIssue.magazine.magazineId" style="color:blue">Add Issue</a></td>
+
+   	</tr>
+   	<tr>
+   		<td>&nbsp;</td>
+   		<td colspan="3">
+	   		<table align="left">
+	   		#foreach( $issue in $!{magazineIssue.issues} )
+	   		<tr>
+	   			<td width="80%">  $!{issue.issueName}</td>
+	   			<td> <a href="#" onclick="javascript:openPreview($!{issue.issueId})" style="color:blue"> Preview</a></td> 
+	   			<td><a href="/magazine/showUploadIssue/$!{issue.magazineId}/$!{issue.issueId}" style="color:blue">Edit</a></td>
+	   		</tr>
+	   		#end
+	   		</table>
+   		</td>
+   	</tr>
+ #end
+</table>
+
+</div>
+
+<br/>
+<br/>
+<script type="text/javascript">
+
+    function preview(issueId){
+		window.open('/magazine/preview/'+issueId,'Issue Preview','height=600px,width=800px');
+    }
+</script>
+
+</div>
