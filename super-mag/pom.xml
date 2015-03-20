@@ -205,6 +205,20 @@
 			<artifactId>jackson-mapper-asl</artifactId>
 			<version>${jackson.version}</version>
 		</dependency>
+		
+		<!--  google cloud storage -->
+		<dependency>
+			<groupId>com.google.appengine.tools</groupId>
+			<artifactId>appengine-gcs-client</artifactId>
+			<version>0.4.4</version>
+			<exclusions>
+			        <exclusion>
+			            <groupId>*</groupId>
+			            <artifactId>*</artifactId>
+			        </exclusion>
+			</exclusions>
+		</dependency>
+
 	</dependencies>
 
 	<build>
