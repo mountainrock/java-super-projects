@@ -27,11 +27,15 @@ import com.google.appengine.api.blobstore.BlobKey;
 import com.google.appengine.api.blobstore.BlobstoreService;
 import com.google.appengine.api.blobstore.BlobstoreServiceFactory;
 import com.google.appengine.api.blobstore.UploadOptions;
+import com.google.appengine.tools.cloudstorage.GcsFilename;
+import com.google.appengine.tools.cloudstorage.GcsService;
+import com.google.appengine.tools.cloudstorage.GcsServiceFactory;
 
 @Controller("magazineController")
 public class MagazinePublisherController extends BaseController {
 	private BlobstoreService blobstoreService = BlobstoreServiceFactory.getBlobstoreService();
-
+	GcsService gcsService = GcsServiceFactory.createGcsService();
+	
 	private static Log logger = LogFactory.getLog(MagazinePublisherController.class);
 
 	@RequestMapping(value = { "/publisher/dashboard" }, method = RequestMethod.GET)
@@ -211,7 +215,8 @@ public class MagazinePublisherController extends BaseController {
 	
 	@RequestMapping(value = { "/magazine/getBlob" }, method = RequestMethod.GET)
 	protected void getBlob(@RequestParam("blobKey") String blobKeyStr, HttpServletResponse res) throws Exception {
-		blobstoreService.serve(new BlobKey(blobKeyStr), res);
+		BlobKey blobKey = blobstoreService.createGsBlobKey(String.format("/gs/%s/%s", WebConstants.BUCKETNAME, blobKeyStr));
+		blobstoreService.serve(blobKey, res);
 	}
 
 	// preview
@@ -239,10 +244,13 @@ public class MagazinePublisherController extends BaseController {
 	protected ModelAndView deleteIssuePage(@PathVariable("issuePageId") Long issuePageId) {
 		// delete entity
 		IssuePage issuePage = magazineService.deleteIssuePage(issuePageId);
-		// cleanup blobstore
-		BlobKey blobKeyMainImg = new BlobKey(issuePage.getBlobKey());
-		BlobKey blobKeyThumbImg = new BlobKey(issuePage.getBlobKeyThumbnail());
-		blobstoreService.delete(blobKeyMainImg, blobKeyThumbImg);
+		// cleanup gcs
+		try {
+			gcsService.delete(new GcsFilename(WebConstants.BUCKETNAME, issuePage.getBlobKey()));
+			gcsService.delete(new GcsFilename(WebConstants.BUCKETNAME, issuePage.getBlobKeyThumbnail()));
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
 		ModelAndView mv = getDefaultModelAndViewNoLayout("result");
 		mv.addObject("result", new ArrayList<String>().add("Deleted " + issuePageId));
 		return mv;

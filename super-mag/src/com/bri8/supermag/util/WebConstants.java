@@ -7,5 +7,5 @@ public interface WebConstants {
 	String USER_TYPE_SUBSCRIBER="subscriber";
 	String USER_TYPE_ADMIN="admin";
 	
-	String BUCKETNAME = "supermag.appspot.com";
+	String BUCKETNAME = "super-mag.appspot.com";
 }
