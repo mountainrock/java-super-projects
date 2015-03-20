@@ -16,6 +16,7 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import com.bri8.supermag.model.IssuePage;
 import com.bri8.supermag.service.MagazineService;
+import com.bri8.supermag.util.WebConstants;
 import com.google.appengine.api.blobstore.BlobInfo;
 import com.google.appengine.api.blobstore.BlobKey;
 import com.google.appengine.api.blobstore.BlobstoreService;
@@ -35,7 +36,6 @@ import com.google.appengine.tools.cloudstorage.GcsServiceFactory;
 @SuppressWarnings("serial")
 public class MagazineIssueImageUploadServlet extends HttpServlet {
 	private final static Logger logger = Logger.getLogger(MagazineIssueImageUploadServlet.class.getName());
-	private static final String BUCKETNAME = "supermag.appspot.com";
 	private BlobstoreService blobstoreService = BlobstoreServiceFactory.getBlobstoreService();
 	private ImagesService imagesService = ImagesServiceFactory.getImagesService();
 	GcsService gcsService = GcsServiceFactory.createGcsService();
@@ -97,9 +97,9 @@ public class MagazineIssueImageUploadServlet extends HttpServlet {
 		if (null == imageData)
 			return null;
 
-		GcsFilename filename = new GcsFilename(BUCKETNAME, name);
+		GcsFilename filename = new GcsFilename(WebConstants.BUCKETNAME, name);
 		GcsFileOptions options = new GcsFileOptions.Builder().mimeType("image/jpg").acl("public-read").build();
-		String gcsPath = "/gs/" + BUCKETNAME + "/" + name;
+		String gcsPath = "/gs/" + WebConstants.BUCKETNAME + "/" + name;
 		GcsOutputChannel writeChannel = gcsService.createOrReplace(filename, options);
 		 try {
              //Write data from photo
