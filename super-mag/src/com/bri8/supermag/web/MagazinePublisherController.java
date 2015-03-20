@@ -27,7 +27,6 @@ import com.google.appengine.api.blobstore.BlobKey;
 import com.google.appengine.api.blobstore.BlobstoreService;
 import com.google.appengine.api.blobstore.BlobstoreServiceFactory;
 import com.google.appengine.api.blobstore.UploadOptions;
-ogle.appengine.api.blobstore.UploadOptions;
 
 @Controller("magazineController")
 public class MagazinePublisherController extends BaseController {
