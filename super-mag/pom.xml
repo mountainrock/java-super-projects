@@ -259,6 +259,11 @@
 			<artifactId>google-api-client-appengine</artifactId>
 			<version>1.19.0</version>
 		</dependency>
+		<dependency> <!--  social authentication - FB/google/twitter etc -->
+			<groupId>org.brickred</groupId>
+			<artifactId>socialauth</artifactId>
+			<version>4.0</version>
+		</dependency>
 				
 										
 	</dependencies>

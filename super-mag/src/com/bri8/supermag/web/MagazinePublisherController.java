@@ -215,7 +215,8 @@ public class MagazinePublisherController extends BaseController {
 	
 	@RequestMapping(value = { "/magazine/getBlob" }, method = RequestMethod.GET)
 	protected void getBlob(@RequestParam("blobKey") String blobKeyStr, HttpServletResponse res) throws Exception {
-		BlobKey blobKey = blobstoreService.createGsBlobKey(String.format("/gs/%s/%s", WebConstants.BUCKETNAME, blobKeyStr));
+		BlobKey blobKey = blobstoreService.createGsBlobKey(
+		          "/gs/" + WebConstants.BUCKETNAME + "/" + blobKeyStr);
 		blobstoreService.serve(blobKey, res);
 	}
 

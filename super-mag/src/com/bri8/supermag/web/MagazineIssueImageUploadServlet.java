@@ -65,7 +65,7 @@ public class MagazineIssueImageUploadServlet extends HttpServlet {
 			issuePage.setPageNumber(pageNumber++);
 			issuePage.setFileName(blobInfo.getFilename());
 
-			String blobKeyThumbnail = resize(blobKey, res, "cvr_"+blobInfo.getFilename());
+			String blobKeyThumbnail = resize(blobKey, res, String.format("%s-%s",issueId,blobInfo.getFilename()));
 			issuePage.setBlobKeyThumbnail(blobKeyThumbnail);
 
 			magazineService.addIssueImageBlobKey(issuePage);
