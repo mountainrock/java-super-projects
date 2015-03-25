@@ -39,7 +39,8 @@ public class SearchService {
 				.addField(Field.newBuilder().setName("issueName").setText(issue.getIssueName()))
 				.addField(Field.newBuilder().setName("issueDescription").setText(issue.getDescription()))
 				.addField(Field.newBuilder().setName("issueCreatedDate").setDate(issue.getCreatedDate()))
-				.addField(Field.newBuilder().setName("issueBlobKeyThumbnail").setText(issueCoverPage.getBlobKeyThumbnail()))
+				.addField(Field.newBuilder().setName("issueFileName").setText(issueCoverPage.getFileName()))
+				.addField(Field.newBuilder().setName("issueFileNameThumbnail").setText(issueCoverPage.getFileNameThumbnail()))
 				.addField(Field.newBuilder().setName("status").setText(issue.getStatus()))
 				
 				.addField(Field.newBuilder().setName("publishDate").setDate(publishDate))
@@ -60,7 +61,7 @@ public class SearchService {
 
 	    QueryOptions options = QueryOptions.newBuilder()
 	        .setLimit(25)
-	        .setFieldsToReturn("magazineId","magazineName", "magazineDescription","category1","category2", "keywords", "issueId", "issueName","issueDescription","issueBlobKeyThumbnail","issueCreatedDate","publishDate")
+	        .setFieldsToReturn("magazineId","magazineName", "magazineDescription","category1","category2", "keywords", "issueId", "issueName","issueDescription","issueFileName","issueFileNameThumbnail","issueCreatedDate","publishDate")
 	        .setSortOptions(sortOptions)
 	        .build();
 
