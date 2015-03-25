@@ -90,8 +90,9 @@ public class MagazineIssueImageUploadServlet extends HttpServlet {
 	public void saveAndResize(BlobKey blobKey, HttpServletResponse res, String fileNameFull, String fileNameThmb) {
 		Image oldImage = ImagesServiceFactory.makeImageFromBlob(blobKey);
 		try {
+			byte[] imageData = blobstoreService.fetchData(blobKey, 0, BlobstoreService.MAX_BLOB_FETCH_SIZE-1);
 			//save to GCS
-			saveToBlobstore(new Blob(oldImage.getImageData()), res, fileNameFull);
+			saveToBlobstore(new Blob(imageData), res, fileNameFull);
 
 			//resize and save
 			Transform resize = ImagesServiceFactory.makeResize(200, 300);

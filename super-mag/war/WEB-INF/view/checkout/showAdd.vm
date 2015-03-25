@@ -2,7 +2,7 @@
 			<table style="width:80%;" align="center">
 				<tr style="border:1px solid lightgrey;padding:5px;">
 					<td ><a href="#" onclick="javascript:openPreview(${issuePage.issueId})"> 
-					<img src="/magazine/getBlob?blobKey=${issuePage.blobKeyThumbnail}" height="220px" width="150px"	style="border: 10px solid #d5d5d5" />
+					<img src="/magazine/getBlob?fileName=${issuePage.fileNameThumbnail}" height="220px" width="150px"	style="border: 10px solid #d5d5d5" />
 					</a></Td>
 					<td valign="top" style="padding:5px;">
 						<table>
