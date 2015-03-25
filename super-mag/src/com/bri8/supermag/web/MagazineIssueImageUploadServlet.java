@@ -1,6 +1,7 @@
 package com.bri8.supermag.web;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -39,6 +40,8 @@ public class MagazineIssueImageUploadServlet extends HttpServlet {
 	private BlobstoreService blobstoreService = BlobstoreServiceFactory.getBlobstoreService();
 	private ImagesService imagesService = ImagesServiceFactory.getImagesService();
 	GcsService gcsService = GcsServiceFactory.createGcsService();
+	/** Used below to determine the size of chucks to read in. Should be > 1kb and < 10MB */
+	private static final int BUFFER_SIZE = 2 * 1024 * 1024;
 
 	public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 
@@ -56,21 +59,25 @@ public class MagazineIssueImageUploadServlet extends HttpServlet {
 			List<BlobInfo> blobInfoList = blobInfos.get(key);
 			List<BlobKey> blobKeys = entry.getValue();
 			BlobInfo blobInfo = blobInfoList.get(0);
-			BlobKey blobKey = blobKeys.get(0); 
+			BlobKey blobKey = blobKeys.get(0);
 			logger.info(String.format(" Storing magazine issue page( File name : %s, blob key : %s, magazineId :%s, issueId :%s)", blobInfo.getFilename(), blobKey.getKeyString(), magazineId, issueId));
 
 			IssuePage issuePage = new IssuePage();
 			issuePage.setIssueId(issueId);
 			issuePage.setPageNumber(pageNumber++);
-			String fileNameFull= String.format("%s-%s-%s",magazineId,issueId,blobInfo.getFilename());
+			long time = new Date().getTime();
+			String fileNameFull = String.format("%s-%s-%s-%s", magazineId, issueId, time, blobInfo.getFilename());
 			issuePage.setFileName(fileNameFull);
 
-			String fileNameThmb = String.format("thmb-%s-%s-%s",magazineId,issueId,blobInfo.getFilename());
-			
-			resize(blobKey, res, fileNameThmb);
+			String fileNameThmb = String.format("thmb-%s-%s-%s-%s", magazineId, issueId, time, blobInfo.getFilename());
+
 			issuePage.setFileNameThumbnail(fileNameThmb);
 
 			magazineService.addIssueImageBlobKey(issuePage);
+			saveAndResize(blobKey, res, fileNameFull, fileNameThmb);
+			
+			//cleanup blobstore image
+			blobstoreService.delete(blobKey);
 
 		}
 
@@ -80,15 +87,18 @@ public class MagazineIssueImageUploadServlet extends HttpServlet {
 
 	}
 
-	public void resize(BlobKey blobKey, HttpServletResponse res, String name) {
+	public void saveAndResize(BlobKey blobKey, HttpServletResponse res, String fileNameFull, String fileNameThmb) {
 		Image oldImage = ImagesServiceFactory.makeImageFromBlob(blobKey);
-		Transform resize = ImagesServiceFactory.makeResize(200, 300);
-
-		Image newImage = imagesService.applyTransform(resize, oldImage);
-
-		byte[] newImageData = newImage.getImageData();
 		try {
-			saveToBlobstore(new Blob(newImageData), res, name);
+			//save to GCS
+			saveToBlobstore(new Blob(oldImage.getImageData()), res, fileNameFull);
+
+			//resize and save
+			Transform resize = ImagesServiceFactory.makeResize(200, 300);
+			Image newImage = imagesService.applyTransform(resize, oldImage);
+			byte[] newImageData = newImage.getImageData();
+			saveToBlobstore(new Blob(newImageData), res, fileNameThmb);
+			
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}
@@ -101,18 +111,17 @@ public class MagazineIssueImageUploadServlet extends HttpServlet {
 
 		GcsFilename filename = new GcsFilename(WebConstants.BUCKETNAME, name);
 		GcsFileOptions options = new GcsFileOptions.Builder().mimeType("image/jpg").acl("public-read").build();
-		String gcsPath = "/gs/" + WebConstants.BUCKETNAME + "/" + name;
 		GcsOutputChannel writeChannel = gcsService.createOrReplace(filename, options);
-		 try {
-             //Write data from photo
-             writeChannel.write(ByteBuffers.wrap(imageData.getBytes()));                             
+		try {
+			// Write data from photo
+			writeChannel.write(ByteBuffers.wrap(imageData.getBytes()));
+		} finally {
+			writeChannel.close();
+			res.setStatus(HttpServletResponse.SC_CREATED);
+			res.setContentType("text/plain");
+		}
 
-       } finally {                             
-             writeChannel.close();
-             res.setStatus(HttpServletResponse.SC_CREATED);
-             res.setContentType("text/plain");
-       }        
-		 
 		res.getWriter().println("Done writing...");
 	}
+
 }

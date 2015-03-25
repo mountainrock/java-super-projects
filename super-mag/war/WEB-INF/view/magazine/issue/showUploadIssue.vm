@@ -94,8 +94,8 @@ left: 60px; /*position where enlarged image should offset horizontally */
 			       <table>
 			         <tr>
 			   	       <td width="200" align="center" colspan="2">
-			   	           <a class="preview" href="#" onclick="showImagePreviewDiv('/magazine/getBlob?blobKey=${issuePage.blobKey}')">
-			   	           <img src="/magazine/getBlob?blobKey=${issuePage.blobKeyThumbnail}" width="100" height="150"/>
+			   	           <a class="preview" href="#" onclick="showImagePreviewDiv('/magazine/getBlob?fileName=${issuePage.fileName}')">
+			   	           <img src="/magazine/getBlob?fileName=${issuePage.fileNameThumbnail}" width="100" height="150"/>
 			   	           </a>
 			   	       </td> 
 			   	     </tr>
