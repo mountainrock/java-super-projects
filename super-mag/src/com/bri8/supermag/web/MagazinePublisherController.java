@@ -214,9 +214,8 @@ public class MagazinePublisherController extends BaseController {
 	
 	
 	@RequestMapping(value = { "/magazine/getBlob" }, method = RequestMethod.GET)
-	protected void getBlob(@RequestParam("blobKey") String blobKeyStr, HttpServletResponse res) throws Exception {
-		BlobKey blobKey = blobstoreService.createGsBlobKey(
-		          "/gs/" + WebConstants.BUCKETNAME + "/" + blobKeyStr);
+	protected void getBlob(@RequestParam("fileName") String fileName, HttpServletResponse res) throws Exception {
+		BlobKey blobKey = blobstoreService.createGsBlobKey(String.format("/gs/%s/%s", WebConstants.BUCKETNAME , fileName));
 		blobstoreService.serve(blobKey, res);
 	}
 
@@ -247,8 +246,8 @@ public class MagazinePublisherController extends BaseController {
 		IssuePage issuePage = magazineService.deleteIssuePage(issuePageId);
 		// cleanup gcs
 		try {
-			gcsService.delete(new GcsFilename(WebConstants.BUCKETNAME, issuePage.getBlobKey()));
-			gcsService.delete(new GcsFilename(WebConstants.BUCKETNAME, issuePage.getBlobKeyThumbnail()));
+			gcsService.delete(new GcsFilename(WebConstants.BUCKETNAME, issuePage.getFileName()));
+			gcsService.delete(new GcsFilename(WebConstants.BUCKETNAME, issuePage.getFileNameThumbnail()));
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}

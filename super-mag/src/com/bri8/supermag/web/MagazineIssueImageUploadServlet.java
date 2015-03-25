@@ -56,17 +56,19 @@ public class MagazineIssueImageUploadServlet extends HttpServlet {
 			List<BlobInfo> blobInfoList = blobInfos.get(key);
 			List<BlobKey> blobKeys = entry.getValue();
 			BlobInfo blobInfo = blobInfoList.get(0);
-			BlobKey blobKey = blobKeys.get(0);
+			BlobKey blobKey = blobKeys.get(0); 
 			logger.info(String.format(" Storing magazine issue page( File name : %s, blob key : %s, magazineId :%s, issueId :%s)", blobInfo.getFilename(), blobKey.getKeyString(), magazineId, issueId));
 
 			IssuePage issuePage = new IssuePage();
 			issuePage.setIssueId(issueId);
-			issuePage.setBlobKey(blobKey.getKeyString());
 			issuePage.setPageNumber(pageNumber++);
-			issuePage.setFileName(blobInfo.getFilename());
+			String fileNameFull= String.format("%s-%s-%s",magazineId,issueId,blobInfo.getFilename());
+			issuePage.setFileName(fileNameFull);
 
-			String blobKeyThumbnail = resize(blobKey, res, String.format("%s-%s",issueId,blobInfo.getFilename()));
-			issuePage.setBlobKeyThumbnail(blobKeyThumbnail);
+			String fileNameThmb = String.format("thmb-%s-%s-%s",magazineId,issueId,blobInfo.getFilename());
+			
+			resize(blobKey, res, fileNameThmb);
+			issuePage.setFileNameThumbnail(fileNameThmb);
 
 			magazineService.addIssueImageBlobKey(issuePage);
 
@@ -78,7 +80,7 @@ public class MagazineIssueImageUploadServlet extends HttpServlet {
 
 	}
 
-	public String resize(BlobKey blobKey, HttpServletResponse res, String name) {
+	public void resize(BlobKey blobKey, HttpServletResponse res, String name) {
 		Image oldImage = ImagesServiceFactory.makeImageFromBlob(blobKey);
 		Transform resize = ImagesServiceFactory.makeResize(200, 300);
 
@@ -86,16 +88,16 @@ public class MagazineIssueImageUploadServlet extends HttpServlet {
 
 		byte[] newImageData = newImage.getImageData();
 		try {
-			return saveToBlobstore(new Blob(newImageData), res, name);
+			saveToBlobstore(new Blob(newImageData), res, name);
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}
 
 	}
 
-	public String saveToBlobstore(Blob imageData, HttpServletResponse res, String name) throws Exception {
+	public void saveToBlobstore(Blob imageData, HttpServletResponse res, String name) throws Exception {
 		if (null == imageData)
-			return null;
+			return;
 
 		GcsFilename filename = new GcsFilename(WebConstants.BUCKETNAME, name);
 		GcsFileOptions options = new GcsFileOptions.Builder().mimeType("image/jpg").acl("public-read").build();
@@ -112,17 +114,5 @@ public class MagazineIssueImageUploadServlet extends HttpServlet {
        }        
 		 
 		res.getWriter().println("Done writing...");
-		/*
-		 * AppEngineFile file = gcsService.createNewBlobFile("image/png");
-		 * boolean lock = true;
-		 * 
-		 * FileWriteChannel writeChannel = fileService.openWriteChannel(file,
-		 * lock);
-		 * 
-		 * writeChannel.write(ByteBuffers.wrap(imageData.getBytes()));
-		 * 
-		 * writeChannel.closeFinally();
-		 */
-		return blobstoreService.createGsBlobKey(gcsPath).getKeyString();
 	}
 }

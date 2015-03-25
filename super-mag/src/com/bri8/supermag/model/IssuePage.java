@@ -23,10 +23,7 @@ public class IssuePage extends BaseModel {
 	Long issueId;
 
 	@Persistent
-	String blobKey;
-
-	@Persistent
-	String blobKeyThumbnail;
+	String fileNameThumbnail;
 	
 	@Persistent
 	String fileType;
@@ -70,14 +67,6 @@ public class IssuePage extends BaseModel {
 
 	public void setIssueId(Long issueId) {
 		this.issueId = issueId;
-	}
-
-	public String getBlobKey() {
-		return blobKey;
-	}
-
-	public void setBlobKey(String blobKey) {
-		this.blobKey = blobKey;
 	}
 
 	public String getFileType() {
@@ -131,12 +120,12 @@ public class IssuePage extends BaseModel {
 	}
 	
 
-	public String getBlobKeyThumbnail() {
-		return blobKeyThumbnail;
+	public String getFileNameThumbnail() {
+		return fileNameThumbnail;
 	}
 
-	public void setBlobKeyThumbnail(String blobKeyThumbnail) {
-		this.blobKeyThumbnail = blobKeyThumbnail;
+	public void setFileNameThumbnail(String fileNameThumbnail) {
+		this.fileNameThumbnail = fileNameThumbnail;
 	}
 
 	@Override
