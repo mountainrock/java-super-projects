@@ -50,12 +50,12 @@ left: 60px; /*position where enlarged image should offset horizontally */
 		   	<tr>
 		   		<td>Upload magazine issue images (select multiple)</td> 
 		      <td>
-		      <form id="uploadForm" method="post" action="${uploadIssueUrl}" enctype="multipart/form-data">
+		      <form id="uploadForm" method="post" action="/upload" enctype="multipart/form-data">
 					<input type="hidden" name="magazineId" value="${issue.magazineId}" size="20"/>
 					<input type="hidden" name="issueId" value="${issue.issueId}" size="20"/>
 					      
 		    	   <input type="file" name="fileToUpload" id="fileToUpload" multiple="multiple" size="5"/>
-		    	   <input type="button" onclick="uploadFile();" value="Upload" />
+		    	   <input type="submit" name="upload" value="Upload" />
 		    	   <a href="/"> Cancel</a>
 		     </form>
 			     	

@@ -53,6 +53,12 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
     
+     <servlet>
+		<servlet-name>UploadFileServlet</servlet-name>
+		<servlet-class>com.bri8.supermag.web.servlet.UploadFileServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	
     <servlet>
 		<servlet-name>magazineIssueImageUploadServlet</servlet-name>
 		<servlet-class>com.bri8.supermag.web.MagazineIssueImageUploadServlet</servlet-class>
@@ -68,7 +74,10 @@
 		<servlet-name>magazineIssueImageUploadServlet</servlet-name>
 		<url-pattern>/magazine/updateIssueImageBlobKey</url-pattern>
 	</servlet-mapping>
-		
+	<servlet-mapping>
+		<servlet-name>UploadFileServlet</servlet-name>
+		<url-pattern>/upload</url-pattern>
+	</servlet-mapping>	
 	
 	<servlet-mapping>
 		<servlet-name>supermag</servlet-name>

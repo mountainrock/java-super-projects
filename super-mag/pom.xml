@@ -62,8 +62,13 @@
 			<groupId>commons-chain</groupId>
 			<artifactId>commons-chain</artifactId>
 			<version>1.1</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>portlet-api</artifactId>
+					<groupId>javax.portlet</groupId>
+				</exclusion>
+			</exclusions>
 		</dependency>
-
 		<dependency>
 			<groupId>commons-collections</groupId>
 			<artifactId>commons-collections</artifactId>
@@ -100,6 +105,21 @@
 			<groupId>org.apache.velocity</groupId>
 			<artifactId>velocity-tools</artifactId>
 			<version>2.0-beta3</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>struts-core</artifactId>
+					<groupId>org.apache.struts</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>struts-taglib</artifactId>
+					<groupId>org.apache.struts</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>struts-tiles</artifactId>
+					<groupId>org.apache.struts</groupId>
+				</exclusion>
+								
+			</exclusions>
 		</dependency>
 
 		<dependency>
@@ -248,6 +268,12 @@
 			<groupId>com.google.api-client</groupId>
 			<artifactId>google-api-client</artifactId>
 			<version>1.19.0</version>
+			<exclusions>
+			        <exclusion>
+			            <groupId>*</groupId>
+			            <artifactId>*</artifactId>
+			        </exclusion>
+			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>com.google.apis</groupId>
@@ -259,6 +285,12 @@
 			<artifactId>google-api-client-appengine</artifactId>
 			<version>1.19.0</version>
 		</dependency>
+		<dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
+			<version>2.3</version>
+		</dependency>
+				
 		<dependency> <!--  social authentication - FB/google/twitter etc -->
 			<groupId>org.brickred</groupId>
 			<artifactId>socialauth</artifactId>

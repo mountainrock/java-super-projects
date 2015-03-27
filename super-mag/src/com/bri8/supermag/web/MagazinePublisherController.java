@@ -26,7 +26,6 @@ import com.bri8.supermag.util.WebConstants;
 import com.google.appengine.api.blobstore.BlobKey;
 import com.google.appengine.api.blobstore.BlobstoreService;
 import com.google.appengine.api.blobstore.BlobstoreServiceFactory;
-import com.google.appengine.api.blobstore.UploadOptions;
 import com.google.appengine.tools.cloudstorage.GcsFilename;
 import com.google.appengine.tools.cloudstorage.GcsService;
 import com.google.appengine.tools.cloudstorage.GcsServiceFactory;
@@ -155,8 +154,7 @@ public class MagazinePublisherController extends BaseController {
 		ModelAndView mv = getDefaultModelAndView("magazine/issue/showUploadIssue");
 
 		String blobUploadPath = String.format("/magazine/updateIssueImageBlobKey?magazineId=%s&issueId=%s", magazineId, issueId);
-		UploadOptions options= UploadOptions.Builder.withGoogleStorageBucketName(WebConstants.BUCKETNAME);
-		String uploadUrl = blobstoreService.createUploadUrl(blobUploadPath,options);
+		String uploadUrl = blobstoreService.createUploadUrl(blobUploadPath);
 		Issue issue = magazineService.getIssue(issueId);
 		
 		if ("save".equalsIgnoreCase(status)) {
