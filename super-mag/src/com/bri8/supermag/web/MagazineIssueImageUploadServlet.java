@@ -95,7 +95,7 @@ public class MagazineIssueImageUploadServlet extends HttpServlet {
 			saveToBlobstore(new Blob(imageData), res, fileNameFull);
 
 			//resize and save
-			Transform resize = ImagesServiceFactory.makeResize(200, 300);
+			Transform resize = ImagesServiceFactory.makeResize(150, 200);
 			Image newImage = imagesService.applyTransform(resize, oldImage);
 			byte[] newImageData = newImage.getImageData();
 			saveToBlobstore(new Blob(newImageData), res, fileNameThmb);
