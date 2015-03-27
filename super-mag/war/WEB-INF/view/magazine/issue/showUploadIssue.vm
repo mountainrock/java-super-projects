@@ -48,7 +48,7 @@ left: 60px; /*position where enlarged image should offset horizontally */
 		
 		<table align="left" style="margin:14px">
 		   	<tr>
-		   		<td>Upload magazine issue images (select multiple)</td> 
+		   		<td>Upload magazine issue images (select multiple. Max size supported: 32MB)</td> 
 		      <td>
 		      <form id="uploadForm" method="post" action="/upload" enctype="multipart/form-data">
 					<input type="hidden" name="magazineId" value="${issue.magazineId}" size="20"/>
