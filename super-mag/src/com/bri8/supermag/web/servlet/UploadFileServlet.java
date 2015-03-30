@@ -24,7 +24,6 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 import com.bri8.supermag.model.IssuePage;
 import com.bri8.supermag.service.MagazineService;
 import com.bri8.supermag.util.WebConstants;
-import com.bri8.supermag.web.MagazineIssueImageUploadServlet;
 import com.google.appengine.api.images.Image;
 import com.google.appengine.api.images.ImagesService;
 import com.google.appengine.api.images.ImagesServiceFactory;
@@ -44,7 +43,7 @@ public class UploadFileServlet extends HttpServlet {
 	public static final String BUCKET_NAME = WebConstants.BUCKETNAME;
 	private final GcsService gcsService = GcsServiceFactory.createGcsService(RetryParams.getDefaultInstance());
 	private ImagesService imagesService = ImagesServiceFactory.getImagesService();
-	private final static Logger log = Logger.getLogger(MagazineIssueImageUploadServlet.class.getName());
+	private final static Logger log = Logger.getLogger(UploadFileServlet.class.getName());
 	private MagazineService magazineService;
 
 	@Override
@@ -122,9 +121,8 @@ public class UploadFileServlet extends HttpServlet {
 					IssuePage issuePage = new IssuePage();
 					issuePage.setIssueId(Long.parseLong(issueId));
 					issuePage.setPageNumber(pageNumber++);
-					long time = new Date().getTime();
-					String fileNameFull = String.format("%s-%s-%s-%s", magazineId, issueId, time, fileName);
-					issuePage.setFileName(fileNameFull);
+					issuePage.setFileName(fileName);
+					issuePage.setUpdatedDate(new Date());
 					issuePage.setFileNameThumbnail(fileNameThmbStr);
 					magazineService.addIssueImageBlobKey(issuePage);
 					// resp.getWriter().println("File uploading done");

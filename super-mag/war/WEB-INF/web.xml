@@ -59,21 +59,12 @@
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 	
-    <servlet>
-		<servlet-name>magazineIssueImageUploadServlet</servlet-name>
-		<servlet-class>com.bri8.supermag.web.MagazineIssueImageUploadServlet</servlet-class>
-		<load-on-startup>1</load-on-startup>
-	</servlet>
    	<servlet>
 		<servlet-name>supermag</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 	
-	<servlet-mapping>
-		<servlet-name>magazineIssueImageUploadServlet</servlet-name>
-		<url-pattern>/magazine/updateIssueImageBlobKey</url-pattern>
-	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>UploadFileServlet</servlet-name>
 		<url-pattern>/upload</url-pattern>
