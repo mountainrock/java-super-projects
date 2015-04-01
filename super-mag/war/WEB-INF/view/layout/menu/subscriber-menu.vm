@@ -1,3 +1,20 @@
+<script type="text/javascript">
+$(function(){
+	
+	$('#categoriesHeader').hover(
+		function () {
+			//show its submenu
+			$('ul', this).stop().slideDown(100);
+
+		}, 
+		function () {
+			//hide its submenu
+			$('ul', this).stop().slideUp(10);
+		}
+	);
+    
+});
+</script>
 <!-- TODO: -->
 <div id="body" style="float:left;margin-left:10%">
 	<table>
@@ -5,7 +22,16 @@
 	       <td width="60%">
 		<ul class="nav">
 			<li><a href="/">Home</a></li>
-			<li><a href="/main/categories">Categories</a></li>
+			<li id="categoriesHeader"><a href="/main/categories">Categories</a>
+						 <ul id="categoriesMenu" class="categories" style="display:none;position:absolute;height:410px;border:1px solid #CBCBD8;background:#F5F3F6">
+						    <div class="categoriesDiv">
+						    #foreach($item in $propertyHolder.categories)
+						           <li style="float:none;height:22px;"><a href="/search?q=category1:$item.name OR category2:$item.name">$item.name</a></li>
+						    #end
+						    </div>
+						    
+						   </ul>
+				</li>
 			<!-- <li ><a href="/main/featured">Featured</a></li> -->
 			<li><a href="/subscriber/dashboard">My Purchases</a></li>
 		</ul>	

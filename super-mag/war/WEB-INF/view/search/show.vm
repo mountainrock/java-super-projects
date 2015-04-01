@@ -10,7 +10,7 @@ Search returned <b>${result.numberReturned}</b> record(s) out of <b>${result.num
 				<img src="/magazine/getBlob?fileName=${doc.getOnlyField("issueFileNameThumbnail").text}" height="130px" width="100px" style="border:5px solid #d5d5d5;border-radius: 20px;"></img>
 			</a>
 		</td>
-		<td><b>${doc.getOnlyField("magazineName").text}</b></td>
+		<td><b>${doc.getOnlyField("magazineName").text}</b> - ${doc.getOnlyField("category1").text}</td>
 		<td>${doc.getOnlyField("issueName").text}</td>
 		<td>${doc.getOnlyField("issueDescription").text}</td>
 		<td>(published on ${doc.getOnlyField("publishDate").date} )</td>

@@ -51,19 +51,8 @@ public class SearchService {
 	
 
 	public Results<ScoredDocument> searchIssue(String keyword) {
-	    SortOptions sortOptions = SortOptions.newBuilder()
-	        .addSortExpression(SortExpression.newBuilder()
-	            .setExpression("publishDate")
-	            .setDirection(SortExpression.SortDirection.DESCENDING)
-	            .setDefaultValueDate(null))
-	        .setLimit(1000)
-	        .build();
-
-	    QueryOptions options = QueryOptions.newBuilder()
-	        .setLimit(25)
-	        .setFieldsToReturn("magazineId","magazineName", "magazineDescription","category1","category2", "keywords", "issueId", "issueName","issueDescription","issueFileName","issueFileNameThumbnail","issueCreatedDate","publishDate")
-	        .setSortOptions(sortOptions)
-	        .build();
+	    SortOptions sortOptions = getSortOptions();
+	    QueryOptions options = getDefaultQueryOptions(sortOptions);
 
 	    String queryString = keyword;
 
@@ -74,6 +63,28 @@ public class SearchService {
 	    Results<ScoredDocument> result =  index.search(query);
 
 		return result;
+	}
+
+
+	private QueryOptions getDefaultQueryOptions(SortOptions sortOptions) {
+		QueryOptions options = QueryOptions.newBuilder()
+	        .setLimit(25)
+	        .setFieldsToReturn("magazineId","magazineName", "magazineDescription","category1","category2", "keywords", "issueId", "issueName","issueDescription","issueFileName","issueFileNameThumbnail","issueCreatedDate","publishDate")
+	        .setSortOptions(sortOptions)
+	        .build();
+		return options;
+	}
+
+
+	private SortOptions getSortOptions() {
+		SortOptions sortOptions = SortOptions.newBuilder()
+	        .addSortExpression(SortExpression.newBuilder()
+	            .setExpression("publishDate")
+	            .setDirection(SortExpression.SortDirection.DESCENDING)
+	            .setDefaultValueDate(null))
+	        .setLimit(1000)
+	        .build();
+		return sortOptions;
 	}
 
 	public void indexADocument(String indexName, Document document) {

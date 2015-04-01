@@ -45,14 +45,14 @@ TODO:
 		    Add to basket (in progress)
 		    Make payment
 		    Checkout (in progress)
-		View subscriptions
+		View subscriptions(in progress)
 		Display subscribed magazine in full  
 		  
 3. Admin module
         Review published magazine and make live
-		Manage magazine/issue/finance details
+		Manage magazine/issue/finance details(in progress)
 		Run report
-		Manage user - add/update/ban   
+		Manage user - add/update/ban   (in progress)
 		Manage magazine categories
 
 4. Security
@@ -70,7 +70,7 @@ Ref: http://www.srccodes.com/m/p/article/25/spring-mobile-hello-world-example-th
 9. Handle currency (in progress)
 
 Issues:
-1. Multiple upload in cloud not stable 
+1. Multiple upload in cloud not stable (fixed with gcs)
 2. IE javascript fixes
 
 sample mag: http://localhost:8888/magazine/showAdd?magazineId=6702622882922496&status=new
