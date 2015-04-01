@@ -8,7 +8,7 @@
 #set( $c =  ${purchase.currency})
   <tr style="height:40px; #if( $velocityCount % 2 == 1 )background: #F0FFF0 #end">
   		<td ><a href="#" onclick="javascript:openPreview(${purchase.issuePage.issueId})"> 
-					<img src="/magazine/getBlob?blobKey=${purchase.issuePage.blobKeyThumbnail}" height="150px" width="100px"	style="border: 10px solid #d5d5d5" />
+					<img src="/magazine/getBlob?fileName=${purchase.issuePage.fileNameThumbnail}" height="150px" width="100px"	style="border: 10px solid #d5d5d5" />
 					</a></Td>
       	<td width="85%">$purchase.issueName , issue type <b> $purchase.subscriptionType </b> for ${purchase.currency} ${purchase.price}</td>
      </tr>
