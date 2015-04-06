@@ -1,35 +1,6 @@
+#set($wizardStep="showPublish")
+#parse("magazine/wizardSteps.vm")
 
-<div class="wizard-steps">
-	<div class="completed-step step">
-		<div class="a-before"></div>
-		<a href="/magazine/showAdd?magazineId=$!{issue.magazineId}"> <span>1</span>
-			Title information
-		</a>
-		<div class="a-after"></div>
-	</div>
-	<div class="completed-step step">
-		<div class="a-before"></div>
-		<a
-			href="/magazine/showAddIssue/$!{issue.magazineId}?issueId=$!{issue.issueId}">
-			<span>2</span> Issue Information
-		</a>
-		<div class="a-after"></div>
-	</div>
-	<div class="completed-step step">
-		<div class="a-before"></div>
-		<a
-			href="/magazine/showUploadIssue/$!{issue.magazineId}/$!{issue.issueId}">
-			<span>3</span> Upload Files
-		</a>
-		<div class="a-after"></div>
-	</div>
-	<div class="active-step step">
-		<div class="a-before"></div>
-		<a href="#"> <span>4</span> Publish
-		</a>
-		<div class="a-after"></div>
-	</div>
-</div>
 <form method="post" action="/magazine/publish/$!{issue.magazineId}/$!{issue.issueId}">
 
 #parse("common/message.vm")
