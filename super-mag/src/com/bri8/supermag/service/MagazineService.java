@@ -155,4 +155,8 @@ public class MagazineService {
 		issueDao.update(issue, Issue.class);
 	}
 
+	public void updateIssuePage(IssuePage issuePgFromStore) {
+		issuePageDao.update(issuePgFromStore, IssuePage.class);
+	}
+
 }

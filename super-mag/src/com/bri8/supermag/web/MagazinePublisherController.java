@@ -178,6 +178,16 @@ public class MagazinePublisherController extends BaseController {
 			issueFromStore.setStatus(IssueStatus.Uploaded.name());
 			
 			magazineService.updateIssue(issueFromStore);
+			
+			//update issue page numbers
+			List<IssuePage> issuePages = magazineService.getIssuePages(issue.getIssueId());
+			for (IssuePage issuePage : issuePages) {
+				IssuePage issuePageFromStore = magazineService.getIssuePage(issuePage.getIssuePageId());
+				String issuePageNumber = req.getParameter("pageNumber_"+issuePage.getIssuePageId());
+				issuePageFromStore.setPageNumber(Integer.parseInt(issuePageNumber));
+				magazineService.updateIssuePage(issuePageFromStore);
+			}
+			
 			 mv = new ModelAndView(String.format("redirect:/magazine/showUploadIssue/%s/%s?status=save",issueFromStore.getMagazineId(), issueFromStore.getIssueId()));
 		} else if ("next".equalsIgnoreCase(action)) {
 			 mv = new ModelAndView(String.format("redirect:/magazine/showPublish/%s/%s",issueFromStore.getMagazineId(), issueFromStore.getIssueId()));
