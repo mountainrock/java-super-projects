@@ -605,7 +605,7 @@ text-align:right;
     width: 160px;
 }
 
-input[type='submit'] {
+input[type='submit'],.submitButtonStyle {
 	display: block;
 	border: 0;
 	background: #0072c6;
@@ -622,6 +622,7 @@ input[type='submit'] {
 	font-size:16px;
 	margin:10px;
 }
+
 input[type='submit']:hover, input[type='button']:focus{
 background-color :#196A9E; 
 -webkit-box-shadow: 0 0 1px rgba(0,0,0, .75);
@@ -639,7 +640,7 @@ input[type='text'],input[type='password'],textarea{
 .search-bar-submit {
     background-color: #F8E796;
     border: 1px solid #E7D488;
-    padding:2px;
+    padding:7px 12px;
     -moz-border-radius: 10px;
 	-webkit-border-radius: 10px;
     border-radius: 10px;
@@ -648,6 +649,11 @@ input[type='text'],input[type='password'],textarea{
     height: 34px;
     cursor: pointer;
     -moz-appearance: button;
+    
+	border-radius: 10px;
+	-webkit-box-shadow: 0 0 4px rgba(0,0,0, .75);
+	-moz-box-shadow: 0 0 4px rgba(0,0,0, .75);
+	box-shadow: 0 0 4px rgba(0,0,0, .75);
 }
 
 

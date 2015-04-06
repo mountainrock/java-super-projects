@@ -95,7 +95,7 @@
 			   <td>
 			   <table>
 		      		<tr>
-		      			<td><input type="button" name="preview" value="Preview" onclick="javascript:openPreview(${issueId})"/></td>
+		      			<td><input type="button" name="preview" value="Preview" class="submitButtonStyle" onclick="javascript:openPreview(${issueId})"/></td>
 		      			<td><input name="action" type="submit" value="Save"/></td>
 		      			<td><input name="action" type="submit" value="Next"/></td>
 		      			<td>	<a href="/user/dashboard">Cancel</a></td>
