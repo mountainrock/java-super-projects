@@ -26,7 +26,7 @@
 <script type="text/javascript" src="/static/js/jquery.zoom.min.js"></script><!-- http://www.jacklmoore.com/zoom/ -->
 
 <script type="text/javascript">
-$(".displayImage").zoom({on:"click"});
+$(".displayImage").zoom({magnify:1.5, on:"click"});
 </script>
 
 </body>
