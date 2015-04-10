@@ -1,0 +1,39 @@
+<h3> User registration </h2>
+<div style="width:100%" >
+#parse("common/message.vm")
+<br/>
+<form method="post" action="/user/create">
+<br/>
+   <input type="hidden" name="userType" value="subscriber"/>
+   <table align="center">
+   	<tr>
+   		<th>First name</th>
+   		<td> <input type="text" name="firstName" size="30"/> </td>
+   	</tr>
+   	<tr>
+   		<th>Last name</th>
+   		<td> <input type="text" name="lastName" size="30"/> </td>
+   	</tr>
+   	<tr>
+   		<th>Email *</th>
+   		<td> <input type="text" name="email" size="60"/> </td>
+   	</tr>
+   	<tr>
+   		<th>Password *</th>
+   		<td> <input type="password" name="password" size="20"/> </td>
+   	</tr>
+   
+   	<tr>
+   	  <th>&nbsp;</th>
+      <td>
+		<input type="submit" value="Register" name="Register">	     	
+	    </td>
+   </tr>
+  
+	      
+	  </table>
+</form>  
+</div>
+<br/>
+
+</div>

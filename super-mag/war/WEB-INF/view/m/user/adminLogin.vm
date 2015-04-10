@@ -1,0 +1,33 @@
+<div style="width:100%;float:left" >
+#parse("common/message.vm")
+<br/>
+
+<form method="post" action="/user/doLogin">
+<br/>
+   <table align="center">
+   	<tr>
+   		<th>Email</th>
+   		<td> <input type="text" name="email" value="admin@bri8.com" size="30" /> 
+		        <input type="hidden" name="userType" value="admin" />
+   		</td>
+   		
+   	</tr>
+   	<tr>
+   		<th>Password</th>
+   		<td> <input type="password" name="password" value="admin" size="20"/> </td>
+   	</tr>
+   	<tr>
+   	  <th>&nbsp;</th>
+      <td>
+	     	<input name="submit" type="submit" value="Login"/>
+	    </td>
+   </tr>
+  
+	      
+	  </table>
+</form>  
+
+</div>
+<br/>
+
+</div>

@@ -1,5 +1,7 @@
 package com.bri8.supermag.web;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,11 +18,11 @@ public class SearchController extends BaseController{
 	@Autowired SearchService searchService;
 	
 	@RequestMapping(value = { "/search" }, method = RequestMethod.GET)
-	public ModelAndView search(@RequestParam("q")String query )
+	public ModelAndView search(@RequestParam("q")String query,HttpServletRequest request )
 	{
 		Results<ScoredDocument> resultIssue = searchService.searchIssue(query);
 		
-		ModelAndView mv = getDefaultModelAndView("search/show");
+		ModelAndView mv = getDefaultModelAndView(request,"search/show");
 		mv.addObject("result", resultIssue);
 		mv.addObject("q",query);
 		return mv;

@@ -9,12 +9,14 @@
 					<font style="color:#F16A92">Super<font style="color:#87C7FB">Mag</font></font>
 				</div>
 		        </td>
+		       </tr>
+		       <tr>
 
 		         <td  width="30%">
 			   #if($!user && $!user.userId)
-					Welcome <b>$!user.firstName </b>  | <a href="/user/logout/${user.userType}"> Logout</a> 
+					Welcome <b>$!user.firstName </b>  | <a href="/m/user/logout/${user.userType}"> Logout</a> 
 			  #else
-					    <a href="/user/login/publisher"> Publisher Login </a> | <a href="/user/login/subscriber"> User Login</a> |  <a href="/user/register/subscriber"> Register</a> 
+					    <a href="/m/user/login/publisher"> Publisher Login </a> | <a href="/m/user/login/subscriber"> User Login</a> |  <a href="/m/user/register/subscriber"> Register</a> 
 			 #end
 			  </td>
 		   </tr>
@@ -24,11 +26,11 @@
 </div>
 
 #if(${user.userType} == 'publisher')
-  #parse("layout/menu/publisher-menu.vm")
+  #parse("/m/layout/menu/publisher-menu.vm")
 #elseif(${user.userType} == 'subscriber')
-  #parse("layout/menu/subscriber-menu.vm")  
+  #parse("/m/layout/menu/subscriber-menu.vm")  
 #elseif(${user.userType} == 'admin')
-  #parse("layout/menu/admin-menu.vm")
+  #parse("/m/layout/menu/admin-menu.vm")
 #else 
-  #parse("layout/menu/default-menu.vm")
+  #parse("/m/layout/menu/default-menu.vm")
 #end

@@ -1,0 +1,7 @@
+#if(${user.userType} == 'publisher')
+  #parse("user/publisher-dashboard.vm")
+#elseif(${user.userType} == 'subscriber')
+  #parse("subscriber/subscriber-dashboard.vm")
+#elseif(${user.userType} == 'admin')
+  #parse("admin/admin-dashboard.vm")
+#end

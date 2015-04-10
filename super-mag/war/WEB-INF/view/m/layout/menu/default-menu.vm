@@ -1,0 +1,66 @@
+<!-- default -->
+<script type="text/javascript">
+$(function(){
+	
+	$('#categoriesHeader').hover(
+		function () {
+			//show its submenu
+			$('ul', this).stop().slideDown(100);
+
+		}, 
+		function () {
+			//hide its submenu
+			$('ul', this).stop().slideUp(10);
+		}
+	);
+    
+});
+</script>
+<div id="body" style="">
+	<table>
+	<tr>
+		   <td width="100%">
+		   		<form action="/m/search" method="get">
+				<table>
+				    <tr>
+					   <td> <input type="text" name="q" value="$!{q}"  width="50%" style="border: 1px solid #BCB9B9"> </td>
+					   <td>	<input type="button" name="search" value="Search" class="search-bar-submit" onclick="document.forms[0].submit()">
+				            </td>
+					    
+					   <td>
+					   <ul class="nav">
+							  <li><a href="/m/checkout/list"> 
+								    <img src="/static/images/buy.png"  height="20" alt="Checkout"/> Cart(0)
+							  </a> 
+							  </li>
+						</ul>
+					   </td>
+			            </tr>
+				</table>
+				 </form>
+		   
+		   </td>
+		   
+	     </tr>
+	    <tr>
+	       <td width="100%">
+		<ul  class="nav">
+			<li><a href="/">Home</a></li>
+			<li id="categoriesHeader"><a href="/m/main/categories">Categories</a>
+					 <ul id="categoriesMenu" class="categories" style="display:none;position:absolute;height:410px;border:1px solid #CBCBD8;background:#F5F3F6">
+					    <div class="categoriesDiv">
+					    #foreach($item in $propertyHolder.categories)
+					           <li style="float:none;height:22px;"><a href="/m/search?q=category1:$item.name OR category2:$item.name">$item.name</a></li>
+					    #end
+					    </div>
+					    
+					   </ul>
+			</li>
+			<li class="noImg"><a href="/m/main/featured">Featured</a></li>
+		</ul>	
+		</td>
+		</tr>
+		
+    </table>	     
+		
+</div>

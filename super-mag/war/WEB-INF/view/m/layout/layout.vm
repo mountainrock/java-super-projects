@@ -4,18 +4,18 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>#if($!title)$!title#else$!defaultTitle#end
 </title>
-#parse("/layout/common.vm")
+#parse("/m/layout/common.vm")
 
 </head>
 
 <body id="gateway">
-#parse("layout/header.vm")
+#parse("/m/layout/header.vm")
 
 ## CONTENT SECTION HERE
-<div class="content" style="float:left;margin-left:10%">
+<div class="content" style="">
 <fieldset>
 #if($!error)
-	<div class="error" style="margin-left:10%;"> 
+	<div class="error" style=""> 
 		<font color="red">$!error </font>
 	</div>
 #end

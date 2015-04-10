@@ -22,24 +22,24 @@ import com.bri8.supermag.util.Constants;
 
 @Controller("userController")
 public class UserController extends BaseController {
-	@RequestMapping(value = { "/user/login/{userType}" }, method = RequestMethod.GET)
-	protected ModelAndView showLogin(@PathVariable("userType") String userType) throws Exception {
+	@RequestMapping(value = { "/user/login/{userType}",  "/m/user/login/{userType}" }, method = RequestMethod.GET)
+	protected ModelAndView showLogin(@PathVariable("userType") String userType,HttpServletRequest request) throws Exception {
 		String viewPath = getLoginView(userType);
-		return getDefaultModelAndView(viewPath);
+		return getDefaultModelAndView(request, viewPath);
 	}
 
 
-	@RequestMapping(value = { "/user/doLogin" }, method = RequestMethod.POST)
+	@RequestMapping(value = { "/user/doLogin","/m/user/doLogin" }, method = RequestMethod.POST)
 	public ModelAndView login(User user, HttpServletRequest request, HttpServletResponse response) {
 		String userType = user.getUserType();
 		User loggedUser = userService.readByEmail(user.getEmail(), userType);
 		String viewPath = getLoginView(userType);
-		ModelAndView mv = getDefaultModelAndView(viewPath);
+		ModelAndView mv = getDefaultModelAndView(request, viewPath);
 		if (loggedUser != null && loggedUser.getPassword().equals(loggedUser.getPassword())) {
 			mv.addObject("message", "logged in!!");
 			request.getSession(true).setAttribute(HTTP_SESSION_KEY_USER, loggedUser);
 			try {
-				String redirect = getRedirctionPostLoginPath(userType);
+				String redirect = getRedirctionPostLoginPath(request, userType);
 				response.sendRedirect(redirect);
 			} catch (IOException e) {
 				throw new RuntimeException(e);
@@ -55,7 +55,7 @@ public class UserController extends BaseController {
 	}
 
 
-	private String getRedirctionPostLoginPath(String userType) {
+	private String getRedirctionPostLoginPath(HttpServletRequest request, String userType) {
 		String redirect=null;
 		if (USER_TYPE_SUBSCRIBER.equals(userType)) {
 			redirect = "/subscriber/dashboard";
@@ -64,11 +64,12 @@ public class UserController extends BaseController {
 		}else if (USER_TYPE_ADMIN.equals(userType)) {
 			redirect = "/admin/dashboard";
 		}
+		redirect = isMobile(request) ? ("/m" + redirect) : redirect; 
 		return redirect;
 	}
 
-	@RequestMapping(value = { "/user/register/{userType}" }, method = RequestMethod.GET)
-	protected ModelAndView showRegister(@PathVariable("userType") String userType) throws Exception {
+	@RequestMapping(value = { "/user/register/{userType}","/m/user/register/{userType}" }, method = RequestMethod.GET)
+	protected ModelAndView showRegister(@PathVariable("userType") String userType,HttpServletRequest request) throws Exception {
 		String viewPath = Constants.BLANK;
 		if (USER_TYPE_SUBSCRIBER.equals(userType)) {
 			viewPath = "user/register";
@@ -77,10 +78,10 @@ public class UserController extends BaseController {
 		}else if (USER_TYPE_ADMIN.equals(userType)) {
 			viewPath = "admin/admin-register";
 		}
-		return getDefaultModelAndView(viewPath);
+		return getDefaultModelAndView(request, viewPath);
 	}
 
-	@RequestMapping(value = { "/user/create" }, method = RequestMethod.POST)
+	@RequestMapping(value = { "/user/create","/m/user/create" }, method = RequestMethod.POST)
 	public ModelAndView add(User user, HttpServletRequest request) {
 		user.setCreatedDate(new Date());
 
@@ -91,17 +92,17 @@ public class UserController extends BaseController {
 		user.setIpAddress(ipAddress);
 		userService.create(user);
 		String viewPath = getLoginView(user.getUserType());
-		ModelAndView mv = getDefaultModelAndView(viewPath);
+		ModelAndView mv = getDefaultModelAndView(request, viewPath);
 		mv.addObject("message", "Added!");
 		return mv;
 	}
 
 
-	@RequestMapping(value = { "/user/logout/{userType}" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/user/logout/{userType}","/m/user/logout/{userType}" }, method = RequestMethod.GET)
 	protected ModelAndView logout(@PathVariable("userType") String userType, HttpServletRequest request) throws Exception {
 		invalidateSession(request);
 		String loginView = getLoginView(userType);
-		return getDefaultModelAndView(loginView);
+		return getDefaultModelAndView(request, loginView);
 	}
 
 	private String getLoginView(String userType) {

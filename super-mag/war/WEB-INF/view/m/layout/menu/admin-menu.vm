@@ -1,0 +1,9 @@
+
+<div id="body" style="float:left;margin-left:10%">
+		<ul class="nav">
+			<li><a href="/admin/magazines">Magazine</a></li>
+			<li><a href="/admin/properties">Properties</a></li>
+			<li ><a href="/admin/users">Users</a></li>
+			<li ><a href="/admin/sales">Sales Report</a></li>
+		</ul>	
+</div>

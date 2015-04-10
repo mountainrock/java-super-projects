@@ -44,15 +44,15 @@ public class MagazinePublisherController extends BaseController {
 			response.sendRedirect("/user/login/publisher" );
 			return null;
 		}
-		ModelAndView mv = getDefaultModelAndView("user/publisher-dashboard");
+		ModelAndView mv = getDefaultModelAndView(request, "user/publisher-dashboard");
 
 		return mv;
 	}
 	
 	// step 1
 	@RequestMapping(value = { "/magazine/showAdd" }, method = { RequestMethod.GET, RequestMethod.POST })
-	protected ModelAndView showAddMagazine(@RequestParam(value = "magazineId", required = false) Long magazineId, @RequestParam(value = "status", required = false) String status, @RequestParam(value = "issueId", required = false) Long issueId) throws Exception {
-		ModelAndView mv = getDefaultModelAndView("magazine/showAdd");
+	protected ModelAndView showAddMagazine(@RequestParam(value = "magazineId", required = false) Long magazineId, @RequestParam(value = "status", required = false) String status, @RequestParam(value = "issueId", required = false) Long issueId,HttpServletRequest request) throws Exception {
+		ModelAndView mv = getDefaultModelAndView(request, "magazine/showAdd");
 		if (magazineId != null) { // load for edit
 			Magazine magazine = magazineService.getMagazine(magazineId);
 			mv.addObject("magazine", magazine);
@@ -101,8 +101,8 @@ public class MagazinePublisherController extends BaseController {
 	// step 2
 	@RequestMapping(value = { "/magazine/showAddIssue/{magazineId}" }, method = RequestMethod.GET)
 	protected ModelAndView showAddIssue(@PathVariable("magazineId") Long magazineId, @RequestParam(value = "issueId", required = false) Long issueId,
-			@RequestParam(value = "status", required = false) String status) throws Exception {
-		ModelAndView mv = getDefaultModelAndView("magazine/issue/showAddIssue");
+			@RequestParam(value = "status", required = false) String status,HttpServletRequest request) throws Exception {
+		ModelAndView mv = getDefaultModelAndView(request, "magazine/issue/showAddIssue");
 		if (issueId != null) { // load for edit issue
 			Issue issue = magazineService.getIssue(issueId);
 			mv.addObject("issue", issue);
@@ -151,7 +151,7 @@ public class MagazinePublisherController extends BaseController {
 	// step 3
 	@RequestMapping(value = { "/magazine/showUploadIssue/{magazineId}/{issueId}" }, method = RequestMethod.GET)
 	protected ModelAndView showUploadIssue(@RequestParam(value="status", required=false) String status, @PathVariable("magazineId") Long magazineId, @PathVariable("issueId") Long issueId, HttpServletRequest req) throws Exception {
-		ModelAndView mv = getDefaultModelAndView("magazine/issue/showUploadIssue");
+		ModelAndView mv = getDefaultModelAndView(req, "magazine/issue/showUploadIssue");
 
 		String blobUploadPath = String.format("/magazine/updateIssueImageBlobKey?magazineId=%s&issueId=%s", magazineId, issueId);
 		String uploadUrl = blobstoreService.createUploadUrl(blobUploadPath);
@@ -199,7 +199,7 @@ public class MagazinePublisherController extends BaseController {
 	//step 4
 	@RequestMapping(value = { "/magazine/showPublish/{magazineId}/{issueId}" }, method = RequestMethod.GET)
 	protected ModelAndView publishView(@RequestParam(value="status", required=false) String status, @PathVariable("magazineId") Long magazineId, @PathVariable("issueId") Long issueId, HttpServletRequest req) throws Exception {
-		ModelAndView mv = getDefaultModelAndView("magazine/publish/showPublish");
+		ModelAndView mv = getDefaultModelAndView(req, "magazine/publish/showPublish");
 		Issue issueFromStore = magazineService.getIssue(issueId);
 		Magazine magazine = magazineService.getMagazine(issueFromStore.getMagazineId());
 		if ("publish".equalsIgnoreCase(status)) {
@@ -242,7 +242,7 @@ public class MagazinePublisherController extends BaseController {
 	protected ModelAndView list(HttpServletRequest request) throws Exception {
 		User user = getUser(request);
 		List<MagazineIssues> magazines = magazineService.listMagazineIssues(user.getUserId());
-		ModelAndView mv = getDefaultModelAndView("magazine/list");
+		ModelAndView mv = getDefaultModelAndView(request, "magazine/list");
 		mv.addObject("magazines", magazines);
 
 		return mv;

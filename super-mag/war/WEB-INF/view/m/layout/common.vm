@@ -1,0 +1,21 @@
+##  
+## Velocity variables: 
+##  debugJquery - Set this to false before deploying to stage/production
+##  useJquery - The screens which use jquery should set this to true. 
+##  module - The javascript corresponding to the module is added based on convention.
+##  modulePath - The relative directory path for module.  
+##
+
+#set ($springXhtmlCompliant = true)
+#set($debugJquery = "false")
+#set($title = "SuperMag")
+<link href="/static/css/style.css" rel="stylesheet" type="text/css" />
+<link href="/static/css/jquery-ui-1.10.4.custom.min.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="/static/js/jquery-1.10.min.js"></script>
+<script type="text/javascript" src="/static/js/booklet/jquery-ui-1.10.4.min.js"></script>
+
+<script type="text/javascript" src="/static/js/uploadIssue.js"></script>
+
+
+

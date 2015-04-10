@@ -28,9 +28,8 @@ public class BaseController {
 	
 	protected ModelAndView getDefaultModelAndView( HttpServletRequest request, String viewName) {
 		ModelAndView mav = new ModelAndView();
-		Device device = DeviceUtils.getCurrentDevice(request);
-		logger.debug("device :"+device);
-		String prefixMobile=(device.isMobile() ? "/m/":"");
+		boolean isMobile = isMobile(request);
+		String prefixMobile=(isMobile ? "/m/":"");
 		layoutView.setUrl( prefixMobile + viewName + ".vm");
 		layoutView.setLayoutUrl(prefixMobile + Constants.VIEW_LAYOUT_LAYOUT_VM);
 		mav.setView(layoutView);
@@ -39,14 +38,22 @@ public class BaseController {
 	}
 
 
-	protected ModelAndView getDefaultModelAndView(String viewName) {
+	protected boolean isMobile(HttpServletRequest request) {
+		Device device = DeviceUtils.getCurrentDevice(request);
+		logger.debug("device :"+device);
+		boolean isMobile = device.isMobile();
+		return isMobile;
+	}
+	
+
+	/*protected ModelAndView getDefaultModelAndView(String viewName) {
 		ModelAndView mav = new ModelAndView();
 		layoutView.setUrl(viewName + ".vm");
 		layoutView.setLayoutUrl(Constants.VIEW_LAYOUT_LAYOUT_VM);
 		mav.setView(layoutView);
 		setDefaults(viewName, mav);
 		return mav;
-	}
+	}*/
 	
 	protected ModelAndView getDefaultModelAndViewNoLayout(String viewName) {
 		ModelAndView mav = new ModelAndView();

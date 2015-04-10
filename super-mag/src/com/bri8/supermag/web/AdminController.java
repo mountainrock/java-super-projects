@@ -24,7 +24,7 @@ public class AdminController extends BaseController {
 			response.sendRedirect("/user/login/admin" );
 			return null;
 		}
-		ModelAndView mv = getDefaultModelAndView("admin/admin-dashboard");
+		ModelAndView mv = getDefaultModelAndView(request, "admin/admin-dashboard");
 		loadMagazines(user, mv);
 
 		return mv;
@@ -37,7 +37,7 @@ public class AdminController extends BaseController {
 			response.sendRedirect("/user/login/admin" );
 			return null;
 		}
-		ModelAndView mv = getDefaultModelAndView("admin/magazines");
+		ModelAndView mv = getDefaultModelAndView(request, "admin/magazines");
 		loadMagazines(user, mv);
 		return mv;
 	}
@@ -49,7 +49,7 @@ public class AdminController extends BaseController {
 			response.sendRedirect("/user/login/admin" );
 			return null;
 		}
-		ModelAndView mv = getDefaultModelAndView("admin/admin-properties");
+		ModelAndView mv = getDefaultModelAndView(request, "admin/admin-properties");
 		mv.addObject("categories",PropertyHolder.getInstance().getCategories());
 		mv.addObject("languages",PropertyHolder.getInstance().getLanguages());
 		mv.addObject("currencies",PropertyHolder.getInstance().getCurrencies());
@@ -64,7 +64,7 @@ public class AdminController extends BaseController {
 			response.sendRedirect("/user/login/admin" );
 			return null;
 		}
-		ModelAndView mv = getDefaultModelAndView("admin/admin-users");
+		ModelAndView mv = getDefaultModelAndView(request, "admin/admin-users");
 		mv.addObject("subscribers",userService.listUsersByType("subscriber"));
 		mv.addObject("publishers",userService.listUsersByType("publisher"));
 		mv.addObject("admins",userService.listUsersByType("admin"));

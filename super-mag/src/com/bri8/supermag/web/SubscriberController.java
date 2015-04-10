@@ -43,7 +43,7 @@ public class SubscriberController extends BaseController{
 			IssuePage issuePage = magazineService.getIssueFrontPageByIssueId(issue);
 			purchase.setIssuePage(issuePage);
 		}
-		ModelAndView mv = getDefaultModelAndView("subscriber/purchase-list");
+		ModelAndView mv = getDefaultModelAndView(request, "subscriber/purchase-list");
 		mv.addObject("purchases", purchases);
 
 		return mv;
@@ -55,7 +55,7 @@ public class SubscriberController extends BaseController{
 		Issue issue = magazineService.getIssue(issueId);
 		IssuePage issuePage = magazineService.getIssueFrontPageByIssueId(issue);
 		Magazine magazine = magazineService.getMagazine(issue.getMagazineId());
-		ModelAndView mv = getDefaultModelAndView("checkout/showAdd");
+		ModelAndView mv = getDefaultModelAndView(request, "checkout/showAdd");
 		mv.addObject("issue", issue);
 		mv.addObject("issuePage", issuePage);
 		mv.addObject("magazine", magazine);
@@ -122,7 +122,7 @@ public class SubscriberController extends BaseController{
 		for (CheckoutItem checkoutItem : items) {
 			total  = total + checkoutItem.getPrice();
 		}
-		ModelAndView mv = getDefaultModelAndView("checkout/list");
+		ModelAndView mv = getDefaultModelAndView(request, "checkout/list");
 		mv.addObject("items", items);
 		mv.addObject("total", total);
 
@@ -138,7 +138,7 @@ public class SubscriberController extends BaseController{
 			return null;
 		}
 		List<Purchase> purchases = subscriberService.checkoutConfirm(user.getUserId());
-		ModelAndView mv = getDefaultModelAndView("checkout/confirm-list");
+		ModelAndView mv = getDefaultModelAndView(request, "checkout/confirm-list");
 		mv.addObject("purchases", purchases);
 		mv.addObject("message","Thank you! The purchase is now complete.");
 
