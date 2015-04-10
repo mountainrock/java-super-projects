@@ -1,8 +1,11 @@
 package com.bri8.supermag.model;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.jdo.annotations.IdGeneratorStrategy;
+import javax.jdo.annotations.NotPersistent;
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.PrimaryKey;
@@ -27,6 +30,10 @@ public class Issue extends BaseModel {
 	Boolean specialIssue;
 	@Persistent
 	Date publishingDate;
+
+	@NotPersistent
+	String publishingDateStr;
+	
 	@Persistent
 	String previewPages;
 	@Persistent
@@ -131,6 +138,23 @@ public class Issue extends BaseModel {
 
 	public void setModifiedBy(String modifiedBy) {
 		this.modifiedBy = modifiedBy;
+	}
+
+	
+	public String getPublishingDateStr() {
+		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+		return sdf.format(publishingDate);
+	}
+
+	public void setPublishingDateStr(String publishingDateStr) {
+		this.publishingDateStr = publishingDateStr;
+		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+		try {
+			Date date = sdf.parse(publishingDateStr);
+			setPublishingDate(date);
+		} catch (ParseException e) {
+			throw new RuntimeException(e);
+		}
 	}
 
 	@Override

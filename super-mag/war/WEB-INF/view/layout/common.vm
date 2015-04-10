@@ -10,8 +10,10 @@
 #set($debugJquery = "false")
 #set($title = "SuperMag")
 <link href="/static/css/style.css" rel="stylesheet" type="text/css" />
+<link href="/static/css/jquery-ui-1.10.4.custom.min.css" rel="stylesheet" type="text/css" />
+
 <script type="text/javascript" src="/static/js/jquery-1.10.min.js"></script>
-<script type="text/javascript" src="/static/js/jquery-ui-1.8.7.js"></script>
+<script type="text/javascript" src="/static/js/booklet/jquery-ui-1.10.4.min.js"></script>
 
 <script type="text/javascript" src="/static/js/uploadIssue.js"></script>
 

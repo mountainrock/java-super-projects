@@ -12,7 +12,7 @@
    		<th>Description</th> <td><textarea style="width:400px;height:100px" name="description" class="text-box" tabindex="2">$!{issue.description}</textarea></td>
     	</tr>
    	 <tr>
-   		<th>Publish on date</th> <td><input type="text" id="publishingDate" name="publishingDate" size="20" value="$!{issue.publishingDate}" tabindex="3"/></td>
+   		<th>Publish on date</th> <td><input type="text" id="publishingDate" name="publishingDateStr" size="20" value="$!{issue.publishingDateStr}" tabindex="3"/></td>
    	</tr>
 
    	<tr>

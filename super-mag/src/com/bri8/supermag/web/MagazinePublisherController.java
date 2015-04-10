@@ -203,7 +203,7 @@ public class MagazinePublisherController extends BaseController {
 		Issue issueFromStore = magazineService.getIssue(issueId);
 		Magazine magazine = magazineService.getMagazine(issueFromStore.getMagazineId());
 		if ("publish".equalsIgnoreCase(status)) {
-			mv.addObject("message", String.format("Published sucessfully(id: %s, status : %s). The issue will be reviewed by admin and made live on %s : ", issueFromStore.getIssueId(), issueFromStore.getStatus(), issueFromStore.getPublishingDate()));
+			mv.addObject("message", String.format("Published sucessfully(id: %s, status : %s). The issue will be reviewed by admin and made live on %s : ", issueFromStore.getIssueId(), issueFromStore.getStatus(), issueFromStore.getPublishingDateStr()));
 		}
 		mv.addObject("issue", issueFromStore);
 		mv.addObject("magazine", magazine);
