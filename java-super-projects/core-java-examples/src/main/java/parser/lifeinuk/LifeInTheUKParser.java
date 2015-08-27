@@ -16,7 +16,7 @@ public class LifeInTheUKParser {
 
 	public static void main(String[] args) throws Exception {
 		Scanner scan = new Scanner(new File("C:\\sandeep\\open-source\\java-super-projects\\trunk\\java-super-projects\\core-java-examples\\src\\main\\java\\parser\\lifeinuk\\links.txt"));
-		String extractedText = "";
+		StringBuilder extractedText = new StringBuilder();
 		while (scan.hasNextLine()) {
 			String line = scan.nextLine();
 			if (StringUtils.isNotEmpty(line)) {
@@ -27,12 +27,12 @@ public class LifeInTheUKParser {
 				Source source = new Source(new URL(url));
 				source.fullSequentialParse();
 				Segment contentSegment = getElementsText(source, HTMLElementName.BODY);// entry
-				extractedText = extractedText + contentSegment.getAllElementsByClass("entry").get(0).getTextExtractor().toString();
-				extractedText = ">>"+title + ">>\r\n" + extractedText + "\r\n\n";
+				String content = contentSegment.getAllElementsByClass("entry").get(0).toString();
+				extractedText = extractedText.append( String.format(">>%s>>\r\n%s\r\n\n",title,content));
 				System.out.println(extractedText);
 			}
 		}
-		FileUtils.writeStringToFile(new File("src/main/resources/result-lifeinUK.txt"), extractedText);
+		FileUtils.writeStringToFile(new File("src/main/resources/result-lifeinUK-2.txt"), extractedText.toString());
 
 	}
 
